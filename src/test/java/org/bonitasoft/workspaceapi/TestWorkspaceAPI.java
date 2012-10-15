@@ -53,10 +53,16 @@ public class TestWorkspaceAPI extends CommonAPITest {
         try{
             for(Entry<String,InputStream> entry : bars.entrySet()){
                 BusinessArchive archive =  BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
-                ProcessDefinition def = getProcessAPI().deploy(archive);
-                Assert.assertNotNull("Failed to deploy "+entry.getKey(),def);
-                try {
+                try{
+                    ProcessDefinition def = getProcessAPI().deploy(archive);
+                    Assert.assertNotNull("Failed to deploy "+entry.getKey(),def);
                     getProcessAPI().enableProcess(def.getId());
+                }catch (ProcessDeployException e) {
+                    if(e.getExceptions() != null){
+                        for(BonitaException ex : e.getExceptions()){
+                            ex.printStackTrace();
+                        }
+                    }
                 } catch (ProcessEnablementException e) {
                     Assert.fail("Failed to enable "+entry.getKey());
                 }
