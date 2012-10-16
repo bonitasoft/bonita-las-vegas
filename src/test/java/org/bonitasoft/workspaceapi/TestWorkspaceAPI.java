@@ -80,7 +80,7 @@ public class TestWorkspaceAPI extends CommonAPITest {
 
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
-        URL url = TestWorkspaceAPI.class.getResource("/");
+        URL url = getClass().getResource("/");
         final File root = new File(url.getFile());
         Assert.assertTrue("resoruce folder not found",root.exists());
         File[] files = root.listFiles(new FileFilter() {
