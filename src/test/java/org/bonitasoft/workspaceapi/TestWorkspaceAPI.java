@@ -16,13 +16,9 @@
  */
 package org.bonitasoft.workspaceapi;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -75,24 +71,12 @@ public class TestWorkspaceAPI extends CommonAPITest {
                 }
             }
         }
-
     }
 
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
-        URL url = getClass().getResource("/");
-        final File root = new File(url.getFile());
-        Assert.assertTrue("resoruce folder not found",root.exists());
-        File[] files = root.listFiles(new FileFilter() {
-
-            public boolean accept(File file) {
-                return file.getName().endsWith(".bar");
-            }
-        });
-        for(File f : files){
-            bars.put(f.getName(),new FileInputStream(f));
-        }
-
+        bars.put("Buy a MINI--6.0.bar",getClass().getResourceAsStream("/Buy a MINI--6.0.bar"));
+        bars.put("Toursim demo--1.0.bar ",getClass().getResourceAsStream("/Toursim demo--1.0.bar"));
         return bars;
     }
 
