@@ -16,7 +16,10 @@
  */
 package org.bonitasoft.workspaceapi;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -32,6 +35,8 @@ import org.bonitasoft.engine.bpm.model.ProcessDefinition;
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormat;
 import org.bonitasoft.engine.exception.InvalidSessionException;
+import org.bonitasoft.engine.exception.OrganizationDeleteException;
+import org.bonitasoft.engine.exception.OrganizationImportException;
 import org.bonitasoft.engine.exception.ProcessDefinitionNotFoundException;
 import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
@@ -43,7 +48,13 @@ import org.junit.Test;
 public class TestWorkspaceAPI extends CommonAPITest {
 
     @Test
-    public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException{
+    public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException{
+        File organizationFile = new File(getClass().getResource("/ACME.xml").getFile());
+        Assert.assertTrue("Organization file not found",organizationFile.exists());
+
+        String organizationContent = getFileContent(organizationFile);
+        getIdentityAPI().importOrganization(organizationContent);
+
         Map<String,InputStream> bars = getBars();
         Assert.assertTrue("No bar found in resources",!bars.isEmpty());
         try{
@@ -65,6 +76,7 @@ public class TestWorkspaceAPI extends CommonAPITest {
                 entry.getValue().close();
             }
         }finally{
+            getIdentityAPI().deleteOrganization();
             for(Entry<String,InputStream> entry : bars.entrySet()){
                 if(entry.getValue() != null){
                     entry.getValue().close();
@@ -90,4 +102,17 @@ public class TestWorkspaceAPI extends CommonAPITest {
         logout();
     }
 
+    private String getFileContent(File file) throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
+        String line = ""; //$NON-NLS-1$
+        while((line = reader.readLine()) != null)
+        {
+            sb.append(line);
+            sb.append('\n');
+        }
+        reader.close();
+
+        return sb.toString() ;
+    }
 }
