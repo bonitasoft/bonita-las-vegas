@@ -41,6 +41,7 @@ import org.bonitasoft.engine.exception.OrganizationImportException;
 import org.bonitasoft.engine.exception.ProcessDefinitionNotFoundException;
 import org.bonitasoft.engine.exception.ProcessDeletionException;
 import org.bonitasoft.engine.exception.ProcessDeployException;
+import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
 import org.junit.After;
 import org.junit.Before;
@@ -50,7 +51,7 @@ import org.junit.Test;
 public class TestWorkspaceAPI extends CommonAPITest {
 
     @Test
-    public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException{
+    public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException{
         File organizationFile = new File(getClass().getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
@@ -66,6 +67,7 @@ public class TestWorkspaceAPI extends CommonAPITest {
                     ProcessDefinition def = getProcessAPI().deploy(archive);
                     Assert.assertNotNull("Failed to deploy "+entry.getKey(),def);
                     getProcessAPI().enableProcess(def.getId());
+                    getProcessAPI().disableProcess(def.getId());
                     getProcessAPI().deleteProcess(def.getId());
                 }catch (ProcessDeployException e) {
                     if(e.getExceptions() != null){
