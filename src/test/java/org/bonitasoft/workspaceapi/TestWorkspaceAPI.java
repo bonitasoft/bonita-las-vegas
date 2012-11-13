@@ -22,7 +22,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -50,6 +52,8 @@ import org.junit.Test;
 
 public class TestWorkspaceAPI extends CommonAPITest {
 
+    private List<Long> definitions;
+
     @Test
     public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException{
         File organizationFile = new File(getClass().getResource("/ACME.xml").getFile());
@@ -60,21 +64,19 @@ public class TestWorkspaceAPI extends CommonAPITest {
 
         Map<String,InputStream> bars = getBars();
         Assert.assertTrue("No bar found in resources",!bars.isEmpty());
+
+        definitions = new ArrayList<Long>();
         try{
             for(Entry<String,InputStream> entry : bars.entrySet()){
                 BusinessArchive archive =  BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
                 try{
                     ProcessDefinition def = getProcessAPI().deploy(archive);
+                    definitions.add(def.getId());
                     Assert.assertNotNull("Failed to deploy "+entry.getKey(),def);
                     getProcessAPI().enableProcess(def.getId());
                     getProcessAPI().disableProcess(def.getId());
                     getProcessAPI().deleteProcess(def.getId());
-                }catch (ProcessDeployException e) {
-                    if(e.getExceptions() != null){
-                        for(BonitaException ex : e.getExceptions()){
-                            ex.printStackTrace();
-                        }
-                    }
+                    definitions.remove(def.getId());
                 } catch (ProcessEnablementException e) {
                     Assert.fail("Failed to enable "+entry.getKey());
                 }
@@ -104,6 +106,12 @@ public class TestWorkspaceAPI extends CommonAPITest {
 
     @After
     public void tearDown() throws BonitaException{
+        if(definitions != null && definitions.isEmpty()){
+            for(Long defId : definitions){
+                getProcessAPI().disableProcess(defId);
+                getProcessAPI().deleteProcess(defId);
+            }
+        }
         logout();
     }
 
