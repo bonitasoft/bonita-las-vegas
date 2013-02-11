@@ -8,31 +8,31 @@
 	</properties>
   <dependencies>
   	<dependency>
-  		<groupId>org.bonitasoft.engine</groupId>
-  		<artifactId>bonita-client</artifactId>
+  		<groupId>com.bonitasoft.engine</groupId>
+  		<artifactId>bonita-client-sp</artifactId>
   		<version>6.0.Beta.4-SNAPSHOT</version>
   	</dependency>
   	  	<dependency>
-  		<groupId>org.bonitasoft.engine</groupId>
-  		<artifactId>bonita-common</artifactId>
+  		<groupId>com.bonitasoft.engine</groupId>
+  		<artifactId>bonita-common-sp</artifactId>
   		<version>6.0.Beta.4-SNAPSHOT</version>
   		<scope>test</scope>
   	</dependency>
   	<dependency>
-  		<groupId>org.bonitasoft.engine</groupId>
-  		<artifactId>bonita-server</artifactId>
+  		<groupId>com.bonitasoft.engine</groupId>
+  		<artifactId>bonita-server-sp</artifactId>
   		<version>6.0.Beta.4-SNAPSHOT</version>
   		<scope>test</scope>
   	</dependency>
   	<dependency>
-  		<groupId>org.bonitasoft.engine</groupId>
-  		<artifactId>bonita-client-integration-tests</artifactId>
+  		<groupId>com.bonitasoft.engine</groupId>
+  		<artifactId>bonita-integration-client-tests-sp</artifactId>
   		<version>6.0.Beta.4-SNAPSHOT</version>
   		<scope>test</scope>
   	</dependency>
   	<dependency>
-  		<groupId>org.bonitasoft.engine</groupId>
-  		<artifactId>bonita-home</artifactId>
+  		<groupId>com.bonitasoft.engine</groupId>
+  		<artifactId>bonita-home-sp</artifactId>
   		<version>6.0.Beta.4-SNAPSHOT</version>
   		<scope>test</scope>
   		<type>zip</type>
@@ -53,8 +53,8 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.bonitasoft.engine</groupId>
-									<artifactId>bonita-home</artifactId>
+									<groupId>com.bonitasoft.engine</groupId>
+									<artifactId>bonita-home-sp</artifactId>
 									<version>${project.version}</version>
 									<type>zip</type>
 								</artifactItem>
