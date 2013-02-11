@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2012 BonitaSoft S.A.
+ * Copyright (C) 2012-2013 BonitaSoft S.A.
  * BonitaSoft, 32 rue Gustave Eiffel - 38000 Grenoble
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -55,8 +55,8 @@ public class TestWorkspaceAPI extends CommonAPITest {
     private List<Long> definitions;
 
     @Test
-    public void testInstallGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException{
-        File organizationFile = new File(getClass().getResource("/ACME.xml").getFile());
+    public void installGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException{
+        File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
         String organizationContent = getFileContent(organizationFile);
@@ -94,8 +94,8 @@ public class TestWorkspaceAPI extends CommonAPITest {
 
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
-        bars.put("Buy a MINI--6.0.bar",getClass().getResourceAsStream("/Buy a MINI--6.0.bar"));
-        bars.put("Toursim demo--1.0.bar ",getClass().getResourceAsStream("/Toursim demo--1.0.bar"));
+        bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
+        bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
         return bars;
     }
 
