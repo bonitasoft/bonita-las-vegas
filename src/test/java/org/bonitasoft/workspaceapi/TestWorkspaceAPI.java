@@ -30,7 +30,6 @@ import java.util.Map.Entry;
 
 import junit.framework.Assert;
 
-import org.bonitasoft.engine.CommonAPITest;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
@@ -49,8 +48,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bonitasoft.engine.CommonAPISPTest;
+import com.bonitasoft.engine.bpm.model.ParameterInstance;
+import com.bonitasoft.engine.exception.ParameterNotFoundException;
 
-public class TestWorkspaceAPI extends CommonAPITest {
+
+public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private List<Long> definitions;
 
@@ -69,16 +72,23 @@ public class TestWorkspaceAPI extends CommonAPITest {
         try{
             for(Entry<String,InputStream> entry : bars.entrySet()){
                 BusinessArchive archive =  BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
-                try{
+                final String entryKey = entry.getKey();
+				try{
                     ProcessDefinition def = getProcessAPI().deploy(archive);
-                    definitions.add(def.getId());
-                    Assert.assertNotNull("Failed to deploy "+entry.getKey(),def);
-                    getProcessAPI().enableProcess(def.getId());
-                    getProcessAPI().disableProcess(def.getId());
-                    getProcessAPI().deleteProcess(def.getId());
-                    definitions.remove(def.getId());
+                    final long defId = def.getId();
+					definitions.add(defId);
+                    Assert.assertNotNull("Failed to deploy "+entryKey,def);
+                    getProcessAPI().enableProcess(defId);
+                    if(entryKey.contains("PoolWithParameters")){
+                    	checkParameter(entryKey, defId, "textParameter", "some text", String.class.getName());
+                    	checkParameter(entryKey, defId, "booleanParameter", true, Boolean.class.getName());
+                    	checkParameter(entryKey, defId, "integerParameter", 2, Integer.class.getName());
+                    }
+                    getProcessAPI().disableProcess(defId);
+                    getProcessAPI().deleteProcess(defId);
+                    definitions.remove(defId);
                 } catch (ProcessEnablementException e) {
-                    Assert.fail("Failed to enable "+entry.getKey());
+                    Assert.fail("Failed to enable "+entryKey);
                 }
                 entry.getValue().close();
             }
@@ -92,10 +102,25 @@ public class TestWorkspaceAPI extends CommonAPITest {
         }
     }
 
+	private void checkParameter(final String entryKey, final long defId,
+			final String parameterKey, final Object parameterValue,
+			final String parameterType) throws InvalidSessionException,
+			ProcessDefinitionNotFoundException {
+		try {                 		
+			ParameterInstance parameterInstance = getProcessAPI().getParameterInstance(defId, parameterKey);
+			Assert.assertEquals(parameterValue, parameterInstance.getValue());
+			Assert.assertEquals(parameterType, parameterInstance.getType());
+		} catch (ParameterNotFoundException e) {
+			Assert.fail("Parameter "+parameterKey+" not found in process "+ entryKey);
+		}
+	}
+
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
         bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
         bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
+        bars.put("PoolWithParameters--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/PoolWithParameters--1.0.bar"));
+        
         return bars;
     }
 
