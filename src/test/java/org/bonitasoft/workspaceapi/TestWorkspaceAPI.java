@@ -37,6 +37,7 @@ import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.DeletingEnabledProcessException;
 import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormat;
 import org.bonitasoft.engine.exception.InvalidSessionException;
+import org.bonitasoft.engine.exception.ObjectAlreadyExistsException;
 import org.bonitasoft.engine.exception.OrganizationDeleteException;
 import org.bonitasoft.engine.exception.OrganizationImportException;
 import org.bonitasoft.engine.exception.ProcessDefinitionNotFoundException;
@@ -58,7 +59,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     private List<Long> definitions;
 
     @Test
-    public void installGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException{
+    public void installGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException, ObjectAlreadyExistsException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
