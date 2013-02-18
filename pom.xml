@@ -5,6 +5,8 @@
   <version>6.0.Beta.4-SNAPSHOT</version>
   <properties>
 		<bonita.home>${project.build.directory}/home</bonita.home>
+		<license.dir>${bonita.home}/server/licenses</license.dir>
+		<security.version>6.0.Beta.2-SNAPSHOT</security.version>
 	</properties>
   <dependencies>
   	<dependency>
@@ -62,6 +64,34 @@
 							<includes>**/*.*</includes>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>Initialize license for testing</id>
+						<phase>generate-test-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.bonitasoft.security</groupId>
+									<artifactId>generateLicense</artifactId>
+									<version>${security.version}</version>
+									<classifier>licenses</classifier>
+									<type>zip</type>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${license.dir}</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
 					</execution>
