@@ -31,7 +31,8 @@ import java.util.Map.Entry;
 import junit.framework.Assert;
 
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
-import org.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
+import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
+import org.bonitasoft.engine.bpm.model.Problem;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.DeletingEnabledProcessException;
@@ -45,6 +46,7 @@ import org.bonitasoft.engine.exception.ProcessDeletionException;
 import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
+import org.bonitasoft.engine.exception.ProcessResourceException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,22 +76,34 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
             for(Entry<String,InputStream> entry : bars.entrySet()){
                 BusinessArchive archive =  BusinessArchiveFactory.readBusinessArchive(entry.getValue()) ;
                 final String entryKey = entry.getKey();
-				try{
-                    ProcessDefinition def = getProcessAPI().deploy(archive);
+                ProcessDefinition def = null;
+                try{
+                    def = getProcessAPI().deploy(archive);
                     final long defId = def.getId();
 					definitions.add(defId);
                     Assert.assertNotNull("Failed to deploy "+entryKey,def);
                     getProcessAPI().enableProcess(defId);
-//                    if(entryKey.contains("PoolWithParameters")){
-//                    	checkParameter(entryKey, defId, "textParameter", "some text", String.class.getName());
-//                    	checkParameter(entryKey, defId, "booleanParameter", true, Boolean.class.getName());
-//                    	checkParameter(entryKey, defId, "integerParameter", 2, Integer.class.getName());
-//                    }
+                    if(entryKey.contains("PoolWithParameters")){
+                    	checkParameter(entryKey, defId, "textParameter", "some text", String.class.getName());
+                    	checkParameter(entryKey, defId, "booleanParameter", "true", Boolean.class.getName());
+                    	checkParameter(entryKey, defId, "integerParameter", "2", Integer.class.getName());
+                    }
                     getProcessAPI().disableProcess(defId);
                     getProcessAPI().deleteProcess(defId);
                     definitions.remove(defId);
                 } catch (ProcessEnablementException e) {
-                    Assert.fail("Failed to enable "+entryKey);
+                	StringBuilder sb = new StringBuilder("Failed to enable "+entryKey +"\n"+e.getMessage());
+                	if(def != null){
+                		try {
+							List<Problem> processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
+							for (Problem problem : processResolutionProblems) {
+								sb.append("\n"+problem.toString());
+							}
+						} catch (ProcessResourceException e1) {
+							e1.printStackTrace();
+						}
+                	}
+                    Assert.fail(sb.toString());
                 }
                 entry.getValue().close();
             }
@@ -118,8 +132,8 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
-        bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
-        bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
+//        bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
+//        bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
         bars.put("PoolWithParameters--1.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/PoolWithParameters--1.0.bar"));
         
         return bars;
@@ -140,6 +154,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
         }
         logout();
     }
+    
 
     private String getFileContent(File file) throws IOException{
         BufferedReader reader = new BufferedReader(new FileReader(file));
