@@ -132,10 +132,9 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private Map<String,InputStream> getBars() throws FileNotFoundException {
         final Map<String,InputStream> bars = new HashMap<String,InputStream>();
-//        bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
-//        bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
-        bars.put("PoolWithParameters--1.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/PoolWithParameters--1.0.bar"));
-        
+        bars.put("Buy a MINI--6.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/Buy a MINI--6.0.bar"));
+        bars.put("Toursim demo--1.0.bar ",TestWorkspaceAPI.class.getResourceAsStream("/Toursim demo--1.0.bar"));
+        bars.put("PoolWithParameters--1.0.bar",TestWorkspaceAPI.class.getResourceAsStream("/PoolWithParameters--1.0.bar"));      
         return bars;
     }
 
