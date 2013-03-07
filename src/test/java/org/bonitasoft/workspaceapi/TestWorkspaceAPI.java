@@ -68,11 +68,13 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     public static void beforeClass() throws BonitaException {
         System.err.println("=================== TestWorkspaceAPI.beforeClass()");
         APITestUtil.createPlatformStructure();
+        CommonAPISPTest.beforeClass();
     }
 
     @AfterClass
     public static void afterClass() throws BonitaException {
         System.err.println("=================== TestWorkspaceAPI.afterClass()");
+        CommonAPISPTest.afterClass();
         APITestUtil.deletePlatformStructure();
     }
        
