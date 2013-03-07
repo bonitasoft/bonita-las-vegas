@@ -31,7 +31,6 @@ import java.util.Map.Entry;
 import junit.framework.Assert;
 
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
-import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import org.bonitasoft.engine.bpm.model.Problem;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
 import org.bonitasoft.engine.exception.BonitaException;
@@ -47,11 +46,15 @@ import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
 import org.bonitasoft.engine.exception.ProcessResourceException;
+import org.bonitasoft.engine.test.APITestUtil;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bonitasoft.engine.CommonAPISPTest;
+import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import com.bonitasoft.engine.bpm.model.ParameterInstance;
 import com.bonitasoft.engine.exception.ParameterNotFoundException;
 
@@ -59,7 +62,20 @@ import com.bonitasoft.engine.exception.ParameterNotFoundException;
 public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private List<Long> definitions;
+    
+    
+    @BeforeClass
+    public static void beforeClass() throws BonitaException {
+        System.err.println("=================== TestWorkspaceAPI.beforeClass()");
+        APITestUtil.createPlatformStructure();
+    }
 
+    @AfterClass
+    public static void afterClass() throws BonitaException {
+        System.err.println("=================== TestWorkspaceAPI.afterClass()");
+        APITestUtil.deletePlatformStructure();
+    }
+       
     @Test
     public void installGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException, ObjectAlreadyExistsException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
