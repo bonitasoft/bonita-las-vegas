@@ -36,6 +36,7 @@
   	<dependency>
   		<groupId>com.bonitasoft.engine</groupId>
   		<artifactId>bonita-home-sp</artifactId>
+  		<classifier>hibernate</classifier>
   		<version>${engine.version}</version>
   		<scope>test</scope>
   		<type>zip</type>
@@ -58,6 +59,7 @@
 								<artifactItem>
 									<groupId>com.bonitasoft.engine</groupId>
 									<artifactId>bonita-home-sp</artifactId>
+									<classifier>hibernate</classifier>
 									<version>${engine.version}</version>
 									<type>zip</type>
 								</artifactItem>
