@@ -41,6 +41,13 @@
   		<scope>test</scope>
   		<type>zip</type>
   	</dependency>
+  	  	<dependency>
+  		<groupId>org.bonitasoft.engine.jndi</groupId>
+  		<artifactId>bonita-jndi-carol</artifactId>
+  		<version>${engine.version}</version>
+  		<scope>test</scope>
+  	</dependency>
+  	
   </dependencies>
   <build>
   <plugins>
