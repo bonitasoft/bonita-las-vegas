@@ -24,7 +24,7 @@
 
 <!-- H2 -->
 			<property name="driverClass" value="org.h2.Driver" />
-			<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/${bonita.home}/server/platform/work/bonita6_journal;LOCK_MODE=0;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=${h2.port:9090};" />
+			<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/${bonita.home}/server/platform/work/bonita6_journal;LOCK_MODE=0;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=${h2.port:9091};" />
 			<property name="user" value="sa" />
 			<property name="password" value="" />
 					
@@ -85,7 +85,7 @@
 
 <!-- H2 -->
 			<property name="driverClass" value="org.h2.Driver" />
-			<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/${bonita.home}/server/platform/work/bonita6_journal;LOCK_MODE=0;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=${h2.port:9090};" />
+			<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/${bonita.home}/server/platform/work/bonita6_journal;LOCK_MODE=0;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;IGNORECASE=TRUE;AUTO_SERVER=TRUE;AUTO_SERVER_PORT=${h2.port:9091};" />
 			<property name="user" value="sa" />
 			<property name="password" value="" />
 					
