@@ -28,8 +28,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.naming.Context;
+
 import junit.framework.Assert;
 
+import org.bonitasoft.engine.api.PlatformLoginAPI;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.model.Problem;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
@@ -46,15 +49,19 @@ import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
 import org.bonitasoft.engine.exception.ProcessResourceException;
+import org.bonitasoft.engine.session.PlatformSession;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bonitasoft.engine.CommonAPISPTest;
 import com.bonitasoft.engine.SPBPMTestUtil;
+import com.bonitasoft.engine.api.PlatformAPI;
+import com.bonitasoft.engine.api.PlatformAPIAccessor;
 import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import com.bonitasoft.engine.bpm.model.ParameterInstance;
 import com.bonitasoft.engine.exception.ParameterNotFoundException;
@@ -65,16 +72,54 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     private List<Long> definitions;
       
     static ConfigurableApplicationContext contextJNDI;
+    static ConfigurableApplicationContext springContext;
+    
+    private static void setupSpringContext() {
+        setSystemPropertyIfNotSet("sysprop.bonita.db.vendor", "h2");
 
+        // Force these system properties
+        System.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.bonitasoft.engine.local.SimpleMemoryContextFactory");
+        System.setProperty(Context.URL_PKG_PREFIXES, "org.bonitasoft.engine.local");
+
+        springContext = new ClassPathXmlApplicationContext("datasource.xml", "jndi-setup.xml");
+    }
+
+    private static void closeSpringContext() {
+        springContext.close();
+    }
+    
+    private static void setSystemPropertyIfNotSet(String property, String value) {
+        System.setProperty(property, System.getProperty(property, value));
+    }
     
     @BeforeClass
     public static void beforeClass() throws BonitaException {
+    	System.err.println("=================== TestWorkspaceAPI.beforeClass()");
+    	setupSpringContext();
+
+        PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
+        PlatformSession session = platformLoginAPI.login("platformAdmin", "platform");
+        PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(session);
+        platformAPI.createPlatform();
+        platformLoginAPI.logout(session);
+
+        System.setProperty("delete.job.frequency", "0/30 * * * * ?");
+    	
         SPBPMTestUtil.createEnvironmentWithDefaultTenant();
     }
 
     @AfterClass
     public static void afterClass() throws BonitaException {
         SPBPMTestUtil.destroyPlatformAndTenants();
+        
+        System.err.println("=================== TestWorkspaceAPI.afterClass()");
+        PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
+        PlatformSession session = platformLoginAPI.login("platformAdmin", "platform");
+        PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(session);
+        platformAPI.deletePlaftorm();
+        platformLoginAPI.logout(session);
+
+        closeSpringContext();
     }
        
     @Test
