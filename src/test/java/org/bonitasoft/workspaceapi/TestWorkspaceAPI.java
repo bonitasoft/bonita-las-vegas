@@ -22,7 +22,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,17 +46,15 @@ import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
 import org.bonitasoft.engine.exception.ProcessResourceException;
-import org.bonitasoft.engine.test.APITestUtil;
-import org.h2.tools.Server;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bonitasoft.engine.CommonAPISPTest;
+import com.bonitasoft.engine.SPBPMTestUtil;
 import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import com.bonitasoft.engine.bpm.model.ParameterInstance;
 import com.bonitasoft.engine.exception.ParameterNotFoundException;
@@ -66,52 +63,18 @@ import com.bonitasoft.engine.exception.ParameterNotFoundException;
 public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private List<Long> definitions;
-    
-    private static void setupH2() throws BonitaException {
-        // start the TCP Server
-        try {
-            server = Server.createTcpServer(new String[] { "-tcpAllowOthers" }).start();
-        } catch (final SQLException e) {
-            throw new BonitaException(e);
-        }
-    }
-
-    private static void shutdownH2() {
-        server.stop();
-    }
-
-    private static void setupJNDI() {
-        System.setProperty("java.naming.factory.initial", "org.ow2.carol.jndi.spi.URLInitialContextFactory");
-        System.setProperty("java.naming.provider.url", "rmi://localhost:1099");
-        contextJNDI = new ClassPathXmlApplicationContext("jndi-setup.xml");
-    }
-
-    private static void shutdownJNDI() {
-        contextJNDI.close();
-    }
-    
+      
     static ConfigurableApplicationContext contextJNDI;
 
-    static Server server;
     
     @BeforeClass
     public static void beforeClass() throws BonitaException {
-        System.err.println("=================== TestWorkspaceAPI.beforeClass()");
-        setupH2();
-        setupJNDI();
-
-        APITestUtil.createPlatformStructure();
-        CommonAPISPTest.beforeClass();
+        SPBPMTestUtil.createEnvironmentWithDefaultTenant();
     }
 
     @AfterClass
     public static void afterClass() throws BonitaException {
-        System.err.println("=================== TestWorkspaceAPI.afterClass()");
-        CommonAPISPTest.afterClass();
-        APITestUtil.deletePlatformStructure();
-        
-        shutdownJNDI();
-        shutdownH2();
+        SPBPMTestUtil.destroyPlatformAndTenants();
     }
        
     @Test
