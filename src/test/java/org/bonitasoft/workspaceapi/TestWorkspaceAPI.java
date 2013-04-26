@@ -37,18 +37,18 @@ import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.model.Problem;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
 import org.bonitasoft.engine.exception.BonitaException;
-import org.bonitasoft.engine.exception.DeletingEnabledProcessException;
-import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormat;
+import org.bonitasoft.engine.exception.IllegalProcessStateException;
+import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormatException;
 import org.bonitasoft.engine.exception.InvalidSessionException;
 import org.bonitasoft.engine.exception.ObjectAlreadyExistsException;
 import org.bonitasoft.engine.exception.OrganizationDeleteException;
 import org.bonitasoft.engine.exception.OrganizationImportException;
 import org.bonitasoft.engine.exception.ProcessDefinitionNotFoundException;
+import org.bonitasoft.engine.exception.ProcessDefinitionReadException;
 import org.bonitasoft.engine.exception.ProcessDeletionException;
 import org.bonitasoft.engine.exception.ProcessDeployException;
 import org.bonitasoft.engine.exception.ProcessDisablementException;
 import org.bonitasoft.engine.exception.ProcessEnablementException;
-import org.bonitasoft.engine.exception.ProcessResourceException;
 import org.bonitasoft.engine.session.PlatformSession;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -123,7 +123,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     }
        
     @Test
-    public void installGeneratedBar() throws InvalidBusinessArchiveFormat, IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, DeletingEnabledProcessException, ProcessDisablementException, ObjectAlreadyExistsException{
+    public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, ProcessDisablementException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
@@ -156,14 +156,17 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
                 } catch (ProcessEnablementException e) {
                 	StringBuilder sb = new StringBuilder("Failed to enable "+entryKey +"\n"+e.getMessage());
                 	if(def != null){
-                		try {
-							List<Problem> processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
-							for (Problem problem : processResolutionProblems) {
-								sb.append("\n"+problem.toString());
-							}
-						} catch (ProcessResourceException e1) {
+                		List<Problem> processResolutionProblems;
+						try {
+							processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
+	                		for (Problem problem : processResolutionProblems) {
+	                			sb.append("\n"+problem.toString());
+	                		}
+						} catch (ProcessDefinitionReadException e1) {
 							e1.printStackTrace();
 						}
+
+
                 	}
                     Assert.fail(sb.toString());
                 }

@@ -7,7 +7,7 @@
 		<bonita.home>${project.build.directory}/home</bonita.home>
 		<license.dir>${bonita.home}/server/licenses</license.dir>
 		<security.version>6.0.Beta.3</security.version>
-		<engine.version>6.0.0-beta-016</engine.version>
+		<engine.version>6.0.0-beta-020</engine.version>
 	</properties>
   <dependencies>
   	<dependency>
