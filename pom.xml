@@ -7,7 +7,7 @@
 		<bonita.home>${project.build.directory}/home</bonita.home>
 		<license.dir>${bonita.home}/server/licenses</license.dir>
 		<security.version>6.0-002</security.version>
-		<engine.version>6.0.0-beta-020</engine.version>
+		<engine.version>6.0.0-beta-021</engine.version>
 	</properties>
   <dependencies>
   	<dependency>
@@ -53,6 +53,11 @@
 		<version>${engine.version}</version>
 		<scope>test</scope>
 	</dependency>
+			<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp</artifactId>
+			<version>0.7.1.RELEASE</version>
+		</dependency>
   </dependencies>
   <build>
   <plugins>
