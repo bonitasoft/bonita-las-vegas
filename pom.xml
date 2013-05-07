@@ -77,7 +77,7 @@
 								<artifactItem>
 									<groupId>com.bonitasoft.engine</groupId>
 									<artifactId>bonita-home-sp</artifactId>
-									<classifier>hibernate</classifier>
+									<classifier>performance</classifier>
 									<version>${engine.version}</version>
 									<type>zip</type>
 								</artifactItem>
