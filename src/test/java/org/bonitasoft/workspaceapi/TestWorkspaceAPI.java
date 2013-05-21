@@ -36,25 +36,24 @@ import org.bonitasoft.engine.api.PlatformLoginAPI;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.model.Problem;
 import org.bonitasoft.engine.bpm.model.ProcessDefinition;
+import org.bonitasoft.engine.exception.AlreadyExistsException;
 import org.bonitasoft.engine.exception.BonitaException;
+import org.bonitasoft.engine.exception.DeletionException;
 import org.bonitasoft.engine.exception.IllegalProcessStateException;
 import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormatException;
-import org.bonitasoft.engine.exception.InvalidSessionException;
-import org.bonitasoft.engine.exception.ObjectAlreadyExistsException;
-import org.bonitasoft.engine.exception.OrganizationDeleteException;
-import org.bonitasoft.engine.exception.OrganizationImportException;
-import org.bonitasoft.engine.exception.ProcessDefinitionNotFoundException;
-import org.bonitasoft.engine.exception.ProcessDefinitionReadException;
-import org.bonitasoft.engine.exception.ProcessDeletionException;
-import org.bonitasoft.engine.exception.ProcessDeployException;
-import org.bonitasoft.engine.exception.ProcessDisablementException;
-import org.bonitasoft.engine.exception.ProcessEnablementException;
+import org.bonitasoft.engine.exception.identity.OrganizationImportException;
+import org.bonitasoft.engine.exception.platform.InvalidSessionException;
+import org.bonitasoft.engine.exception.process.ProcessDefinitionNotFoundException;
+import org.bonitasoft.engine.exception.process.ProcessDeployException;
+import org.bonitasoft.engine.exception.process.ProcessDisablementException;
+import org.bonitasoft.engine.exception.process.ProcessEnablementException;
 import org.bonitasoft.engine.session.PlatformSession;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.quartz.ObjectAlreadyExistsException;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -123,7 +122,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     }
        
     @Test
-    public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, OrganizationDeleteException, ProcessDeletionException, ProcessDisablementException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException{
+    public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException,  ProcessDisablementException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException, DeletionException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
@@ -157,19 +156,33 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
                 	StringBuilder sb = new StringBuilder("Failed to enable "+entryKey +"\n"+e.getMessage());
                 	if(def != null){
                 		List<Problem> processResolutionProblems;
-						try {
-							processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
-	                		for (Problem problem : processResolutionProblems) {
-	                			sb.append("\n"+problem.toString());
-	                		}
-						} catch (ProcessDefinitionReadException e1) {
-							e1.printStackTrace();
-						}
-
-
+                		processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
+                		for (Problem problem : processResolutionProblems) {
+                			sb.append("\n"+problem.toString());
+                		}
                 	}
                     Assert.fail(sb.toString());
-                }
+                } catch (DeletionException e) {
+                	StringBuilder sb = new StringBuilder("Failed to delete "+entryKey +"\n"+e.getMessage());
+                	if(def != null){
+                		List<Problem> processResolutionProblems;
+                		processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
+                		for (Problem problem : processResolutionProblems) {
+                			sb.append("\n"+problem.toString());
+                		}
+                	}
+                    Assert.fail(sb.toString());
+				} catch (AlreadyExistsException e) {
+                	StringBuilder sb = new StringBuilder("Process already exists "+entryKey +"\n"+e.getMessage());
+                	if(def != null){
+                		List<Problem> processResolutionProblems;
+                		processResolutionProblems = getProcessAPI().getProcessResolutionProblems(def.getId());
+                		for (Problem problem : processResolutionProblems) {
+                			sb.append("\n"+problem.toString());
+                		}
+                	}
+                    Assert.fail(sb.toString());
+				}
                 entry.getValue().close();
             }
         }finally{
