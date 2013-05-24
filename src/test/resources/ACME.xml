@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<organization:Organization xmlns:organization="http://www.bonitasoft.org/ns/organization/6.0.0-beta-016">
+<organization:Organization xmlns:organization="http://www.bonitasoft.org/ns/organization/6.0">
   <users>
     <user userName="william.jobs">
+      <password>bpm</password>
       <firstName>William</firstName>
       <lastName>Jobs</lastName>
       <title>Mr</title>
       <jobTitle>Chief Executive Officer</jobTitle>
       <professionalData>
         <email>william.jobs@acme.com</email>
-        <phoneNumber>484-302-5435</phoneNumber>
-        <faxNumber>484-302-0435</faxNumber>
+        <phoneNumber>484-302-5707</phoneNumber>
+        <faxNumber>484-302-0707</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -22,9 +23,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="april.sanchez">
+      <password>bpm</password>
       <firstName>April</firstName>
       <lastName>Sanchez</lastName>
       <title>Mrs</title>
@@ -32,8 +33,8 @@
       <manager>helen.kelly</manager>
       <professionalData>
         <email>april.sanchez@acme.com</email>
-        <phoneNumber>484-302-5307</phoneNumber>
-        <faxNumber>484-302-0307</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -46,9 +47,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="helen.kelly">
+      <password>bpm</password>
       <firstName>Helen</firstName>
       <lastName>Kelly</lastName>
       <title>Mrs</title>
@@ -56,8 +57,8 @@
       <manager>william.jobs</manager>
       <professionalData>
         <email>helen.kelly@acme.com</email>
-        <phoneNumber>484-302-5307</phoneNumber>
-        <faxNumber>484-302-0307</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -70,9 +71,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="walter.bates">
+      <password>bpm</password>
       <firstName>Walter</firstName>
       <lastName>Bates</lastName>
       <title>Mr</title>
@@ -80,8 +81,8 @@
       <manager>helen.kelly</manager>
       <professionalData>
         <email>walter.bates@acme.com</email>
-        <phoneNumber>484-302-5307</phoneNumber>
-        <faxNumber>484-302-0307</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -94,9 +95,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="zachary.williamson">
+      <password>bpm</password>
       <firstName>Zachary</firstName>
       <lastName>Williamson</lastName>
       <title>Mr</title>
@@ -104,8 +105,8 @@
       <manager>william.jobs</manager>
       <professionalData>
         <email>zachary.williamson@acme.com</email>
-        <phoneNumber>484-302-5307</phoneNumber>
-        <faxNumber>484-302-0307</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -118,9 +119,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="patrick.gardenier">
+      <password>bpm</password>
       <firstName>Patrick</firstName>
       <lastName>Gardenier</lastName>
       <title>Mr</title>
@@ -128,8 +129,8 @@
       <manager>zachary.williamson</manager>
       <professionalData>
         <email>patrick.gardenier@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -142,9 +143,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="virginie.jomphe">
+      <password>bpm</password>
       <firstName>Virgine</firstName>
       <lastName>Jomphe</lastName>
       <title>Mrs</title>
@@ -152,8 +153,8 @@
       <manager>zachary.williamson</manager>
       <professionalData>
         <email>virginie.jomphe@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5747</phoneNumber>
+        <faxNumber>484-302-0747</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -166,9 +167,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="thorsten.hartmann">
+      <password>bpm</password>
       <firstName>Thorsten</firstName>
       <lastName>Hartmann</lastName>
       <title>Mr</title>
@@ -176,8 +177,8 @@
       <manager>zachary.williamson</manager>
       <professionalData>
         <email>thorsten.hartmann@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -190,9 +191,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="jan.fisher">
+      <password>bpm</password>
       <firstName>Jan</firstName>
       <lastName>Fisher</lastName>
       <title>Mr</title>
@@ -200,8 +201,8 @@
       <manager>favio.riviera</manager>
       <professionalData>
         <email>jan.fisher@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -214,9 +215,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="isabel.bleasdale">
+      <password>bpm</password>
       <firstName>Isabel</firstName>
       <lastName>Bleasdale</lastName>
       <title>Mrs</title>
@@ -224,8 +225,8 @@
       <manager>favio.riviera</manager>
       <professionalData>
         <email>isabel.bleasdale@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -238,9 +239,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="favio.riviera">
+      <password>bpm</password>
       <firstName>Favio</firstName>
       <lastName>Rivera</lastName>
       <title>Mr</title>
@@ -248,8 +249,8 @@
       <manager>william.jobs</manager>
       <professionalData>
         <email>favio.riviera@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -262,9 +263,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="michael.morrison">
+      <password>bpm</password>
       <firstName>Michael</firstName>
       <lastName>Morrison</lastName>
       <title>Mr</title>
@@ -272,8 +273,8 @@
       <manager>william.jobs</manager>
       <professionalData>
         <email>michael.morrison@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -286,9 +287,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="marc.marseau">
+      <password>bpm</password>
       <firstName>Marc</firstName>
       <lastName>Marseau</lastName>
       <title>Mr</title>
@@ -296,8 +297,8 @@
       <manager>michael.morrison</manager>
       <professionalData>
         <email>marc.marseau@acme.com</email>
-        <phoneNumber>484-302-5243</phoneNumber>
-        <faxNumber>484-302-0243</faxNumber>
+        <phoneNumber>484-302-5387</phoneNumber>
+        <faxNumber>484-302-0387</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -310,9 +311,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="joseph.hovell">
+      <password>bpm</password>
       <firstName>Joseph</firstName>
       <lastName>Hovell</lastName>
       <title>Mr</title>
@@ -320,8 +321,8 @@
       <manager>michael.morrison</manager>
       <professionalData>
         <email>joseph.hovell@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5194</phoneNumber>
+        <faxNumber>484-302-0194</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -334,9 +335,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="mauro.zetticci">
+      <password>bpm</password>
       <firstName>Mauro</firstName>
       <lastName>Zetticci</lastName>
       <title>Mr</title>
@@ -344,8 +345,8 @@
       <manager>michael.morrison</manager>
       <professionalData>
         <email>mauro.zetticci@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5194</phoneNumber>
+        <faxNumber>484-302-0194</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -358,9 +359,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="thomas.wallis">
+      <password>bpm</password>
       <firstName>Thomas</firstName>
       <lastName>Wallis</lastName>
       <title>Mr</title>
@@ -368,8 +369,8 @@
       <manager>michael.morrison</manager>
       <professionalData>
         <email>thomas.wallis@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5194</phoneNumber>
+        <faxNumber>484-302-0194</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -382,9 +383,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="daniela.angelo">
+      <password>bpm</password>
       <firstName>Daniela</firstName>
       <lastName>Angelo</lastName>
       <title>Mrs</title>
@@ -392,8 +393,8 @@
       <manager>william.jobs</manager>
       <professionalData>
         <email>daniela.angelo@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5834</phoneNumber>
+        <faxNumber>484-302-0834</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -406,9 +407,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="anthony.nichols">
+      <password>bpm</password>
       <firstName>Anthony</firstName>
       <lastName>Nichols</lastName>
       <title>Mr</title>
@@ -416,8 +417,8 @@
       <manager>daniela.angelo</manager>
       <professionalData>
         <email>anthony.nichols@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5834</phoneNumber>
+        <faxNumber>484-302-0834</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -430,9 +431,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="misa.kumagai">
+      <password>bpm</password>
       <firstName>Misa</firstName>
       <lastName>Kumagai</lastName>
       <title>Mrs</title>
@@ -440,8 +441,8 @@
       <manager>daniela.angelo</manager>
       <professionalData>
         <email>misa.kumagai@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5834</phoneNumber>
+        <faxNumber>484-302-0834</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -454,9 +455,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="norio.yamazaki">
+      <password>bpm</password>
       <firstName>Norio</firstName>
       <lastName>Yamazaki</lastName>
       <title>Mr</title>
@@ -464,8 +465,8 @@
       <manager>daniela.angelo</manager>
       <professionalData>
         <email>norio.yamazaki@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5834</phoneNumber>
+        <faxNumber>484-302-0834</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -478,9 +479,9 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
     <user userName="giovanna.almeida">
+      <password>bpm</password>
       <firstName>Giovanna</firstName>
       <lastName>Almeida</lastName>
       <title>Mrs</title>
@@ -488,8 +489,8 @@
       <manager>daniela.angelo</manager>
       <professionalData>
         <email>giovanna.almeida@acme.com</email>
-        <phoneNumber>484-302-5371</phoneNumber>
-        <faxNumber>484-302-0371</faxNumber>
+        <phoneNumber>484-302-5834</phoneNumber>
+        <faxNumber>484-302-0834</faxNumber>
         <building>70</building>
         <address>Renwick Drive</address>
         <zipCode>19108</zipCode>
@@ -502,7 +503,6 @@
         <metaData name="Twitter"/>
         <metaData name="Facebook"/>
       </metaDatas>
-      <password encrypted="false">bpm</password>
     </user>
   </users>
   <roles>
