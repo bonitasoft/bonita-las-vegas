@@ -34,19 +34,19 @@ import junit.framework.Assert;
 
 import org.bonitasoft.engine.api.PlatformLoginAPI;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
-import org.bonitasoft.engine.bpm.model.Problem;
-import org.bonitasoft.engine.bpm.model.ProcessDefinition;
+import org.bonitasoft.engine.bpm.bar.InvalidBusinessArchiveFormatException;
+import org.bonitasoft.engine.bpm.process.IllegalProcessStateException;
+import org.bonitasoft.engine.bpm.process.Problem;
+import org.bonitasoft.engine.bpm.process.ProcessActivationException;
+import org.bonitasoft.engine.bpm.process.ProcessDefinition;
+import org.bonitasoft.engine.bpm.process.ProcessDefinitionNotFoundException;
+import org.bonitasoft.engine.bpm.process.ProcessDeployException;
+import org.bonitasoft.engine.bpm.process.ProcessEnablementException;
 import org.bonitasoft.engine.exception.AlreadyExistsException;
 import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.DeletionException;
-import org.bonitasoft.engine.exception.IllegalProcessStateException;
-import org.bonitasoft.engine.exception.InvalidBusinessArchiveFormatException;
-import org.bonitasoft.engine.exception.identity.OrganizationImportException;
-import org.bonitasoft.engine.exception.platform.InvalidSessionException;
-import org.bonitasoft.engine.exception.process.ProcessDefinitionNotFoundException;
-import org.bonitasoft.engine.exception.process.ProcessDeployException;
-import org.bonitasoft.engine.exception.process.ProcessDisablementException;
-import org.bonitasoft.engine.exception.process.ProcessEnablementException;
+import org.bonitasoft.engine.identity.OrganizationImportException;
+import org.bonitasoft.engine.session.InvalidSessionException;
 import org.bonitasoft.engine.session.PlatformSession;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -62,8 +62,8 @@ import com.bonitasoft.engine.SPBPMTestUtil;
 import com.bonitasoft.engine.api.PlatformAPI;
 import com.bonitasoft.engine.api.PlatformAPIAccessor;
 import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
-import com.bonitasoft.engine.bpm.model.ParameterInstance;
-import com.bonitasoft.engine.exception.ParameterNotFoundException;
+import com.bonitasoft.engine.bpm.parameter.ParameterInstance;
+import com.bonitasoft.engine.bpm.parameter.ParameterNotFoundException;
 
 
 public class TestWorkspaceAPI extends CommonAPISPTest {
@@ -122,7 +122,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
     }
        
     @Test
-    public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException,  ProcessDisablementException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException, DeletionException{
+    public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException, DeletionException, ProcessActivationException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
         Assert.assertTrue("Organization file not found",organizationFile.exists());
 
