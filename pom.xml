@@ -45,7 +45,7 @@
     <dependency>
     <groupId>org.bonitasoft.engine</groupId>
       <artifactId>bonita-synchro-server</artifactId>
-      <version>${project.version}</version>
+      <version>${engine.version}</version>
       <scope>test</scope>
     </dependency>
   	<dependency>
