@@ -115,7 +115,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
         PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
         PlatformSession session = platformLoginAPI.login("platformAdmin", "platform");
         PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(session);
-        platformAPI.deletePlaftorm();
+        platformAPI.deletePlatform();
         platformLoginAPI.logout(session);
 
         closeSpringContext();
