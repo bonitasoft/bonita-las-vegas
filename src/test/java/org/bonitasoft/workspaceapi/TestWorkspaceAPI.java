@@ -28,11 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.naming.Context;
-
-import junit.framework.Assert;
-
-import org.bonitasoft.engine.api.PlatformLoginAPI;
 import org.bonitasoft.engine.bpm.bar.BusinessArchive;
 import org.bonitasoft.engine.bpm.bar.InvalidBusinessArchiveFormatException;
 import org.bonitasoft.engine.bpm.process.IllegalProcessStateException;
@@ -47,20 +42,13 @@ import org.bonitasoft.engine.exception.BonitaException;
 import org.bonitasoft.engine.exception.DeletionException;
 import org.bonitasoft.engine.identity.OrganizationImportException;
 import org.bonitasoft.engine.session.InvalidSessionException;
-import org.bonitasoft.engine.session.PlatformSession;
 import org.junit.After;
-import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.quartz.ObjectAlreadyExistsException;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.bonitasoft.engine.CommonAPISPTest;
-import com.bonitasoft.engine.SPBPMTestUtil;
-import com.bonitasoft.engine.api.PlatformAPI;
-import com.bonitasoft.engine.api.PlatformAPIAccessor;
 import com.bonitasoft.engine.bpm.bar.BusinessArchiveFactory;
 import com.bonitasoft.engine.bpm.parameter.ParameterInstance;
 import com.bonitasoft.engine.bpm.parameter.ParameterNotFoundException;
@@ -69,58 +57,7 @@ import com.bonitasoft.engine.bpm.parameter.ParameterNotFoundException;
 public class TestWorkspaceAPI extends CommonAPISPTest {
 
     private List<Long> definitions;
-      
-    static ConfigurableApplicationContext contextJNDI;
-    static ConfigurableApplicationContext springContext;
-    
-    private static void setupSpringContext() {
-        setSystemPropertyIfNotSet("sysprop.bonita.db.vendor", "h2");
 
-        // Force these system properties
-        System.setProperty(Context.INITIAL_CONTEXT_FACTORY, "org.bonitasoft.engine.local.SimpleMemoryContextFactory");
-        System.setProperty(Context.URL_PKG_PREFIXES, "org.bonitasoft.engine.local");
-
-        springContext = new ClassPathXmlApplicationContext("datasource.xml", "jndi-setup.xml");
-    }
-
-    private static void closeSpringContext() {
-        springContext.close();
-    }
-    
-    private static void setSystemPropertyIfNotSet(String property, String value) {
-        System.setProperty(property, System.getProperty(property, value));
-    }
-    
-    @BeforeClass
-    public static void beforeClass() throws BonitaException {
-    	System.err.println("=================== TestWorkspaceAPI.beforeClass()");
-    	setupSpringContext();
-
-        PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-        PlatformSession session = platformLoginAPI.login("platformAdmin", "platform");
-        PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(session);
-        platformAPI.createPlatform();
-        platformLoginAPI.logout(session);
-
-        System.setProperty("delete.job.frequency", "0/30 * * * * ?");
-    	
-        SPBPMTestUtil.createEnvironmentWithDefaultTenant();
-    }
-
-    @AfterClass
-    public static void afterClass() throws BonitaException {
-        SPBPMTestUtil.destroyPlatformAndTenants();
-        
-        System.err.println("=================== TestWorkspaceAPI.afterClass()");
-        PlatformLoginAPI platformLoginAPI = PlatformAPIAccessor.getPlatformLoginAPI();
-        PlatformSession session = platformLoginAPI.login("platformAdmin", "platform");
-        PlatformAPI platformAPI = PlatformAPIAccessor.getPlatformAPI(session);
-        platformAPI.deletePlatform();
-        platformLoginAPI.logout(session);
-
-        closeSpringContext();
-    }
-       
     @Test
     public void installGeneratedBar() throws IOException, InvalidSessionException, ProcessDeployException, ProcessDefinitionNotFoundException, OrganizationImportException, ObjectAlreadyExistsException, IllegalProcessStateException, InvalidBusinessArchiveFormatException, DeletionException, ProcessActivationException{
         File organizationFile = new File(TestWorkspaceAPI.class.getResource("/ACME.xml").getFile());
@@ -150,7 +87,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
                     	checkParameter(entryKey, defId, "integerParameter", "2", Integer.class.getName());
                     }
                     getProcessAPI().disableProcess(defId);
-                    getProcessAPI().deleteProcess(defId);
+                    getProcessAPI().deleteProcessDefinition(defId);
                     definitions.remove(defId);
                 } catch (ProcessEnablementException e) {
                 	StringBuilder sb = new StringBuilder("Failed to enable "+entryKey +"\n"+e.getMessage());
@@ -226,7 +163,7 @@ public class TestWorkspaceAPI extends CommonAPISPTest {
         if(definitions != null && definitions.isEmpty()){
             for(Long defId : definitions){
                 getProcessAPI().disableProcess(defId);
-                getProcessAPI().deleteProcess(defId);
+                getProcessAPI().deleteProcessDefinition(defId);
             }
         }
         logout();
