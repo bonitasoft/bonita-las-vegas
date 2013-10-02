@@ -26,7 +26,7 @@
   		<artifactId>bonita-server-sp</artifactId>
   		<version>${engine.version}</version>
   		<scope>test</scope>
-  	</dependency>
+ 	</dependency>
   	<dependency>
   		<groupId>com.bonitasoft.engine</groupId>
   		<artifactId>bonita-integration-client-tests-sp</artifactId>
@@ -41,13 +41,6 @@
   		<scope>test</scope>
   		<type>zip</type>
   	</dependency>
-  		  <!-- Synchro repo -->
-    <dependency>
-    <groupId>org.bonitasoft.engine</groupId>
-      <artifactId>bonita-synchro-server</artifactId>
-      <version>${engine.version}</version>
-      <scope>test</scope>
-    </dependency>
   	<dependency>
 		<groupId>com.h2database</groupId>
 		<artifactId>h2</artifactId>
