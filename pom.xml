@@ -6,7 +6,7 @@
   <properties>
 		<bonita.home>${project.build.directory}/home</bonita.home>
 		<license.dir>${bonita.home}/server/licenses</license.dir>
-		<security.version>6.1-007</security.version>
+		<security.version>6.1-010</security.version>
 		<engine.version>6.1.0-SNAPSHOT</engine.version>
 	</properties>
   <dependencies>
@@ -41,13 +41,6 @@
   		<scope>test</scope>
   		<type>zip</type>
   	</dependency>
-  		  <!-- Synchro repo -->
-    <dependency>
-    <groupId>org.bonitasoft.engine</groupId>
-      <artifactId>bonita-synchro-server</artifactId>
-      <version>${engine.version}</version>
-      <scope>test</scope>
-    </dependency>
   	<dependency>
 		<groupId>com.h2database</groupId>
 		<artifactId>h2</artifactId>
