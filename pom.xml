@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.bonitasoft.studio</groupId>
   <artifactId>worksapce-api</artifactId>
-  <version>6.3.0.alpha-test</version>
+  <version>6.3.0-SNAPSHOT</version>
   <properties>
 		<bonita.home>${project.build.directory}/home</bonita.home>
 		<license.dir>${bonita.home}/server/licenses</license.dir>
 		<security.version>6.2-005</security.version>
-		<engine.version>6.3.0.alpha-test</engine.version>
+		<engine.version>6.3.0-SNAPSHOT</engine.version>
 	</properties>
   <dependencies>
   	<dependency>
