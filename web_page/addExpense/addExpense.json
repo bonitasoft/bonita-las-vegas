@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1536853342848,
+  "lastUpdate" : 1539261960156,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1031,7 +1031,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var temp = angular.copy($data.formInput)\ntemp.currency = $data.currency?$data.currency.name:null\ntemp.currencyRatio =  $data.currency?$data.currency.rate:null\ntemp.vehicleType = $data.vehicle?$data.vehicle.name:null\ntemp.vehicleRate= $data.vehicle?$data.vehicle.rate:null\n\nreturn {\n    \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task.caseId,\n\t \"content\": {'expenseReportInput': {\"expenseLine\":[temp]}}\n};",
+      "value" : "var temp = angular.copy($data.formInput)\ntemp.currency = $data.currency?$data.currency.name:null\ntemp.currencyRatio =  $data.currency?$data.currency.rate:null\ntemp.vehicleType = $data.vehicle?$data.vehicle.name:null\ntemp.vehicleRate= $data.vehicle?$data.vehicle.rate:null\n\nreturn {\n    \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task?$data.task.caseId:0,\n\t \"contractInput\": {'expenseReportInput': {\"expenseLine\":[temp]}}\n};",
       "exposed" : false
     },
     "context" : {
@@ -1051,7 +1051,7 @@
     },
     "isKm" : {
       "type" : "expression",
-      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formOutput.expenseReportInput.expenseLine[0].expenseType\n})\nreturn type?type.type === \"KM\":false\n",
+      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formOutput.contractInput.expenseReportInput.expenseLine[0].expenseType\n})\nreturn type?type.type === \"KM\":false\n",
       "exposed" : false
     },
     "currencies" : {
