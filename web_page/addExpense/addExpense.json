@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1536853342848,
+  "lastUpdate" : 1539262689772,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1003,6 +1003,59 @@
     },
     "reference" : "ae0bdb54-4587-4a66-83ac-1201022764e6",
     "id" : "pbButton"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Submit"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "primary"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Submit task"
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "contract" : {
+        "type" : "constant"
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "assignedId" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "b1da2fb9-185d-4ff3-85d3-4008af02f770",
+    "id" : "customAssignAndExecuteWithContractButton"
   } ] ],
   "assets" : [ {
     "id" : "affe00a9-5637-40eb-ac68-a98f87a6f842",

@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1539249265361,
+  "lastUpdate" : 1539261953887,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -485,44 +485,26 @@
       },
       "action" : {
         "type" : "constant",
-        "value" : "POST"
+        "value" : "Submit task"
       },
       "url" : {
-        "type" : "interpolation",
-        "value" : "../API/extension/userTask"
+        "type" : "interpolation"
       },
-      "dataToSend" : {
+      "contract" : {
         "type" : "expression",
-        "value" : "formOutput"
-      },
-      "dataFromSuccess" : {
-        "type" : "variable",
-        "value" : ""
+        "value" : "formOutput.contract"
       },
       "dataFromError" : {
         "type" : "variable",
         "value" : ""
       },
-      "targetUrlOnSuccess" : {
-        "type" : "interpolation",
-        "value" : "../case/?id={{task.caseId}}"
-      },
-      "collectionToModify" : {
-        "type" : "variable"
-      },
-      "collectionPosition" : {
-        "type" : "constant",
-        "value" : "Last"
-      },
-      "valueToAdd" : {
-        "type" : "constant"
-      },
-      "removeItem" : {
-        "type" : "variable"
+      "assignedId" : {
+        "type" : "expression",
+        "value" : "user.user_id"
       }
     },
-    "reference" : "c3cefe89-cbed-4afe-99bc-7cd20b36a32e",
-    "id" : "pbButton"
+    "reference" : "641f85d4-3d6f-48b1-986d-481ce3af08a1",
+    "id" : "customAssignAndExecuteWithContractButton"
   } ] ],
   "assets" : [ {
     "id" : "a4869b21-de52-417c-b15a-942fe469e6d3",
@@ -539,11 +521,6 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "task" : {
-      "type" : "url",
-      "value" : "../API/bpm/userTask/{{taskId}}",
-      "exposed" : false
-    },
     "formInput" : {
       "type" : "json",
       "value" : "{\n  \"expenseReportInput\" : {\n    \"expenseHeader\" : {\n      \"departement\" : \"\",\n      \"budget\" : \"\",\n      \"description\" : \"\"\n    }\n  }\n}",
@@ -551,7 +528,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n     \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task.caseId,\n\t \"contractInput\": $data.formInput\n};",
+      "value" : "return {\n\t \"contract\": $data.formInput\n};",
       "exposed" : false
     },
     "context" : {
@@ -559,9 +536,9 @@
       "value" : "../API/bpm/userTask/{{taskId}}/context",
       "exposed" : false
     },
-    "taskId" : {
-      "type" : "urlparameter",
-      "value" : "id",
+    "user" : {
+      "type" : "url",
+      "value" : "../API/system/session/1",
       "exposed" : false
     }
   },
