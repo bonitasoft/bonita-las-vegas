@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539262689772,
+  "lastUpdate" : 1539263411077,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -965,93 +965,22 @@
       },
       "action" : {
         "type" : "constant",
-        "value" : "POST"
-      },
-      "url" : {
-        "type" : "interpolation",
-        "value" : "../API/extension/userTask"
-      },
-      "dataToSend" : {
-        "type" : "expression",
-        "value" : "formOutput"
-      },
-      "dataFromSuccess" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "dataFromError" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "targetUrlOnSuccess" : {
-        "type" : "interpolation",
-        "value" : "../case/?id={{task.caseId}}"
-      },
-      "collectionToModify" : {
-        "type" : "variable"
-      },
-      "collectionPosition" : {
-        "type" : "constant",
-        "value" : "Last"
-      },
-      "valueToAdd" : {
-        "type" : "constant"
-      },
-      "removeItem" : {
-        "type" : "variable"
-      }
-    },
-    "reference" : "ae0bdb54-4587-4a66-83ac-1201022764e6",
-    "id" : "pbButton"
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "disabled" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "Submit"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "center"
-      },
-      "buttonStyle" : {
-        "type" : "constant",
-        "value" : "primary"
-      },
-      "action" : {
-        "type" : "constant",
         "value" : "Submit task"
       },
       "url" : {
         "type" : "interpolation"
       },
       "contract" : {
-        "type" : "constant"
+        "type" : "expression",
+        "value" : "formOutput.contract"
       },
       "dataFromError" : {
         "type" : "variable",
         "value" : ""
       },
       "assignedId" : {
-        "type" : "constant"
+        "type" : "expression",
+        "value" : "user.user_id"
       }
     },
     "reference" : "b1da2fb9-185d-4ff3-85d3-4008af02f770",
@@ -1072,11 +1001,6 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "task" : {
-      "type" : "url",
-      "value" : "../API/bpm/userTask/{{taskId}}",
-      "exposed" : false
-    },
     "formInput" : {
       "type" : "json",
       "value" : "{}",
@@ -1084,17 +1008,12 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var temp = angular.copy($data.formInput)\ntemp.currency = $data.currency?$data.currency.name:null\ntemp.currencyRatio =  $data.currency?$data.currency.rate:null\ntemp.vehicleType = $data.vehicle?$data.vehicle.name:null\ntemp.vehicleRate= $data.vehicle?$data.vehicle.rate:null\n\nreturn {\n    \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task?$data.task.caseId:0,\n\t \"contractInput\": {'expenseReportInput': {\"expenseLine\":[temp]}}\n};",
+      "value" : "var temp = angular.copy($data.formInput)\ntemp.currency = $data.currency?$data.currency.name:null\ntemp.currencyRatio =  $data.currency?$data.currency.rate:null\ntemp.vehicleType = $data.vehicle?$data.vehicle.name:null\ntemp.vehicleRate= $data.vehicle?$data.vehicle.rate:null\nif ($data.isKm) {\n    temp.amount = $data.kmAmount\n}\n\nreturn {\n\t \"contract\": {'expenseReportInput': {\"expenseLine\":[temp]}}\n};",
       "exposed" : false
     },
     "context" : {
       "type" : "url",
       "value" : "../API/bpm/userTask/{{taskId}}/context",
-      "exposed" : false
-    },
-    "taskId" : {
-      "type" : "urlparameter",
-      "value" : "id",
       "exposed" : false
     },
     "expenseTypes" : {
@@ -1104,7 +1023,7 @@
     },
     "isKm" : {
       "type" : "expression",
-      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formOutput.contractInput.expenseReportInput.expenseLine[0].expenseType\n})\nreturn type?type.type === \"KM\":false\n",
+      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formOutput.contract.expenseReportInput.expenseLine[0].expenseType\n})\nreturn type?type.type === \"KM\":false\n",
       "exposed" : false
     },
     "currencies" : {
@@ -1130,6 +1049,11 @@
     "kmAmount" : {
       "type" : "expression",
       "value" : "return $data.vehicle?$data.vehicle.rate * $data.formInput.km:null",
+      "exposed" : false
+    },
+    "user" : {
+      "type" : "url",
+      "value" : "../API/system/session/1",
       "exposed" : false
     }
   },
