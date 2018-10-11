@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1536850972292,
+  "lastUpdate" : 1539249265361,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -551,7 +551,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n    \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task.caseId,\n\t \"content\": $data.formInput\n};",
+      "value" : "return {\n     \"taskId\" : $data.taskId,\n\t \"processInstanceId\" : $data.task.caseId,\n\t \"contractInput\": $data.formInput\n};",
       "exposed" : false
     },
     "context" : {
