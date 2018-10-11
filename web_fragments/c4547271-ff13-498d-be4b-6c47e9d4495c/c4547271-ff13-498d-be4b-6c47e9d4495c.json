@@ -1,0 +1,106 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.11",
+  "id" : "c4547271-ff13-498d-be4b-6c47e9d4495c",
+  "name" : "CaseComments",
+  "lastUpdate" : 1520435115196,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h3><span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span> Case comments</h3>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "dba2382d-c2e4-4b02-87f6-26f4947eed08",
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : "caseComments"
+      }
+    },
+    "reference" : "d100ad7a-d937-44c2-927f-0ab30b167ca1",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h5><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>  <b>{{$item.username }}</b> added a comment <em>{{$item.postDate | fromNow:\"YYYY-MM-dd HH:mm:ss.SSS\" }}</em></h5><p>{{$item.content}}</p>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        }
+      },
+      "reference" : "69d4e8a9-5719-4de7-bc2d-bbfd98499593",
+      "id" : "pbText"
+    } ] ]
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseComments" : {
+      "type" : "constant",
+      "exposed" : true
+    }
+  },
+  "type" : "fragment"
+}

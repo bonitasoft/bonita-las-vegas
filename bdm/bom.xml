@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel modelVersion="1.0" productVersion="7.7.0-SNAPSHOT">
+    <businessObjects>
+        <businessObject qualifiedName="com.bonita.lr.model.Customer">
+            <fields>
+                <field type="STRING" length="255" name="firstName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="lastName" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.Address" fetchType="EAGER" name="address" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="phoneNumber" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Contract" fetchType="EAGER" name="contract" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="accountId" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="name" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.Deliverable" fetchType="LAZY" name="deliverables" nullable="true" collection="true"/>
+                <field type="STRING" length="255" name="sfid" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="displayName" nullable="true" collection="false"/>
+                <field type="STRING" length="512" name="description" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="accountManager" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="mainContactName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="mainContactEmail" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="enabled" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_NA">
+                    <fieldNames>
+                        <fieldName>name</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_SF">
+                    <fieldNames>
+                        <fieldName>sfid</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries>
+                <query name="getDefault" content="SELECT c &#xA;FROM Customer c &#xA;WHERE c.name = 'Bonitasoft'" returnType="com.bonita.lr.model.Customer">
+                    <queryParameters/>
+                </query>
+                <query name="getAllOrdered" content="SELECT c&#xD;&#xA;FROM Customer c&#xD;&#xA;WHERE c.enabled = true&#xD;&#xA;ORDER BY c.name" returnType="java.util.List">
+                    <queryParameters/>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Address">
+            <fields>
+                <field type="STRING" length="255" name="street" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="city" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="zipcode" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="country" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Contract">
+            <fields>
+                <field type="STRING" length="255" name="id" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Account">
+            <fields>
+                <field type="STRING" length="255" name="id" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.AccountTx" fetchType="LAZY" name="transactions" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.AccountTx">
+            <fields>
+                <field type="DOUBLE" length="255" name="amount" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="currency" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="reseller" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="txDate" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.VacationRequest">
+            <description>An employee vacation request.&#xD;
+Possible status values are: pending, approved, refused and cancelled.</description>
+            <fields>
+                <field type="LONG" length="255" name="requesterBonitaBPMId" nullable="false" collection="false"/>
+                <field type="LONG" length="255" name="reviewerBonitaBPMId" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="startDate" nullable="false" collection="false"/>
+                <field type="STRING" length="25" name="startTime" nullable="false" collection="false"/>
+                <field type="DATE" length="255" name="endDate" nullable="false" collection="false"/>
+                <field type="STRING" length="25" name="endTime" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="numberOfDays" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="false" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.Comment" fetchType="EAGER" name="comments" nullable="true" collection="true"/>
+                <field type="STRING" length="255" name="calendarEventId" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="newRequestProcessInstanceId" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="leaveType" nullable="true" collection="false"/>
+                <field type="LONG" length="255" name="cancelRequestProcessInstanceId" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findContainedInDateRange" content="SELECT v &#xA;FROM VacationRequest v &#xA;WHERE (( v.startDate &lt;= :startDate AND v.endDate &gt; :startDate )&#xA;OR ( v.startDate &gt; :startDate AND v.startDate &lt;= :endDate ))&#xA;AND v.status = :status&#xA;ORDER BY v.startDate,v.persistenceId DESC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="startDate" className="java.util.Date"/>
+                        <queryParameter name="endDate" className="java.util.Date"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+                <query name="findByRequesterAndStatus" content="SELECT v &#xA;FROM VacationRequest v &#xA;WHERE v.requesterBonitaBPMId = :requesterBonitaBPMId&#xA;AND v.status = :status&#xA;ORDER BY v.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+                <query name="countForFindByRequesterAndStatus" content="SELECT COUNT(v) &#xA;FROM VacationRequest v &#xA;WHERE v.requesterBonitaBPMId = :requesterBonitaBPMId&#xA;AND v.status = :status" returnType="java.lang.Long">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+                <query name="countForFindContainedInDateRange" content="SELECT COUNT(v) &#xA;FROM VacationRequest v &#xA;WHERE (( v.startDate &lt;= :startDate AND v.endDate &gt; :startDate )&#xA;OR ( v.startDate &gt; :startDate AND v.startDate &lt;= :endDate ))&#xA;AND v.status = :status" returnType="java.lang.Long">
+                    <queryParameters>
+                        <queryParameter name="startDate" className="java.util.Date"/>
+                        <queryParameter name="endDate" className="java.util.Date"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+                <query name="findPendingAndApprovedAfter" content="SELECT v &#xA;FROM VacationRequest v &#xA;WHERE v.startDate &gt;= :startDate&#xA;AND v.status IN ('pending','approved')&#xA;ORDER BY v.startDate,v.persistenceId DESC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="startDate" className="java.util.Date"/>
+                    </queryParameters>
+                </query>
+                <query name="countForFindPendingAndApprovedAfter" content="SELECT COUNT(v) &#xA;FROM VacationRequest v &#xA;WHERE v.startDate &gt;= :startDate&#xA;AND v.status IN ('pending','approved')" returnType="java.lang.Long">
+                    <queryParameters>
+                        <queryParameter name="startDate" className="java.util.Date"/>
+                    </queryParameters>
+                </query>
+                <query name="findUserRequestsDesc" content="SELECT v&#xD;&#xA;FROM VacationRequest v&#xD;&#xA;WHERE v.requesterBonitaBPMId= :requesterBonitaBPMId&#xD;&#xA;ORDER BY v.persistenceId DESC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                    </queryParameters>
+                </query>
+                <query name="findUserRequestsAsc" content="SELECT v&#xD;&#xA;FROM VacationRequest v&#xD;&#xA;WHERE v.requesterBonitaBPMId= :requesterBonitaBPMId&#xD;&#xA;ORDER BY v.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                    </queryParameters>
+                </query>
+                <query name="findUserClosestRequest" content="SELECT v&#xA;FROM VacationRequest v&#xA;WHERE v.requesterBonitaBPMId= :requesterBonitaBPMId&#xA;ORDER BY v.startDate DESC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="requesterBonitaBPMId" className="java.lang.Long"/>
+                    </queryParameters>
+                </query>
+                <query name="findActiveRequestsAsc" content="SELECT v &#xA;FROM VacationRequest v &#xA;WHERE v.requesterBonitaBPMId IN (:users)&#xA;AND v.status IN ('processing cancellation','pending')&#xA;ORDER BY v.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="users" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+            </queries>
+            <indexes>
+                <index name="INDEX_1">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                    </fieldNames>
+                </index>
+                <index name="INDEX_2">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                        <fieldName>status</fieldName>
+                    </fieldNames>
+                </index>
+                <index name="INDEX_3">
+                    <fieldNames>
+                        <fieldName>requesterBonitaBPMId</fieldName>
+                        <fieldName>status</fieldName>
+                        <fieldName>startDate</fieldName>
+                    </fieldNames>
+                </index>
+            </indexes>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.VacationAvailable">
+            <description>The number of vacation days available to the specified employee.</description>
+            <fields>
+                <field type="LONG" length="255" name="bonitaBPMId" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="cpAvailableCounter" nullable="false" collection="false"/>
+                <field type="DOUBLE" length="255" name="rttAvailableCounter" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="uniqueBonitaBPMId">
+                    <fieldNames>
+                        <fieldName>bonitaBPMId</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes>
+                <index name="INDEX_4">
+                    <fieldNames>
+                        <fieldName>bonitaBPMId</fieldName>
+                    </fieldNames>
+                </index>
+            </indexes>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Comment">
+            <fields>
+                <field type="LONG" length="255" name="userId" nullable="false" collection="false"/>
+                <field type="DATE" length="255" name="creationDate" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="content" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.WorkLog">
+            <fields>
+                <field type="STRING" length="255" name="category" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="workDate" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="workHours" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="location" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="consultant" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="weekNum" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+                <field type="STRING" length="512" name="description" nullable="true" collection="false"/>
+                <field type="STRING" length="512" name="customerDescription" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="reported" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="creationDate" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="createBy" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="reportedDate" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="reportedBy" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="subcategory" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="monthNum" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="billTime" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Customer" fetchType="EAGER" name="customer" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="consultingId" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Deliverable" fetchType="EAGER" name="deliverable" nullable="true" collection="false"/>
+                <field type="STRING" length="64" name="yearNum" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findByConsultantAndDate" content="SELECT w &#xA;FROM WorkLog w &#xA;WHERE w.consultant = :consultant&#xA;AND w.weekNum = :weekNum&#xA;ORDER BY w.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="consultant" className="java.lang.String"/>
+                        <queryParameter name="weekNum" className="java.lang.Integer"/>
+                    </queryParameters>
+                </query>
+                <query name="countDay" content="SELECT SUM(workHours) &#xD;&#xA;FROM WorkLog w &#xD;&#xA;WHERE day(w.workDate) = day(:day)&#xD;&#xA;AND month(w.workDate) = month(:day)&#xD;&#xA;AND year(w.workDate) = year(:day)&#xD;&#xA;AND w.consultant =:consultant&#xD;&#xA;" returnType="java.lang.Double">
+                    <queryParameters>
+                        <queryParameter name="day" className="java.util.Date"/>
+                        <queryParameter name="consultant" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+                <query name="findByDates" content="SELECT w &#xA;FROM WorkLog w &#xA;WHERE w.workDate &gt;= :initDate AND w.workDate &lt;= :endDate&#xD;&#xA;ORDER BY w.persistenceId ASC" returnType="java.util.List">
+                    <queryParameters>
+                        <queryParameter name="initDate" className="java.util.Date"/>
+                        <queryParameter name="endDate" className="java.util.Date"/>
+                    </queryParameters>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.MasterTexts">
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="listName" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="pos" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="enabled" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="displayName" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Deliverable">
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="displayName" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="description" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="sfid" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="totalDays" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="enabled" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_1">
+                    <fieldNames>
+                        <fieldName>sfid</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Category">
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="pos" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="enabled" nullable="true" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.Subcategory" fetchType="LAZY" name="subcategories" nullable="true" collection="true"/>
+                <field type="STRING" length="255" name="displayName" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="customerRelated" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints>
+                <uniqueConstraint name="UNIQUE_CONSTRAINT_CA">
+                    <fieldNames>
+                        <fieldName>name</fieldName>
+                    </fieldNames>
+                </uniqueConstraint>
+            </uniqueConstraints>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Subcategory">
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="pos" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="enabled" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="displayName" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.Booking">
+            <fields>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Deliverable" fetchType="EAGER" name="project" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="description" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="consultant" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="bookingDate" nullable="true" collection="false"/>
+                <field type="INTEGER" length="255" name="timeEstimated" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="category" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="location" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="subCategory" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="createdBy" nullable="true" collection="false"/>
+                <field type="DATE" length="255" name="creationDate" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseReport">
+            <fields>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseHeader" fetchType="LAZY" name="expenseHeader" nullable="false" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseLine" fetchType="LAZY" name="expenseLine" nullable="true" collection="true"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseHeader">
+            <fields>
+                <field type="STRING" length="255" name="employeeId" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="departement" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Customer" fetchType="LAZY" name="customer" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="budget" nullable="true" collection="false"/>
+                <field type="TEXT" length="255" name="description" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="submissionDate" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="accountingDate" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseLine">
+            <fields>
+                <field type="LOCALDATE" length="255" name="expenseDate" nullable="false" collection="false"/>
+                <field type="TEXT" length="255" name="description" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.bonita.lr.model.ExpenseType" fetchType="LAZY" name="expenseType" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="km" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="vehicleType" nullable="true" collection="false"/>
+                <field type="FLOAT" length="255" name="vehicleRate" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="currency" nullable="false" collection="false"/>
+                <field type="FLOAT" length="255" name="currencyRatio" nullable="true" collection="false"/>
+                <field type="FLOAT" length="255" name="amount" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseType">
+            <description>transport / hotel / invitation restaurant / other</description>
+            <fields>
+                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseVehicle">
+            <description>car / moto</description>
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
+                <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseCurrency">
+            <description>rete agains EURO</description>
+            <fields>
+                <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
+                <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>

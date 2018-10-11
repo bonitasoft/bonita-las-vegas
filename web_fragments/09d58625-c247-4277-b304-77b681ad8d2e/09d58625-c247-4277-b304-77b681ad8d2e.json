@@ -1,0 +1,116 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.11",
+  "id" : "09d58625-c247-4277-b304-77b681ad8d2e",
+  "name" : "CaseActivities",
+  "lastUpdate" : 1520435115139,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h3><span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span> Case activities</h3>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "6d1c8ddb-7b68-4f08-b50d-cef75b1ee72a",
+    "id" : "pbText"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "activities"
+      },
+      "columnsKey" : {
+        "type" : "expression",
+        "value" : "formattedColumn"
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "3b344fbf-dcd4-4753-a599-93f1ea338e04",
+    "id" : "customHTMLDataTable"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseId" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "activities" : {
+      "type" : "url",
+      "value" : "../API/extension/caseActivity?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "formattedColumn" : {
+      "type" : "expression",
+      "value" : "return [function(input){\n    if(input.row.url){\n        if(input.row.target){\n            return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">\"+input.row.name+\"</a>\";\n        }\n        return \"<a href=\\\"\"+input.row.url+\"\\\">\"+input.row.name+\"</a>\";\n    }\n   return input.row.name;\n}, \nfunction(input){\n     if(input.row.description){\n        return \"<em>\"+input.row.description+\"</em>\" ;\n     }\n    return \"\" ;\n},\n\"state|labelized\"];",
+      "exposed" : false
+    }
+  },
+  "type" : "fragment"
+}

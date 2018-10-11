@@ -1,0 +1,343 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.11",
+  "id" : "Case",
+  "name" : "Case",
+  "lastUpdate" : 1524751347006,
+  "rows" : [ [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 8
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "3589445e-f9a3-40de-bb8d-82428d9dcf4c",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "7da35c6c-ac2d-4d07-a48d-bdd107b14236",
+      "id" : "09d58625-c247-4277-b304-77b681ad8d2e",
+      "binding" : {
+        "caseId" : "caseId"
+      }
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "disabled" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "<span class=\"glyphicon glyphicon-remove-sign\" aria-hidden=\"true\"></span> Close"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "right"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "warning"
+        },
+        "action" : {
+          "type" : "constant",
+          "value" : "PUT"
+        },
+        "url" : {
+          "type" : "interpolation",
+          "value" : "../API/extension/case"
+        },
+        "dataToSend" : {
+          "type" : "expression",
+          "value" : "caseIdPayload"
+        },
+        "dataFromSuccess" : {
+          "type" : "variable",
+          "value" : "caseId"
+        },
+        "dataFromError" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "targetUrlOnSuccess" : {
+          "type" : "interpolation",
+          "value" : ".."
+        },
+        "collectionToModify" : {
+          "type" : "variable"
+        },
+        "collectionPosition" : {
+          "type" : "constant",
+          "value" : "Last"
+        },
+        "valueToAdd" : {
+          "type" : "constant"
+        },
+        "removeItem" : {
+          "type" : "variable"
+        }
+      },
+      "reference" : "0ec3723a-79d8-4811-9689-9e6a3d109f5e",
+      "id" : "pbButton"
+    } ] ]
+  }, {
+    "type" : "fragment",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 4,
+      "lg" : 4
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
+    "id" : "2903e26b-316f-4069-95ab-4752903d59ca",
+    "binding" : {
+      "caseId" : "caseId"
+    }
+  } ], [ {
+    "type" : "tabsContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "76e47303-7bb6-496e-9e69-00d82e2ddebf",
+    "id" : "pbTabsContainer",
+    "tabs" : [ {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "d15c2d3b-92f9-4e63-b0f5-e1a2f644e2de",
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "47f42ecc-c0e2-4c84-b1d0-1bbf77106505",
+          "id" : "c91a652b-61f9-4551-b385-d86639d0f674",
+          "binding" : {
+            "caseHistory" : "caseHistory"
+          }
+        } ] ]
+      },
+      "title" : "History"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "3b35ac40-50ef-48a7-9ab0-c01a7fa23e0d",
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "e469efa4-76df-4a8a-82b3-fa3d54bdebf1",
+          "id" : "c4547271-ff13-498d-be4b-6c47e9d4495c",
+          "binding" : {
+            "caseComments" : "caseComments"
+          }
+        } ] ]
+      },
+      "title" : "Comments"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "354362fb-1411-4d52-a8dc-42e5eb0b2f2c",
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "3d3d8f45-fa41-454e-bae1-ad09a2313e1e",
+          "id" : "0f4acbfa-0b0f-4616-9d1d-155fd9c04a4c",
+          "binding" : {
+            "caseDocuments" : "caseContext.caseDocuments_ref"
+          }
+        } ] ]
+      },
+      "title" : "Documents"
+    } ]
+  } ] ],
+  "assets" : [ {
+    "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  }, {
+    "id" : "639c0f47-9b7a-4d96-a9fb-77a3c88db8e4",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "7c22c420-c2cf-4e44-a66e-7cced45705a5",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "e0b0bc11-802e-4e19-849b-f2bfce5d722b",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseLabel" : {
+      "type" : "expression",
+      "value" : "return function(input){\n    return input.id + \" - \" + input.processDefinitionId.name ;\n}",
+      "exposed" : false
+    },
+    "caseHistory" : {
+      "type" : "url",
+      "value" : "../API/extension/caseHistory?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "caseContext" : {
+      "type" : "url",
+      "value" : "../API/bpm/case/{{caseId}}/context",
+      "exposed" : false
+    },
+    "caseComments" : {
+      "type" : "url",
+      "value" : "../API/extension/caseComment?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "caseIdPayload" : {
+      "type" : "expression",
+      "value" : "return {\n    'caseId' : $data.caseId\n};",
+      "exposed" : false
+    },
+    "caseId" : {
+      "type" : "urlparameter",
+      "value" : "id",
+      "exposed" : false
+    },
+    "archived" : {
+      "type" : "url",
+      "value" : "../API/bpm/archivedCase/{{caseId}}",
+      "exposed" : false
+    }
+  },
+  "uuid" : "7295eeab-79e8-479b-93b3-fd60973600be",
+  "type" : "page"
+}

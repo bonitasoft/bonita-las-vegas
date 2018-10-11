@@ -1,0 +1,139 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.11",
+  "id" : "0f4acbfa-0b0f-4616-9d1d-155fd9c04a4c",
+  "name" : "CaseDocuments",
+  "lastUpdate" : 1520435115175,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h3><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Case documents</h3>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "3b6e04cd-651b-4fc2-9e8b-846ca747ebe8",
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : "caseDocuments"
+      }
+    },
+    "reference" : "1363720d-390a-454d-912b-2bbae62d1cc4",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<i class=\"glyphicon glyphicon-link\"></i> {{$item.fileName}}"
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "URL"
+        },
+        "targetUrl" : {
+          "type" : "expression",
+          "value" : "\"../API/\" + $item.url"
+        },
+        "pageToken" : {
+          "type" : "constant"
+        },
+        "processName" : {
+          "type" : "constant"
+        },
+        "processVersion" : {
+          "type" : "constant"
+        },
+        "taskId" : {
+          "type" : "constant"
+        },
+        "caseId" : {
+          "type" : "constant"
+        },
+        "target" : {
+          "type" : "constant",
+          "value" : "_blank"
+        },
+        "appToken" : {
+          "type" : "constant"
+        },
+        "urlParams" : {
+          "type" : "constant"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "left"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "link"
+        }
+      },
+      "reference" : "56cb6304-7941-45dc-b70e-79e163d6b2ff",
+      "id" : "pbLink"
+    } ] ]
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseDocuments" : {
+      "type" : "constant",
+      "exposed" : true
+    }
+  },
+  "type" : "fragment"
+}

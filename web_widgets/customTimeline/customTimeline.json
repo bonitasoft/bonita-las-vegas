@@ -1,0 +1,26 @@
+{
+  "designerVersion" : "1.7.11",
+  "id" : "customTimeline",
+  "name" : "Timeline",
+  "lastUpdate" : 1524751346891,
+  "template" : " <div class=\"well well-sm\">\n     <div class=\"timeline\">\n          <div ng-class=\"$index % 2 === 0 ? 'box left' : 'box right'\" ng-repeat=\"event in properties.events track by $index\">\n            <div class=\"content\">\n              <h3 ng-bind-html=\"event.title\"></h3>\n              <p ng-bind-html=\"event.body\"></p>\n            </div>\n          </div>\n    </div>\n</div>",
+  "controller" : "",
+  "custom" : true,
+  "properties" : [ {
+    "label" : "Events",
+    "name" : "events",
+    "help" : "An array of Event",
+    "type" : "collection",
+    "bond" : "expression"
+  } ],
+  "assets" : [ {
+    "id" : "de823f49-c69e-4eee-8362-e9a1e7a1762b",
+    "name" : "timeline.css",
+    "type" : "css",
+    "order" : 1,
+    "external" : false
+  } ],
+  "requiredModules" : [ ],
+  "type" : "widget",
+  "hasHelp" : false
+}

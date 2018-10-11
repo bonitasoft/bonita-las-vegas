@@ -1,0 +1,147 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.11",
+  "id" : "CaseListOriginal",
+  "name" : "CaseListOriginal",
+  "lastUpdate" : 1524839652999,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Case list"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "35e28098-3f4c-42d8-a3a3-abd7c8bc9804",
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Id", "Process", "State" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "cases"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "id", "name", "state", "viewAction" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "2daff842-a013-48c9-9f86-6006aa84938e",
+    "id" : "customHTMLDataTable"
+  } ] ],
+  "assets" : [ {
+    "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  }, {
+    "id" : "639c0f47-9b7a-4d96-a9fb-77a3c88db8e4",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "7c22c420-c2cf-4e44-a66e-7cced45705a5",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "e0b0bc11-802e-4e19-849b-f2bfce5d722b",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "cases" : {
+      "type" : "url",
+      "value" : "../API/extension/case",
+      "exposed" : false
+    },
+    "caseLabel" : {
+      "type" : "expression",
+      "value" : "return function(input){\n    return input.id + \" - \" + input.processDefinitionId.name ;\n}",
+      "exposed" : false
+    },
+    "caseId" : {
+      "type" : "expression",
+      "value" : "if($data.cases && $data.cases.length > 0){\n    return  $data.cases[0].id;\n}\nreturn \"\";\n",
+      "exposed" : false
+    },
+    "caseIdPayload" : {
+      "type" : "expression",
+      "value" : "return {\n    'caseId' : $data.caseId\n};",
+      "exposed" : false
+    }
+  },
+  "uuid" : "c0361cf3-31a1-45db-a492-3834a47c413a",
+  "type" : "page"
+}

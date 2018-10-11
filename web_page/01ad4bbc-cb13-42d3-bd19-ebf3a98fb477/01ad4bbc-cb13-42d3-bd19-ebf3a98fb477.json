@@ -1,0 +1,150 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.7.4",
+  "id" : "01ad4bbc-cb13-42d3-bd19-ebf3a98fb477",
+  "name" : "CaseManagementLayout",
+  "lastUpdate" : 1524751348136,
+  "rows" : [ [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-header"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "7319a256-1993-4c83-865f-59f8e3768dcf",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "lg" : 12,
+        "md" : 12,
+        "sm" : 12,
+        "xs" : 12
+      },
+      "propertyValues" : {
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "targetUrl" : {
+          "type" : "variable",
+          "value" : "targetedPageUrl"
+        },
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        }
+      },
+      "reference" : "31b08208-c5b9-4dd5-a877-aa71599c7ec2",
+      "id" : "customLivingApplicationMenuV3"
+    } ] ]
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-content"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "b22cdebf-0ecb-4456-855d-4654647ff4b2",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "src" : {
+          "type" : "variable",
+          "value" : "targetedPageUrl"
+        }
+      },
+      "reference" : "938ae9e5-7f6f-46a5-8ce2-9e54ef504c1f",
+      "id" : "customLivingApplicationIFrameV3"
+    } ] ]
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-footer"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "4e0f14a2-def5-4af2-af9c-138e94a1e14f",
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  } ] ],
+  "assets" : [ {
+    "id" : "2007621b-afa8-48ec-846f-f4d78ce90b8a",
+    "name" : "layout.css",
+    "type" : "css",
+    "order" : 1,
+    "external" : false
+  }, {
+    "id" : "27b2007f-d336-4f20-b640-5810f7a8af54",
+    "name" : "layout.js",
+    "type" : "js",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "targetedPageUrl" : {
+      "type" : "constant",
+      "value" : "",
+      "exposed" : false
+    }
+  },
+  "uuid" : "01ad4bbc-cb13-42d3-bd19-ebf3a98fb477",
+  "type" : "layout"
+}

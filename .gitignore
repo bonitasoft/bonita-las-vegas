@@ -1,0 +1,28 @@
+bin
+.classpath
+/src-providedGroovy
+/template
+/h2_database
+/process_configurations
+/META-INF
+.settings
+target/
+/build.properties
+
+#provided web widgets
+/web_widgets/pb*/
+
+#web component preferenes
+/web_widgets/.metadata
+/web_widgets/*/*.js
+/web_fragments/.metadata
+/web_fragments/*/*.js
+/web_page/.metadata
+/web_page/*/js
+
+#bdm jar dependency is regenerate from bom.xml file
+/lib/bdm-client-pojo.jar
+
+#only used as user preferences
+/database_connectors_properties
+/bonita-la-builder-7.7.0-SNAPSHOT-exec.jar
