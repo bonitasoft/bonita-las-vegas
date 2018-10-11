@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.11",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1524751347006,
+  "lastUpdate" : 1539270639698,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -148,6 +148,62 @@
     "binding" : {
       "caseId" : "caseId"
     }
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "date", "description", "type", "currency", "amount" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Bonita API"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseLine?q=find&c=10&p=0"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "constant"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "expenseDate", "description", "expenseType", "currency", "amount" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "b26fd573-494a-4c10-9f9c-4d28c748d563",
+    "id" : "pbDataTable"
   } ], [ {
     "type" : "tabsContainer",
     "dimension" : {

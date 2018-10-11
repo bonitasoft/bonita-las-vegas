@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539267452072,
+  "lastUpdate" : 1539270795789,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -985,38 +985,6 @@
     },
     "reference" : "b1da2fb9-185d-4ff3-85d3-4008af02f770",
     "id" : "customAssignAndExecuteWithContractButton"
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "{{formInput}}"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      }
-    },
-    "reference" : "cc0db154-6bb6-4847-a418-773737f32588",
-    "id" : "pbText"
   } ] ],
   "assets" : [ {
     "id" : "affe00a9-5637-40eb-ac68-a98f87a6f842",
@@ -1040,7 +1008,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": true,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.name,\n    \"amount\": isKm ? -1 : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
+      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": true,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.name,\n    \"amount\": isKm ? $data.kmAmount : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
       "exposed" : false
     },
     "context" : {

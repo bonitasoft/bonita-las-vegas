@@ -180,31 +180,31 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_NZjLDrdREeiL4PfVNHbDaA" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_NZjLD7dREeiL4PfVNHbDaA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_NZjLELdREeiL4PfVNHbDaA" name="expenseReportInput.expenseLine" content="import com.bonita.lr.model.ExpenseLine;&#xA;&#xA;def expenseLineList = []&#xA;expenseLineList.addAll(expenseReport.expenseLine)&#xA;expenseLineList.add(&#xA;&#x9;&#x9;new ExpenseLine().with {&#xA;&#x9;&#x9;&#x9;&#x9;it.expenseDate = expenseDate&#xA;&#x9;&#x9;&#x9;&#x9;it.description = description&#xA;&#x9;&#x9;&#x9;&#x9;if(isKm){&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.km = km&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.vehicleType = vehicle&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.currency = &quot;EUR&quot;&#xA;&#x9;&#x9;&#x9;&#x9;}else{&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.amount = amount&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.expenseType = expenseType&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;it.currency = currency&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;)&#xA;return expenseLineList" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHloM1eEeisrukIH6vpLg" name="km">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHloc1eEeisrukIH6vpLg"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_NZjLELdREeiL4PfVNHbDaA" name="expenseReportInput.expenseLine" content="import com.bonita.lr.model.ExpenseLine;&#xA;&#xA;def expenseLineList = []&#xA;expenseLineList.addAll(expenseReport.expenseLine)&#xA;ExpenseLine line = new ExpenseLine()&#xA;line.setExpenseDate(expenseDate)&#xA;line.setDescription(description)&#xA;if (isKm) {&#xA;    line.setKm(km)&#xA;    line.setVehicleType(vehicle)&#xA;    line.setCurrency(&quot;EUR&quot;)&#xA;    line.setAmount(amount) // TODO: should be computed here&#xA;    line.setExpenseType(&quot;KM&quot;)&#xA;} else {&#xA;    line.setAmount(amount)&#xA;    line.setExpenseType(expenseType)&#xA;    line.setCurrency(currency)&#xA;}&#xA;expenseLineList.add(line)&#xA;return expenseLineList" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf4M1oEeiaGocGfXk4aA" name="km" type="INTEGER">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf4c1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlos1eEeisrukIH6vpLg" name="amount" type="INTEGER">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlo81eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf4s1oEeiaGocGfXk4aA" name="amount" type="INTEGER">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf481oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlpM1eEeisrukIH6vpLg" name="expenseType">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlpc1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf5M1oEeiaGocGfXk4aA" name="expenseType">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf5c1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__QHlps1eEeisrukIH6vpLg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlp81eEeisrukIH6vpLg" name="description">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlqM1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_QNEf5s1oEeiaGocGfXk4aA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf581oEeiaGocGfXk4aA" name="description">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf6M1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlqc1eEeisrukIH6vpLg" name="currency">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlqs1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf6c1oEeiaGocGfXk4aA" name="currency">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf6s1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlq81eEeisrukIH6vpLg" name="isKm" type="BOOLEAN">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlrM1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf681oEeiaGocGfXk4aA" name="isKm" type="BOOLEAN">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf7M1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlrc1eEeisrukIH6vpLg" name="expenseDate" type="LOCALDATE">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlrs1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf7c1oEeiaGocGfXk4aA" name="expenseDate" type="LOCALDATE">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf7s1oEeiaGocGfXk4aA"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="__QHlr81eEeisrukIH6vpLg" name="vehicle">
-                <mapping xmi:type="process:ContractInputMapping" xmi:id="__QHlsM1eEeisrukIH6vpLg"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_QNEf781oEeiaGocGfXk4aA" name="vehicle">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_QNEf8M1oEeiaGocGfXk4aA"/>
               </referencedElements>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_NZjLE7dREeiL4PfVNHbDaA" type="JAVA_METHOD" expression="setExpenseLine">
@@ -246,7 +246,7 @@
             <inputs xmi:type="process:ContractInput" xmi:id="_EiIOoM1bEeisrukIH6vpLg" name="vehicle">
               <mapping xmi:type="process:ContractInputMapping" xmi:id="_EiIOoc1bEeisrukIH6vpLg"/>
             </inputs>
-            <inputs xmi:type="process:ContractInput" xmi:id="_Fbs68M1bEeisrukIH6vpLg" name="km">
+            <inputs xmi:type="process:ContractInput" xmi:id="_Fbs68M1bEeisrukIH6vpLg" name="km" type="INTEGER">
               <mapping xmi:type="process:ContractInputMapping" xmi:id="_Fbs68c1bEeisrukIH6vpLg"/>
             </inputs>
           </contract>
