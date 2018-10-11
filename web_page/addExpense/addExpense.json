@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539263411077,
+  "lastUpdate" : 1539267452072,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -524,7 +524,7 @@
           },
           "returnedKey" : {
             "type" : "constant",
-            "value" : "persistenceId"
+            "value" : ""
           },
           "value" : {
             "type" : "variable",
@@ -690,7 +690,7 @@
         },
         "value" : {
           "type" : "variable",
-          "value" : "vehicle"
+          "value" : "formInput.vehicle"
         }
       },
       "reference" : "090cb30f-f126-4928-be93-e634f1d298d3",
@@ -754,7 +754,7 @@
         },
         "value" : {
           "type" : "variable",
-          "value" : "currency"
+          "value" : "formInput.currency"
         }
       },
       "reference" : "1d2d3d33-e8d0-4055-b721-e909fe5fdc3f",
@@ -972,7 +972,7 @@
       },
       "contract" : {
         "type" : "expression",
-        "value" : "formOutput.contract"
+        "value" : "formOutput"
       },
       "dataFromError" : {
         "type" : "variable",
@@ -985,6 +985,38 @@
     },
     "reference" : "b1da2fb9-185d-4ff3-85d3-4008af02f770",
     "id" : "customAssignAndExecuteWithContractButton"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "{{formInput}}"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "cc0db154-6bb6-4847-a418-773737f32588",
+    "id" : "pbText"
   } ] ],
   "assets" : [ {
     "id" : "affe00a9-5637-40eb-ac68-a98f87a6f842",
@@ -1002,13 +1034,13 @@
   "inactiveAssets" : [ ],
   "data" : {
     "formInput" : {
-      "type" : "json",
-      "value" : "{}",
+      "type" : "expression",
+      "value" : "return {\n    \"vehicle\":$data.vehicles[0],\n    \"expenseType\":$data.expenseTypes[0],\n    \"currency\":$data.currencies[0]\n};",
       "exposed" : false
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var temp = angular.copy($data.formInput)\ntemp.currency = $data.currency?$data.currency.name:null\ntemp.currencyRatio =  $data.currency?$data.currency.rate:null\ntemp.vehicleType = $data.vehicle?$data.vehicle.name:null\ntemp.vehicleRate= $data.vehicle?$data.vehicle.rate:null\nif ($data.isKm) {\n    temp.amount = $data.kmAmount\n}\n\nreturn {\n\t \"contract\": {'expenseReportInput': {\"expenseLine\":[temp]}}\n};",
+      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": true,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.name,\n    \"amount\": isKm ? -1 : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
       "exposed" : false
     },
     "context" : {
@@ -1023,7 +1055,7 @@
     },
     "isKm" : {
       "type" : "expression",
-      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formOutput.contract.expenseReportInput.expenseLine[0].expenseType\n})\nreturn type?type.type === \"KM\":false\n",
+      "value" : "var type = $data.expenseTypes.find(function(e){\n    return e.persistenceId == $data.formInput.expenseType.persistenceId\n})\nreturn type?type.type === \"KM\":false\n",
       "exposed" : false
     },
     "currencies" : {
@@ -1036,19 +1068,9 @@
       "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseVehicle?q=find&p=0&c=10",
       "exposed" : false
     },
-    "currency" : {
-      "type" : "expression",
-      "value" : "return $data.currencies[0]",
-      "exposed" : false
-    },
-    "vehicle" : {
-      "type" : "json",
-      "value" : "{}",
-      "exposed" : false
-    },
     "kmAmount" : {
       "type" : "expression",
-      "value" : "return $data.vehicle?$data.vehicle.rate * $data.formInput.km:null",
+      "value" : "return $data.formInput.vehicle?$data.formInput.vehicle.rate * $data.formInput.km:null",
       "exposed" : false
     },
     "user" : {
