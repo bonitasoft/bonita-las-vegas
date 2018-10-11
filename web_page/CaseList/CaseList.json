@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.11",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1524839671025,
+  "lastUpdate" : 1539249481239,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -148,8 +148,8 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "expression",
-        "value" : "selected == null"
+        "type" : "constant",
+        "value" : false
       },
       "disabled" : {
         "type" : "constant",
@@ -346,10 +346,6 @@
     "sampleTransactions" : {
       "type" : "json",
       "value" : "[\n    {\"transactionDate\":\"2018-05-02\", \"description\":\"Maje\", \"amount\":\"341.00\"},\n    {\"transactionDate\":\"2018-05-04\", \"description\":\"Carrefour\", \"amount\":\"125.00\"},\n    {\"transactionDate\":\"2018-05-13\", \"description\":\"Orange\", \"amount\":\"45.00\"}\n]",
-      "exposed" : false
-    },
-    "selected" : {
-      "type" : "constant",
       "exposed" : false
     },
     "acct" : {
