@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539270795789,
+  "lastUpdate" : 1539343964079,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1038,7 +1038,7 @@
     },
     "kmAmount" : {
       "type" : "expression",
-      "value" : "return $data.formInput.vehicle?$data.formInput.vehicle.rate * $data.formInput.km:null",
+      "value" : "return $data.formInput.vehicle ? $data.formInput.vehicle.rate * $data.formInput.km : null",
       "exposed" : false
     },
     "user" : {
