@@ -2,7 +2,7 @@
   "designerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539270795789,
+  "lastUpdate" : 1539346606208,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1008,7 +1008,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": true,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.name,\n    \"amount\": isKm ? $data.kmAmount : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
+      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": isKm,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.type,\n    \"amount\": isKm ? $data.kmAmount : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
       "exposed" : false
     },
     "context" : {
@@ -1038,7 +1038,7 @@
     },
     "kmAmount" : {
       "type" : "expression",
-      "value" : "return $data.formInput.vehicle?$data.formInput.vehicle.rate * $data.formInput.km:null",
+      "value" : "return $data.formInput.vehicle ? $data.formInput.vehicle.rate * $data.formInput.km : null",
       "exposed" : false
     },
     "user" : {
