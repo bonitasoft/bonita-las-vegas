@@ -1,8 +1,9 @@
 {
-  "designerVersion" : "1.7.69",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.69",
   "id" : "ManagerValidateExpense1",
   "name" : "ManagerValidateExpense",
-  "lastUpdate" : 1536851465728,
+  "lastUpdate" : 1558946439879,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -22,6 +23,7 @@
       }
     },
     "reference" : "c5fe39b3-6699-43ca-8cf3-c99bf1316c8a",
+    "hasValidationError" : false,
     "id" : "ExpenseReportReadOnly",
     "binding" : { }
   } ] ],
@@ -71,6 +73,8 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "ae7f7c50-af4d-49fe-a6bd-22c6ef5e4c00",
-  "type" : "form"
+  "type" : "form",
+  "description" : "Page generated with Bonita UI designer"
 }

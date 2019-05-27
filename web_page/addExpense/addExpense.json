@@ -1,8 +1,9 @@
 {
-  "designerVersion" : "1.7.69",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1539346606208,
+  "lastUpdate" : 1558966378462,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -10,6 +11,7 @@
     },
     "propertyValues" : { },
     "reference" : "10c6ea20-5715-4890-a809-6b19ab2bcc41",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -65,6 +67,7 @@
         }
       },
       "reference" : "30b0cd4a-ae1c-45cf-9a40-3c79dee74c6c",
+      "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
       "type" : "component",
@@ -113,9 +116,18 @@
         "dimension" : {
           "type" : "constant",
           "value" : 12
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
         }
       },
       "reference" : "3b237c1e-205e-49fe-88f3-97af6844705e",
+      "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
   } ], [ {
@@ -171,6 +183,7 @@
       }
     },
     "reference" : "3b5122cc-4540-4f75-a11b-a15fbed4d1f2",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -262,6 +275,7 @@
         }
       },
       "reference" : "e95a5fae-581a-4bdc-a93b-215b2b057ff6",
+      "hasValidationError" : false,
       "id" : "pbDatePicker"
     } ], [ {
       "type" : "component",
@@ -359,6 +373,7 @@
         }
       },
       "reference" : "5f2b9dc1-7520-4a8b-acb4-2df7befc3ef1",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
       "type" : "component",
@@ -411,9 +426,14 @@
         "dimension" : {
           "type" : "constant",
           "value" : 12
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
         }
       },
       "reference" : "87ce253c-0790-4ada-ab9d-08afa5b88183",
+      "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
       "type" : "container",
@@ -468,13 +488,13 @@
         }
       },
       "reference" : "7dc78aec-ca4f-4765-a0ae-ead7c58d9ba0",
+      "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
         "type" : "component",
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : null,
           "lg" : 6
         },
         "propertyValues" : {
@@ -532,6 +552,7 @@
           }
         },
         "reference" : "7879c2f2-34d5-4b71-90c0-58efaa3d6ad5",
+        "hasValidationError" : false,
         "id" : "pbSelect"
       } ] ]
     } ], [ {
@@ -630,6 +651,7 @@
         }
       },
       "reference" : "ee0b8963-3c8d-4169-a03b-664e23e93031",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
       "type" : "component",
@@ -694,6 +716,7 @@
         }
       },
       "reference" : "090cb30f-f126-4928-be93-e634f1d298d3",
+      "hasValidationError" : false,
       "id" : "pbSelect"
     } ], [ {
       "type" : "component",
@@ -758,6 +781,7 @@
         }
       },
       "reference" : "1d2d3d33-e8d0-4055-b721-e909fe5fdc3f",
+      "hasValidationError" : false,
       "id" : "pbSelect"
     } ], [ {
       "type" : "component",
@@ -855,6 +879,7 @@
         }
       },
       "reference" : "6eb9b639-810e-4094-928c-f3565d2746b0",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
       "type" : "component",
@@ -928,6 +953,7 @@
         }
       },
       "reference" : "1784d9eb-a47b-4ee4-9a87-98b49e2b4bf4",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ] ]
   } ], [ {
@@ -967,24 +993,58 @@
         "type" : "constant",
         "value" : "Submit task"
       },
+      "assign" : {
+        "type" : "constant",
+        "value" : true
+      },
       "url" : {
         "type" : "interpolation"
       },
-      "contract" : {
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
         "type" : "expression",
         "value" : "formOutput"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
       },
       "dataFromError" : {
         "type" : "variable",
         "value" : ""
       },
-      "assignedId" : {
-        "type" : "expression",
-        "value" : "user.user_id"
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation",
+        "value" : "?id={{task.caseId}}"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
       }
     },
-    "reference" : "b1da2fb9-185d-4ff3-85d3-4008af02f770",
-    "id" : "customAssignAndExecuteWithContractButton"
+    "reference" : "47bb22c1-e29e-4ae6-93ed-277d97c7a54a",
+    "hasValidationError" : false,
+    "id" : "pbButton"
   } ] ],
   "assets" : [ {
     "id" : "affe00a9-5637-40eb-ac68-a98f87a6f842",
@@ -1045,8 +1105,20 @@
       "type" : "url",
       "value" : "../API/system/session/1",
       "exposed" : false
+    },
+    "task" : {
+      "type" : "url",
+      "value" : "../API/bpm/userTask/{{taskId}}",
+      "exposed" : false
+    },
+    "taskId" : {
+      "type" : "urlparameter",
+      "value" : "id",
+      "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "d36167ac-4489-487d-af16-4e6c33cede52",
-  "type" : "form"
+  "type" : "form",
+  "description" : "Page generated with Bonita UI designer"
 }

@@ -1,8 +1,9 @@
 {
-  "designerVersion" : "1.7.69",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1539261953887,
+  "lastUpdate" : 1558956528263,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -10,6 +11,7 @@
     },
     "propertyValues" : { },
     "reference" : "48e2d33e-8e4f-4c2d-a5d6-3599725ff8d8",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -69,6 +71,7 @@
         }
       },
       "reference" : "b6e4280d-15ab-469c-827f-0801d35cb83f",
+      "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
       "type" : "component",
@@ -125,9 +128,18 @@
         "allowHTML" : {
           "type" : "constant",
           "value" : true
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
         }
       },
       "reference" : "81c48ebf-b076-4df2-b48a-b4fe9886a106",
+      "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
   } ], [ {
@@ -183,6 +195,7 @@
       }
     },
     "reference" : "9c66060c-fabe-46bf-8b82-7986b6f719ca",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -254,6 +267,7 @@
         }
       },
       "reference" : "f5dbbbf0-c1ec-4401-81de-9cf7c3809563",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
       "type" : "component",
@@ -351,6 +365,7 @@
         }
       },
       "reference" : "cde27c55-8522-4db4-b5e8-190dc4152b8f",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ], [ {
       "type" : "component",
@@ -448,6 +463,7 @@
         }
       },
       "reference" : "37ec3308-bd87-4e25-a50d-f667cacef04f",
+      "hasValidationError" : false,
       "id" : "pbInput"
     } ] ]
   } ], [ {
@@ -487,24 +503,58 @@
         "type" : "constant",
         "value" : "Submit task"
       },
+      "assign" : {
+        "type" : "constant",
+        "value" : true
+      },
       "url" : {
         "type" : "interpolation"
       },
-      "contract" : {
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
         "type" : "expression",
         "value" : "formOutput.contract"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
       },
       "dataFromError" : {
         "type" : "variable",
         "value" : ""
       },
-      "assignedId" : {
-        "type" : "expression",
-        "value" : "user.user_id"
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation",
+        "value" : "?id={{task.caseId}}"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
       }
     },
-    "reference" : "641f85d4-3d6f-48b1-986d-481ce3af08a1",
-    "id" : "customAssignAndExecuteWithContractButton"
+    "reference" : "7e58e43b-e244-451d-a301-db2a9c70a9d6",
+    "hasValidationError" : false,
+    "id" : "pbButton"
   } ] ],
   "assets" : [ {
     "id" : "a4869b21-de52-417c-b15a-942fe469e6d3",
@@ -540,8 +590,20 @@
       "type" : "url",
       "value" : "../API/system/session/1",
       "exposed" : false
+    },
+    "taskId" : {
+      "type" : "urlparameter",
+      "value" : "id",
+      "exposed" : false
+    },
+    "task" : {
+      "type" : "url",
+      "value" : "../API/bpm/userTask/{{taskId}}",
+      "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "116840d3-8526-44fa-818e-756b7527a0ac",
-  "type" : "form"
+  "type" : "form",
+  "description" : "Page generated with Bonita UI designer"
 }

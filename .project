@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>bonita-case-management</name>
-	<comment>7.7.4</comment>
+	<comment>7.9.0</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -32,11 +32,11 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.bonitasoft.studio.common.repository.bonitaNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
-		<nature>org.bonitasoft.studio.common.repository.bonitaNature</nature>
+		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
 		<nature>org.eclipse.emf.texo.eclipse.nature</nature>
 	</natures>
 </projectDescription>

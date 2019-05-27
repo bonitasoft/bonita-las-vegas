@@ -1,0 +1,97 @@
+{
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
+  "id" : "CaseHistory",
+  "name" : "CaseHistory",
+  "lastUpdate" : 1554212886790,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<h3><span class=\"glyphicon glyphicon-time\" aria-hidden=\"true\"></span> Case history</h3>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      }
+    },
+    "reference" : "efec84ed-a2c3-4278-97e5-f2e67b702b73",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "events" : {
+        "type" : "expression",
+        "value" : "events"
+      }
+    },
+    "reference" : "9a3fe94d-6ac9-4e19-82f9-6bf877b11dd9",
+    "hasValidationError" : false,
+    "id" : "customTimeline"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "caseHistory" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "events" : {
+      "type" : "expression",
+      "value" : "if($data.caseHistory){\n    return $data.caseHistory.map(function(task){\n        return {\n            \"title\": task.displayName,\n            \"body\" : \"<p><p>\"+task.displayDescription+\"</p><span class=\\\"glyphicon glyphicon-user\\\" aria-hidden=\\\"true\\\"></span> \"+task.executedBy.firstName+\" \"+task.executedBy.lastName+\"</p><p><span class=\\\"glyphicon glyphicon-time\\\" aria-hidden=\\\"true\\\"></span> \"+ moment(task.reached_state_date).fromNow() +\"</p>\"\n        };\n    });\n}\nreturn [];",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

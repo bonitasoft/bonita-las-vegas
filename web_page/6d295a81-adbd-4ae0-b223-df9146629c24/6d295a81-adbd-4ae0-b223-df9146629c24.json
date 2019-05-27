@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.7.25",
   "id" : "6d295a81-adbd-4ae0-b223-df9146629c24",
   "name" : "ExecuteManualTask",
-  "lastUpdate" : 1524751347527,
+  "lastUpdate" : 1558946439836,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -23,6 +23,7 @@
       }
     },
     "reference" : "007a3beb-81d8-4b0c-a20d-920b3b19fff8",
+    "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
       "type" : "container",
@@ -31,6 +32,7 @@
       },
       "propertyValues" : { },
       "reference" : "4a3ea768-cd65-4964-835b-ee2a6e9b4e8a",
+      "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
         "type" : "component",
@@ -60,9 +62,26 @@
           "alignment" : {
             "type" : "constant",
             "value" : "center"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : ""
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
           }
         },
         "reference" : "3cbbbdd7-1dd2-4fa3-a420-3ee58eca96d9",
+        "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
         "type" : "component",
@@ -92,9 +111,26 @@
           "alignment" : {
             "type" : "constant",
             "value" : "left"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : ""
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
           }
         },
         "reference" : "67048982-20b5-4887-91e3-35f7d995e8d6",
+        "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
         "type" : "component",
@@ -151,6 +187,7 @@
           }
         },
         "reference" : "c40848ec-81ea-415e-a16f-c0bd39e2b656",
+        "hasValidationError" : false,
         "id" : "pbTextarea"
       } ], [ {
         "type" : "component",
@@ -224,6 +261,7 @@
           }
         },
         "reference" : "47e01b95-aab7-4c15-a3ba-be99d5112db2",
+        "hasValidationError" : false,
         "id" : "pbButton"
       } ] ]
     }
@@ -263,6 +301,8 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "6d295a81-adbd-4ae0-b223-df9146629c24",
-  "type" : "page"
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
 }

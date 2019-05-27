@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="cases" version="1.0" profile="User" homePage="home" state="ACTIVATED" layout="custompage_CaseManagementLayout" theme="custompage_bootstrapdefaulttheme">
-        <displayName>Case Managenement</displayName>
+    <application token="cases" version="1.0" profile="User" homePage="home" state="ACTIVATED" layout="custompage_CaseManagementLayout" theme="custompage_themeBonita">
+        <displayName>Case Management</displayName>
         <description></description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_processlistBonita" token="processes"/>
         </applicationPages>
-        <applicationMenus/>
+        <applicationMenus>
+            <applicationMenu applicationPage="home">
+                <displayName>Cases</displayName>
+            </applicationMenu>
+            <applicationMenu applicationPage="processes">
+                <displayName>Processes</displayName>
+            </applicationMenu>
+        </applicationMenus>
     </application>
 </applications>

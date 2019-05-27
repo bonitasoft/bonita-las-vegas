@@ -1,0 +1,251 @@
+{
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
+  "id" : "CaseManagementLayout",
+  "name" : "CaseManagementLayout",
+  "lastUpdate" : 1558955303092,
+  "rows" : [ [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-header"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "7319a256-1993-4c83-865f-59f8e3768dcf",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "value" : {
+          "type" : "constant",
+          "value" : "<span class=\"glyphicon glyphicon-off\"></span> Logout"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "right"
+        },
+        "buttonStyle" : {
+          "type" : "constant",
+          "value" : "link"
+        }
+      },
+      "reference" : "2302d73d-f409-4e5a-8a0d-d2c1ce20fb31",
+      "hasValidationError" : false,
+      "id" : "customSessionWidget"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "targetUrl" : {
+          "type" : "variable",
+          "value" : "targetedPageUrl"
+        },
+        "contextPath" : {
+          "type" : "constant",
+          "value" : "/bonita"
+        },
+        "sticky" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "imgTitle" : {
+          "type" : "constant",
+          "value" : "Link to Bonita BPM Portal"
+        },
+        "targetBlank" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "srcType" : {
+          "type" : "constant",
+          "value" : "Asset"
+        },
+        "assetNameBonita" : {
+          "type" : "constant",
+          "value" : "portal.png"
+        },
+        "url" : {
+          "type" : "constant"
+        },
+        "assetNameCalendarGoogle" : {
+          "type" : "constant",
+          "value" : "calendar.png"
+        },
+        "assetNameSalesForce" : {
+          "type" : "constant",
+          "value" : "sf.png"
+        }
+      },
+      "reference" : "5bf2b0ef-d602-4e8c-b8b2-d6f1ca033164",
+      "hasValidationError" : false,
+      "id" : "customLivingApplicationMenuV2"
+    } ] ]
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-content"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "b22cdebf-0ecb-4456-855d-4654647ff4b2",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "src" : {
+          "type" : "variable",
+          "value" : "targetedPageUrl"
+        }
+      },
+      "reference" : "938ae9e5-7f6f-46a5-8ce2-9e54ef504c1f",
+      "hasValidationError" : false,
+      "id" : "customLivingApplicationIFrameV3"
+    } ] ]
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "layout-footer"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "4e0f14a2-def5-4af2-af9c-138e94a1e14f",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  } ] ],
+  "assets" : [ {
+    "id" : "cf85b8f1-b098-4dac-a84d-596609a6a5c5",
+    "name" : "calendar.png",
+    "type" : "img",
+    "order" : 4,
+    "external" : false
+  }, {
+    "id" : "2007621b-afa8-48ec-846f-f4d78ce90b8a",
+    "name" : "layout.css",
+    "type" : "css",
+    "order" : 1,
+    "external" : false
+  }, {
+    "id" : "5444a8a6-3361-4ac3-8754-541077ccbd81",
+    "name" : "portal.png",
+    "type" : "img",
+    "order" : 3,
+    "external" : false
+  }, {
+    "id" : "80937bfd-9b85-47f0-90d2-0a5c3fced9f9",
+    "name" : "logo.png",
+    "type" : "img",
+    "order" : 5,
+    "external" : false
+  }, {
+    "id" : "27b2007f-d336-4f20-b640-5810f7a8af54",
+    "name" : "layout.js",
+    "type" : "js",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "7b3d9193-407a-447f-ac45-ef6e81c88eea",
+    "name" : "sf.png",
+    "type" : "img",
+    "order" : 2,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "targetedPageUrl" : {
+      "type" : "constant",
+      "value" : "",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "01ad4bbc-cb13-42d3-bd19-ebf3a98fb477",
+  "type" : "layout",
+  "description" : "Page generated with Bonita UI designer",
+  "displayName" : "CaseManagementLayout"
+}

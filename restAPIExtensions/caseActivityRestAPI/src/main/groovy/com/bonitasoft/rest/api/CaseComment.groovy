@@ -37,7 +37,7 @@ class CaseComment implements RestApiController {
 		.findAll{
 			it.userId != null && it.userId != -1
 		}.collect{
-			result << [content:it.content,postDate:it.postDate,username:username(it.userId,context.apiClient.getIdentityAPI())]
+			result << [content:it.content.replace("\n", "<br>"),postDate:it.postDate,username:username(it.userId,context.apiClient.getIdentityAPI())]
 		}
 	
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())

@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1539249481239,
+  "lastUpdate" : 1558953662424,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -76,6 +76,7 @@
       }
     },
     "reference" : "abc2fd0e-a692-430d-8a41-ea15c8e314a3",
+    "hasValidationError" : false,
     "id" : "pbInput"
   } ], [ {
     "type" : "component",
@@ -133,6 +134,7 @@
       }
     },
     "reference" : "dcb08752-2dc8-4185-8df3-585bddf6dd58",
+    "hasValidationError" : false,
     "id" : "pbDataTable"
   } ], [ {
     "type" : "component",
@@ -148,8 +150,8 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "constant",
-        "value" : false
+        "type" : "expression",
+        "value" : "selected == null"
       },
       "disabled" : {
         "type" : "constant",
@@ -202,9 +204,26 @@
       },
       "removeItem" : {
         "type" : "variable"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : ""
       }
     },
     "reference" : "24483bbe-4ec0-44c3-a239-e54140c9a512",
+    "hasValidationError" : false,
     "id" : "pbButton"
   } ], [ {
     "type" : "component",
@@ -237,6 +256,7 @@
       }
     },
     "reference" : "9e0a4149-b701-4ce5-83a7-1ed6a2bf7881",
+    "hasValidationError" : false,
     "id" : "pbTitle"
   } ], [ {
     "type" : "component",
@@ -294,6 +314,7 @@
       }
     },
     "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
+    "hasValidationError" : false,
     "id" : "customHTMLDataTable"
   } ] ],
   "assets" : [ {
@@ -348,6 +369,10 @@
       "value" : "[\n    {\"transactionDate\":\"2018-05-02\", \"description\":\"Maje\", \"amount\":\"341.00\"},\n    {\"transactionDate\":\"2018-05-04\", \"description\":\"Carrefour\", \"amount\":\"125.00\"},\n    {\"transactionDate\":\"2018-05-13\", \"description\":\"Orange\", \"amount\":\"45.00\"}\n]",
       "exposed" : false
     },
+    "selected" : {
+      "type" : "constant",
+      "exposed" : false
+    },
     "acct" : {
       "type" : "constant",
       "exposed" : false
@@ -363,6 +388,9 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "48d95ba0-cc14-4a7b-a941-0da475a442d1",
-  "type" : "page"
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer",
+  "displayName" : "CaseList"
 }

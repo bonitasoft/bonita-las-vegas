@@ -1,9 +1,9 @@
 {
-  "designerVersion" : "1.7.25",
-  "previousDesignerVersion" : "1.7.11",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "CaseListOriginal",
   "name" : "CaseListOriginal",
-  "lastUpdate" : 1524839652999,
+  "lastUpdate" : 1554212886709,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -35,6 +35,7 @@
       }
     },
     "reference" : "35e28098-3f4c-42d8-a3a3-abd7c8bc9804",
+    "hasValidationError" : false,
     "id" : "pbTitle"
   } ], [ {
     "type" : "component",
@@ -92,6 +93,7 @@
       }
     },
     "reference" : "2daff842-a013-48c9-9f86-6006aa84938e",
+    "hasValidationError" : false,
     "id" : "customHTMLDataTable"
   } ] ],
   "assets" : [ {
@@ -142,6 +144,9 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "c0361cf3-31a1-45db-a492-3834a47c413a",
-  "type" : "page"
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer",
+  "displayName" : "CaseListOriginal"
 }

@@ -29,3 +29,55 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
 ul {
   list-style-type: none;
 }
+
+.bonita-modal{
+    overflow-y: auto;
+}
+
+.modal-open .datepicker,
+.modal-open .timepicker {
+    z-index: 9999;
+}
+
+.auto-margin{
+   margin: auto;
+   float:none;
+}
+
+.margin-top-10{
+    margin-top: 10px;
+}
+
+.margin-top-20{
+    margin-top: 20px;
+}
+
+.margin-right-0{
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.padding-top-15{
+     padding-top: 15px;
+}
+
+.panel{
+    margin-right: 15px;
+}
+
+.fixed-scrollable{
+    min-height: 50px;
+    max-height: 50px;
+    overflow-y: scroll;
+}
+
+.auto-width{
+    width: 240px;
+}.bonita-modal{
+    overflow-y: auto;
+}
+
+.modal-open .datepicker,
+.modal-open .timepicker {
+    z-index: 9999;
+}

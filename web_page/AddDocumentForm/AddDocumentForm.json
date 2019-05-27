@@ -1,8 +1,9 @@
 {
-  "designerVersion" : "1.7.29",
+  "designerVersion" : "1.9.24",
+  "previousDesignerVersion" : "1.8.29",
   "id" : "AddDocumentForm",
   "name" : "AddDocumentForm",
-  "lastUpdate" : 1536846204757,
+  "lastUpdate" : 1558955653275,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -10,6 +11,7 @@
     },
     "propertyValues" : { },
     "reference" : "be943e42-ec37-4aae-bacb-450ac5f74827",
+    "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
       "type" : "component",
@@ -39,9 +41,26 @@
         "alignment" : {
           "type" : "constant",
           "value" : "center"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : ""
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
         }
       },
       "reference" : "1fda73cb-f28c-46f0-8cf8-ee950e08c298",
+      "hasValidationError" : false,
       "id" : "pbText"
     } ], [ {
       "type" : "component",
@@ -54,7 +73,7 @@
       "propertyValues" : {
         "labelHidden" : {
           "type" : "constant",
-          "value" : false
+          "value" : true
         },
         "readonly" : {
           "type" : "constant",
@@ -73,7 +92,8 @@
           "value" : true
         },
         "label" : {
-          "type" : "interpolation"
+          "type" : "interpolation",
+          "value" : ""
         },
         "text" : {
           "type" : "interpolation",
@@ -91,16 +111,17 @@
           "type" : "constant",
           "value" : 12
         },
-        "hidden" : {
+        "labelPosition" : {
           "type" : "constant",
-          "value" : false
+          "value" : "top"
         },
-        "allowHTML" : {
+        "labelWidth" : {
           "type" : "constant",
-          "value" : true
+          "value" : 4
         }
       },
       "reference" : "43d0bf8d-0117-49ed-8eca-273ab8882deb",
+      "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
   } ], [ {
@@ -119,6 +140,7 @@
       }
     },
     "reference" : "165c73ae-254e-4b5b-82ab-77948042df98",
+    "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
       "type" : "container",
@@ -127,6 +149,7 @@
       },
       "propertyValues" : { },
       "reference" : "8bbd004d-6f04-4ba8-ae2e-e364a071276d",
+      "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
         "type" : "component",
@@ -182,6 +205,7 @@
           }
         },
         "reference" : "831a05fa-a8cf-48fa-8dcd-342c448f7b14",
+        "hasValidationError" : false,
         "id" : "pbTitle"
       } ], [ {
         "type" : "container",
@@ -232,6 +256,7 @@
           }
         },
         "reference" : "b5ac3727-b999-4fc5-bec6-7cde5dae537f",
+        "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
           "type" : "component",
@@ -303,6 +328,7 @@
             }
           },
           "reference" : "ea7a8a10-6846-461b-beb0-54c71751d870",
+          "hasValidationError" : false,
           "id" : "pbUpload"
         }, {
           "type" : "component",
@@ -397,6 +423,7 @@
             }
           },
           "reference" : "03c187f1-4071-4b45-b44f-e320add049c5",
+          "hasValidationError" : false,
           "id" : "pbButton"
         } ] ]
       } ], [ {
@@ -491,6 +518,7 @@
           }
         },
         "reference" : "c76fb39c-60cb-4673-850d-b2274134135b",
+        "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
         "type" : "component",
@@ -545,7 +573,8 @@
             "value" : ""
           },
           "targetUrlOnSuccess" : {
-            "type" : "interpolation"
+            "type" : "interpolation",
+            "value" : "?id={{task.caseId}}"
           },
           "collectionToModify" : {
             "type" : "variable"
@@ -562,6 +591,7 @@
           }
         },
         "reference" : "0a8c1f9a-8c14-4c6f-a359-0ee67b9b8d37",
+        "hasValidationError" : false,
         "id" : "customAssignAndExecuteButton"
       } ] ]
     }
@@ -612,6 +642,9 @@
       "exposed" : false
     }
   },
+  "hasValidationError" : false,
   "uuid" : "0c213a2f-42f6-44b0-b515-f063ae5ffc48",
-  "type" : "form"
+  "type" : "form",
+  "description" : "Page generated with Bonita UI designer",
+  "displayName" : "AddDocumentForm"
 }

@@ -12,50 +12,30 @@ import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonSlurper
-import groovy.json.internal.LazyMap
 
 class UserTask implements RestApiController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserTask.class)
-
-    @Override
-    RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
-        def jsonBody = new JsonSlurper().parse(request.getReader())
-        def processAPI = context.apiClient.getProcessAPI()
-        if(!jsonBody.taskId) {
-            return responseBuilder.with {
-                withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
-                withResponse("No taskId in payload")
-                build()
-            }
-        }
-        def taskId = jsonBody.taskId.toLong()
-        processAPI.assignUserTask(taskId, context.apiSession.userId)
-        def rawContractInput = jsonBody.contractInput
-        if (rawContractInput) {
-            processAPI.executeUserTask(taskId, toHashMap(rawContractInput))
-        } else {
-            processAPI.executeUserTask(taskId, [:])
-        }
-        if (jsonBody.content) {
-            processAPI.addProcessComment(jsonBody.processInstanceId.toLong(), jsonBody.content)
-        }
-        return responseBuilder.with {
-            withResponseStatus(HttpServletResponse.SC_CREATED)
-            build()
-        }
-    }
-    Map<String, Serializable> toHashMap(LazyMap map) {
-        Map<String, Serializable> newMap = new HashMap<>()
-        newMap.putAll(map);
-        if (newMap.keySet() != null) {
-            newMap.keySet().forEach({
-                def value = newMap.get(it)
-                if (value instanceof LazyMap) {
-                    newMap.put(it, toHashMap(value))
-                }
-            })
-        }
-        return newMap
-    }
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserTask.class)
+	
+	@Override
+	RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
+		def jsonBody = new JsonSlurper().parse(request.getReader())
+		def processAPI = context.apiClient.getProcessAPI()
+		if(!jsonBody.taskId) {
+			return responseBuilder.with {
+				withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
+				withResponse("No taskId in payload")
+				build()
+			}
+		}
+		def taskId = jsonBody.taskId.toLong()
+		processAPI.assignUserTask(taskId, context.apiSession.userId)
+		processAPI.executeUserTask(taskId, jsonBody)
+		processAPI.addProcessComment(jsonBody.processInstanceId.toLong(), jsonBody.content)
+		return responseBuilder.with {
+			withResponseStatus(HttpServletResponse.SC_CREATED)
+			build()
+		}
+	}
+	
 }

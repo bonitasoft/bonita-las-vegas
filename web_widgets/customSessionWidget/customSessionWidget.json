@@ -1,0 +1,46 @@
+{
+  "designerVersion" : "1.2.9",
+  "id" : "customSessionWidget",
+  "name" : "SessionWidget",
+  "lastUpdate" : 1543415822436,
+  "template" : "<style>\n    .login{\n        margin:10px;\n    }\n</style>\n\n<div class=\"text-{{ properties.alignment }}\">\n    <div style=\"display:inline-block;\">\n        <select id=\"languageSelector\" onchange=\"setLanguage(this)\">\n            <option value=\"\">Select language</option>\n            <option value=\"en\">English</option>\n            <option value=\"es\">Español</option>\n            <option value=\"fr\">Français</option>\n            \n        </select>\n    </div>\n    \n    <span style=\"display:inline-block; margin: 10px;\"><span class=\"glyphicon glyphicon-user\"></span> {{firstName}} {{lastName}}  <a ng-click=\"logout()\" ng-class=\"'btn btn-' + properties.buttonStyle\" ng-bind-html=\"properties.value | uiTranslate\"></a></span>\n</div>\n\n\n",
+  "controller" : "/**\n * Controller is a javascript function that augment the AngularJS scope and expose functions that can be used in custom widget template.\n * \n * Custom widget properties created on the right panel can be used as variables in controller with $scope.properties.\n * To use AngularJS standard services you must declare them into the main function arguments. \n * \n * You can leave the controller empty if you don't need it.\n */\nfunction WidgetsimpleButtonController($scope, $http, $location) {\n   'use strict';\n  var ctrl = this;\n  \n   function getSession() {\n       return  $http.get('/bonita/API/system/session/unusedid');\n    }\n    \n    function getUser(id) {\n        $http.get('/bonita/API/identity/user/'+id).success(function(data){\n            $scope.firstName = data.firstname;\n            $scope.lastName = data.lastname;\n            //$scope.icon = \"/bonita/portal/attachmentImage?src=\"+data.icon;\n            //$scope.icon = \"/bonita/avatars/\"+data.icon;\n            \n        });\n    }\n    \n   getSession().then(function(response) {\n        var session = response.data;\n        getUser(session.user_id);\n   });\n   \n   \n   $scope.logout = function(){\n     $http.get('/bonita/logoutservice').\n      success(function(data, status, headers, config) {\n        //window.top.location.href = \"/bonita/login.jsp?redirectUrl=\"+$scope.properties.redirectUrl;\n        window.top.location.href = window.location.href;\n      });\n  };\n   \n}",
+  "custom" : true,
+  "properties" : [ {
+    "label" : "Value",
+    "name" : "value",
+    "type" : "text",
+    "defaultValue" : "Logout",
+    "bond" : "expression"
+  }, {
+    "label" : "Alignment",
+    "name" : "alignment",
+    "type" : "choice",
+    "defaultValue" : "right",
+    "choiceValues" : [ "left", "center", "right" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Button Style",
+    "name" : "buttonStyle",
+    "type" : "choice",
+    "defaultValue" : "danger",
+    "choiceValues" : [ "default", "primary", "success", "info", "warning", "danger", "link" ],
+    "bond" : "expression"
+  } ],
+  "assets" : [ {
+    "id" : "0749f40d-6e45-451c-b8ea-019d4a1170f7",
+    "name" : "https://code.jquery.com/jquery-2.1.4.min.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : true
+  }, {
+    "id" : "807726e4-65bc-4d13-84bb-55dac7f21447",
+    "name" : "languageSelector.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  } ],
+  "requiredModules" : [ ],
+  "type" : "widget",
+  "hasHelp" : false
+}

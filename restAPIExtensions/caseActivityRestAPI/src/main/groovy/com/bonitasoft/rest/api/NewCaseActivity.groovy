@@ -15,6 +15,7 @@ import com.bonitasoft.engine.bpm.flownode.ManualTaskCreator
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
+import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
 class NewCaseActivity implements RestApiController {
@@ -68,8 +69,9 @@ class NewCaseActivity implements RestApiController {
 		def createActivityTaskId = res[0].id;
 		processAPI.assignUserTask(createActivityTaskId, context.apiSession.userId)
 		processAPI.executeUserTask(createActivityTaskId, [name:jsonBody.name])
-
+		
 		return responseBuilder.with {
+			withResponse(new JsonBuilder([name:jsonBody.name]).toString())
 			withResponseStatus(HttpServletResponse.SC_CREATED)
 			build()
 		}
