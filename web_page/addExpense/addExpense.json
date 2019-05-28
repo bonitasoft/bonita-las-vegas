@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1558966378462,
+  "lastUpdate" : 1559031456449,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -51,7 +51,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "{{ task.displayName }}"
+          "value" : "Submit expense report"
         },
         "alignment" : {
           "type" : "constant",
@@ -64,6 +64,10 @@
         "dimension" : {
           "type" : "constant",
           "value" : 12
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
         }
       },
       "reference" : "30b0cd4a-ae1c-45cf-9a40-3c79dee74c6c",
@@ -589,8 +593,8 @@
           "value" : "number"
         },
         "required" : {
-          "type" : "constant",
-          "value" : true
+          "type" : "expression",
+          "value" : "isKm"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -675,8 +679,8 @@
           "value" : false
         },
         "required" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "isKm"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -733,6 +737,80 @@
         },
         "hidden" : {
           "type" : "expression",
+          "value" : "!isKm"
+        },
+        "required" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "minLength" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "maxLength" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "readOnly" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Amount"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "placeholder" : {
+          "type" : "interpolation"
+        },
+        "value" : {
+          "type" : "variable",
+          "value" : "kmAmount"
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "text"
+        },
+        "min" : {
+          "type" : "constant"
+        },
+        "max" : {
+          "type" : "constant"
+        },
+        "step" : {
+          "type" : "constant",
+          "value" : 1
+        }
+      },
+      "reference" : "1784d9eb-a47b-4ee4-9a87-98b49e2b4bf4",
+      "hasValidationError" : false,
+      "id" : "pbInput"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
           "value" : "isKm"
         },
         "disabled" : {
@@ -740,8 +818,8 @@
           "value" : false
         },
         "required" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!isKm"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -881,80 +959,6 @@
       "reference" : "6eb9b639-810e-4094-928c-f3565d2746b0",
       "hasValidationError" : false,
       "id" : "pbInput"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "expression",
-          "value" : "!isKm"
-        },
-        "required" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "minLength" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "maxLength" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Amount"
-        },
-        "labelPosition" : {
-          "type" : "constant",
-          "value" : "top"
-        },
-        "labelWidth" : {
-          "type" : "constant",
-          "value" : 4
-        },
-        "placeholder" : {
-          "type" : "interpolation"
-        },
-        "value" : {
-          "type" : "variable",
-          "value" : "kmAmount"
-        },
-        "type" : {
-          "type" : "constant",
-          "value" : "text"
-        },
-        "min" : {
-          "type" : "constant"
-        },
-        "max" : {
-          "type" : "constant"
-        },
-        "step" : {
-          "type" : "constant",
-          "value" : 1
-        }
-      },
-      "reference" : "1784d9eb-a47b-4ee4-9a87-98b49e2b4bf4",
-      "hasValidationError" : false,
-      "id" : "pbInput"
     } ] ]
   } ], [ {
     "type" : "component",
@@ -1068,7 +1072,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": isKm,\n    \"expenseType\": isKm ? \"\" : $data.formInput.expenseType.type,\n    \"amount\": isKm ? $data.kmAmount : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
+      "value" : "var isKm = $data.isKm;\nreturn {\n    \"description\": $data.formInput.description,\n    \"expenseDate\": $data.formInput.expenseDate,\n    \"currency\": isKm? \"\" : $data.formInput.currency.name,\n    \"isKm\": isKm,\n    \"expenseType\": $data.formInput.expenseType.type,\n    \"amount\": isKm ? $data.kmAmount : $data.formInput.amount,\n    \"km\": isKm ? $data.formInput.km : 0,\n    \"vehicle\": isKm ? $data.formInput.vehicle.name : \"\"\n}",
       "exposed" : false
     },
     "context" : {

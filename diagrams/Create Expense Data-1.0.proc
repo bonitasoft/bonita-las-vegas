@@ -29,10 +29,16 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VREYBjEemtFtZiYVDYjw" id="ACTOR_FILTER"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VREoBjEemtFtZiYVDYjw" id="CONNECTOR"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRE4BjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRFIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRFIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_PATToIDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_PAT6sIDGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRFYBjEemtFtZiYVDYjw" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRFoBjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRF4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRF4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_PAT6sYDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_PAT6soDGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_F5VRGIBjEemtFtZiYVDYjw" id="OTHER"/>
       </configurations>
       <contract xmi:type="process:Contract" xmi:id="_VkYqPIBiEemtFtZiYVDYjw">
@@ -96,10 +102,16 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqAYBjEemtFtZiYVDYjw" id="ACTOR_FILTER"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqAoBjEemtFtZiYVDYjw" id="CONNECTOR"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqA4BjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqBIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqBIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VRrLEIDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VRrLEYDGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqBYBjEemtFtZiYVDYjw" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqBoBjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqB4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqB4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VRrLEoDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_VRrLE4DGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_IVkqCIBjEemtFtZiYVDYjw" id="OTHER"/>
       </configurations>
       <contract xmi:type="process:Contract" xmi:id="_nqLK44BiEemtFtZiYVDYjw">
@@ -156,10 +168,16 @@
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgQYBjEemtFtZiYVDYjw" id="ACTOR_FILTER"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgQoBjEemtFtZiYVDYjw" id="CONNECTOR"/>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgQ4BjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgRIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgRIBjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_YyWcgIDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_YyWcgYDGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
         <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgRYBjEemtFtZiYVDYjw" id="OTHER"/>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgRoBjEemtFtZiYVDYjw" id="DATA_TYPES"/>
-        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgR4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgR4BjEemtFtZiYVDYjw" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_YyWcgoDGEemWUe3LgT2ASg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_YyWcg4DGEemWUe3LgT2ASg" key="MandatoryTasksValidator.groovy" value="MandatoryTasksValidator.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
         <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_GzCgSIBjEemtFtZiYVDYjw" id="OTHER"/>
       </configurations>
       <contract xmi:type="process:Contract" xmi:id="_1pSxI4BiEemtFtZiYVDYjw">

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1554212886831,
+  "lastUpdate" : 1559033509128,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -67,8 +67,8 @@
         "value" : "padding-top-15"
       },
       "hidden" : {
-        "type" : "constant",
-        "value" : false
+        "type" : "expression",
+        "value" : "readOnly"
       },
       "disabled" : {
         "type" : "constant",
@@ -126,6 +126,13 @@
         "type" : "constant"
       },
       "removeItem" : {
+        "type" : "variable"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "responseStatusCode" : {
         "type" : "variable"
       }
     },
@@ -245,8 +252,8 @@
             "value" : ""
           },
           "hidden" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "readOnly"
           },
           "disabled" : {
             "type" : "constant",
@@ -307,6 +314,14 @@
           },
           "removeItem" : {
             "type" : "variable"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
           }
         },
         "reference" : "eaa6bed2-f81f-466e-a6ba-d4b79aefe6c9",
@@ -389,6 +404,10 @@
       "exposed" : true
     },
     "documentDeleted" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "readOnly" : {
       "type" : "constant",
       "exposed" : true
     }

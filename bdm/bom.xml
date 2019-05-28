@@ -10,10 +10,11 @@
             <queries/>
             <indexes/>
         </businessObject>
-        <businessObject qualifiedName="com.bonita.lr.model.ExpenseReport">
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseCurrency">
+            <description>rete agains EURO</description>
             <fields>
-                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseHeader" fetchType="LAZY" name="expenseHeader" nullable="false" collection="false"/>
-                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseLine" fetchType="LAZY" name="expenseLine" nullable="true" collection="true"/>
+                <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
+                <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
@@ -41,9 +42,18 @@
                 <field type="INTEGER" length="255" name="km" nullable="true" collection="false"/>
                 <field type="STRING" length="255" name="vehicleType" nullable="true" collection="false"/>
                 <field type="FLOAT" length="255" name="vehicleRate" nullable="true" collection="false"/>
-                <field type="STRING" length="255" name="currency" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="currency" nullable="true" collection="false"/>
                 <field type="FLOAT" length="255" name="currencyRatio" nullable="true" collection="false"/>
                 <field type="FLOAT" length="255" name="amount" nullable="false" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.bonita.lr.model.ExpenseReport">
+            <fields>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseHeader" fetchType="EAGER" name="expenseHeader" nullable="false" collection="false"/>
+                <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseLine" fetchType="EAGER" name="expenseLine" nullable="true" collection="true"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
@@ -60,16 +70,6 @@
         </businessObject>
         <businessObject qualifiedName="com.bonita.lr.model.ExpenseVehicle">
             <description>car / moto</description>
-            <fields>
-                <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
-                <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
-            </fields>
-            <uniqueConstraints/>
-            <queries/>
-            <indexes/>
-        </businessObject>
-        <businessObject qualifiedName="com.bonita.lr.model.ExpenseCurrency">
-            <description>rete agains EURO</description>
             <fields>
                 <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
                 <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
