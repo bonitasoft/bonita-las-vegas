@@ -26,12 +26,12 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 
+/**
+ * Return all the tasks available, with their status, for a given case (url parameter)
+ */
 class CaseActivity implements RestApiController,CaseActivityHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseActivity.class)
-    private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
-    private static final String CREATE_ACTIVITY = "Create Activity"
-    private static final String PREFIX = '$'
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
@@ -40,12 +40,17 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
         if (!caseId) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
         }
+		try {
+			validateCaseAccess(caseId, context);
+		} catch (IllegalStateException e) {
+			return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
+		}
 
         def ProcessAPI processAPI = context.apiClient.getProcessAPI()
         def pDef = -1;
         try {
             pDef = processAPI.getProcessDefinition(processAPI.getProcessDefinitionIdFromProcessInstanceId(caseId.toLong()))
-        }catch(ProcessDefinitionNotFoundException e) {
+        } catch (ProcessDefinitionNotFoundException e) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_NOT_FOUND,"""{"error" : "no process definition found for instance $caseId" }""")
         }
 
@@ -57,9 +62,10 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                     it instanceof HumanTaskDefinition && it.getLoopCharacteristics() instanceof StandardLoopCharacteristics
                 }.collect{ it.name }
 
+				
         //Retrieve pending activities
         def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-                .findAll{ it.name != ACTIVITY_CONTAINER && it.name != CREATE_ACTIVITY && it.parentProcessInstanceId ==  caseId.toLong()}
+                .findAll{it.parentProcessInstanceId ==  caseId.toLong()}
                 .collect{ HumanTaskInstance task ->
                     def metadata = getMetadata(task,processAPI)
                     [
@@ -73,37 +79,12 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                     ]
                 }
 
-        def containerInstance = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
-                .filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, caseId.toLong())
-                .filter(HumanTaskInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-                .done()).result[0]
-
-        //Retrieve adhoc activities
-        result.addAll(processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
-                .filter(HumanTaskInstanceSearchDescriptor.PARENT_CONTAINER_ID, containerInstance.id)
-                .done())
-                .result
-                .collect{ HumanTaskInstance task ->
-                    def metadata = getMetadata(task,processAPI)
-                    [
-                        id:task.name,
-                        name:task.displayName ?: task.name,
-                        url:forge(pDef.name,pDef.version,task,contextPath, metadata),
-                        description:task.description,
-                        target:linkTarget(task),
-                        state:task.state.capitalize(),
-                        metadata:metadata
-                    ]
-                })
 
         result = result.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
 
         //Retrieve finished activities
         result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
             filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
-            differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, ACTIVITY_CONTAINER)
-            and()
-            differentFrom(ArchivedActivityInstanceSearchDescriptor.NAME, CREATE_ACTIVITY)
             done()
         }).getResult()
         .findAll{
@@ -130,34 +111,15 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
         }
     }
 
-    def getMetadata(HumanTaskInstance task, ProcessAPI processAPI) {
-        def res = [:]
-        if(task instanceof ManualTaskInstance) {
-            res.put('$activityState', 'Optional')
-        }else {
-            processAPI.getActivityTransientDataInstances(task.id, 0, Integer.MAX_VALUE)
-                    .findAll{ it.name.startsWith(PREFIX) }
-                    .collect{ res.put(it.name,it.value) }
-        }
-        return res
-    }
-
 
     def String forge(String processName, String processVersion, ActivityInstance instance, contextPath, metadata) {
         if(instance instanceof UserTaskInstance) {
             canExecute(metadata.$activityState)
                     ? "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
                     : ""
-        }else if(instance instanceof ManualTaskInstance) {
-            "$contextPath/apps/cases/do?id=$instance.id"
-        }
-    }
-
-    def String linkTarget(ActivityInstance instance) {
-        if(instance instanceof UserTaskInstance) {
-            "_self"
-        }else if(instance instanceof ManualTaskInstance) {
-            "_parent"
+        } else if(instance instanceof ManualTaskInstance) {
+            "$contextPath/apps/expenseReportEmployee/do?id=$instance.id"
+			//TODO: Useless? Anyway, living application name should not be hard-coded
         }
     }
 

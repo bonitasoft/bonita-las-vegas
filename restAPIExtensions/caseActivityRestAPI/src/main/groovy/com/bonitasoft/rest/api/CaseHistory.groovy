@@ -16,7 +16,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 
-class CaseHistory implements RestApiController {
+class CaseHistory implements RestApiController, CaseActivityHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseHistory.class)
 	private static final String ACTIVITY_CONTAINER = "Dymanic Activity Container"
@@ -29,6 +29,12 @@ class CaseHistory implements RestApiController {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
         }
 
+		try {
+			validateCaseAccess(caseId, context);
+		} catch (IllegalStateException e) {
+			return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
+		}
+		
 		def processAPI = context.apiClient.getProcessAPI()
 		//Retrieve finished activities
 		def result = processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {

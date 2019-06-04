@@ -19,7 +19,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 
 import groovy.json.JsonBuilder
 
-class CaseDocument implements RestApiController {
+class CaseDocument implements RestApiController, CaseActivityHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseDocument.class)
 
@@ -29,6 +29,13 @@ class CaseDocument implements RestApiController {
         if (caseId == null) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
         }
+		
+		try {
+			validateCaseAccess(caseId, context);
+		} catch (IllegalStateException e) {
+			return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
+		}
+		
 		def result = []
 		def processAPI = context.apiClient.getProcessAPI()
 		processAPI.searchDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {

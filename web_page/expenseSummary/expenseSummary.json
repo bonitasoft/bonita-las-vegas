@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1558956528263,
+  "lastUpdate" : 1559049577738,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {

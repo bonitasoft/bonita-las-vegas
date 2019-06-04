@@ -1,0 +1,281 @@
+{
+  "designerVersion" : "1.9.40",
+  "id" : "ManagerValidationPage",
+  "name" : "ManagerValidationPage",
+  "lastUpdate" : 1559576638292,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Expense report to validate"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "49b1f520-fdd4-4a2a-bb9c-69964465fd9e",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 6,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "panel panel-default"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : "cases"
+      }
+    },
+    "reference" : "16c500c2-6c74-42e4-9a5e-8264b92efdfd",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : "panel-body"
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "repeatedCollection" : {
+          "type" : "variable",
+          "value" : ""
+        }
+      },
+      "reference" : "a8ad1f24-999c-4eda-a6b3-a5fc00fcb714",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<dd><span class=\"glyphicon glyphicon-user\"></span> {{$item.user}}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "310b4892-f005-4dd2-b067-f2c9e9f0f88a",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!$item.description"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<dd><span class=\"glyphicon glyphicon-info-sign\"></span> {{$item.description}}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "0485ffb3-72d8-41d3-82de-0e5b02c3125d",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<dd><span class=\"glyphicon glyphicon-eye-open\"></span> <a href=\"{{$item.url}}\" target=\"{{$item.target}}\">Show expense report</a>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "b434fc07-dafb-4c4a-9990-2a3254646b01",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ] ]
+    } ] ]
+  } ] ],
+  "assets" : [ {
+    "id" : "f954093c-09ae-4db1-b006-9bf04d4e0d0b",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  }, {
+    "id" : "506f351c-4a30-4b1a-a1ba-0bb1b13e922b",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
+    "id" : "e9962b10-e89f-4957-9ff7-131565e144da",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "4c7146bb-adef-41ae-b5de-c11bd73dc631",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "formattedColumn" : {
+      "type" : "expression",
+      "value" : "return [function(input){\n    if(input.row.url){\n        if(input.row.target){\n            var description = \"\";\n            if(input.row.description){\n                description = \" (\" + input.row.description + \")\";\n            }\n            return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">\"+input.row.user + description +\"</a>\";\n        }\n        return \"<a href=\\\"\"+input.row.url+\"\\\">\"+input.row.user+\"</a>\";\n    }\n   return input.row.user;\n}];",
+      "exposed" : false
+    },
+    "cases" : {
+      "type" : "url",
+      "value" : "../API/extension/caseManager",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "b0442d3c-3376-4248-85e0-dd670443ef8f",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

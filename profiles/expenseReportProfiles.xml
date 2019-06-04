@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<profiles:profiles xmlns:profiles="http://www.bonitasoft.org/ns/profile/6.1">
+    <profile name="employee" isDefault="false">
+        <description>TODO: Y binder a un role de l'orga</description>
+        <profileEntries/>
+        <profileMapping>
+            <users/>
+            <groups/>
+            <memberships/>
+            <roles>
+                <role>member</role>
+            </roles>
+        </profileMapping>
+    </profile>
+    <profile name="manager" isDefault="false">
+        <description>TODO: Y binder a un role de l'orga</description>
+        <profileEntries/>
+        <profileMapping>
+            <users/>
+            <groups/>
+            <memberships/>
+            <roles>
+                <role>member</role>
+            </roles>
+        </profileMapping>
+    </profile>
+    <profile name="accounting" isDefault="false">
+        <description>TODO: Y binder a un role de l'orga</description>
+        <profileEntries/>
+        <profileMapping>
+            <users/>
+            <groups>
+                <group>/acme/finance</group>
+            </groups>
+            <memberships/>
+            <roles/>
+        </profileMapping>
+    </profile>
+</profiles:profiles>

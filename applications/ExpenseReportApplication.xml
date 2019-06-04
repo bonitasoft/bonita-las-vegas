@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
+    <application token="expenseReportEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
+        <displayName>Expense report employee</displayName>
+        <description>TODO: The manager page should be on the app below only -&gt; need to work on it on rest api links generation ..</description>
+        <applicationPages>
+            <applicationPage customPage="custompage_Case" token="case"/>
+            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
+            <applicationPage customPage="custompage_ManagerValidationPage" token="manager"/>
+            <applicationPage customPage="custompage_CaseList" token="home"/>
+        </applicationPages>
+        <applicationMenus>
+            <applicationMenu applicationPage="manager">
+                <displayName>Manager menu</displayName>
+            </applicationMenu>
+            <applicationMenu applicationPage="home">
+                <displayName>Case List</displayName>
+            </applicationMenu>
+        </applicationMenus>
+    </application>
+    <application token="expenseReportManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_CaseManagementLayout" theme="custompage_flatlytheme">
+        <displayName>Expense report manager</displayName>
+        <description></description>
+        <applicationPages>
+            <applicationPage customPage="custompage_Case" token="case"/>
+            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
+            <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_ManagerValidationPage" token="management"/>
+        </applicationPages>
+        <applicationMenus>
+            <applicationMenu applicationPage="home">
+                <displayName>Cases</displayName>
+            </applicationMenu>
+            <applicationMenu applicationPage="management">
+                <displayName>Management</displayName>
+            </applicationMenu>
+        </applicationMenus>
+    </application>
+</applications>

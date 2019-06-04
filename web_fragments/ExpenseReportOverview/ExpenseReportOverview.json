@@ -1,0 +1,148 @@
+{
+  "designerVersion" : "1.9.40",
+  "id" : "ExpenseReportOverview",
+  "name" : "ExpenseReportOverview",
+  "lastUpdate" : 1559633911513,
+  "rows" : [ [ {
+    "type" : "fragment",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "d019a735-ca76-41d2-9292-4c2b7fdfd3f6",
+    "hasValidationError" : false,
+    "id" : "ExpenseReportHeader",
+    "binding" : {
+      "expenseHeader" : "report.expenseHeader"
+    }
+  } ], [ {
+    "type" : "tabsContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "180f5628-c94a-4919-b31e-fd27070a5c14",
+    "hasValidationError" : false,
+    "id" : "pbTabsContainer",
+    "tabs" : [ {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "5dc0bd6a-97b3-4ec9-a1ba-80a03315a818",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "0032f33c-d59e-465b-b056-47574ebed8a7",
+          "hasValidationError" : false,
+          "id" : "CaseExpenses",
+          "binding" : {
+            "expenses" : "report.expenseLine"
+          }
+        } ] ]
+      },
+      "title" : "Expenses"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "fd6164f0-50e8-461d-8540-61d2b01c5581",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "1aeb2b10-db0d-43b2-a641-04afafd76598",
+          "hasValidationError" : false,
+          "id" : "CaseDocuments",
+          "binding" : {
+            "caseDocuments" : "caseDocuments",
+            "documentDeleted" : "",
+            "readOnly" : "documentReadOnly"
+          }
+        } ] ]
+      },
+      "title" : "Documents"
+    } ]
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "report" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "caseDocuments" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "documentReadOnly" : {
+      "type" : "expression",
+      "value" : "return true;",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

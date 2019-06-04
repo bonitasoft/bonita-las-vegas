@@ -26,9 +26,7 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
     border-width: 1px;
 }
 
-ul {
-  list-style-type: none;
-}.bonita-modal{
+.bonita-modal{
     overflow-y: auto;
 }
 
@@ -36,3 +34,8 @@ ul {
 .modal-open .timepicker {
     z-index: 9999;
 }
+
+.panel{
+    margin-left: 15px;
+}
+

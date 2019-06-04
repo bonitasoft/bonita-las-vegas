@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1559034014659,
+  "lastUpdate" : 1559569017117,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 8,
-      "lg" : 8
+      "md" : 12,
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -55,32 +55,6 @@
         "activities" : "activities"
       }
     } ] ]
-  }, {
-    "type" : "fragment",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 4,
-      "lg" : 4
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      }
-    },
-    "reference" : "32caed50-6b87-4afd-9b02-5b720c8db40b",
-    "hasValidationError" : false,
-    "id" : "CreateActivity",
-    "binding" : {
-      "caseId" : "caseId",
-      "activities" : "activities",
-      "newActivityCreated" : "newActivityCreated"
-    }
   } ], [ {
     "type" : "tabsContainer",
     "dimension" : {
@@ -213,7 +187,8 @@
             "caseDocuments" : "caseDocuments",
             "docuementDeleted" : "documentDeleted",
             "documentDeleted" : "documentDeleted",
-            "caseId" : "caseId"
+            "caseId" : "caseId",
+            "readOnly" : ""
           }
         } ] ]
       },

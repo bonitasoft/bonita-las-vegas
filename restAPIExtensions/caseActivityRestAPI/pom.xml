@@ -55,6 +55,16 @@
 			<version>1.6.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.bonita.lr.model</groupId>
+			<artifactId>bdm-dao</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bonita.lr.model</groupId>
+			<artifactId>bdm-client</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
