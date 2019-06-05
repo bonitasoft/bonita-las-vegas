@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseComments",
   "name" : "CaseComments",
-  "lastUpdate" : 1554212886812,
+  "lastUpdate" : 1559727288474,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span> Case comments</h3>"
+        "value" : "<h3><span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span> Comments</h3>"
       },
       "alignment" : {
         "type" : "constant",

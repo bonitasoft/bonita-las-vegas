@@ -1,28 +1,15 @@
 {
   "designerVersion" : "1.9.40",
-  "id" : "submitExpenseReport",
-  "name" : "submitExpenseReport",
-  "lastUpdate" : 1559660390533,
+  "id" : "accountingValidation",
+  "name" : "accountingValidation",
+  "lastUpdate" : 1559750157401,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12
     },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
-      }
-    },
-    "reference" : "c5321353-808c-4a06-bffa-e36e692f86ce",
+    "propertyValues" : { },
+    "reference" : "ad2756c8-fae2-4983-b903-fb1bb7491249",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -78,7 +65,7 @@
           "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
         }
       },
-      "reference" : "e6bd36e6-6dfe-4d65-8730-b2ba774ebbcc",
+      "reference" : "559082fe-2901-4002-bc64-cc90c0203af0",
       "hasValidationError" : false,
       "id" : "pbTitle"
     } ], [ {
@@ -130,38 +117,10 @@
           "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
         }
       },
-      "reference" : "d7576405-fc73-4784-a6ea-900c10763ff1",
+      "reference" : "628b9c02-d9ee-4493-8a28-cc266228cae8",
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
-  } ], [ {
-    "type" : "fragment",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      }
-    },
-    "reference" : "2c1620ee-e345-4e77-9af4-bfdda1abcce5",
-    "hasValidationError" : false,
-    "id" : "ExpenseReportOverview",
-    "binding" : {
-      "report" : "report",
-      "caseDocuments" : "caseDocuments",
-      "caseComments" : "caseComments",
-      "caseId" : "task.caseId",
-      "commentAdded" : "commentAdded"
-    }
   } ], [ {
     "type" : "formContainer",
     "dimension" : {
@@ -177,7 +136,7 @@
         "value" : false
       }
     },
-    "reference" : "99aa1289-5c5c-4127-9841-7aa84f05e1c7",
+    "reference" : "605ed3c2-156d-4264-aa01-c0fcf601c01c",
     "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
@@ -186,10 +145,103 @@
         "xs" : 12
       },
       "propertyValues" : { },
-      "reference" : "bcb12dc7-4b26-47d6-9dbe-065c062fd563",
+      "reference" : "1d20e030-12d9-4ba3-9786-baf49d153ba2",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "9e577147-423d-40ca-b517-7b84d9f4cf4c",
+        "hasValidationError" : false,
+        "id" : "ExpenseReportOverview",
+        "binding" : {
+          "report" : "report",
+          "caseDocuments" : "caseDocuments",
+          "caseComments" : "caseComments",
+          "caseId" : "task.caseId",
+          "commentAdded" : "commentAdded"
+        }
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "inline" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "availableValues" : {
+            "type" : "expression",
+            "value" : "validationValues"
+          },
+          "displayedKey" : {
+            "type" : "constant",
+            "value" : "display"
+          },
+          "returnedKey" : {
+            "type" : "constant",
+            "value" : "value"
+          },
+          "selectedValue" : {
+            "type" : "variable",
+            "value" : "formInput.accountingValidationData"
+          }
+        },
+        "reference" : "25b5e8ba-5ec1-44c7-a959-3290767d4725",
+        "hasValidationError" : false,
+        "id" : "pbRadioButtons"
+      } ], [ {
         "type" : "component",
         "dimension" : {
           "md" : 12,
@@ -239,7 +291,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "../"
+            "value" : "/bonita"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -260,7 +312,7 @@
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "left"
+            "value" : "center"
           },
           "dimension" : {
             "type" : "constant",
@@ -269,32 +321,9 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
-          },
-          "assign" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "url" : {
-            "type" : "interpolation"
-          },
-          "responseStatusCode" : {
-            "type" : "variable",
-            "value" : ""
-          },
-          "dataFromSuccess" : {
-            "type" : "variable",
-            "value" : ""
-          },
-          "closeOnSuccess" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "modalId" : {
-            "type" : "constant",
-            "value" : ""
           }
         },
-        "reference" : "549ecc62-7ebb-4ed1-b2f3-7bdc1a554bb6",
+        "reference" : "88ab2438-9fb9-417b-a1e5-ae0f6a514df0",
         "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
@@ -348,45 +377,25 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
           }
         },
-        "reference" : "f4dc815a-33b5-4090-a52f-28f78be23414",
+        "reference" : "3fc2f598-aca6-4ce1-9fc9-3d70d66a1228",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
     }
   } ] ],
   "assets" : [ {
-    "id" : "3f23f03e-944b-46ce-b540-142f71a5fe29",
-    "name" : "filters.js",
-    "type" : "js",
-    "order" : 2,
-    "external" : false
-  }, {
-    "id" : "08477217-674c-461a-a3e8-0f3ddbca076b",
-    "name" : "localization.json",
-    "type" : "json",
-    "order" : 0,
-    "external" : false
-  }, {
-    "id" : "56d1e4c5-d288-4841-94cf-e3ef43fcaf22",
+    "id" : "aa72b63c-ad91-4416-922e-1d99f63c88db",
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
     "external" : false
   }, {
-    "id" : "03e5d479-2184-48cb-86d7-3ea4a87be9dd",
-    "name" : "moment.js",
-    "type" : "js",
-    "order" : 1,
+    "id" : "735081a3-e504-4f91-8c5e-27a098e26858",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
     "external" : false
   } ],
   "inactiveAssets" : [ ],
@@ -396,6 +405,11 @@
       "value" : "../API/bpm/userTask/{{taskId}}",
       "exposed" : false
     },
+    "formInput" : {
+      "type" : "json",
+      "value" : "{\n  \"accountingValidationData\" : false\n}",
+      "exposed" : false
+    },
     "submit_errors_list" : {
       "type" : "expression",
       "value" : "if($data.formOutput && $data.formOutput._submitError && $data.formOutput._submitError.explanations){\n\tconst liElements = $data.formOutput._submitError.explanations\n\t\t.filter(cause => cause !== null)\n\t\t.map(cause => \"<li>\" + cause + \"</li>\")\n\t\t.join('');\n\tif(liElements){\n\t\treturn \"<ul>\" + liElements + \"</ul>\";\n\t}\n}",
@@ -403,7 +417,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n\n}",
+      "value" : "return {\n\taccountingValidationData: $data.formInput.accountingValidationData\n}",
       "exposed" : false
     },
     "context" : {
@@ -435,10 +449,15 @@
       "type" : "json",
       "value" : "{ \"id\" : \"\" }",
       "exposed" : false
+    },
+    "validationValues" : {
+      "type" : "json",
+      "value" : "{\n    \"valid\": {\n        \"value\": true,\n        \"display\": \"Submission valid\"\n    },\n    \"invalid\": {\n        \"value\": false,\n        \"display\": \"Submission invalid\"\n    }\n}",
+      "exposed" : false
     }
   },
   "hasValidationError" : false,
-  "uuid" : "c9a38ce1-3f9f-4257-80f3-240a7beabaa2",
+  "uuid" : "ecfe259a-c2e5-4dd1-a87f-ab820ec0b24f",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer"
 }

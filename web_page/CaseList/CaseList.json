@@ -3,8 +3,99 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1559056002109,
+  "lastUpdate" : 1559743162218,
   "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "My expense reports"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "9e0a4149-b701-4ce5-83a7-1ed6a2bf7881",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Expense report", "State" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "cases"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "name", "state", "viewAction" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "7eadd412-9c34-4d44-b142-83fec2fc1344",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ], [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
@@ -27,7 +118,7 @@
       },
       "label" : {
         "type" : "interpolation",
-        "value" : "Start a new case"
+        "value" : "New expense report"
       },
       "alignment" : {
         "type" : "constant",
@@ -35,7 +126,7 @@
       },
       "buttonStyle" : {
         "type" : "constant",
-        "value" : "success"
+        "value" : "primary"
       },
       "action" : {
         "type" : "constant",
@@ -94,97 +185,6 @@
     "reference" : "24483bbe-4ec0-44c3-a239-e54140c9a512",
     "hasValidationError" : false,
     "id" : "pbButton"
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "Case list"
-      },
-      "level" : {
-        "type" : "constant",
-        "value" : "Level 2"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      }
-    },
-    "reference" : "9e0a4149-b701-4ce5-83a7-1ed6a2bf7881",
-    "hasValidationError" : false,
-    "id" : "pbTitle"
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "headers" : {
-        "type" : "constant",
-        "value" : [ "Case number", "Process", "State" ]
-      },
-      "type" : {
-        "type" : "constant",
-        "value" : "Variable"
-      },
-      "apiUrl" : {
-        "type" : "constant",
-        "value" : "../API/"
-      },
-      "params" : {
-        "type" : "constant"
-      },
-      "content" : {
-        "type" : "expression",
-        "value" : "cases"
-      },
-      "columnsKey" : {
-        "type" : "constant",
-        "value" : [ "id", "name", "state", "viewAction" ]
-      },
-      "sortColumns" : {
-        "type" : "constant"
-      },
-      "selectedRow" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "pageSize" : {
-        "type" : "constant",
-        "value" : 10
-      },
-      "filter" : {
-        "type" : "constant"
-      }
-    },
-    "reference" : "3f6ace3b-3dc3-49b2-9e71-b3fe28d122ed",
-    "hasValidationError" : false,
-    "id" : "customHTMLDataTable"
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
@@ -215,7 +215,7 @@
   "data" : {
     "cases" : {
       "type" : "url",
-      "value" : "../API/extension/case",
+      "value" : "../API/extension/case?appToken={{applicationToken}}",
       "exposed" : false
     },
     "caseLabel" : {
@@ -264,6 +264,11 @@
     "newCase" : {
       "type" : "json",
       "value" : "{}",
+      "exposed" : false
+    },
+    "applicationToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
       "exposed" : false
     }
   },

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1559634166829,
+  "lastUpdate" : 1559656681001,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -53,92 +53,6 @@
     "reference" : "3b6e04cd-651b-4fc2-9e8b-846ca747ebe8",
     "hasValidationError" : false,
     "id" : "pbText"
-  }, {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 11,
-      "md" : 11,
-      "lg" : 10
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : "padding-top-15"
-      },
-      "hidden" : {
-        "type" : "expression",
-        "value" : "readOnly"
-      },
-      "disabled" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "<span class=\"glyphicon glyphicon-plus\"></span> Upload"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      },
-      "buttonStyle" : {
-        "type" : "constant",
-        "value" : "primary"
-      },
-      "action" : {
-        "type" : "constant",
-        "value" : "Open modal"
-      },
-      "url" : {
-        "type" : "interpolation"
-      },
-      "dataToSend" : {
-        "type" : "constant"
-      },
-      "dataFromSuccess" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "closeOnSuccess" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "dataFromError" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "targetUrlOnSuccess" : {
-        "type" : "interpolation"
-      },
-      "collectionToModify" : {
-        "type" : "variable"
-      },
-      "modalId" : {
-        "type" : "constant",
-        "value" : "add-document"
-      },
-      "collectionPosition" : {
-        "type" : "constant",
-        "value" : "Last"
-      },
-      "valueToAdd" : {
-        "type" : "constant"
-      },
-      "removeItem" : {
-        "type" : "variable"
-      },
-      "assign" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "responseStatusCode" : {
-        "type" : "variable"
-      }
-    },
-    "reference" : "bb8951d6-c655-47c8-81b4-f00634205315",
-    "hasValidationError" : false,
-    "id" : "pbButton"
   } ], [ {
     "type" : "container",
     "dimension" : {

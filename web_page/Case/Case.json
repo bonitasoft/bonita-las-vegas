@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1559569017117,
+  "lastUpdate" : 1559743232696,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -122,43 +122,6 @@
           "xs" : 12
         },
         "propertyValues" : { },
-        "reference" : "d15c2d3b-92f9-4e63-b0f5-e1a2f644e2de",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "47f42ecc-c0e2-4c84-b1d0-1bbf77106505",
-          "hasValidationError" : false,
-          "id" : "CaseHistory",
-          "binding" : {
-            "caseHistory" : "caseHistory"
-          }
-        } ] ]
-      },
-      "title" : "History"
-    }, {
-      "container" : {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12
-        },
-        "propertyValues" : { },
         "reference" : "354362fb-1411-4d52-a8dc-42e5eb0b2f2c",
         "hasValidationError" : false,
         "id" : "pbContainer",
@@ -193,6 +156,43 @@
         } ] ]
       },
       "title" : "Documents"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "d15c2d3b-92f9-4e63-b0f5-e1a2f644e2de",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "47f42ecc-c0e2-4c84-b1d0-1bbf77106505",
+          "hasValidationError" : false,
+          "id" : "CaseHistory",
+          "binding" : {
+            "caseHistory" : "caseHistory"
+          }
+        } ] ]
+      },
+      "title" : "History"
     } ]
   } ], [ {
     "type" : "modalContainer",

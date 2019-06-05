@@ -9,7 +9,6 @@ import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescript
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.StandardLoopCharacteristics
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
@@ -40,11 +39,11 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
         if (!caseId) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
         }
-		try {
-			validateCaseAccess(caseId, context);
-		} catch (IllegalStateException e) {
-			return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
-		}
+        try {
+            validateCaseAccess(caseId, context);
+        } catch (IllegalStateException e) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
+        }
 
         def ProcessAPI processAPI = context.apiClient.getProcessAPI()
         def pDef = -1;
@@ -62,7 +61,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                     it instanceof HumanTaskDefinition && it.getLoopCharacteristics() instanceof StandardLoopCharacteristics
                 }.collect{ it.name }
 
-				
+
         //Retrieve pending activities
         def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
                 .findAll{it.parentProcessInstanceId ==  caseId.toLong()}
@@ -84,11 +83,13 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
 
         //Retrieve finished activities
         result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, context.apiSession.userId)
             filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
             done()
-        }).getResult()
-        .findAll{
-            !loopTasks.contains(it.name) }
+        }).
+        getResult()
+        .findAll {
+            !loopTasks.contains(it.name) && !result.collect{ task -> task["id"] }.contains(it.name) }
         .collect{ ArchivedHumanTaskInstance task ->
             [
                 id:task.sourceObjectId,
@@ -96,7 +97,8 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                 description:task.description,
                 state:task.state.capitalize()
             ]
-        })
+        }
+        .unique { taskA, taskB -> taskA["name"] <=> taskB["name"] }) // If a given task has been done a couple of time, we only display one archive instance -> we do not need more in this use case
 
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
     }
@@ -119,7 +121,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                     : ""
         } else if(instance instanceof ManualTaskInstance) {
             "$contextPath/apps/expenseReportEmployee/do?id=$instance.id"
-			//TODO: Useless? Anyway, living application name should not be hard-coded
+            //TODO: Useless? Anyway, living application name should not be hard-coded
         }
     }
 

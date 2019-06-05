@@ -6,19 +6,11 @@
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
-            <applicationPage customPage="custompage_ManagerValidationPage" token="manager"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
         </applicationPages>
-        <applicationMenus>
-            <applicationMenu applicationPage="manager">
-                <displayName>Manager menu</displayName>
-            </applicationMenu>
-            <applicationMenu applicationPage="home">
-                <displayName>Case List</displayName>
-            </applicationMenu>
-        </applicationMenus>
+        <applicationMenus/>
     </application>
-    <application token="expenseReportManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_CaseManagementLayout" theme="custompage_flatlytheme">
+    <application token="expenseReportManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
         <displayName>Expense report manager</displayName>
         <description></description>
         <applicationPages>
@@ -29,7 +21,7 @@
         </applicationPages>
         <applicationMenus>
             <applicationMenu applicationPage="home">
-                <displayName>Cases</displayName>
+                <displayName>My expense reports</displayName>
             </applicationMenu>
             <applicationMenu applicationPage="management">
                 <displayName>Management</displayName>

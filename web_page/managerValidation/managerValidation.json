@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "managerValidation",
   "name" : "managerValidation",
-  "lastUpdate" : 1559634145371,
+  "lastUpdate" : 1559660758674,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -144,7 +144,10 @@
     "id" : "ExpenseReportOverview",
     "binding" : {
       "report" : "report",
-      "caseDocuments" : "caseDocuments"
+      "caseDocuments" : "caseDocuments",
+      "caseComments" : "caseComments",
+      "caseId" : "task.caseId",
+      "commentAdded" : "commentAdded"
     }
   } ], [ {
     "type" : "formContainer",
@@ -288,7 +291,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "/bonita"
+            "value" : "?id={{task.caseId}}"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -475,6 +478,16 @@
     "caseDocuments" : {
       "type" : "url",
       "value" : "../API/extension/caseDocument?caseId={{task.caseId}}",
+      "exposed" : false
+    },
+    "caseComments" : {
+      "type" : "url",
+      "value" : "../API/extension/caseComment?caseId={{task.caseId}}&reload={{commentAdded.id}}",
+      "exposed" : false
+    },
+    "commentAdded" : {
+      "type" : "json",
+      "value" : "{ \"id\" : \"\" }",
       "exposed" : false
     }
   },

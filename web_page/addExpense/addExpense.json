@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1559049568163,
+  "lastUpdate" : 1559660379927,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -51,7 +51,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "Submit expense report"
+          "value" : "{{ task.displayName }}"
         },
         "alignment" : {
           "type" : "constant",

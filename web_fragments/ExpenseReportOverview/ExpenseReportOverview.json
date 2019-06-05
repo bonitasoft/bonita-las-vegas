@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportOverview",
   "name" : "ExpenseReportOverview",
-  "lastUpdate" : 1559633911513,
+  "lastUpdate" : 1559659466530,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -124,6 +124,45 @@
         } ] ]
       },
       "title" : "Documents"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "e534a15f-078e-4967-965e-cacf9bc4280d",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "8eb0b424-dc77-4c6b-9664-173232ae5343",
+          "hasValidationError" : false,
+          "id" : "CaseComments",
+          "binding" : {
+            "caseComments" : "caseComments",
+            "caseId" : "caseId",
+            "commentAdded" : "commentAdded"
+          }
+        } ] ]
+      },
+      "title" : "Comments"
     } ]
   } ] ],
   "assets" : [ ],
@@ -141,6 +180,18 @@
       "type" : "expression",
       "value" : "return true;",
       "exposed" : false
+    },
+    "caseComments" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "caseId" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "commentAdded" : {
+      "type" : "constant",
+      "exposed" : true
     }
   },
   "hasValidationError" : false,
