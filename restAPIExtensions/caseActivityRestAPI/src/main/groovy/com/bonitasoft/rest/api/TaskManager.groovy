@@ -6,24 +6,21 @@ import javax.servlet.http.HttpServletResponse
 import org.bonitasoft.engine.bpm.flownode.ActivityInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor
-import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
-import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
 import org.bonitasoft.engine.bpm.process.ProcessInstance
+import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
 import org.bonitasoft.engine.identity.User
 import org.bonitasoft.engine.identity.UserCriterion
-import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 
 import com.bonita.lr.model.ExpenseReportDAO
-import com.bonita.lr.model.ExpenseReportDAOImpl
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
-import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
+
 import groovy.json.JsonBuilder
 
 /**
@@ -32,7 +29,7 @@ import groovy.json.JsonBuilder
  *		- Be the task `Manager Validation` of the process Expense Report
  *		- The case must have been started by a user managed by the calling manager
  */
-class CaseManager implements RestApiController, CaseActivityHelper {
+class TaskManager implements RestApiController, CaseActivityHelper {
 
     private static final String MANAGER_VALIDATION = "Manager validation"
 
@@ -77,7 +74,6 @@ class CaseManager implements RestApiController, CaseActivityHelper {
                             target:linkTarget(task),
                         ]
                     }
-                    // TODO else ??
                 }.findAll() // null are ignored
     }
 

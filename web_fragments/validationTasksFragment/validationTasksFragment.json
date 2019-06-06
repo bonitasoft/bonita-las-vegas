@@ -1,8 +1,8 @@
 {
   "designerVersion" : "1.9.40",
-  "id" : "CaseExpenses",
-  "name" : "CaseExpenses",
-  "lastUpdate" : 1559806567637,
+  "id" : "validationTasksFragment",
+  "name" : "validationTasksFragment",
+  "lastUpdate" : 1559814137303,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -20,38 +20,22 @@
         "type" : "constant",
         "value" : false
       },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "Default label"
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "top"
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 4
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3> Case expenses</h3>"
+        "value" : "Expense reports to validate"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
       },
       "alignment" : {
         "type" : "constant",
         "value" : "left"
       }
     },
-    "reference" : "06d47573-0454-410d-9a50-b1586712d728",
+    "reference" : "56474eb9-cf9b-4810-a1b6-e13b7109ceca",
     "hasValidationError" : false,
-    "id" : "pbText"
+    "id" : "pbTitle"
   } ], [ {
     "type" : "container",
     "dimension" : {
@@ -71,10 +55,10 @@
       },
       "repeatedCollection" : {
         "type" : "variable",
-        "value" : "expenses"
+        "value" : "tasks"
       }
     },
-    "reference" : "fc18f2ce-fd9c-4863-b01b-3d62ae8696d6",
+    "reference" : "15d2cb64-4f2b-45ff-9f39-53ba9c10e973",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -99,7 +83,7 @@
           "value" : ""
         }
       },
-      "reference" : "0573f9a2-e1da-4a48-b449-bbe5fbb55e90",
+      "reference" : "a8ad1f24-999c-4eda-a6b3-a5fc00fcb714",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
@@ -141,140 +125,16 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Date: {{$item.expenseDate|uiDate}} <br/>\nDescription:  {{$item.description}} <br/>\nType: {{$item.expenseType}}"
+            "value" : "<dd><span class=\"glyphicon glyphicon-user\"></span> {{$item.user}}"
           },
           "alignment" : {
             "type" : "constant",
             "value" : "left"
           }
         },
-        "reference" : "97f3b548-23db-4469-867b-d078243a9f83",
+        "reference" : "310b4892-f005-4dd2-b067-f2c9e9f0f88a",
         "hasValidationError" : false,
         "id" : "pbText"
-      } ], [ {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "expression",
-            "value" : "!$item.km"
-          },
-          "repeatedCollection" : {
-            "type" : "variable",
-            "value" : ""
-          }
-        },
-        "reference" : "dbbe129f-a8cf-439d-825c-8de18b690ad0",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "component",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 6,
-            "lg" : 6
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "labelHidden" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "label" : {
-              "type" : "interpolation",
-              "value" : "Default label"
-            },
-            "labelPosition" : {
-              "type" : "constant",
-              "value" : "top"
-            },
-            "labelWidth" : {
-              "type" : "constant",
-              "value" : 4
-            },
-            "allowHTML" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "text" : {
-              "type" : "interpolation",
-              "value" : "Vehicule type: {{$item.vehicleType}}"
-            },
-            "alignment" : {
-              "type" : "constant",
-              "value" : "left"
-            }
-          },
-          "reference" : "84cd0298-0acc-48a8-bfe8-405925392fe1",
-          "hasValidationError" : false,
-          "id" : "pbText"
-        }, {
-          "type" : "component",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 6,
-            "lg" : 6
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "labelHidden" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "label" : {
-              "type" : "interpolation",
-              "value" : "Default label"
-            },
-            "labelPosition" : {
-              "type" : "constant",
-              "value" : "top"
-            },
-            "labelWidth" : {
-              "type" : "constant",
-              "value" : 4
-            },
-            "allowHTML" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "text" : {
-              "type" : "interpolation",
-              "value" : "Km: {{$item.km}}"
-            },
-            "alignment" : {
-              "type" : "constant",
-              "value" : "left"
-            }
-          },
-          "reference" : "d6bcabf4-45cb-4d26-8a49-a07188d4abbd",
-          "hasValidationError" : false,
-          "id" : "pbText"
-        } ] ]
       } ], [ {
         "type" : "component",
         "dimension" : {
@@ -290,7 +150,7 @@
           },
           "hidden" : {
             "type" : "expression",
-            "value" : "$item.km"
+            "value" : "!$item.description"
           },
           "labelHidden" : {
             "type" : "constant",
@@ -314,14 +174,14 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Currency: {{$item.currency}}"
+            "value" : "<dd><span class=\"glyphicon glyphicon-info-sign\"></span> {{$item.description}}"
           },
           "alignment" : {
             "type" : "constant",
             "value" : "left"
           }
         },
-        "reference" : "1cd4c2bf-2c79-4ad5-8ea5-23cbccd2d06b",
+        "reference" : "0485ffb3-72d8-41d3-82de-0e5b02c3125d",
         "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
@@ -363,14 +223,14 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Amount: {{$item.amount}}"
+            "value" : "<dd><span class=\"glyphicon glyphicon-eye-open\"></span> <a href=\"{{$item.url}}\" target=\"{{$item.target}}\">Show expense report</a>"
           },
           "alignment" : {
             "type" : "constant",
             "value" : "left"
           }
         },
-        "reference" : "fce1f6b1-67ea-4b6b-b473-4ce8630e063b",
+        "reference" : "b434fc07-dafb-4c4a-9990-2a3254646b01",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
@@ -379,7 +239,7 @@
   "assets" : [ ],
   "inactiveAssets" : [ ],
   "data" : {
-    "expenses" : {
+    "tasks" : {
       "type" : "constant",
       "exposed" : true
     }

@@ -10,6 +10,7 @@ import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfoSearchDescriptor
+import org.bonitasoft.engine.identity.UserMembershipCriterion
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.engine.search.SearchResult
 
@@ -19,6 +20,8 @@ import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
 import com.bonitasoft.web.extension.rest.RestAPIContext
 
 trait CaseActivityHelper {
+
+    private static final String ACCOUNTING_GROUP_NAME = "finance"
 
     def canExecute(String state) {
         return state != "N/A" &&
@@ -68,24 +71,25 @@ trait CaseActivityHelper {
     /**
      * Throw an exception if the calling user should not access to this case 
      */
-    // TODO: take into account the manager, the accounting ...
     def void validateCaseAccess(String caseId, RestAPIContext context) {
         def processAPI = context.getApiClient().getProcessAPI()
         def userId = context.apiSession.userId
 
-        def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE)
-                .filter(ProcessInstanceSearchDescriptor.ID, caseId)
-                .filter(ProcessInstanceSearchDescriptor.STARTED_BY, userId)
-                .done()
-
-        def processAPISearchProcessInstancesGetResult = processAPI.searchProcessInstances(searchOptions).getResult()
-        if (processAPISearchProcessInstancesGetResult.isEmpty()) {
-            searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE)
-                    .filter(ArchivedProcessInstancesSearchDescriptor.STARTED_BY, userId)
+        if (!isAccountingMember(context, userId)) {
+            def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE)
+                    .filter(ProcessInstanceSearchDescriptor.ID, caseId)
+                    .filter(ProcessInstanceSearchDescriptor.STARTED_BY, userId)
                     .done()
-            if (processAPISearchProcessInstancesGetResult.isEmpty()
-            && !checkManagerCaseAccess(caseId, context)) {
-                throw new IllegalStateException()
+
+            def processAPISearchProcessInstancesGetResult = processAPI.searchProcessInstances(searchOptions).getResult()
+            if (processAPISearchProcessInstancesGetResult.isEmpty()) {
+                searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE)
+                        .filter(ArchivedProcessInstancesSearchDescriptor.STARTED_BY, userId)
+                        .done()
+                if (processAPISearchProcessInstancesGetResult.isEmpty()
+                && !checkManagerCaseAccess(caseId, context)) {
+                    throw new IllegalStateException()
+                }
             }
         }
     }
@@ -146,5 +150,11 @@ trait CaseActivityHelper {
         }else if(instance instanceof ManualTaskInstance) {
             "_parent"
         }
+    }
+
+    def boolean isAccountingMember(RestAPIContext context, Long userId) {
+        def res  = context.getApiClient().getIdentityAPI()
+                .getUserMemberships(userId, 0, Integer.MAX_VALUE, UserMembershipCriterion.GROUP_NAME_ASC)
+                .any {  Objects.equals(it.groupName , ACCOUNTING_GROUP_NAME) }
     }
 }

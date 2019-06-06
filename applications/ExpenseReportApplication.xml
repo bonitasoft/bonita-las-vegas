@@ -28,4 +28,22 @@
             </applicationMenu>
         </applicationMenus>
     </application>
+    <application token="expenseReportAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
+        <displayName>Expense report accounting</displayName>
+        <description>TODO: profile should be accounting</description>
+        <applicationPages>
+            <applicationPage customPage="custompage_Case" token="case"/>
+            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
+            <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>
+        </applicationPages>
+        <applicationMenus>
+            <applicationMenu applicationPage="home">
+                <displayName>My expense reports</displayName>
+            </applicationMenu>
+            <applicationMenu applicationPage="management">
+                <displayName>Management</displayName>
+            </applicationMenu>
+        </applicationMenus>
+    </application>
 </applications>

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1559750157401,
+  "lastUpdate" : 1559820856469,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -291,7 +291,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "/bonita"
+            "value" : "../home"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -321,6 +321,29 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
           }
         },
         "reference" : "88ab2438-9fb9-417b-a1e5-ae0f6a514df0",

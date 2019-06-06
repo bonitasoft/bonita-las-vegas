@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory
 
 import com.bonita.lr.model.ExpenseReportDAO
 import com.bonitasoft.engine.api.ProcessAPI
-import com.bonitasoft.engine.bpm.flownode.ArchivedProcessInstancesSearchDescriptor
 import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
@@ -21,7 +20,7 @@ import com.bonitasoft.web.extension.rest.RestApiController
 import groovy.json.JsonBuilder
 
 /**
- * This API returns all the instances (active or archived) of the expense report process started by the calling user.
+ * This API returns all the active instances of the expense report process started by the calling user.
  */
 class Case implements RestApiController, CaseActivityHelper {
 
@@ -58,13 +57,13 @@ class Case implements RestApiController, CaseActivityHelper {
      * @param processAPI
      * @param process
      * @param contextPath
-     * @return All instances (active or archived) of the process in input
+     * @return All active instances of the process in input
      */
     def retrieveProcessInstance(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process, String contextPath, Long userId, String appToken) {
         def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
             filter(ProcessInstanceSearchDescriptor.PROCESS_DEFINITION_ID, process.processId)
             filter(ProcessInstanceSearchDescriptor.STARTED_BY, userId)
-            filter(ProcessInstanceSearchDescriptor.NAME, "Expense report")
+            filter(ProcessInstanceSearchDescriptor.NAME, EXPENSE_REPORT_PROCESS_NAME)
             done()
         }
         def result = processAPI.searchProcessInstances(searchOptions).getResult()
@@ -76,25 +75,6 @@ class Case implements RestApiController, CaseActivityHelper {
                         name: expenseReport.expenseHeader.description ?: "New expense report",
                         state: asLabel(it.state.toUpperCase(), "info"),
                         viewAction: viewActionLink(it.id, processAPI, contextPath, appToken)
-                    ]
-                }
-        searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(ArchivedProcessInstancesSearchDescriptor.PROCESS_DEFINITION_ID, process.processId)
-            filter(ArchivedProcessInstancesSearchDescriptor.STARTED_BY, userId)
-            filter(ArchivedProcessInstancesSearchDescriptor.NAME, "Expense report")
-            done()
-        }
-
-        processAPI.searchArchivedProcessInstances(searchOptions).getResult()
-                .collect {
-                    println it.name
-                    SimpleBusinessDataReference businessDataRef = processAPI.getArchivedProcessInstanceExecutionContext(it.id)['expenseReport_ref']
-                    def expenseReport = context.getApiClient().getDAO(ExpenseReportDAO.class).findByPersistenceId(businessDataRef.storageId)
-                    result << [
-                        id: it.sourceObjectId,
-                        name: expenseReport.expenseHeader.description ?: "New expense report",
-                        state: asLabel(it.state.toUpperCase(), "default"),
-                        //                        viewAction: viewActionLink(it.sourceObjectId, processAPI, contextPath, appToken)
                     ]
                 }
         result
