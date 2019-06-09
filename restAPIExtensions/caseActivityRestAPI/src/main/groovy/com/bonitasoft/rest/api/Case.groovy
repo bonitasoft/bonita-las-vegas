@@ -95,6 +95,6 @@ class Case implements RestApiController, CaseActivityHelper {
         def openTasks = searchOpenedTasks(caseId, processAPI).getResult()
                 .findAll { canExecute(getState(it, processAPI).name) }
                 .findAll { !tasksToExclude.contains(it.name) }
-        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_target">Open <span class="badge"> $openTasks.size</span></a>"""
+        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open <span class="badge"> $openTasks.size</span></a>"""
     }
 }

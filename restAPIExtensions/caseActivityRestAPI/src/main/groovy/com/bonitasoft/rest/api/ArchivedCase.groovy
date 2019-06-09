@@ -35,7 +35,7 @@ class ArchivedCase extends Case {
                     [
                         id: it.sourceObjectId,
                         name: expenseReport.expenseHeader.description ?: "New expense report",
-                        state: asLabel(it.state.toUpperCase(), "default")
+                        state: asLabel(expenseReport.isReportAccepted() ? "Accepted" : "Refused", expenseReport.isReportAccepted() ? "success" : "danger")
                         // TODO a link to see the an overview of the archived process
                     ]
                 }

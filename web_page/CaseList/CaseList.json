@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1559743162218,
+  "lastUpdate" : 1559910728786,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -38,7 +38,7 @@
     "hasValidationError" : false,
     "id" : "pbTitle"
   } ], [ {
-    "type" : "component",
+    "type" : "tabsContainer",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
@@ -53,138 +53,244 @@
       "hidden" : {
         "type" : "constant",
         "value" : false
-      },
-      "headers" : {
-        "type" : "constant",
-        "value" : [ "Expense report", "State" ]
-      },
-      "type" : {
-        "type" : "constant",
-        "value" : "Variable"
-      },
-      "apiUrl" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "params" : {
-        "type" : "constant"
-      },
-      "content" : {
-        "type" : "expression",
-        "value" : "cases"
-      },
-      "columnsKey" : {
-        "type" : "constant",
-        "value" : [ "name", "state", "viewAction" ]
-      },
-      "sortColumns" : {
-        "type" : "constant"
-      },
-      "selectedRow" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "pageSize" : {
-        "type" : "constant",
-        "value" : 10
-      },
-      "filter" : {
-        "type" : "constant"
       }
     },
-    "reference" : "7eadd412-9c34-4d44-b142-83fec2fc1344",
+    "reference" : "6472c3f0-c2c6-41e6-86e7-b6c1fa4dce8d",
     "hasValidationError" : false,
-    "id" : "customHTMLDataTable"
-  } ], [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
+    "id" : "pbTabsContainer",
+    "tabs" : [ {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "f63fce5c-4061-41d6-9738-10f28060c578",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "headers" : {
+              "type" : "constant",
+              "value" : [ "Expense report", "State" ]
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "Variable"
+            },
+            "apiUrl" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "params" : {
+              "type" : "constant"
+            },
+            "content" : {
+              "type" : "expression",
+              "value" : "cases"
+            },
+            "columnsKey" : {
+              "type" : "constant",
+              "value" : [ "name", "state", "viewAction" ]
+            },
+            "sortColumns" : {
+              "type" : "constant"
+            },
+            "selectedRow" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "pageSize" : {
+              "type" : "constant",
+              "value" : 10
+            },
+            "filter" : {
+              "type" : "constant"
+            }
+          },
+          "reference" : "7eadd412-9c34-4d44-b142-83fec2fc1344",
+          "hasValidationError" : false,
+          "id" : "customHTMLDataTable"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "disabled" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "New expense report"
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "left"
+            },
+            "buttonStyle" : {
+              "type" : "constant",
+              "value" : "primary"
+            },
+            "action" : {
+              "type" : "constant",
+              "value" : "POST"
+            },
+            "url" : {
+              "type" : "interpolation",
+              "value" : "../API/bpm/case"
+            },
+            "dataToSend" : {
+              "type" : "expression",
+              "value" : "processId"
+            },
+            "dataFromSuccess" : {
+              "type" : "variable",
+              "value" : "newCase"
+            },
+            "dataFromError" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "targetUrlOnSuccess" : {
+              "type" : "interpolation",
+              "value" : "../case/?id={{newCase.id}}"
+            },
+            "collectionToModify" : {
+              "type" : "variable"
+            },
+            "collectionPosition" : {
+              "type" : "constant",
+              "value" : "Last"
+            },
+            "valueToAdd" : {
+              "type" : "constant"
+            },
+            "removeItem" : {
+              "type" : "variable"
+            },
+            "assign" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "responseStatusCode" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "closeOnSuccess" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "modalId" : {
+              "type" : "constant",
+              "value" : ""
+            }
+          },
+          "reference" : "24483bbe-4ec0-44c3-a239-e54140c9a512",
+          "hasValidationError" : false,
+          "id" : "pbButton"
+        } ] ]
       },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
+      "title" : "Active"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "12df2eb4-23a9-4e28-b389-234ab586c6d6",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "headers" : {
+              "type" : "constant",
+              "value" : [ "Expense report", "State" ]
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "Variable"
+            },
+            "apiUrl" : {
+              "type" : "constant",
+              "value" : "../API/"
+            },
+            "params" : {
+              "type" : "constant"
+            },
+            "content" : {
+              "type" : "expression",
+              "value" : "archivedCases"
+            },
+            "columnsKey" : {
+              "type" : "constant",
+              "value" : [ "name", "state" ]
+            },
+            "sortColumns" : {
+              "type" : "constant"
+            },
+            "selectedRow" : {
+              "type" : "variable",
+              "value" : ""
+            },
+            "pageSize" : {
+              "type" : "constant",
+              "value" : 10
+            },
+            "filter" : {
+              "type" : "constant"
+            }
+          },
+          "reference" : "f66e286b-f7c2-4c33-9b76-d592f4499fb2",
+          "hasValidationError" : false,
+          "id" : "customHTMLDataTable"
+        } ] ]
       },
-      "disabled" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "New expense report"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      },
-      "buttonStyle" : {
-        "type" : "constant",
-        "value" : "primary"
-      },
-      "action" : {
-        "type" : "constant",
-        "value" : "POST"
-      },
-      "url" : {
-        "type" : "interpolation",
-        "value" : "../API/bpm/case"
-      },
-      "dataToSend" : {
-        "type" : "expression",
-        "value" : "processId"
-      },
-      "dataFromSuccess" : {
-        "type" : "variable",
-        "value" : "newCase"
-      },
-      "dataFromError" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "targetUrlOnSuccess" : {
-        "type" : "interpolation",
-        "value" : "../case/?id={{newCase.id}}"
-      },
-      "collectionToModify" : {
-        "type" : "variable"
-      },
-      "collectionPosition" : {
-        "type" : "constant",
-        "value" : "Last"
-      },
-      "valueToAdd" : {
-        "type" : "constant"
-      },
-      "removeItem" : {
-        "type" : "variable"
-      },
-      "assign" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "responseStatusCode" : {
-        "type" : "variable",
-        "value" : ""
-      },
-      "closeOnSuccess" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "modalId" : {
-        "type" : "constant",
-        "value" : ""
-      }
-    },
-    "reference" : "24483bbe-4ec0-44c3-a239-e54140c9a512",
-    "hasValidationError" : false,
-    "id" : "pbButton"
+      "title" : "Archived"
+    } ]
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
@@ -269,6 +375,11 @@
     "applicationToken" : {
       "type" : "urlparameter",
       "value" : "app",
+      "exposed" : false
+    },
+    "archivedCases" : {
+      "type" : "url",
+      "value" : "../API/extension/archivedCase?appToken={{applicationToken}}",
       "exposed" : false
     }
   },

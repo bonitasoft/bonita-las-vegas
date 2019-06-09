@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "managerValidation",
   "name" : "managerValidation",
-  "lastUpdate" : 1559660758674,
+  "lastUpdate" : 1559917099115,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -179,75 +179,10 @@
       "rows" : [ [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "disabled" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "required" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "inline" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "availableValues" : {
-            "type" : "expression",
-            "value" : "validationValues"
-          },
-          "displayedKey" : {
-            "type" : "constant",
-            "value" : "display"
-          },
-          "returnedKey" : {
-            "type" : "constant",
-            "value" : "value"
-          },
-          "selectedValue" : {
-            "type" : "variable",
-            "value" : "formInput.managerValidationData"
-          }
-        },
-        "reference" : "01d43f41-0cec-46a1-a48a-4cd069c930b6",
-        "hasValidationError" : false,
-        "id" : "pbRadioButtons"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "md" : 12,
+          "md" : 1,
           "sm" : 12,
           "xs" : 12,
-          "lg" : 12
+          "lg" : 1
         },
         "propertyValues" : {
           "removeItem" : {
@@ -267,7 +202,7 @@
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "primary"
+            "value" : "success"
           },
           "readOnly" : {
             "type" : "constant",
@@ -275,11 +210,11 @@
           },
           "label" : {
             "type" : "interpolation",
-            "value" : "Submit"
+            "value" : "Validate"
           },
           "dataToSend" : {
             "type" : "expression",
-            "value" : "formOutput"
+            "value" : "ValidFormOutput"
           },
           "dataFromError" : {
             "type" : "variable",
@@ -291,7 +226,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "?id={{task.caseId}}"
+            "value" : "../management"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -349,6 +284,184 @@
         "reference" : "d73c0e3a-c62c-4f4f-8e6c-9874876f2d0f",
         "hasValidationError" : false,
         "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 1,
+          "lg" : 1
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "expression",
+            "value" : "$form.$invalid"
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Invalidate"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "warning"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Submit task"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "InvalidFormOutput"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : "formOutput._submitError"
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation",
+            "value" : "../management"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "5fffe576-34ad-4270-88cf-55afe8972f7f",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 10,
+          "lg" : 10
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "expression",
+            "value" : "$form.$invalid"
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Refuse"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "danger"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Submit task"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "RefusedFormOutput"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : "formOutput._submitError"
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation",
+            "value" : "../management"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "77ea794d-e814-4918-ad1f-3e12123b4e51",
+        "hasValidationError" : false,
+        "id" : "pbButton"
       } ], [ {
         "type" : "component",
         "dimension" : {
@@ -400,6 +513,14 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
           }
         },
         "reference" : "25c05d92-f1cc-4cb5-87ba-f37d2ed7358c",
@@ -440,19 +561,9 @@
       "value" : "../API/bpm/userTask/{{taskId}}",
       "exposed" : false
     },
-    "formInput" : {
-      "type" : "json",
-      "value" : "{\n  \"managerValidationData\" : false\n}",
-      "exposed" : false
-    },
     "submit_errors_list" : {
       "type" : "expression",
       "value" : "if($data.formOutput && $data.formOutput._submitError && $data.formOutput._submitError.explanations){\n\tconst liElements = $data.formOutput._submitError.explanations\n\t\t.filter(cause => cause !== null)\n\t\t.map(cause => \"<li>\" + cause + \"</li>\")\n\t\t.join('');\n\tif(liElements){\n\t\treturn \"<ul>\" + liElements + \"</ul>\";\n\t}\n}",
-      "exposed" : false
-    },
-    "formOutput" : {
-      "type" : "expression",
-      "value" : "return {\n\tmanagerValidationData: $data.formInput.managerValidationData\n}",
       "exposed" : false
     },
     "context" : {
@@ -463,11 +574,6 @@
     "taskId" : {
       "type" : "urlparameter",
       "value" : "id",
-      "exposed" : false
-    },
-    "validationValues" : {
-      "type" : "json",
-      "value" : "{\n    \"valid\": {\n        \"value\": true,\n        \"display\": \"Submission valid\"\n    },\n    \"invalid\": {\n        \"value\": false,\n        \"display\": \"Submission invalid\"\n    }\n}",
       "exposed" : false
     },
     "report" : {
@@ -488,6 +594,21 @@
     "commentAdded" : {
       "type" : "json",
       "value" : "{ \"id\" : \"\" }",
+      "exposed" : false
+    },
+    "ValidFormOutput" : {
+      "type" : "json",
+      "value" : "{\n  \"managerValidationData\" : \"Valid\"\n}",
+      "exposed" : false
+    },
+    "InvalidFormOutput" : {
+      "type" : "json",
+      "value" : "{\n  \"managerValidationData\" : \"Invalid\"\n}",
+      "exposed" : false
+    },
+    "RefusedFormOutput" : {
+      "type" : "json",
+      "value" : "{\n  \"managerValidationData\" : \"Refused\"\n}",
       "exposed" : false
     }
   },

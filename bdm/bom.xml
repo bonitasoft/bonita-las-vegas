@@ -54,6 +54,7 @@
             <fields>
                 <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseHeader" fetchType="EAGER" name="expenseHeader" nullable="false" collection="false"/>
                 <relationField type="COMPOSITION" reference="com.bonita.lr.model.ExpenseLine" fetchType="EAGER" name="expenseLine" nullable="true" collection="true"/>
+                <field type="BOOLEAN" length="255" name="reportAccepted" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
