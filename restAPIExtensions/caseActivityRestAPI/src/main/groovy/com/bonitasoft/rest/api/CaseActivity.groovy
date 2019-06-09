@@ -9,7 +9,6 @@ import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescript
 import org.bonitasoft.engine.bpm.flownode.ArchivedHumanTaskInstance
 import org.bonitasoft.engine.bpm.flownode.HumanTaskDefinition
 import org.bonitasoft.engine.bpm.flownode.HumanTaskInstance
-import org.bonitasoft.engine.bpm.flownode.ManualTaskInstance
 import org.bonitasoft.engine.bpm.flownode.StandardLoopCharacteristics
 import org.bonitasoft.engine.bpm.flownode.UserTaskInstance
 import org.bonitasoft.engine.bpm.process.ProcessDefinitionNotFoundException
@@ -119,9 +118,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
             canExecute(metadata.$activityState)
                     ? "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
                     : ""
-        } else if(instance instanceof ManualTaskInstance) {
-            "$contextPath/apps/expenseReportEmployee/do?id=$instance.id"
-            //TODO: Useless? Anyway, living application name should not be hard-coded
         }
     }
 

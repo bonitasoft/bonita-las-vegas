@@ -1,15 +1,15 @@
 {
-  "designerVersion" : "1.9.40",
-  "id" : "createVehicules",
-  "name" : "createVehicules",
-  "lastUpdate" : 1558949640020,
+  "designerVersion" : "1.9.45",
+  "id" : "newVehicule",
+  "name" : "newVehicule",
+  "lastUpdate" : 1560073636022,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
       "xs" : 12
     },
     "propertyValues" : { },
-    "reference" : "f8c97e71-8382-4e55-aeb6-b6aee66fe852",
+    "reference" : "dd0d72d7-6b09-432b-8aa7-42db26975a86",
     "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
@@ -18,7 +18,7 @@
         "xs" : 12
       },
       "propertyValues" : { },
-      "reference" : "85394762-e257-4e08-bbec-a13e87c76009",
+      "reference" : "4fce5a68-9795-4ed3-8b07-500b76c70703",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
@@ -56,7 +56,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Vehicle"
+            "value" : "New Vehicule"
           },
           "label" : {
             "type" : "interpolation"
@@ -74,7 +74,7 @@
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
           }
         },
-        "reference" : "9036be21-45ee-441c-bf33-3fbf8ce171ef",
+        "reference" : "c6063c77-921c-4a99-b97a-ce21f98bbdb9",
         "hasValidationError" : false,
         "id" : "pbTitle"
       } ], [ {
@@ -87,8 +87,7 @@
         },
         "propertyValues" : {
           "repeatedCollection" : {
-            "type" : "variable",
-            "value" : "formInput.vehicleInput"
+            "type" : "variable"
           },
           "labelHidden" : {
             "type" : "constant",
@@ -125,7 +124,7 @@
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.WidgetContainer"
           }
         },
-        "reference" : "640e55e8-d77b-4572-afd8-ba63e754d20e",
+        "reference" : "1f926417-5c6e-4b9a-a3e0-274aa2d83aa0",
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
@@ -186,7 +185,7 @@
             },
             "value" : {
               "type" : "variable",
-              "value" : "$item.name"
+              "value" : "formInput.newVehiculeInput.name"
             },
             "dimension" : {
               "type" : "constant",
@@ -197,7 +196,7 @@
               "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
             }
           },
-          "reference" : "74c91793-2e44-4c29-8492-45afab0889fa",
+          "reference" : "e6a55308-e73d-4da2-ad07-e22afbc2b8e8",
           "hasValidationError" : false,
           "id" : "pbInput"
         } ], [ {
@@ -258,7 +257,7 @@
             },
             "value" : {
               "type" : "variable",
-              "value" : "$item.rate"
+              "value" : "formInput.newVehiculeInput.rate"
             },
             "dimension" : {
               "type" : "constant",
@@ -269,91 +268,9 @@
               "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
             }
           },
-          "reference" : "0c830a59-5f99-4e47-8e77-986d7167e742",
+          "reference" : "3275f2ce-9f5c-4e2d-88e4-62c0526f4f31",
           "hasValidationError" : false,
           "id" : "pbInput"
-        } ], [ {
-          "type" : "component",
-          "dimension" : {
-            "md" : 12,
-            "sm" : 12,
-            "xs" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "removeItem" : {
-              "type" : "variable",
-              "value" : "$item"
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "widgetId" : {
-              "type" : "constant",
-              "value" : "pbButton"
-            },
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "buttonStyle" : {
-              "type" : "constant",
-              "value" : "danger"
-            },
-            "readOnly" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "label" : {
-              "type" : "interpolation",
-              "value" : "<span class=\"glyphicon glyphicon-remove\"></span>"
-            },
-            "dataToSend" : {
-              "type" : "expression"
-            },
-            "labelHidden" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "targetUrlOnSuccess" : {
-              "type" : "interpolation"
-            },
-            "collectionPosition" : {
-              "type" : "constant",
-              "value" : "Item"
-            },
-            "valueToAdd" : {
-              "type" : "expression"
-            },
-            "collectionToModify" : {
-              "type" : "variable",
-              "value" : "$collection"
-            },
-            "action" : {
-              "type" : "constant",
-              "value" : "Remove from collection"
-            },
-            "disabled" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "alignment" : {
-              "type" : "constant",
-              "value" : "right"
-            },
-            "dimension" : {
-              "type" : "constant",
-              "value" : 12
-            },
-            "class" : {
-              "type" : "constant",
-              "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
-            }
-          },
-          "reference" : "00fe274c-71f5-42d3-a5ed-17ee0ad09764",
-          "hasValidationError" : false,
-          "id" : "pbButton"
         } ] ]
       } ], [ {
         "type" : "component",
@@ -389,88 +306,7 @@
           },
           "label" : {
             "type" : "interpolation",
-            "value" : "<span class=\"glyphicon glyphicon-plus\"></span> Add ExpenseVehicle"
-          },
-          "dataToSend" : {
-            "type" : "expression"
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "targetUrlOnSuccess" : {
-            "type" : "interpolation"
-          },
-          "collectionPosition" : {
-            "type" : "constant"
-          },
-          "valueToAdd" : {
-            "type" : "expression",
-            "value" : "{\n  \"name\" : \"\",\n  \"rate\" : 0\n}"
-          },
-          "collectionToModify" : {
-            "type" : "variable",
-            "value" : "formInput.vehicleInput"
-          },
-          "action" : {
-            "type" : "constant",
-            "value" : "Add to collection"
-          },
-          "disabled" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          },
-          "dimension" : {
-            "type" : "constant",
-            "value" : 12
-          },
-          "class" : {
-            "type" : "constant",
-            "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
-          }
-        },
-        "reference" : "514c108d-8f32-44fc-855e-90722862ebae",
-        "hasValidationError" : false,
-        "id" : "pbButton"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "md" : 12,
-          "sm" : 12,
-          "xs" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "removeItem" : {
-            "type" : "variable"
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "widgetId" : {
-            "type" : "constant",
-            "value" : "pbButton"
-          },
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "buttonStyle" : {
-            "type" : "constant",
-            "value" : "primary"
-          },
-          "readOnly" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Submit"
+            "value" : "Create"
           },
           "dataToSend" : {
             "type" : "expression",
@@ -486,7 +322,7 @@
           },
           "targetUrlOnSuccess" : {
             "type" : "interpolation",
-            "value" : "/bonita"
+            "value" : "../vehicule"
           },
           "collectionPosition" : {
             "type" : "constant"
@@ -516,9 +352,32 @@
           "class" : {
             "type" : "constant",
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.ButtonWidget"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
           }
         },
-        "reference" : "b3af2f6c-c32a-4088-9954-1f2eec568e61",
+        "reference" : "5853b094-1a92-4293-bff2-4d7b86d5d248",
         "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
@@ -574,20 +433,20 @@
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
           }
         },
-        "reference" : "2d8e8cb2-067f-415f-8803-1e2505d1df52",
+        "reference" : "9be3df2c-bc14-4c27-a5cc-f73aa8bc92cd",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
     }
   } ] ],
   "assets" : [ {
-    "id" : "bde95e0c-717d-4419-ae5d-00ed79077b29",
+    "id" : "59377e41-3de2-4a2e-9213-26c9547e1ebb",
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
     "external" : false
   }, {
-    "id" : "65f12a5e-86d5-4973-9640-1838792b94af",
+    "id" : "d827aaff-acf7-4fee-94a9-7b85e0de8b7f",
     "name" : "localization.json",
     "type" : "json",
     "order" : 0,
@@ -597,7 +456,7 @@
   "data" : {
     "formInput" : {
       "type" : "json",
-      "value" : "{\n  \"vehicleInput\" : [ ]\n}",
+      "value" : "{\n  \"newVehiculeInput\" : {\n    \"name\" : \"\",\n    \"rate\" : 0\n  }\n}",
       "exposed" : false
     },
     "submit_errors_list" : {
@@ -607,12 +466,12 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "return {\n\tvehicleInput: $data.formInput.vehicleInput\n}",
+      "value" : "return {\n\tnewVehiculeInput: $data.formInput.newVehiculeInput\n}",
       "exposed" : false
     }
   },
   "hasValidationError" : false,
-  "uuid" : "85dacc51-2b46-46be-8dea-c73dbde47a0f",
+  "uuid" : "d1779a4d-1d3b-45f2-a681-f5cc50add712",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer"
 }

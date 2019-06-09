@@ -36,6 +36,8 @@
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>
+            <applicationPage customPage="custompage_vehiculeAdministration" token="vehicule"/>
+            <applicationPage customPage="custompage_expenseTypeAdministration" token="type"/>
         </applicationPages>
         <applicationMenus>
             <applicationMenu applicationPage="home">
@@ -43,6 +45,17 @@
             </applicationMenu>
             <applicationMenu applicationPage="management">
                 <displayName>Management</displayName>
+            </applicationMenu>
+            <applicationMenu>
+                <displayName>Administration</displayName>
+                <applicationMenus>
+                    <applicationMenu applicationPage="vehicule">
+                        <displayName>Vehicules</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="type">
+                        <displayName>Expense types</displayName>
+                    </applicationMenu>
+                </applicationMenus>
             </applicationMenu>
         </applicationMenus>
     </application>

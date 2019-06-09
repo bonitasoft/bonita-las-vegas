@@ -1,0 +1,469 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "expenseTypeAdministration",
+  "name" : "expenseTypeAdministration",
+  "lastUpdate" : 1560102011392,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "ExpenseTypes"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "8411e8b7-d7e2-4182-9715-f8ad6d98838e",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Type" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "types"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "type" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : "selectedType"
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "f3cd00c0-37ef-456b-b14b-0afcd1c2d7db",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "New expense type"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "success"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "newType"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "563b0e87-86cb-499d-b758-68e886b98bc0",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "newType"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "3b4ab1f0-48e0-4245-ae7b-276f14e1bbc5",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "b5bc5726-a500-4149-ac86-1aeee991f34d",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "New expense type"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "582c1f2f-ecf7-4833-aa5b-a2a67e86208c",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Type"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "placeholder" : {
+            "type" : "interpolation"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "newType.typeInput.type"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "text"
+          },
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
+            "type" : "constant",
+            "value" : 1
+          }
+        },
+        "reference" : "52d8c4f4-6036-4b51-8556-20202028c9b7",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Create"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "success"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Start process"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "newType"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "typeModified"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "processId" : {
+            "type" : "expression",
+            "value" : "createExpenseTypeProcessId[0].id"
+          }
+        },
+        "reference" : "3975ed6b-6355-4630-97ba-a7bfdde9bb71",
+        "hasValidationError" : false,
+        "id" : "customCustomStartProcessButton"
+      } ] ]
+    }
+  } ] ],
+  "assets" : [ {
+    "id" : "a6a075e7-5569-4d51-9af4-dc520461815e",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "5804b9ea-359f-4a6d-9041-3b9ae77f7271",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "types" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseType?q=find&p=0&c=100&reload={{typeModified.caseId}}",
+      "exposed" : false
+    },
+    "typeModified" : {
+      "type" : "json",
+      "value" : "{\"caseId\": \"\"}",
+      "exposed" : false
+    },
+    "selectedType" : {
+      "type" : "json",
+      "value" : "{}",
+      "exposed" : false
+    },
+    "newType" : {
+      "type" : "json",
+      "value" : "{ \"typeInput\" : { \"type\" : \"\" } }",
+      "exposed" : false
+    },
+    "createExpenseTypeProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=createExpenseType&p=0&c=1",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "4d0fd16e-a418-4526-aefc-d5765e8e6345",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

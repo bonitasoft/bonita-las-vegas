@@ -1,0 +1,1510 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "vehiculeAdministration",
+  "name" : "vehiculeAdministration",
+  "lastUpdate" : 1560100927353,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Vehicles"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "36f63f86-1c25-43b4-9675-0aad08aa15c6",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Vehicle", "rate" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "vehicles"
+      },
+      "columnsKey" : {
+        "type" : "expression",
+        "value" : "formattedColumn"
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : "selectedVehicle"
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "3ced8bd3-f2d3-4a6c-8f03-fdc8cec0a0bf",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "New vehicle"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "success"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "newVehicle"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "dda0c022-40f0-49c3-850d-da90102a6f58",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "expression",
+        "value" : "!selectedVehicle.name"
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Edit selected vehicle"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "primary"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "editVehicle"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "c60fe199-b0f9-44dc-975f-575f0562e8be",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 8
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "expression",
+        "value" : "!selectedVehicle.name"
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Delete selected vehicle"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "danger"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "deleteVehicle"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "439c4408-b684-471a-9b41-488c39a14ecf",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "newVehicle"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "498c3dad-37e8-470e-ac7f-4d39555ecde2",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "bced7dce-c161-406b-9e61-739ecee9627b",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "New vehicle"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "62aca044-9482-4de5-9ad4-83a09075686e",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Name"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "placeholder" : {
+            "type" : "interpolation"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "newVehicle.newVehiculeInput.name"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "text"
+          },
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
+            "type" : "constant",
+            "value" : 1
+          }
+        },
+        "reference" : "6f048e89-dbe6-4a7b-84bd-0ed8ffa1cb88",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Rate"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "placeholder" : {
+            "type" : "interpolation"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "newVehicle.newVehiculeInput.rate"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "number"
+          },
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
+            "type" : "constant",
+            "value" : 1
+          }
+        },
+        "reference" : "41c89de9-1b9e-464a-9b1b-9333f8abba9a",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Create"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "success"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Start process"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "newVehicle"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "vehicleAdded"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "processId" : {
+            "type" : "expression",
+            "value" : "createVehicleProcessId[0].id"
+          }
+        },
+        "reference" : "9d8e2092-0352-4c3a-81d7-5e0c56627fcf",
+        "hasValidationError" : false,
+        "id" : "customCustomStartProcessButton"
+      } ] ]
+    }
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "editVehicle"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "45c00ee9-cdb7-43cf-948a-fb918e8da2e7",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "3a872a3c-f18c-46d3-b9ef-42e6adb208a7",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Edit vehicle"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "2267e9df-1625-46d8-8bc8-1c84993678c7",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Name"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "placeholder" : {
+            "type" : "interpolation"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "selectedVehicle.name"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "text"
+          },
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
+            "type" : "constant",
+            "value" : 1
+          }
+        },
+        "reference" : "49cdf568-247d-4a8f-add5-332057e76212",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "required" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "readOnly" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Rate"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "placeholder" : {
+            "type" : "interpolation"
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "selectedVehicle.rate"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "text"
+          },
+          "min" : {
+            "type" : "constant"
+          },
+          "max" : {
+            "type" : "constant"
+          },
+          "step" : {
+            "type" : "constant",
+            "value" : 1
+          }
+        },
+        "reference" : "14c96de3-bf05-4e57-8734-0a1465edce94",
+        "hasValidationError" : false,
+        "id" : "pbInput"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Edit"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Start process"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "selectedVehicle"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "vehicleAdded"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "processId" : {
+            "type" : "expression",
+            "value" : "editVehicleProcessId[0].id"
+          }
+        },
+        "reference" : "79e856a0-1af1-4487-b93b-a7a394d93378",
+        "hasValidationError" : false,
+        "id" : "customCustomStartProcessButton"
+      } ] ]
+    }
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "deleteVehicle"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "aa2378b4-265c-4da3-9ff0-05d58d964652",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "a5e4dcea-ce9f-4715-b9c0-69809dc3a1be",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Delete vehicle"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "b57be584-97eb-4143-b1b5-21f26e2314a0",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "The following vehicle is about to be deleted from the database:"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "93006111-0ebe-4724-9e6d-d59e2e137eb9",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 3
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Vehicle"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 2
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "{{selectedVehicle.name}}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "7036ed26-2cc8-4357-893a-68cd0efab933",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Rate"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 1
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "{{selectedVehicle.rate}}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "24a3b8b6-f804-40f1-b062-ab5946284185",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Do you want to continue?"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "c57127fc-427e-4ef5-80e9-dad032346df1",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Abort"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Close modal"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "constant"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "19a9ebc4-fa80-4df1-abc8-d8516ec99d3f",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Delete"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "danger"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Start process"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "selectedVehicleId"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "vehicleAdded"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "processId" : {
+            "type" : "expression",
+            "value" : "deleteVehicleProcessId[0].id"
+          }
+        },
+        "reference" : "cbde0fa7-a53e-4805-b4be-e42c2279f56a",
+        "hasValidationError" : false,
+        "id" : "customCustomStartProcessButton"
+      } ] ]
+    }
+  } ] ],
+  "assets" : [ {
+    "id" : "887f2c95-e543-4d36-ac4e-01d758b18937",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
+    "id" : "6149e471-5c70-4fea-bf2f-bc38697b785c",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "01cf5937-61a3-4857-bd98-7d8a5287bf96",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  }, {
+    "id" : "d8431635-5bd6-4a32-bda3-239e14ca37ff",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "formattedColumn" : {
+      "type" : "expression",
+      "value" : "return [function(input){\n   return input.row.name;\n},\nfunction(input){\n   return input.row.rate;\n}//,\n// function(input){\n//     if(input.row.url){\n//         if(input.row.target){\n//             return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">Run</a>\";\n//         }\n//         return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\">Run</a>\";\n//     }\n//   return \"\";\n// }];\n];",
+      "exposed" : false
+    },
+    "vehicles" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseVehicle?q=find&p=0&c=100&reload={{vehicleAdded.caseId}}",
+      "exposed" : false
+    },
+    "vehicleAdded" : {
+      "type" : "json",
+      "value" : "{\"caseId\": \"\"}",
+      "exposed" : false
+    },
+    "newVehicle" : {
+      "type" : "json",
+      "value" : "{ \"newVehiculeInput\" : { \"name\" : \"\", \"rate\" : 0 } }",
+      "exposed" : false
+    },
+    "createVehicleProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=createVehicle&p=0&c=1",
+      "exposed" : false
+    },
+    "selectedVehicle" : {
+      "type" : "json",
+      "value" : "{}",
+      "exposed" : false
+    },
+    "editVehicleProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=editVehicle&p=0&c=1",
+      "exposed" : false
+    },
+    "deleteVehicleProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=deleteVehicle&p=0&c=1",
+      "exposed" : false
+    },
+    "selectedVehicleId" : {
+      "type" : "expression",
+      "value" : "return \"{\\\"persistenceId\\\":\" + $data.selectedVehicle.persistenceId + \"}\";",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "0886f8dd-4996-4447-8059-574eba4fccf9",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}
