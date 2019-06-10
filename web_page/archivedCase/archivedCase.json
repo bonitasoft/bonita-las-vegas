@@ -1,8 +1,8 @@
 {
-  "designerVersion" : "1.9.40",
-  "id" : "AccountingValidationPage",
-  "name" : "AccountingValidationPage",
-  "lastUpdate" : 1560176260138,
+  "designerVersion" : "1.9.45",
+  "id" : "archivedCase",
+  "name" : "archivedCase",
+  "lastUpdate" : 1560175011143,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -21,33 +21,25 @@
         "value" : false
       }
     },
-    "reference" : "d043dfdd-3e5f-4dd9-a753-27eb7afc83f4",
+    "reference" : "c538f1e9-6c25-41c1-8cd9-8ece0efd7cb6",
     "hasValidationError" : false,
-    "id" : "validationTasksFragment",
+    "id" : "ExpenseReportOverview",
     "binding" : {
-      "tasks" : "tasks"
+      "report" : "archivedCase",
+      "caseDocuments" : "",
+      "caseComments" : "",
+      "caseId" : "caseId",
+      "commentAdded" : ""
     }
   } ] ],
   "assets" : [ {
-    "id" : "7efbb25c-e23e-4de2-980d-68a5b99f6c4e",
+    "id" : "cd367f69-cd47-4952-8c26-0face861bed8",
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
     "external" : false
   }, {
-    "id" : "3ce069ae-56b6-4a18-b79c-42457cfcb12c",
-    "name" : "filters.js",
-    "type" : "js",
-    "order" : 1,
-    "external" : false
-  }, {
-    "id" : "8a47a6d5-480f-460e-be7c-6bd1a4b541af",
-    "name" : "moment.js",
-    "type" : "js",
-    "order" : 2,
-    "external" : false
-  }, {
-    "id" : "25988f62-389e-4e93-a7d0-856abc81a116",
+    "id" : "261bc0a4-79c6-4f76-88fe-8fc88a4fdd89",
     "name" : "localization.json",
     "type" : "json",
     "order" : 0,
@@ -55,14 +47,19 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "tasks" : {
+    "caseId" : {
+      "type" : "urlparameter",
+      "value" : "id",
+      "exposed" : false
+    },
+    "archivedCase" : {
       "type" : "url",
-      "value" : "../API/extension/taskAccounting",
+      "value" : "../API/extension/archiveCaseOverview?caseId={{caseId}}",
       "exposed" : false
     }
   },
   "hasValidationError" : false,
-  "uuid" : "a5b7b12a-ae80-4565-9a32-e23645127ba4",
+  "uuid" : "df1f4d8d-b322-49c4-a49f-b8042f857912",
   "type" : "page",
   "description" : "Page generated with Bonita UI designer"
 }

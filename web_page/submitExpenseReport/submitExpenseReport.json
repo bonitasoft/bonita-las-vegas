@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "submitExpenseReport",
   "name" : "submitExpenseReport",
-  "lastUpdate" : 1560159964506,
+  "lastUpdate" : 1560177647586,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -192,78 +192,10 @@
       "rows" : [ [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 1,
-          "lg" : 1
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Cancel"
-          },
-          "type" : {
-            "type" : "constant",
-            "value" : "page"
-          },
-          "targetUrl" : {
-            "type" : "constant",
-            "value" : "http://"
-          },
-          "pageToken" : {
-            "type" : "constant",
-            "value" : "case"
-          },
-          "processName" : {
-            "type" : "constant"
-          },
-          "processVersion" : {
-            "type" : "constant"
-          },
-          "taskId" : {
-            "type" : "constant"
-          },
-          "caseId" : {
-            "type" : "constant"
-          },
-          "target" : {
-            "type" : "constant",
-            "value" : "_self"
-          },
-          "appToken" : {
-            "type" : "constant"
-          },
-          "urlParams" : {
-            "type" : "expression",
-            "value" : "{\"id\": task.caseId}"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          },
-          "buttonStyle" : {
-            "type" : "constant",
-            "value" : "primary"
-          }
-        },
-        "reference" : "ff249deb-661f-4315-9bdf-dbc8d39a1b33",
-        "hasValidationError" : false,
-        "id" : "pbLink"
-      }, {
-        "type" : "component",
-        "dimension" : {
-          "md" : 1,
+          "md" : 6,
           "sm" : 12,
           "xs" : 12,
-          "lg" : 1
+          "lg" : 6
         },
         "propertyValues" : {
           "removeItem" : {
@@ -328,7 +260,7 @@
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "left"
+            "value" : "right"
           },
           "dimension" : {
             "type" : "constant",
@@ -365,6 +297,74 @@
         "reference" : "549ecc62-7ebb-4ed1-b2f3-7bdc1a554bb6",
         "hasValidationError" : false,
         "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Cancel"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "page"
+          },
+          "targetUrl" : {
+            "type" : "constant",
+            "value" : "http://"
+          },
+          "pageToken" : {
+            "type" : "constant",
+            "value" : "case"
+          },
+          "processName" : {
+            "type" : "constant"
+          },
+          "processVersion" : {
+            "type" : "constant"
+          },
+          "taskId" : {
+            "type" : "constant"
+          },
+          "caseId" : {
+            "type" : "constant"
+          },
+          "target" : {
+            "type" : "constant",
+            "value" : "_self"
+          },
+          "appToken" : {
+            "type" : "constant"
+          },
+          "urlParams" : {
+            "type" : "expression",
+            "value" : "{\"id\": task.caseId}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          }
+        },
+        "reference" : "ff249deb-661f-4315-9bdf-dbc8d39a1b33",
+        "hasValidationError" : false,
+        "id" : "pbLink"
       } ], [ {
         "type" : "component",
         "dimension" : {

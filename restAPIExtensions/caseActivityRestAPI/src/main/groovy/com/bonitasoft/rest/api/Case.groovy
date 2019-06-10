@@ -93,7 +93,10 @@ class Case implements RestApiController, CaseActivityHelper {
     }
 
     def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath, String appToken) {
-        def tasksToExclude = ["Manager validation"]
+        def tasksToExclude = [
+            "Manager validation",
+            "Accounting validation"
+        ]
         def openTasks = searchOpenedTasks(caseId, processAPI).getResult()
                 .findAll { canExecute(getState(it, processAPI).name) }
                 .findAll { !tasksToExclude.contains(it.name) }
@@ -108,7 +111,7 @@ class Case implements RestApiController, CaseActivityHelper {
             done()
         }
         if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
-            return asLabel("WAITING FOR MANAGER VALIDATION", "warning")
+            return asLabel("MANAGER VALIDATION", "warning")
         }
 
         // Check accounting validation task
@@ -118,7 +121,7 @@ class Case implements RestApiController, CaseActivityHelper {
             done()
         }
         if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
-            return asLabel("WAITING FOR ACCOUNTING VALIDATION", "danger")
+            return asLabel("ACCOUNTING VALIDATION", "danger")
         }
 
         asLabel(instance.state.toUpperCase(), "info")

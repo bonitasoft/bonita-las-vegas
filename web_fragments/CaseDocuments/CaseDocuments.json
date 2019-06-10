@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1559656681001,
+  "lastUpdate" : 1560176031925,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
       "sm" : 1,
-      "md" : 1,
-      "lg" : 1
+      "md" : 5,
+      "lg" : 6
     },
     "propertyValues" : {
       "cssClasses" : {

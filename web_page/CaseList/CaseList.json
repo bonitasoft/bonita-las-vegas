@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1559910728786,
+  "lastUpdate" : 1560174233014,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -267,7 +267,7 @@
             },
             "columnsKey" : {
               "type" : "constant",
-              "value" : [ "name", "state" ]
+              "value" : [ "name", "state", "viewAction" ]
             },
             "sortColumns" : {
               "type" : "constant"

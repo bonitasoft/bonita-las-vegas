@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1559049577738,
+  "lastUpdate" : 1560177774694,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -471,8 +471,76 @@
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "md" : 6,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Cancel"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "page"
+      },
+      "targetUrl" : {
+        "type" : "constant",
+        "value" : "http://"
+      },
+      "pageToken" : {
+        "type" : "constant",
+        "value" : "case"
+      },
+      "processName" : {
+        "type" : "constant"
+      },
+      "processVersion" : {
+        "type" : "constant"
+      },
+      "taskId" : {
+        "type" : "constant"
+      },
+      "caseId" : {
+        "type" : "constant"
+      },
+      "target" : {
+        "type" : "constant",
+        "value" : "_self"
+      },
+      "appToken" : {
+        "type" : "constant"
+      },
+      "urlParams" : {
+        "type" : "expression",
+        "value" : "{\"id\": task.caseId}"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "primary"
+      }
+    },
+    "reference" : "87991061-5bb9-4dad-b7d9-ca69b5a1b207",
+    "hasValidationError" : false,
+    "id" : "pbLink"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 6,
+      "lg" : 6
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -489,15 +557,15 @@
       },
       "label" : {
         "type" : "interpolation",
-        "value" : "Submit"
+        "value" : "Create"
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "center"
+        "value" : "left"
       },
       "buttonStyle" : {
         "type" : "constant",
-        "value" : "primary"
+        "value" : "success"
       },
       "action" : {
         "type" : "constant",

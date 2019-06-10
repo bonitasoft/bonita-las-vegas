@@ -272,6 +272,9 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_Yvl8gYeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_Yvl8gIeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_Yvl8goeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_jgOMMIuBEemC8vaEydtydg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_jgOMMYuBEemC8vaEydtydg" name="not used" content="not used"/>
+          </data>
           <operations xmi:type="expression:Operation" xmi:id="_AIGz8IejEemAX4g7gacSnA">
             <leftOperand xmi:type="expression:Expression" xmi:id="_AIGz8YejEemAX4g7gacSnA" name="accountingValidation" content="accountingValidation" type="TYPE_VARIABLE">
               <referencedElements xmi:type="process:Data" xmi:id="_BX-gYIejEemAX4g7gacSnA" name="accountingValidation" dataType="_l5YrJrdEEeiJr5Wf22zHlw"/>
@@ -323,6 +326,15 @@
               <inputTypes>java.lang.Boolean</inputTypes>
             </operator>
           </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_GEvloIuBEemC8vaEydtydg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_GEvloYuBEemC8vaEydtydg" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Gex2QIuBEemC8vaEydtydg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_GEvloouBEemC8vaEydtydg" name="updateReport" content="import java.time.LocalDate&#xA;&#xA;expenseReport.setReportAccepted(false)&#xA;expenseReport.expenseHeader.setAccountingDate(LocalDate.now())" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Orh1QIuBEemC8vaEydtydg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_GEvlo4uBEemC8vaEydtydg" type="ASSIGNMENT"/>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_uQNqY4kYEemu0840ACmBYw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_uQNqZIkYEemu0840ACmBYw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_uQNqZYkYEemu0840ACmBYw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -338,14 +350,14 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_4Vu28YkaEemu0840ACmBYw" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_4Vu28IkaEemu0840ACmBYw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_4Vu28okaEemu0840ACmBYw" name="" content="" returnTypeFixed="true"/>
-          <operations xmi:type="expression:Operation" xmi:id="_AuZLAIkbEemu0840ACmBYw">
-            <leftOperand xmi:type="expression:Expression" xmi:id="_AuZLAYkbEemu0840ACmBYw" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_BduWMIkbEemu0840ACmBYw" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+          <operations xmi:type="expression:Operation" xmi:id="_Zc7-0IuAEemC8vaEydtydg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_Zc7-0YuAEemC8vaEydtydg" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_a-WuQIuAEemC8vaEydtydg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_AuZLAokbEemu0840ACmBYw" name="true" content="true" returnType="java.lang.Boolean"/>
-            <operator xmi:type="expression:Operator" xmi:id="_AuZLA4kbEemu0840ACmBYw" type="JAVA_METHOD" expression="setReportAccepted">
-              <inputTypes>java.lang.Boolean</inputTypes>
-            </operator>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_Zc7-0ouAEemC8vaEydtydg" name="updateReport" content="import java.time.LocalDate&#xA;&#xA;expenseReport.setReportAccepted(true)&#xA;expenseReport.expenseHeader.setAccountingDate(LocalDate.now())&#xA;&#xA;expenseReport" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_pc8ewIuAEemC8vaEydtydg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_Zc7-04uAEemC8vaEydtydg" type="ASSIGNMENT"/>
           </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_4Vu284kaEemu0840ACmBYw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_4Vu29IkaEemu0840ACmBYw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>

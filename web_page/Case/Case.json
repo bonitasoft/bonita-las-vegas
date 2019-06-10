@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1560072634158,
+  "lastUpdate" : 1560177075881,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -83,7 +83,7 @@
           "xs" : 12
         },
         "propertyValues" : { },
-        "reference" : "3b35ac40-50ef-48a7-9ab0-c01a7fa23e0d",
+        "reference" : "96bd6c73-29b7-4fb2-a178-66a0f5c2ef74",
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ {
@@ -104,17 +104,15 @@
               "value" : false
             }
           },
-          "reference" : "e469efa4-76df-4a8a-82b3-fa3d54bdebf1",
+          "reference" : "ad84a325-9ef2-44bb-acd2-255453a1bde7",
           "hasValidationError" : false,
-          "id" : "CaseComments",
+          "id" : "CaseExpenses",
           "binding" : {
-            "caseComments" : "caseComments",
-            "caseId" : "caseId",
-            "commentAdded" : "commentAdded"
+            "expenses" : "currentReport.expenseLine"
           }
         } ] ]
       },
-      "title" : "Comments"
+      "title" : "Expenses"
     }, {
       "container" : {
         "type" : "container",
@@ -156,6 +154,45 @@
         } ] ]
       },
       "title" : "Documents"
+    }, {
+      "container" : {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12
+        },
+        "propertyValues" : { },
+        "reference" : "3b35ac40-50ef-48a7-9ab0-c01a7fa23e0d",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "fragment",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            }
+          },
+          "reference" : "e469efa4-76df-4a8a-82b3-fa3d54bdebf1",
+          "hasValidationError" : false,
+          "id" : "CaseComments",
+          "binding" : {
+            "caseComments" : "caseComments",
+            "caseId" : "caseId",
+            "commentAdded" : "commentAdded"
+          }
+        } ] ]
+      },
+      "title" : "Comments"
     }, {
       "container" : {
         "type" : "container",
@@ -811,11 +848,6 @@
       "value" : "id",
       "exposed" : false
     },
-    "archived" : {
-      "type" : "url",
-      "value" : "../API/bpm/archivedCase/{{caseId}}",
-      "exposed" : false
-    },
     "activities" : {
       "type" : "url",
       "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name}}",
@@ -863,6 +895,11 @@
     "commentAdded" : {
       "type" : "json",
       "value" : "{\n    \"id\" : \"\"\n}",
+      "exposed" : false
+    },
+    "currentReport" : {
+      "type" : "url",
+      "value" : "../{{caseContext.expenseReport_ref.link}}",
       "exposed" : false
     }
   },

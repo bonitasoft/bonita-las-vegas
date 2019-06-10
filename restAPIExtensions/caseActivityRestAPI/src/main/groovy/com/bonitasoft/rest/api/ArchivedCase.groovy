@@ -33,12 +33,17 @@ class ArchivedCase extends Case {
                     SimpleBusinessDataReference businessDataRef = processAPI.getArchivedProcessInstanceExecutionContext(it.id)['expenseReport_ref']
                     def expenseReport = context.getApiClient().getDAO(ExpenseReportDAO.class).findByPersistenceId(businessDataRef.storageId)
                     [
-                        id: it.sourceObjectId,
+                        id: it.id,
                         name: expenseReport.expenseHeader.description ?: "New expense report",
-                        state: asLabel(expenseReport.isReportAccepted() ? "Accepted" : "Refused", expenseReport.isReportAccepted() ? "success" : "danger")
-                        // TODO a link to see the an overview of the archived process
+                        state: asLabel(expenseReport.isReportAccepted() ? "Accepted" : "Refused", expenseReport.isReportAccepted() ? "success" : "danger"),
+                        viewAction: viewActionLink(it.id, processAPI, contextPath, appToken)
                     ]
                 }
         result
+    }
+
+    @Override
+    def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath, String appToken) {
+        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/archivedCase?id=$caseId" target="_top">Overview</a>"""
     }
 }
