@@ -1,4 +1,4 @@
-package com.bonitasoft.rest.api
+package com.bonitasoft.rest.api.validation
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -18,6 +18,8 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import com.bonita.lr.model.ExpenseReportDAO
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
+import com.bonitasoft.rest.api.cases.Case
+import com.bonitasoft.rest.api.helper.Helper
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
@@ -29,7 +31,7 @@ import groovy.json.JsonBuilder
  *		- Be the task `Manager Validation` of the process Expense Report
  *		- The case must have been started by a user managed by the calling manager
  */
-class TaskManager implements RestApiController, CaseActivityHelper {
+class TaskManager implements RestApiController, Helper {
 
     private static final String MANAGER_VALIDATION = "Manager validation"
 
@@ -71,7 +73,7 @@ class TaskManager implements RestApiController, CaseActivityHelper {
                             user:user(context, instance),
                             description:expenseReport.expenseHeader.description,
                             url:forge(process.name,process.version,task,contextPath),
-                            target:linkTarget(task),
+                            target:"_self",
                         ]
                     }
                 }.findAll() // null are ignored
@@ -89,14 +91,6 @@ class TaskManager implements RestApiController, CaseActivityHelper {
                     processAPI.searchProcessInstances(it).getResult()
                 }
                 .flatten()
-    }
-
-    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
-        return responseBuilder.with {
-            withResponseStatus(httpStatus)
-            withResponse(body)
-            build()
-        }
     }
 
     def String forge(String processName, String processVersion, ActivityInstance instance, contextPath) {

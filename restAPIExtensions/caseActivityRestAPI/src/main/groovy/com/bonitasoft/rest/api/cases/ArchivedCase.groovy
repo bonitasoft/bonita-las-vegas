@@ -1,5 +1,6 @@
-package com.bonitasoft.rest.api
+package com.bonitasoft.rest.api.cases
 
+import org.bonitasoft.engine.bpm.process.ArchivedProcessInstance
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
 import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
 import org.bonitasoft.engine.search.SearchOptionsBuilder
@@ -28,8 +29,10 @@ class ArchivedCase extends Case {
             filter(ArchivedProcessInstancesSearchDescriptor.NAME, "Expense report")
             done()
         }
+
         def result = processAPI.searchArchivedProcessInstances(searchOptions).getResult()
                 .collect {
+                    ArchivedProcessInstance a
                     SimpleBusinessDataReference businessDataRef = processAPI.getArchivedProcessInstanceExecutionContext(it.id)['expenseReport_ref']
                     def expenseReport = context.getApiClient().getDAO(ExpenseReportDAO.class).findByPersistenceId(businessDataRef.storageId)
                     [

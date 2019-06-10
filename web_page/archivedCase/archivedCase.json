@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "archivedCase",
   "name" : "archivedCase",
-  "lastUpdate" : 1560175011143,
+  "lastUpdate" : 1560185771401,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -26,8 +26,8 @@
     "id" : "ExpenseReportOverview",
     "binding" : {
       "report" : "archivedCase",
-      "caseDocuments" : "",
-      "caseComments" : "",
+      "caseDocuments" : "caseDocuments",
+      "caseComments" : "caseComments",
       "caseId" : "caseId",
       "commentAdded" : ""
     }
@@ -44,6 +44,18 @@
     "type" : "json",
     "order" : 0,
     "external" : false
+  }, {
+    "id" : "7a997fd1-f1a6-4436-894d-1706f3aa5876",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 1,
+    "external" : false
+  }, {
+    "id" : "330b404f-140c-4d39-8b1b-ad963e50436e",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
   } ],
   "inactiveAssets" : [ ],
   "data" : {
@@ -55,6 +67,16 @@
     "archivedCase" : {
       "type" : "url",
       "value" : "../API/extension/archiveCaseOverview?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "caseDocuments" : {
+      "type" : "url",
+      "value" : "../API/extension/caseDocument?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "caseComments" : {
+      "type" : "url",
+      "value" : "../API/extension/caseComment?caseId={{caseId}}",
       "exposed" : false
     }
   },

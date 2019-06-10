@@ -1,4 +1,4 @@
-package com.bonitasoft.rest.api;
+package com.bonitasoft.rest.api.cases;
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -19,6 +19,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import com.bonitasoft.engine.api.ProcessAPI
+import com.bonitasoft.rest.api.helper.Helper
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
@@ -27,9 +28,9 @@ import groovy.json.JsonBuilder
 /**
  * Return all the tasks available, with their status, for a given case (url parameter)
  */
-class CaseActivity implements RestApiController,CaseActivityHelper {
+class CaseTask implements RestApiController, Helper {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CaseActivity.class)
+    private static final Logger LOGGER = LoggerFactory.getLogger(CaseTask.class)
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
@@ -40,7 +41,7 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
         }
         try {
             validateCaseAccess(caseId, context);
-        } catch (IllegalStateException e) {
+        } catch (IllegalAccessException e) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"""{"error" : "You don't have access to this case"}""")
         }
 
@@ -71,14 +72,14 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                         name:task.displayName ?: task.name,
                         url:forge(pDef.name,pDef.version,task,contextPath,metadata),
                         description:task.description,
-                        target:linkTarget(task),
+                        target:"_self",
                         state:task.state.capitalize(),
                         metadata:metadata
                     ]
                 }
 
 
-        result = result.sort{ t1,t2 -> valueOf(t1.metadata.$activityState) <=> valueOf(t2.metadata.$activityState) }
+        result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
 
         //Retrieve finished activities
         result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
@@ -102,17 +103,6 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
     }
 
-    def valueOf(state) {
-        switch(state) {
-            case 'Required' : return 0
-            case 'Optional' : return 1
-            case 'Discretionary' : return 2
-            case 'N/A' : return 3
-            default : return 4
-        }
-    }
-
-
     def String forge(String processName, String processVersion, ActivityInstance instance, contextPath, metadata) {
         if(instance instanceof UserTaskInstance) {
             canExecute(metadata.$activityState)
@@ -120,22 +110,5 @@ class CaseActivity implements RestApiController,CaseActivityHelper {
                     : ""
         }
     }
-
-    /**
-     * Build an HTTP response.
-     *
-     * @param  responseBuilder the Rest API response builder
-     * @param  httpStatus the status of the response
-     * @param  body the response body
-     * @return a RestAPIResponse
-     */
-    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
-        return responseBuilder.with {
-            withResponseStatus(httpStatus)
-            withResponse(body)
-            build()
-        }
-    }
-
 
 }

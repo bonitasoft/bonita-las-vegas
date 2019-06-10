@@ -1,9 +1,9 @@
 {
   "designerVersion" : "1.9.24",
   "previousDesignerVersion" : "1.7.25",
-  "id" : "CaseActivities",
-  "name" : "CaseActivities",
-  "lastUpdate" : 1559743244966,
+  "id" : "Tasks",
+  "name" : "Tasks",
+  "lastUpdate" : 1560201171619,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -87,7 +87,7 @@
       },
       "content" : {
         "type" : "expression",
-        "value" : "activities"
+        "value" : "tasks"
       },
       "columnsKey" : {
         "type" : "expression",
@@ -211,14 +211,14 @@
       "value" : "return [function(input){\n   return input.row.name;\n},\n\"metadata.$activityState ? metadata.$activityState : state |labelized\",\nfunction(input){\n    if(input.row.url){\n        if(input.row.target){\n            return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">Run</a>\";\n        }\n        return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\">Run</a>\";\n    }\n   return \"\";\n}];",
       "exposed" : false
     },
-    "activities" : {
-      "type" : "constant",
-      "exposed" : true
-    },
     "caseIdPayload" : {
       "type" : "expression",
       "value" : "return {\n    \"caseId\" : $data.caseId\n};",
       "exposed" : false
+    },
+    "tasks" : {
+      "type" : "constant",
+      "exposed" : true
     }
   },
   "hasValidationError" : false,

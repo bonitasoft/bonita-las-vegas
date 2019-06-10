@@ -1,4 +1,4 @@
-package com.bonitasoft.rest.api
+package com.bonitasoft.rest.api.validation
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -15,7 +15,8 @@ import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 
 import com.bonita.lr.model.ExpenseReportDAO
 import com.bonitasoft.engine.api.ProcessAPI
-import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
+import com.bonitasoft.rest.api.cases.Case
+import com.bonitasoft.rest.api.helper.Helper
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
@@ -25,7 +26,7 @@ import groovy.json.JsonBuilder
  *  This API returns the tasks available for the calling accounting
  *  To be returned, a task must be the task `Accounting Validation` of the process Expense Report
  */
-class TaskAccounting implements RestApiController, CaseActivityHelper {
+class TaskAccounting implements RestApiController, Helper {
 
     private static final String ACCOUNTING_VALIDATION = "Accounting validation"
 
@@ -51,7 +52,6 @@ class TaskAccounting implements RestApiController, CaseActivityHelper {
      * @return All active instances of the task  `Manager Validation` available for the manager
      */
     def  retrieveAccountingValidationTaskInstances(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process, String contextPath) {
-
         retrieveCaseInstances(processAPI, process)
                 .collect { instance ->
                     HumanTaskInstance task = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
@@ -65,26 +65,10 @@ class TaskAccounting implements RestApiController, CaseActivityHelper {
                             user:user(context, instance),
                             description:expenseReport.expenseHeader.description,
                             url:forge(process.name,process.version,task,contextPath),
-                            target:linkTarget(task),
+                            target:"_self",
                         ]
                     }
                 }.findAll() // null are ignored
-    }
-
-    def List<ProcessInstance> retrieveCaseInstances(ProcessAPI processAPI, ProcessDeploymentInfo process) {
-        def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(ProcessInstanceSearchDescriptor.PROCESS_DEFINITION_ID, process.processId)
-            done()
-        }
-        processAPI.searchProcessInstances(searchOptions).getResult()
-    }
-
-    RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body) {
-        return responseBuilder.with {
-            withResponseStatus(httpStatus)
-            withResponse(body)
-            build()
-        }
     }
 
     def String forge(String processName, String processVersion, ActivityInstance instance, contextPath) {

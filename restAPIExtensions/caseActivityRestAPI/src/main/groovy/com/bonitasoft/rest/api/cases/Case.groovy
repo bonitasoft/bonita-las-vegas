@@ -1,4 +1,4 @@
-package com.bonitasoft.rest.api
+package com.bonitasoft.rest.api.cases
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory
 import com.bonita.lr.model.ExpenseReportDAO
 import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.engine.bpm.process.impl.ProcessInstanceSearchDescriptor
+import com.bonitasoft.rest.api.helper.Helper
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
 
@@ -24,7 +25,7 @@ import groovy.json.JsonBuilder
 /**
  * This API returns all the active instances of the expense report process started by the calling user.
  */
-class Case implements RestApiController, CaseActivityHelper {
+class Case implements RestApiController, Helper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Case.class)
     public static final String EXPENSE_REPORT_PROCESS_NAME = "Expense Report"
@@ -38,21 +39,13 @@ class Case implements RestApiController, CaseActivityHelper {
 
         def appToken = request.getParameter("appToken")
         if(!appToken) {
-            return responseBuilder.with {
-                withResponseStatus(HttpServletResponse.SC_BAD_REQUEST)
-                withResponse("Parameter `appToken` is mandatory")
-                build()
-            }
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
         }
 
         def expenseReportProcessDef = retrieveProcess(processAPI, EXPENSE_REPORT_PROCESS_NAME, EXPENSE_REPORT_PROCESS_VERSION)
         def instances = retrieveProcessInstance(context, processAPI, expenseReportProcessDef, contextPath, userId, appToken)
 
-        return responseBuilder.with {
-            withResponseStatus(HttpServletResponse.SC_OK)
-            withResponse(new JsonBuilder(instances).toString())
-            build()
-        }
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString())
     }
 
     /**

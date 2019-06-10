@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1560177075881,
+  "lastUpdate" : 1560201187140,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -49,10 +49,11 @@
       },
       "reference" : "7da35c6c-ac2d-4d07-a48d-bdd107b14236",
       "hasValidationError" : false,
-      "id" : "CaseActivities",
+      "id" : "Tasks",
       "binding" : {
         "caseId" : "caseId",
-        "activities" : "activities"
+        "activities" : "tasks",
+        "tasks" : "tasks"
       }
     } ] ]
   } ], [ {
@@ -848,16 +849,6 @@
       "value" : "id",
       "exposed" : false
     },
-    "activities" : {
-      "type" : "url",
-      "value" : "../API/extension/caseActivity?caseId={{caseId}}&reload={{newActivityCreated.name}}",
-      "exposed" : false
-    },
-    "newActivityCreated" : {
-      "type" : "json",
-      "value" : "{\n    \"name\" : \"\"\n}",
-      "exposed" : false
-    },
     "newDocument" : {
       "type" : "json",
       "value" : "{\n    \"content\": { \"filename\" : \"\" }\n}",
@@ -900,6 +891,11 @@
     "currentReport" : {
       "type" : "url",
       "value" : "../{{caseContext.expenseReport_ref.link}}",
+      "exposed" : false
+    },
+    "tasks" : {
+      "type" : "url",
+      "value" : "../API/extension/task?caseId={{caseId}}",
       "exposed" : false
     }
   },
