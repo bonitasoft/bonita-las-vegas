@@ -3,7 +3,9 @@ package com.bonitasoft.rest.api
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
+import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
+import org.bonitasoft.engine.bpm.process.ProcessInstance
 import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
 import org.bonitasoft.engine.search.SearchOptionsBuilder
 import org.bonitasoft.web.extension.rest.RestApiResponse
@@ -73,7 +75,7 @@ class Case implements RestApiController, CaseActivityHelper {
                     [
                         id: it.id,
                         name: expenseReport.expenseHeader.description ?: "New expense report",
-                        state: asLabel(it.state.toUpperCase(), "info"),
+                        state: computeState(it, processAPI),
                         viewAction: viewActionLink(it.id, processAPI, contextPath, appToken)
                     ]
                 }
@@ -96,5 +98,29 @@ class Case implements RestApiController, CaseActivityHelper {
                 .findAll { canExecute(getState(it, processAPI).name) }
                 .findAll { !tasksToExclude.contains(it.name) }
         return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open <span class="badge"> $openTasks.size</span></a>"""
+    }
+
+    def String computeState(ProcessInstance instance, ProcessAPI processAPI) {
+        // Check manager validation task
+        def options = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, instance.id)
+            filter(ActivityInstanceSearchDescriptor.NAME, "Manager validation")
+            done()
+        }
+        if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
+            return asLabel("WAITING FOR MANAGER VALIDATION", "warning")
+        }
+
+        // Check accounting validation task
+        options = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, instance.id)
+            filter(ActivityInstanceSearchDescriptor.NAME, "Accounting validation")
+            done()
+        }
+        if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
+            return asLabel("WAITING FOR ACCOUNTING VALIDATION", "danger")
+        }
+
+        asLabel(instance.state.toUpperCase(), "info")
     }
 }

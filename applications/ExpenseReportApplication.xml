@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="expenseReportEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
-        <displayName>Expense report employee</displayName>
+    <application token="vegasEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+        <displayName>Vegas</displayName>
         <description>TODO: The manager page should be on the app below only -&gt; need to work on it on rest api links generation ..</description>
         <applicationPages>
-            <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
+            <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
         </applicationPages>
-        <applicationMenus/>
+        <applicationMenus>
+            <applicationMenu applicationPage="home">
+                <displayName>My expense reports</displayName>
+            </applicationMenu>
+        </applicationMenus>
     </application>
-    <application token="expenseReportManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
-        <displayName>Expense report manager</displayName>
+    <application token="vegasManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+        <displayName>Vegas</displayName>
         <description></description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
@@ -24,18 +28,19 @@
                 <displayName>My expense reports</displayName>
             </applicationMenu>
             <applicationMenu applicationPage="management">
-                <displayName>Management</displayName>
+                <displayName>Management validation</displayName>
             </applicationMenu>
         </applicationMenus>
     </application>
-    <application token="expenseReportAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_themeBonita">
-        <displayName>Expense report accounting</displayName>
+    <application token="vegasAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+        <displayName>Vegas</displayName>
         <description>TODO: profile should be accounting</description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>
+            <applicationPage customPage="custompage_currencyAdministration" token="currency"/>
             <applicationPage customPage="custompage_vehiculeAdministration" token="vehicule"/>
             <applicationPage customPage="custompage_expenseTypeAdministration" token="type"/>
         </applicationPages>
@@ -44,11 +49,14 @@
                 <displayName>My expense reports</displayName>
             </applicationMenu>
             <applicationMenu applicationPage="management">
-                <displayName>Management</displayName>
+                <displayName>Accounting validation</displayName>
             </applicationMenu>
             <applicationMenu>
                 <displayName>Administration</displayName>
                 <applicationMenus>
+                    <applicationMenu applicationPage="currency">
+                        <displayName>Currencies</displayName>
+                    </applicationMenu>
                     <applicationMenu applicationPage="vehicule">
                         <displayName>Vehicules</displayName>
                     </applicationMenu>

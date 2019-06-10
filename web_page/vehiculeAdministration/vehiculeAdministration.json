@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "vehiculeAdministration",
   "name" : "vehiculeAdministration",
-  "lastUpdate" : 1560100927353,
+  "lastUpdate" : 1560111730773,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -55,7 +55,7 @@
       },
       "headers" : {
         "type" : "constant",
-        "value" : [ "Vehicle", "rate" ]
+        "value" : [ "Vehicle", "Rate" ]
       },
       "type" : {
         "type" : "constant",
@@ -905,8 +905,8 @@
             "value" : false
           },
           "disabled" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "!selectedVehicle.name || !selectedVehicle.rate"
           },
           "label" : {
             "type" : "interpolation",

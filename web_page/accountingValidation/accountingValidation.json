@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1559918756855,
+  "lastUpdate" : 1560113597776,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -179,7 +179,7 @@
       } ], [ {
         "type" : "component",
         "dimension" : {
-          "md" : 4,
+          "md" : 1,
           "sm" : 12,
           "xs" : 12,
           "lg" : 1
@@ -247,7 +247,7 @@
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "center"
+            "value" : "left"
           },
           "dimension" : {
             "type" : "constant",
@@ -289,7 +289,7 @@
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : 4,
+          "md" : 1,
           "lg" : 1
         },
         "propertyValues" : {
@@ -378,7 +378,7 @@
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : 4,
+          "md" : 1,
           "lg" : 1
         },
         "propertyValues" : {
@@ -412,7 +412,7 @@
           },
           "assign" : {
             "type" : "constant",
-            "value" : false
+            "value" : true
           },
           "url" : {
             "type" : "interpolation"
@@ -534,6 +534,18 @@
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
+    "external" : false
+  }, {
+    "id" : "a821323c-bd29-4fe4-aa65-5e8edb2f95c9",
+    "name" : "moment.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  }, {
+    "id" : "44ba1b31-fd1d-4768-bbd3-2e225bdcf4da",
+    "name" : "filters.js",
+    "type" : "js",
+    "order" : 1,
     "external" : false
   }, {
     "id" : "735081a3-e504-4f91-8c5e-27a098e26858",

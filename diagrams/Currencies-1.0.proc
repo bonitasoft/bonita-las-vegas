@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+  <process:MainProcess xmi:id="_ZZYo4IruEemC8vaEydtydg" name="Currencies" author="adrien" bonitaVersion="7.9.0" bonitaModelVersion="7.9.0-002" configId="ACED000574001A43757272656E63696573372E392E302D303032372E392E307370">
+    <elements xmi:type="process:Pool" xmi:id="_ZZYo4YruEemC8vaEydtydg" name="createCurrency">
+      <elements xmi:type="process:Lane" xmi:id="_ZZYo4oruEemC8vaEydtydg" name="Employee lane" actor="_ZZYo-4ruEemC8vaEydtydg"/>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_fYazIIruEemC8vaEydtydg" name="currency" dataType="_ZZYpFIruEemC8vaEydtydg" className="com.bonita.lr.model.ExpenseCurrency">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_hIaKEoruEemC8vaEydtydg" name="initCurrency()" content="def expenseCurrencyVar = new com.bonita.lr.model.ExpenseCurrency()&#xA;expenseCurrencyVar.name = currencyInput?.name&#xA;expenseCurrencyVar.rate = currencyInput?.rate?.toFloat()&#xA;return expenseCurrencyVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseCurrency">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_hIaKE4ruEemC8vaEydtydg" name="currencyInput" type="COMPLEX"/>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_ZZYo9IruEemC8vaEydtydg" type="NONE">
+        <targetForm xmi:type="expression:Expression" xmi:id="_ZZYo9YruEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </formMapping>
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_ZZYo9oruEemC8vaEydtydg">
+        <targetForm xmi:type="expression:Expression" xmi:id="_ZZYo94ruEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </overviewFormMapping>
+      <actors xmi:type="process:Actor" xmi:id="_ZZYo-4ruEemC8vaEydtydg" documentation="This is an example of actor that is mapped to any ACME users" name="Employee actor" initiator="true"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_dLfokIruEemC8vaEydtydg" name="Demo" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_dLfomYruEemC8vaEydtydg">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_dLfomoruEemC8vaEydtydg" name="Employee actor">
+            <groups xmi:type="actormapping:Groups" xmi:id="_dLfom4ruEemC8vaEydtydg">
+              <group>/acme</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_dLfonIruEemC8vaEydtydg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_dLfonYruEemC8vaEydtydg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_dLfonoruEemC8vaEydtydg"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfokYruEemC8vaEydtydg" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfokoruEemC8vaEydtydg" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfok4ruEemC8vaEydtydg" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfolIruEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLfon4ruEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLgPoIruEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLgPoYruEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfolYruEemC8vaEydtydg" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfoloruEemC8vaEydtydg" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfol4ruEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLgPooruEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLgPo4ruEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_dLgPpIruEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_dLfomIruEemC8vaEydtydg" id="OTHER"/>
+      </configurations>
+      <contract xmi:type="process:Contract" xmi:id="_ZZYo_IruEemC8vaEydtydg">
+        <inputs xmi:type="process:ContractInput" xmi:id="_hIZjAIruEemC8vaEydtydg" name="currencyInput" type="COMPLEX" dataReference="currency">
+          <inputs xmi:type="process:ContractInput" xmi:id="_hIZjAYruEemC8vaEydtydg" name="name"/>
+          <inputs xmi:type="process:ContractInput" xmi:id="_hIZjAoruEemC8vaEydtydg" name="rate" type="DECIMAL"/>
+        </inputs>
+        <constraints xmi:type="process:ContractConstraint" xmi:id="_hIaKEIruEemC8vaEydtydg" expression="currencyInput?.name != null" errorMessage="name is mandatory for ExpenseCurrency" name="mandatory_currencyInput_name">
+          <inputNames>currencyInput</inputNames>
+        </constraints>
+        <constraints xmi:type="process:ContractConstraint" xmi:id="_hIaKEYruEemC8vaEydtydg" expression="currencyInput?.rate != null" errorMessage="rate is mandatory for ExpenseCurrency" name="mandatory_currencyInput_rate">
+          <inputNames>currencyInput</inputNames>
+        </constraints>
+      </contract>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZZYo_YruEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_ZZYo_oruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZZYo_4ruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZZYpAIruEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_ZZYpAYruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZZYpAoruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZZYpA4ruEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_ZZYpBIruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZZYpBYruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZZYpBoruEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_ZZYpB4ruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZZYpCIruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZZYpCYruEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_ZZYpCoruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_ZZYpC4ruEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+    </elements>
+    <elements xmi:type="process:Pool" xmi:id="_8LXIIIrwEemC8vaEydtydg" name="editCurrency">
+      <elements xmi:type="process:Lane" xmi:id="_8XL9oIrwEemC8vaEydtydg" name="Lane1"/>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_HJwvYIrxEemC8vaEydtydg" name="currency" dataType="_ZZYpFIruEemC8vaEydtydg" className="com.bonita.lr.model.ExpenseCurrency">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_HJwvYYrxEemC8vaEydtydg" name="editCurrency" content="def currency = expenseCurrencyDAO.findByPersistenceId(persistenceId)&#xA;if (!currency) {&#xA;    throw new IllegalArgumentException(&quot;The currency with the persistenceId $persistenceId doesn't exists&quot;)&#xA;}&#xA;currency.setName(name)&#xA;currency.setRate(rate as float)&#xA;currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseCurrency">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_WqXWgIrxEemC8vaEydtydg" name="expenseCurrencyDAO" content="expenseCurrencyDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseCurrencyDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_WqXWgYrxEemC8vaEydtydg" name="persistenceId" type="LONG">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_WqXWgorxEemC8vaEydtydg"/>
+          </referencedElements>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_WqXWg4rxEemC8vaEydtydg" name="name">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_WqXWhIrxEemC8vaEydtydg"/>
+          </referencedElements>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_WqXWhYrxEemC8vaEydtydg" name="rate" type="DECIMAL">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_WqXWhorxEemC8vaEydtydg"/>
+          </referencedElements>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_8LY9UIrwEemC8vaEydtydg" type="NONE">
+        <targetForm xmi:type="expression:Expression" xmi:id="_8LY9UYrwEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </formMapping>
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_8LY9UorwEemC8vaEydtydg">
+        <targetForm xmi:type="expression:Expression" xmi:id="_8LY9U4rwEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </overviewFormMapping>
+      <actors xmi:type="process:Actor" xmi:id="_-FNlsIrwEemC8vaEydtydg" name="Actor1" initiator="true"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_-VgrgIrwEemC8vaEydtydg" name="Demo" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_-VgriYrwEemC8vaEydtydg">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_-VgriorwEemC8vaEydtydg" name="Actor1">
+            <groups xmi:type="actormapping:Groups" xmi:id="_-Vgri4rwEemC8vaEydtydg">
+              <group>/acme</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_-VgrjIrwEemC8vaEydtydg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_-VgrjYrwEemC8vaEydtydg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_-VgrjorwEemC8vaEydtydg"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgrgYrwEemC8vaEydtydg" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgrgorwEemC8vaEydtydg" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-Vgrg4rwEemC8vaEydtydg" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgrhIrwEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-Vgrj4rwEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-VgrkIrwEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-VgrkYrwEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgrhYrwEemC8vaEydtydg" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgrhorwEemC8vaEydtydg" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-Vgrh4rwEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-VgrkorwEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-Vgrk4rwEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_-VgrlIrwEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_-VgriIrwEemC8vaEydtydg" id="OTHER"/>
+      </configurations>
+      <contract xmi:type="process:Contract" xmi:id="_8LY9VIrwEemC8vaEydtydg">
+        <inputs xmi:type="process:ContractInput" xmi:id="_AH-usIrxEemC8vaEydtydg" name="persistenceId" type="LONG">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_AH-usYrxEemC8vaEydtydg"/>
+        </inputs>
+        <inputs xmi:type="process:ContractInput" xmi:id="_CB4PkIrxEemC8vaEydtydg" name="name">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_CB4PkYrxEemC8vaEydtydg"/>
+        </inputs>
+        <inputs xmi:type="process:ContractInput" xmi:id="_CkdYMIrxEemC8vaEydtydg" name="rate" type="DECIMAL">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_CkdYMYrxEemC8vaEydtydg"/>
+        </inputs>
+      </contract>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8LYWQIrwEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_8LYWQYrwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_8LYWQorwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8LYWQ4rwEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_8LYWRIrwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_8LYWRYrwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8LYWRorwEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_8LYWR4rwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_8LYWSIrwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8LYWSYrwEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_8LYWSorwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_8LYWS4rwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_8LYWTIrwEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_8LYWTYrwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_8LYWTorwEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+    </elements>
+    <elements xmi:type="process:Pool" xmi:id="_5ac00IryEemC8vaEydtydg" name="deleteCurrency">
+      <elements xmi:type="process:Lane" xmi:id="_5qy98IryEemC8vaEydtydg" name="Lane2" actor="_84aJcIryEemC8vaEydtydg">
+        <elements xmi:type="process:StartEvent" xmi:id="_-4DtAIryEemC8vaEydtydg" name="Start1" outgoing="__ceosIryEemC8vaEydtydg">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_-4E7IYryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_-4E7IIryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_-4E7IoryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:ServiceTask" xmi:id="__cblYIryEemC8vaEydtydg" name="Delete" outgoing="__34LQIryEemC8vaEydtydg" incoming="__ceosIryEemC8vaEydtydg">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="__cblYoryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="__cblYYryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="__ccMcIryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_JOKlMIrzEemC8vaEydtydg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_JOKlMYrzEemC8vaEydtydg" name="currency" content="currency" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseCurrency">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_J21uwIrzEemC8vaEydtydg" name="currency" dataType="_ZZYpFIruEemC8vaEydtydg" className="com.bonita.lr.model.ExpenseCurrency"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_JOKlMorzEemC8vaEydtydg" content=""/>
+            <operator xmi:type="expression:Operator" xmi:id="_JOKlM4rzEemC8vaEydtydg" type="DELETION"/>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="__ccMcYryEemC8vaEydtydg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="__ccMcoryEemC8vaEydtydg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="__ccMc4ryEemC8vaEydtydg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="__ccMdYryEemC8vaEydtydg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="__ccMdIryEemC8vaEydtydg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:EndTerminatedEvent" xmi:id="__31H8IryEemC8vaEydtydg" name="End1" incoming="__34LQIryEemC8vaEydtydg">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="__31H8oryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="__31H8YryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="__31H84ryEemC8vaEydtydg" name="" content="" returnTypeFixed="true"/>
+        </elements>
+      </elements>
+      <data xmi:type="process:BusinessObjectData" xmi:id="_Ce534IrzEemC8vaEydtydg" name="currency" dataType="_ZZYpFIruEemC8vaEydtydg" className="com.bonita.lr.model.ExpenseCurrency">
+        <defaultValue xmi:type="expression:Expression" xmi:id="_Ce534YrzEemC8vaEydtydg" name="retrieveCurrency" content="def currency = expenseCurrencyDAO.findByPersistenceId(persistenceId)&#xA;if (!currency) {&#xA;    throw new IllegalArgumentException(&quot;The currency with the persistenceId $persistenceId doesn't exists&quot;)&#xA;}&#xA;currency" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseCurrency">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_ItsVYIrzEemC8vaEydtydg" name="expenseCurrencyDAO" content="expenseCurrencyDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseCurrencyDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_ItsVYYrzEemC8vaEydtydg" name="persistenceId" type="LONG">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_ItsVYorzEemC8vaEydtydg"/>
+          </referencedElements>
+        </defaultValue>
+      </data>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_5adb74ryEemC8vaEydtydg" type="NONE">
+        <targetForm xmi:type="expression:Expression" xmi:id="_5adb8IryEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </formMapping>
+      <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_5adb8YryEemC8vaEydtydg">
+        <targetForm xmi:type="expression:Expression" xmi:id="_5adb8oryEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      </overviewFormMapping>
+      <connections xmi:type="process:SequenceFlow" xmi:id="__ceosIryEemC8vaEydtydg" target="__cblYIryEemC8vaEydtydg" source="_-4DtAIryEemC8vaEydtydg">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="__ceosYryEemC8vaEydtydg"/>
+        <condition xmi:type="expression:Expression" xmi:id="__ceosoryEemC8vaEydtydg" name="" type="TYPE_CONDITION" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <connections xmi:type="process:SequenceFlow" xmi:id="__34LQIryEemC8vaEydtydg" target="__31H8IryEemC8vaEydtydg" source="__cblYIryEemC8vaEydtydg">
+        <decisionTable xmi:type="decision:DecisionTable" xmi:id="__34LQYryEemC8vaEydtydg"/>
+        <condition xmi:type="expression:Expression" xmi:id="__34LQoryEemC8vaEydtydg" name="" type="TYPE_CONDITION" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+      </connections>
+      <actors xmi:type="process:Actor" xmi:id="_84aJcIryEemC8vaEydtydg" name="Actor1" initiator="true"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_9jqs8IryEemC8vaEydtydg" name="Demo" version="7.9.0-002" username="walter.bates" password="bpm">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_9jqs-YryEemC8vaEydtydg">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_9jqs-oryEemC8vaEydtydg" name="Actor1">
+            <groups xmi:type="actormapping:Groups" xmi:id="_9jqs-4ryEemC8vaEydtydg">
+              <group>/acme</group>
+            </groups>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_9jqs_IryEemC8vaEydtydg"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_9jqs_YryEemC8vaEydtydg"/>
+            <users xmi:type="actormapping:Users" xmi:id="_9jqs_oryEemC8vaEydtydg"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs8YryEemC8vaEydtydg" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs8oryEemC8vaEydtydg" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs84ryEemC8vaEydtydg" id="DATA_TYPES"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs9IryEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jqs_4ryEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jqtAIryEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jqtAYryEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </processDependencies>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs9YryEemC8vaEydtydg" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs9oryEemC8vaEydtydg" id="DATA_TYPES"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs94ryEemC8vaEydtydg" id="GROOVY_SCRIPT">
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jrUAIryEemC8vaEydtydg" key="ActivityStateResolver.groovy" value="ActivityStateResolver.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jrUAYryEemC8vaEydtydg" key="ExpenseHelper.groovy" value="ExpenseHelper.groovy" exported="false" type="GROOVY_SCRIPT"/>
+          <fragments xmi:type="configuration:Fragment" xmi:id="_9jrUAoryEemC8vaEydtydg" key="ValidationChoice.groovy" value="ValidationChoice.groovy" exported="false" type="GROOVY_SCRIPT"/>
+        </applicationDependencies>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_9jqs-IryEemC8vaEydtydg" id="OTHER"/>
+      </configurations>
+      <contract xmi:type="process:Contract" xmi:id="_5adb84ryEemC8vaEydtydg">
+        <inputs xmi:type="process:ContractInput" xmi:id="_DDCfsIrzEemC8vaEydtydg" name="persistenceId" type="LONG">
+          <mapping xmi:type="process:ContractInputMapping" xmi:id="_DDCfsYrzEemC8vaEydtydg"/>
+        </inputs>
+      </contract>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_5adb4IryEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_5adb4YryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_5adb4oryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_5adb44ryEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_5adb5IryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_5adb5YryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_5adb5oryEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_5adb54ryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_5adb6IryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_5adb6YryEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_5adb6oryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_5adb64ryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+      <searchIndexes xmi:type="process:SearchIndex" xmi:id="_5adb7IryEemC8vaEydtydg">
+        <name xmi:type="expression:Expression" xmi:id="_5adb7YryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+        <value xmi:type="expression:Expression" xmi:id="_5adb7oryEemC8vaEydtydg" content="" returnTypeFixed="true"/>
+      </searchIndexes>
+    </elements>
+    <datatypes xmi:type="process:BooleanType" xmi:id="_ZZYpDIruEemC8vaEydtydg" name="Boolean"/>
+    <datatypes xmi:type="process:DateType" xmi:id="_ZZYpDYruEemC8vaEydtydg" name="Date"/>
+    <datatypes xmi:type="process:IntegerType" xmi:id="_ZZYpDoruEemC8vaEydtydg" name="Integer"/>
+    <datatypes xmi:type="process:LongType" xmi:id="_ZZYpD4ruEemC8vaEydtydg" name="Long"/>
+    <datatypes xmi:type="process:DoubleType" xmi:id="_ZZYpEIruEemC8vaEydtydg" name="Double"/>
+    <datatypes xmi:type="process:StringType" xmi:id="_ZZYpEYruEemC8vaEydtydg" name="Text"/>
+    <datatypes xmi:type="process:JavaType" xmi:id="_ZZYpEoruEemC8vaEydtydg" name="Java_object"/>
+    <datatypes xmi:type="process:XMLType" xmi:id="_ZZYpE4ruEemC8vaEydtydg" name="XML"/>
+    <datatypes xmi:type="process:BusinessObjectType" xmi:id="_ZZYpFIruEemC8vaEydtydg" name="Business_Object"/>
+  </process:MainProcess>
+  <notation:Diagram xmi:id="_ZZYpFYruEemC8vaEydtydg" type="Process" element="_ZZYo4IruEemC8vaEydtydg" name="MyDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_ZZYpForuEemC8vaEydtydg" type="2007" element="_ZZYo4YruEemC8vaEydtydg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZZYpF4ruEemC8vaEydtydg" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ZZYpGIruEemC8vaEydtydg" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_ZZYpGYruEemC8vaEydtydg" type="3007" element="_ZZYo4oruEemC8vaEydtydg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZZYpGoruEemC8vaEydtydg" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZZYpG4ruEemC8vaEydtydg" type="7002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZZYpI4ruEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZZYpJIruEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_ZZYpJYruEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_ZZYpJoruEemC8vaEydtydg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZZYpJ4ruEemC8vaEydtydg"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZZYpKIruEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ZZYpKYruEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_ZZYpKoruEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_ZZYpK4ruEemC8vaEydtydg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZZYpLIruEemC8vaEydtydg" width="1320" height="250"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_8LZkYIrwEemC8vaEydtydg" type="2007" element="_8LXIIIrwEemC8vaEydtydg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8LZkZYrwEemC8vaEydtydg" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_8LZkZorwEemC8vaEydtydg" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_8XMksIrwEemC8vaEydtydg" type="3007" element="_8XL9oIrwEemC8vaEydtydg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_8XMktYrwEemC8vaEydtydg" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_8XMktorwEemC8vaEydtydg" type="7002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_8XMksYrwEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_8XMksorwEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_8XMks4rwEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_8XMkt4rwEemC8vaEydtydg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8XMktIrwEemC8vaEydtydg" x="95" y="56"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_8LZkYYrwEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8LZkYorwEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_8LZkY4rwEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_8LZkZ4rwEemC8vaEydtydg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8LZkZIrwEemC8vaEydtydg" width="1320" height="250"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_5aeC8IryEemC8vaEydtydg" type="2007" element="_5ac00IryEemC8vaEydtydg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5aeqAIryEemC8vaEydtydg" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_5aeqAYryEemC8vaEydtydg" type="7001">
+        <children xmi:type="notation:Node" xmi:id="_5qzlAIryEemC8vaEydtydg" type="3007" element="_5qy98IryEemC8vaEydtydg">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5qzlBYryEemC8vaEydtydg" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_5qzlBoryEemC8vaEydtydg" type="7002">
+            <children xmi:type="notation:Shape" xmi:id="_-4FiMIryEemC8vaEydtydg" type="3002" element="_-4DtAIryEemC8vaEydtydg" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="_-4FiMoryEemC8vaEydtydg" type="5024">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_-4FiM4ryEemC8vaEydtydg" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-4FiMYryEemC8vaEydtydg" x="47" y="110"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="__ccMdoryEemC8vaEydtydg" type="3027" element="__cblYIryEemC8vaEydtydg" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="__ccMeIryEemC8vaEydtydg" type="5017"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="__ccMd4ryEemC8vaEydtydg" x="165" y="98"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="__31vAIryEemC8vaEydtydg" type="3062" element="__31H8IryEemC8vaEydtydg" fontName=".AppleSystemUIFont">
+              <children xmi:type="notation:DecorationNode" xmi:id="__31vAoryEemC8vaEydtydg" type="5090">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="__31vA4ryEemC8vaEydtydg" y="5"/>
+              </children>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="__31vAYryEemC8vaEydtydg" x="374" y="110"/>
+            </children>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_5qzlAYryEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_5qzlAoryEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_5qzlA4ryEemC8vaEydtydg"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_5qzlB4ryEemC8vaEydtydg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5qzlBIryEemC8vaEydtydg" x="163" y="124"/>
+        </children>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_5aeC8YryEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_5aeC8oryEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_5aeC84ryEemC8vaEydtydg"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_5aeqAoryEemC8vaEydtydg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5aeC9IryEemC8vaEydtydg" width="1320" height="250"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_ZZYpLYruEemC8vaEydtydg"/>
+    <edges xmi:type="notation:Connector" xmi:id="__cfPwIryEemC8vaEydtydg" type="4001" element="__ceosIryEemC8vaEydtydg" source="_-4FiMIryEemC8vaEydtydg" target="__ccMdoryEemC8vaEydtydg" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="__cfPw4ryEemC8vaEydtydg" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__cfPxIryEemC8vaEydtydg" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="__cfPwYryEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__cfPworyEemC8vaEydtydg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="__34yUIryEemC8vaEydtydg" type="4001" element="__34LQIryEemC8vaEydtydg" source="__ccMdoryEemC8vaEydtydg" target="__31vAIryEemC8vaEydtydg" roundedBendpointsRadius="10" routing="Rectilinear">
+      <children xmi:type="notation:DecorationNode" xmi:id="__34yU4ryEemC8vaEydtydg" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__34yVIryEemC8vaEydtydg" y="-10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="__34yUYryEemC8vaEydtydg" fontName=".AppleSystemUIFont"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__34yUoryEemC8vaEydtydg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

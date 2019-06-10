@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "submitExpenseReport",
   "name" : "submitExpenseReport",
-  "lastUpdate" : 1559660390533,
+  "lastUpdate" : 1560159964506,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -192,10 +192,78 @@
       "rows" : [ [ {
         "type" : "component",
         "dimension" : {
-          "md" : 12,
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 1,
+          "lg" : 1
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Cancel"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "page"
+          },
+          "targetUrl" : {
+            "type" : "constant",
+            "value" : "http://"
+          },
+          "pageToken" : {
+            "type" : "constant",
+            "value" : "case"
+          },
+          "processName" : {
+            "type" : "constant"
+          },
+          "processVersion" : {
+            "type" : "constant"
+          },
+          "taskId" : {
+            "type" : "constant"
+          },
+          "caseId" : {
+            "type" : "constant"
+          },
+          "target" : {
+            "type" : "constant",
+            "value" : "_self"
+          },
+          "appToken" : {
+            "type" : "constant"
+          },
+          "urlParams" : {
+            "type" : "expression",
+            "value" : "{\"id\": task.caseId}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          }
+        },
+        "reference" : "ff249deb-661f-4315-9bdf-dbc8d39a1b33",
+        "hasValidationError" : false,
+        "id" : "pbLink"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "md" : 1,
           "sm" : 12,
           "xs" : 12,
-          "lg" : 12
+          "lg" : 1
         },
         "propertyValues" : {
           "removeItem" : {
@@ -215,7 +283,7 @@
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "primary"
+            "value" : "success"
           },
           "readOnly" : {
             "type" : "constant",
