@@ -8,9 +8,8 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_l5YqELdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_l5YqEbdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_l5YqErdEEeiJr5Wf22zHlw" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_GM52wLdUEeiJr5Wf22zHlw" name="ExpenseSummaryActivityState" content="ActivityStateResolver.onlyOnce(processInstanceId, apiAccessor, &quot;Expense summary&quot;)" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_M_HSkIamEemp8qnS96T2pA" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-              <referencedElements xmi:type="expression:Expression" xmi:id="_M_HSkYamEemp8qnS96T2pA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_GM52wLdUEeiJr5Wf22zHlw" name="ExpenseSummaryActivityState" content="expenseReport.expenseHeader.departement ? &quot;Completed&quot; : &quot;Required&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_GyqUUIxtEemqFbuRJxZu4g" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </defaultValue>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_vGJTZbdPEeiL4PfVNHbDaA">
@@ -59,10 +58,9 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_l5YqrLdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_l5YqrbdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_l5YqrrdEEeiJr5Wf22zHlw" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_uIgwALdbEeiJr5Wf22zHlw" name="addExpenseActivityState" content="if (validating) {&#xA;    return &quot;N/A&quot;&#xA;}&#xA;ActivityStateResolver.onceOrMore(processInstanceId, apiAccessor, &quot;Add Expense&quot;)&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_uIgwALdbEeiJr5Wf22zHlw" name="addExpenseActivityState" content="if (validating) {&#xA;    return &quot;N/A&quot;&#xA;}&#xA;expenseReport.expenseLine.isEmpty() ? &quot;Required&quot; : &quot;Discretionary&quot;&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_8nHGUIxsEemqFbuRJxZu4g" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
               <referencedElements xmi:type="process:Data" xmi:id="_rbiKAIasEemp8qnS96T2pA" name="validating" dataType="_l5YrIbdEEeiJr5Wf22zHlw"/>
-              <referencedElements xmi:type="expression:Expression" xmi:id="_H1PS4IafEemp8qnS96T2pA" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-              <referencedElements xmi:type="expression:Expression" xmi:id="_H1PS4YafEemp8qnS96T2pA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
             </defaultValue>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_NZjLDbdREeiL4PfVNHbDaA">
@@ -154,9 +152,8 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_nLjscIBzEemqicJDRqiw_g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_nLjscoBzEemqicJDRqiw_g" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_QMsHgIB0EemqicJDRqiw_g" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_QMsHgYB0EemqicJDRqiw_g" name="submitExpenseReportActivityState" content="import org.bonitasoft.engine.bpm.flownode.HumanTaskInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;ActivityStateResolver.dependsOnOtherTaskExecutions(processInstanceId, apiAccessor, &quot;Add Expense&quot;, &quot;Expense summary&quot;)&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
-              <referencedElements xmi:type="expression:Expression" xmi:id="_dm1ggYarEemp8qnS96T2pA" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-              <referencedElements xmi:type="expression:Expression" xmi:id="_dm1ggoarEemp8qnS96T2pA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+            <defaultValue xmi:type="expression:Expression" xmi:id="_QMsHgYB0EemqicJDRqiw_g" name="submitExpenseReportActivityState" content="expenseReport.expenseHeader.departement &amp;&amp; !expenseReport.expenseLine.isEmpty() ? &quot;Required&quot; : &quot;N/A&quot;&#xA;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Q49O4IxtEemqFbuRJxZu4g" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </defaultValue>
           </data>
           <operations xmi:type="expression:Operation" xmi:id="_73-TEIEhEemMrecEM3K2tw">
@@ -370,7 +367,7 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_-pRmcIwsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_-pRmcowsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_H3_jUIwuEemOeoQUoG8xnQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
-            <defaultValue xmi:type="expression:Expression" xmi:id="_H3_jUYwuEemOeoQUoG8xnQ" name="editAvailable" content="def res = validating || expenseReport.expenseLine.isEmpty() ? &quot;N/A&quot; : &quot;Discretionary&quot;&#xA;println res&#xA;res" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_H3_jUYwuEemOeoQUoG8xnQ" name="editAvailable" content="validating || expenseReport.expenseLine.isEmpty() ? &quot;N/A&quot; : &quot;Discretionary&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
               <referencedElements xmi:type="process:Data" xmi:id="_gFELgIxTEemOeoQUoG8xnQ" name="validating" dataType="_l5YrIbdEEeiJr5Wf22zHlw"/>
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gFELgYxTEemOeoQUoG8xnQ" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </defaultValue>
@@ -463,6 +460,55 @@
             </inputs>
           </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_YykDi4wtEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:Task" xmi:id="_NROQAIxpEemqFbuRJxZu4g" name="Delete Expense" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_KjzngYxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_KjzngIxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_KjzngoxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_3-hR8IxpEemqFbuRJxZu4g" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_3-h5AIxpEemqFbuRJxZu4g" name="editAvailable" content="validating || expenseReport.expenseLine.isEmpty() ? &quot;N/A&quot; : &quot;Discretionary&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:Data" xmi:id="_3-h5AYxpEemqFbuRJxZu4g" name="validating" dataType="_l5YrIbdEEeiJr5Wf22zHlw"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_3-h5AoxpEemqFbuRJxZu4g" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </defaultValue>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_gVUMAIxpEemqFbuRJxZu4g">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_gVUMAYxpEemqFbuRJxZu4g" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_g0FysIxpEemqFbuRJxZu4g" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_gVUMAoxpEemqFbuRJxZu4g" name="retrieveExpenseLine" content="def expenseLine = expenseLineDAO.findByPersistenceId(persistenceId as long)&#xA;if(!expenseLine) {&#xA;    throw new IllegalArgumentException(&quot;This expense line doesn't exist&quot;)&#xA;}&#xA;expenseLine" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseLine">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_u49boIxpEemqFbuRJxZu4g" name="expenseLineDAO" content="expenseLineDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseLineDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_u4-CsIxpEemqFbuRJxZu4g" name="persistenceId">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_u4-CsYxpEemqFbuRJxZu4g"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_gVUMA4xpEemqFbuRJxZu4g" type="JAVA_METHOD" expression="removeFromExpenseLine">
+              <inputTypes>com.bonita.lr.model.ExpenseLine</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_Kjzng4xpEemqFbuRJxZu4g" name="loopFlowWhileUnresolved" content="import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;apiAccessor.getProcessAPI().searchArchivedActivities(new SearchOptionsBuilder(0, 1).with {&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, processInstanceId)&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.NAME, &quot;Resolve&quot;)&#xA;       done()&#xA;    }).count == 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+            <referencedElements xmi:type="expression:Expression" xmi:id="_SOVDMIxpEemqFbuRJxZu4g" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+            <referencedElements xmi:type="expression:Expression" xmi:id="_SOVDMYxpEemqFbuRJxZu4g" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+          </loopCondition>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_KjznhIxpEemqFbuRJxZu4g" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_KjznhYxpEemqFbuRJxZu4g" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_Kjznh4xpEemqFbuRJxZu4g" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_KjznhoxpEemqFbuRJxZu4g" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_NRPeIIxpEemqFbuRJxZu4g">
+            <targetForm xmi:type="expression:Expression" xmi:id="__2DO4IxpEemqFbuRJxZu4g" name="DeleteExpense" content="ae23c100-b9d2-49ac-ad07-b7ff1809f074" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_V3F5oIxpEemqFbuRJxZu4g" name="initiator" definitionId="initiator" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_V3F5oYxpEemqFbuRJxZu4g" definitionId="initiator" version="1.0.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_V3F5ooxpEemqFbuRJxZu4g" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_V3F5o4xpEemqFbuRJxZu4g" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
+          <contract xmi:type="process:Contract" xmi:id="_NRO3GIxpEemqFbuRJxZu4g">
+            <inputs xmi:type="process:ContractInput" xmi:id="_eZR9IIxpEemqFbuRJxZu4g" name="persistenceId">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_eZR9IYxpEemqFbuRJxZu4g"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_NRPeIoxpEemqFbuRJxZu4g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_rqh9kLdOEeiL4PfVNHbDaA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport">
@@ -757,6 +803,10 @@
             <children xmi:type="notation:Shape" xmi:id="_YykqkIwtEemOeoQUoG8xnQ" type="3005" element="_Yyi1YIwtEemOeoQUoG8xnQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_YykqkowtEemOeoQUoG8xnQ" type="5005"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YykqkYwtEemOeoQUoG8xnQ" x="750" y="45" width="118" height="59"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_NRPeI4xpEemqFbuRJxZu4g" type="3005" element="_NROQAIxpEemqFbuRJxZu4g" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_NRQFMIxpEemqFbuRJxZu4g" type="5005"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NRPeJIxpEemqFbuRJxZu4g" x="903" y="44" width="122" height="61"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_l5Yre7dEEeiJr5Wf22zHlw"/>

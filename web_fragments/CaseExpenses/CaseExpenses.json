@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "CaseExpenses",
   "name" : "CaseExpenses",
-  "lastUpdate" : 1560269581721,
+  "lastUpdate" : 1560273274644,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -17,8 +17,8 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "constant",
-        "value" : false
+        "type" : "expression",
+        "value" : "hideTitle"
       },
       "labelHidden" : {
         "type" : "constant",
@@ -107,8 +107,8 @@
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : 10,
-          "lg" : 10
+          "md" : 8,
+          "lg" : 8
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -151,6 +151,74 @@
         "reference" : "97f3b548-23db-4469-867b-d078243a9f83",
         "hasValidationError" : false,
         "id" : "pbText"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 2,
+          "lg" : 2
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!deleteExpenseTask"
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<i class=\"glyphicon glyphicon-remove\"></i>"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "task"
+          },
+          "targetUrl" : {
+            "type" : "constant",
+            "value" : "http://"
+          },
+          "pageToken" : {
+            "type" : "constant"
+          },
+          "processName" : {
+            "type" : "constant"
+          },
+          "processVersion" : {
+            "type" : "constant"
+          },
+          "taskId" : {
+            "type" : "expression",
+            "value" : "deleteExpenseTask.id"
+          },
+          "caseId" : {
+            "type" : "constant"
+          },
+          "target" : {
+            "type" : "constant",
+            "value" : "_self"
+          },
+          "appToken" : {
+            "type" : "constant"
+          },
+          "urlParams" : {
+            "type" : "expression",
+            "value" : "{\"expenseId\": $item.persistenceId}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "danger"
+          }
+        },
+        "reference" : "4daf8df2-3978-4c0f-84b5-a9fd2ace678d",
+        "hasValidationError" : false,
+        "id" : "pbLink"
       }, {
         "type" : "component",
         "dimension" : {
@@ -209,11 +277,11 @@
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "right"
+            "value" : "left"
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "default"
+            "value" : "primary"
           }
         },
         "reference" : "6c5aa598-e56c-4190-b755-de7a9d145844",
@@ -452,6 +520,14 @@
       "exposed" : true
     },
     "editExpenseTask" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "hideTitle" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "deleteExpenseTask" : {
       "type" : "constant",
       "exposed" : true
     }

@@ -32,7 +32,11 @@ class CaseTask implements RestApiController, Helper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseTask.class)
 
-    private static final String[] UNWANTED_TASKS = ["Edit Expense"]
+    //Tasks we do not want to display in the `available actions` section -> used elsewhere
+    private static final String[] UNWANTED_TASKS = [
+        "Edit Expense",
+        "Delete Expense"
+    ]
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {

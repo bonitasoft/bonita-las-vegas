@@ -1,8 +1,8 @@
 {
   "designerVersion" : "1.9.45",
-  "id" : "editExpense",
-  "name" : "editExpense",
-  "lastUpdate" : 1560274064309,
+  "id" : "DeleteExpense",
+  "name" : "DeleteExpense",
+  "lastUpdate" : 1560274073985,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -22,7 +22,7 @@
         "value" : ""
       }
     },
-    "reference" : "490d2e52-b21b-415d-be55-5bc6b8fed75b",
+    "reference" : "a97b35b6-8fd4-49f0-8a3a-bc27c5ac09c4",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -78,61 +78,9 @@
           "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
         }
       },
-      "reference" : "054bc4c4-918c-407e-be20-23c0c8c997f5",
+      "reference" : "c4727326-089d-42d0-9280-75a6f7965d43",
       "hasValidationError" : false,
       "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbText"
-        },
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{ task.displayDescription }}"
-        },
-        "label" : {
-          "type" : "interpolation"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
-        }
-      },
-      "reference" : "d8597a53-603e-49e8-b4b5-7037bef1d5a2",
-      "hasValidationError" : false,
-      "id" : "pbText"
     } ] ]
   } ], [ {
     "type" : "formContainer",
@@ -149,7 +97,7 @@
         "value" : false
       }
     },
-    "reference" : "ade3eab2-cf76-43ba-9896-24cee7f4a78b",
+    "reference" : "4cf0ef9a-635f-4cbd-beb3-b6349899da5c",
     "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
@@ -158,10 +106,59 @@
         "xs" : 12
       },
       "propertyValues" : { },
-      "reference" : "35637a38-127f-4b6b-b143-cb123b575e42",
+      "reference" : "b7caa81d-23dc-43d4-9d5c-ba572809d755",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Your are about to delete the following expense from your report:"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "8e36b282-32dd-445b-902e-fe7a53480f04",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
         "type" : "fragment",
         "dimension" : {
           "xs" : 12,
@@ -179,24 +176,71 @@
             "value" : false
           }
         },
-        "reference" : "ae6e00a3-ebf8-4c2b-a9fd-c40c1abf03d0",
+        "reference" : "baf6c654-8994-490c-937f-4372f151192a",
         "hasValidationError" : false,
-        "id" : "expenseEdition",
+        "id" : "CaseExpenses",
         "binding" : {
-          "expense" : "expense",
-          "isKm" : "isKm",
-          "kmAmount" : "kmAmount",
-          "currencies" : "currencies",
-          "expenseTypes" : "expenseTypes",
-          "vehicles" : "vehicles"
+          "expenses" : "expenses",
+          "editExpenseTask" : "",
+          "hideTitle" : "hideTitle",
+          "deleteExpenseTask" : ""
         }
       } ], [ {
         "type" : "component",
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : 6,
-          "lg" : 6
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Continue?"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "65a6be60-254c-45b7-aad1-be8cdab43cde",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 1,
+          "lg" : 1
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -248,14 +292,14 @@
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "right"
+            "value" : "left"
           },
           "buttonStyle" : {
             "type" : "constant",
             "value" : "primary"
           }
         },
-        "reference" : "baa27792-6389-45e3-8ab6-003f77216f81",
+        "reference" : "250566e9-c880-4d6a-b3cf-86e049f44233",
         "hasValidationError" : false,
         "id" : "pbLink"
       }, {
@@ -284,7 +328,7 @@
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "success"
+            "value" : "danger"
           },
           "readOnly" : {
             "type" : "constant",
@@ -292,7 +336,7 @@
           },
           "label" : {
             "type" : "interpolation",
-            "value" : "Edit"
+            "value" : "Delete"
           },
           "dataToSend" : {
             "type" : "expression",
@@ -363,7 +407,7 @@
             "value" : ""
           }
         },
-        "reference" : "4b284d11-2938-41b1-9bb6-947d91fbd39b",
+        "reference" : "fbc7edab-6662-40b9-aaa1-026138bcceac",
         "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
@@ -419,22 +463,22 @@
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
           }
         },
-        "reference" : "a1fb3aa6-5608-4943-8b97-c74a1b85bca2",
+        "reference" : "9a016ec3-ae3b-426b-b4ee-63cf180228b9",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
     }
   } ] ],
   "assets" : [ {
-    "id" : "fd90773b-dd63-4ed3-9770-c9cbf8f8faff",
-    "name" : "style.css",
-    "type" : "css",
+    "id" : "678de7b9-8649-4308-9af4-5a15a6b9b8c7",
+    "name" : "localization.json",
+    "type" : "json",
     "order" : 0,
     "external" : false
   }, {
-    "id" : "0062b960-22ae-41e5-b160-b7eb9a1d4ba3",
-    "name" : "localization.json",
-    "type" : "json",
+    "id" : "d4b5b92a-07fe-4302-80e3-4422728ff96f",
+    "name" : "style.css",
+    "type" : "css",
     "order" : 0,
     "external" : false
   } ],
@@ -452,7 +496,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var isKm = $data.isKm;\nreturn {\n    \"persistenceId\": $data.expenseId,\n    \"description\": $data.expense.description,\n    \"expenseDate\": $data.expense.expenseDate,\n    \"currency\": isKm? \"\" : $data.expense.currency,\n    \"isKm\": isKm,\n    \"expenseType\": $data.expense.expenseType,\n    \"amount\": isKm ? $data.kmAmount : $data.expense.amount,\n    \"km\": isKm ? $data.expense.km : 0,\n    \"vehicleType\": isKm ? $data.expense.vehicleType : \"\"\n}",
+      "value" : "return {\n\tpersistenceId: $data.expenseId\n}",
       "exposed" : false
     },
     "context" : {
@@ -470,44 +514,19 @@
       "value" : "expenseId",
       "exposed" : false
     },
-    "isKm" : {
-      "type" : "expression",
-      "value" : "if ($data.expense.expenseType) {\n    var type = $data.expenseTypes.find(function(e){\n        return e.type == $data.expense.expenseType\n    })\n    return type ? type.type === \"KM\" : false\n}\nreturn false;",
-      "exposed" : false
-    },
-    "kmAmount" : {
-      "type" : "expression",
-      "value" : "var vehicle = $data.vehicles.find(function(e){\n    return e.name == $data.expense.vehicleType\n})\nreturn vehicle\n    ? vehicle.rate * $data.expense.km \n    : null",
-      "exposed" : false
-    },
-    "currencies" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseCurrency?q=find&p=0&c=100",
-      "exposed" : false
-    },
-    "expenseTypes" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseType?q=find&p=0&c=100",
-      "exposed" : false
-    },
-    "vehicles" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseVehicle?q=find&p=0&c=100",
-      "exposed" : false
-    },
     "expenses" : {
       "type" : "url",
       "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseLine?q=findByPersistenceId&f=persistenceId={{expenseId}}&p=0&c=1",
       "exposed" : false
     },
-    "expense" : {
+    "hideTitle" : {
       "type" : "expression",
-      "value" : "return $data.expenses[0];",
+      "value" : "return true;",
       "exposed" : false
     }
   },
   "hasValidationError" : false,
-  "uuid" : "d93c39b4-24f1-463c-8e1d-f139d6dda426",
+  "uuid" : "ae23c100-b9d2-49ac-ad07-b7ff1809f074",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer"
 }

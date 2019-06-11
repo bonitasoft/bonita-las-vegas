@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1560269951572,
+  "lastUpdate" : 1560273139283,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -113,7 +113,9 @@
             "expenses" : "currentReport.expenseLine",
             "caseId" : "caseId",
             "editExpenseTaskId" : "editExpenseTask ? editExpenseTask.id : null",
-            "editExpenseTask" : "editExpenseTask"
+            "editExpenseTask" : "editExpenseTask",
+            "hideTitle" : "",
+            "deleteExpenseTask" : "deleteExpenseTask"
           }
         } ] ]
       },
@@ -910,6 +912,16 @@
     "editExpenseTask" : {
       "type" : "url",
       "value" : "../API/extension/uniqueTask?caseId={{caseId}}&taskName={{editTaskName}}",
+      "exposed" : false
+    },
+    "deleteTaskName" : {
+      "type" : "constant",
+      "value" : "Delete Expense",
+      "exposed" : false
+    },
+    "deleteExpenseTask" : {
+      "type" : "url",
+      "value" : "../API/extension/uniqueTask?caseId={{caseId}}&taskName={{deleteTaskName}}",
       "exposed" : false
     }
   },
