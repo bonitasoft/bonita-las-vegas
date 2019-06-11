@@ -3,7 +3,6 @@ package com.bonitasoft.rest.api.cases
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-import org.bonitasoft.engine.bpm.flownode.ActivityInstanceSearchDescriptor
 import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
 import org.bonitasoft.engine.bpm.process.ProcessInstance
 import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
@@ -45,7 +44,6 @@ class Case implements RestApiController, Helper {
 
         def expenseReportProcessDef = retrieveProcess(processAPI, EXPENSE_REPORT_PROCESS_NAME, EXPENSE_REPORT_PROCESS_VERSION)
         def instances = retrieveProcessInstance(context, processAPI, expenseReportProcessDef, contextPath, userId, appToken)
-
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString())
     }
 
@@ -82,42 +80,22 @@ class Case implements RestApiController, Helper {
 
     def String openTasksCount(long caseId, ProcessAPI processAPI, contextPath) {
         searchOpenedTasks(caseId, processAPI).result
-                .findAll { canExecute(getState(it, processAPI).name) }
+                .findAll {
+                    canExecute(getState(it, processAPI).name)
+                }
                 .size()
     }
 
     def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath, String appToken) {
-        def tasksToExclude = [
-            "Manager validation",
-            "Accounting validation"
-        ]
-        def openTasks = searchOpenedTasks(caseId, processAPI).getResult()
-                .findAll { canExecute(getState(it, processAPI).name) }
-                .findAll { !tasksToExclude.contains(it.name) }
-        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open <span class="badge"> $openTasks.size</span></a>"""
+        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open</a>"""
     }
 
-    def String computeState(ProcessInstance instance, ProcessAPI processAPI) {
-        // Check manager validation task
-        def options = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, instance.id)
-            filter(ActivityInstanceSearchDescriptor.NAME, "Manager validation")
-            done()
-        }
-        if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
-            return asLabel("MANAGER VALIDATION", "warning")
-        }
-
-        // Check accounting validation task
-        options = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(ActivityInstanceSearchDescriptor.PROCESS_INSTANCE_ID, instance.id)
-            filter(ActivityInstanceSearchDescriptor.NAME, "Accounting validation")
-            done()
-        }
-        if (!processAPI.searchHumanTaskInstances(options).getResult().isEmpty()) {
-            return asLabel("ACCOUNTING VALIDATION", "danger")
-        }
-
-        asLabel(instance.state.toUpperCase(), "info")
+    def  String computeState(ProcessInstance instance, ProcessAPI processAPI) {
+        def tasks = searchOpenedTasks(instance.id, processAPI).getResult()
+        return tasks.any { Objects.equals(it.name, "Manager validation") }
+        ? asLabel("MANAGER VALIDATION", "warning")
+        : tasks.any { Objects.equals(it.name, "Accounting validation") }
+        ? asLabel("ACCOUNTING VALIDATION", "danger")
+        : asLabel(instance.state.toUpperCase(), "info");
     }
 }

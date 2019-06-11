@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "archivedCase",
   "name" : "archivedCase",
-  "lastUpdate" : 1560185771401,
+  "lastUpdate" : 1560285809764,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -71,12 +71,12 @@
     },
     "caseDocuments" : {
       "type" : "url",
-      "value" : "../API/extension/caseDocument?caseId={{caseId}}",
+      "value" : "../API/extension/archivedCaseDocument?caseId={{caseId}}",
       "exposed" : false
     },
     "caseComments" : {
       "type" : "url",
-      "value" : "../API/extension/caseComment?caseId={{caseId}}",
+      "value" : "../API/extension/archivedCaseComment?caseId={{caseId}}",
       "exposed" : false
     }
   },

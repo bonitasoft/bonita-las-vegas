@@ -3,7 +3,6 @@ package com.bonitasoft.rest.api.document;
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-import org.bonitasoft.engine.bpm.document.ArchivedDocumentsSearchDescriptor
 import org.bonitasoft.engine.bpm.document.Document
 import org.bonitasoft.engine.bpm.document.DocumentsSearchDescriptor
 import org.bonitasoft.engine.search.Order
@@ -14,7 +13,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import com.bonitasoft.engine.api.IdentityAPI
-import com.bonitasoft.rest.api.exception.ProcessInstanceNotFoundException
+import com.bonitasoft.engine.api.ProcessAPI
 import com.bonitasoft.rest.api.helper.Helper
 import com.bonitasoft.web.extension.rest.RestAPIContext
 import com.bonitasoft.web.extension.rest.RestApiController
@@ -39,24 +38,7 @@ class CaseDocument implements RestApiController, Helper {
         }
 
         def processAPI = context.apiClient.getProcessAPI()
-        def documents = processAPI.searchDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(DocumentsSearchDescriptor.PROCESSINSTANCE_ID, caseId.toLong())
-            sort(DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, Order.DESC)
-            done()
-        }).getResult()
-
-        if (documents.isEmpty()) {
-            try {
-                def archivedInstance = retrieveArchivedInstance(context, processAPI, caseId as long)
-                documents = processAPI.searchArchivedDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-                    filter(ArchivedDocumentsSearchDescriptor.PROCESSINSTANCE_ID, archivedInstance.sourceObjectId) // Bug ? seems that we must used the source object Id, or there is ArchivedDocumentsSearchDescriptor.SOURCEOBJECT_ID for that ..
-                    sort(ArchivedDocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, Order.DESC)
-                    done()
-                }).getResult()
-            } catch (ProcessInstanceNotFoundException e) {
-                // No archived found -> no documents to return
-            }
-        }
+        def documents = retrieveDocuments(context, processAPI, caseId as long)
 
         def result = documents.collect{ Document doc ->
             [
@@ -71,6 +53,14 @@ class CaseDocument implements RestApiController, Helper {
         }
 
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
+    }
+
+    def retrieveDocuments(RestAPIContext context, ProcessAPI processAPI, long caseId) {
+        processAPI.searchDocuments(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+            filter(DocumentsSearchDescriptor.PROCESSINSTANCE_ID, caseId)
+            sort(DocumentsSearchDescriptor.DOCUMENT_CREATIONDATE, Order.DESC)
+            done()
+        }).getResult()
     }
 
     def String username(Long userId,IdentityAPI identityApi) {

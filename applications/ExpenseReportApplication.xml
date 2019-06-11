@@ -4,14 +4,22 @@
         <displayName>Vegas</displayName>
         <description>TODO: The manager page should be on the app below only -&gt; need to work on it on rest api links generation ..</description>
         <applicationPages>
-            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
         </applicationPages>
         <applicationMenus>
-            <applicationMenu applicationPage="home">
-                <displayName>My expense reports</displayName>
+            <applicationMenu>
+                <displayName>Expense reports</displayName>
+                <applicationMenus>
+                    <applicationMenu applicationPage="home">
+                        <displayName>Pending</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="archived">
+                        <displayName>Archived</displayName>
+                    </applicationMenu>
+                </applicationMenus>
             </applicationMenu>
         </applicationMenus>
     </application>
@@ -20,17 +28,25 @@
         <description></description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
-            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
             <applicationPage customPage="custompage_ManagerValidationPage" token="management"/>
         </applicationPages>
         <applicationMenus>
-            <applicationMenu applicationPage="home">
-                <displayName>My expense reports</displayName>
+            <applicationMenu>
+                <displayName>Expense reports</displayName>
+                <applicationMenus>
+                    <applicationMenu applicationPage="home">
+                        <displayName>Pending</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="archived">
+                        <displayName>Archived</displayName>
+                    </applicationMenu>
+                </applicationMenus>
             </applicationMenu>
             <applicationMenu applicationPage="management">
-                <displayName>Management validation</displayName>
+                <displayName>Management</displayName>
             </applicationMenu>
         </applicationMenus>
     </application>
@@ -39,20 +55,28 @@
         <description>TODO: profile should be accounting</description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
-            <applicationPage customPage="custompage_ExecuteManualTask" token="do"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
+            <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
             <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>
             <applicationPage customPage="custompage_currencyAdministration" token="currency"/>
             <applicationPage customPage="custompage_vehiculeAdministration" token="vehicule"/>
             <applicationPage customPage="custompage_expenseTypeAdministration" token="type"/>
         </applicationPages>
         <applicationMenus>
-            <applicationMenu applicationPage="home">
-                <displayName>My expense reports</displayName>
+            <applicationMenu>
+                <displayName>Expense reports</displayName>
+                <applicationMenus>
+                    <applicationMenu applicationPage="home">
+                        <displayName>Pending</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="archived">
+                        <displayName>Archived</displayName>
+                    </applicationMenu>
+                </applicationMenus>
             </applicationMenu>
             <applicationMenu applicationPage="management">
-                <displayName>Accounting validation</displayName>
+                <displayName>Validation</displayName>
             </applicationMenu>
             <applicationMenu>
                 <displayName>Administration</displayName>

@@ -1,0 +1,128 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "ArchivedCaseList",
+  "name" : "ArchivedCaseList",
+  "lastUpdate" : 1560286888270,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Archived expense reports"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      }
+    },
+    "reference" : "089163ff-0177-48f3-82d8-4a7a97d079bb",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "!archivedCases || archivedCases.length === 0"
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Expense report", "State" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "archivedCases"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "name", "state", "viewAction" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "039fcedc-e892-4d69-ad25-a88eb55ff768",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ] ],
+  "assets" : [ {
+    "id" : "52ee5d32-861b-40fa-b52b-78da59fd138c",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "4844957e-9d00-495e-9926-02fff2ffc6de",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "archivedCases" : {
+      "type" : "url",
+      "value" : "../API/extension/archivedCase?appToken={{applicationToken}}",
+      "exposed" : false
+    },
+    "applicationToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "eb8a4322-83a8-4b42-a9f5-f52c9c1e5caf",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

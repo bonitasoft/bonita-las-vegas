@@ -24,7 +24,7 @@ trait ProcessHelper {
      * @return The ProcessDeployementInfo that matches the given tuple [processName - processVersion]
      */
     def ProcessDeploymentInfo retrieveProcess(ProcessAPI processAPI, String processName, String processVersion) throws ProcessInstanceNotFoundException {
-        def result = processAPI.searchProcessDeploymentInfos(new SearchOptionsBuilder(0, Integer.MAX_VALUE)
+        def result = processAPI.searchProcessDeploymentInfos(new SearchOptionsBuilder(0, 1)
                 .filter(ProcessDeploymentInfoSearchDescriptor.NAME, processName)
                 .filter(ProcessDeploymentInfoSearchDescriptor.VERSION, processVersion)
                 .done()
