@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "CaseExpenses",
   "name" : "CaseExpenses",
-  "lastUpdate" : 1559806567637,
+  "lastUpdate" : 1560269581721,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -107,8 +107,8 @@
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
-          "md" : 12,
-          "lg" : 12
+          "md" : 10,
+          "lg" : 10
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -151,6 +151,74 @@
         "reference" : "97f3b548-23db-4469-867b-d078243a9f83",
         "hasValidationError" : false,
         "id" : "pbText"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 2,
+          "lg" : 2
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!editExpenseTask"
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<i class=\"glyphicon glyphicon-edit\"></i>"
+          },
+          "type" : {
+            "type" : "constant",
+            "value" : "task"
+          },
+          "targetUrl" : {
+            "type" : "constant",
+            "value" : "http://"
+          },
+          "pageToken" : {
+            "type" : "constant"
+          },
+          "processName" : {
+            "type" : "constant"
+          },
+          "processVersion" : {
+            "type" : "constant"
+          },
+          "taskId" : {
+            "type" : "expression",
+            "value" : "editExpenseTask.id"
+          },
+          "caseId" : {
+            "type" : "constant"
+          },
+          "target" : {
+            "type" : "constant",
+            "value" : "_self"
+          },
+          "appToken" : {
+            "type" : "constant"
+          },
+          "urlParams" : {
+            "type" : "expression",
+            "value" : "{\"expenseId\": $item.persistenceId}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "default"
+          }
+        },
+        "reference" : "6c5aa598-e56c-4190-b755-de7a9d145844",
+        "hasValidationError" : false,
+        "id" : "pbLink"
       } ], [ {
         "type" : "container",
         "dimension" : {
@@ -166,7 +234,7 @@
           },
           "hidden" : {
             "type" : "expression",
-            "value" : "!$item.km"
+            "value" : "$item.expenseType !== \"KM\""
           },
           "repeatedCollection" : {
             "type" : "variable",
@@ -290,7 +358,7 @@
           },
           "hidden" : {
             "type" : "expression",
-            "value" : "$item.km"
+            "value" : "$item.expenseType === \"KM\""
           },
           "labelHidden" : {
             "type" : "constant",
@@ -380,6 +448,10 @@
   "inactiveAssets" : [ ],
   "data" : {
     "expenses" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "editExpenseTask" : {
       "type" : "constant",
       "exposed" : true
     }

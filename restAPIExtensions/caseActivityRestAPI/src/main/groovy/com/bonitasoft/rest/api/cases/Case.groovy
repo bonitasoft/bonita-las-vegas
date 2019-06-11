@@ -27,9 +27,10 @@ import groovy.json.JsonBuilder
  */
 class Case implements RestApiController, Helper {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Case.class)
     public static final String EXPENSE_REPORT_PROCESS_NAME = "Expense Report"
     public static final String EXPENSE_REPORT_PROCESS_VERSION = "1.0"
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Case.class)
 
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {

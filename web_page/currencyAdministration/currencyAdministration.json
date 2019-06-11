@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "currencyAdministration",
   "name" : "currencyAdministration",
-  "lastUpdate" : 1560111584565,
+  "lastUpdate" : 1560245114070,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {

@@ -1,0 +1,692 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "expenseEdition",
+  "name" : "expenseEdition",
+  "lastUpdate" : 1560259044344,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "md" : 12,
+      "sm" : 12,
+      "xs" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "dateFormat" : {
+        "type" : "constant",
+        "value" : "MM/dd/yyyy"
+      },
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "widgetId" : {
+        "type" : "constant",
+        "value" : "pbDatePicker"
+      },
+      "isDisplayed" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Expense Date"
+      },
+      "type" : {
+        "type" : "constant"
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "todayLabel" : {
+        "type" : "constant",
+        "value" : "Today"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readonly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "showToday" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "placeholder" : {
+        "type" : "constant",
+        "value" : "Enter a date (mm/dd/yyyy)"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "class" : {
+        "type" : "constant",
+        "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.DatePickerWidget"
+      },
+      "dimension" : {
+        "type" : "constant",
+        "value" : 12
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.expenseDate"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "e95a5fae-581a-4bdc-a93b-215b2b057ff6",
+    "hasValidationError" : false,
+    "id" : "pbDatePicker"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "md" : 12,
+      "sm" : 12,
+      "xs" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "widgetId" : {
+        "type" : "constant",
+        "value" : "pbInput"
+      },
+      "isDisplayed" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Description"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "text"
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readonly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "placeholder" : {
+        "type" : "constant"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "class" : {
+        "type" : "constant",
+        "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
+      },
+      "dimension" : {
+        "type" : "constant",
+        "value" : 12
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.description"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "minLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "maxLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "min" : {
+        "type" : "constant"
+      },
+      "max" : {
+        "type" : "constant"
+      },
+      "step" : {
+        "type" : "constant",
+        "value" : 1
+      }
+    },
+    "reference" : "5f2b9dc1-7520-4a8b-acb4-2df7befc3ef1",
+    "hasValidationError" : false,
+    "id" : "pbInput"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "lg" : 12,
+      "md" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Expense Type"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "placeholder" : {
+        "type" : "interpolation",
+        "value" : "Select a type"
+      },
+      "availableValues" : {
+        "type" : "expression",
+        "value" : "expenseTypes"
+      },
+      "displayedKey" : {
+        "type" : "constant",
+        "value" : "type"
+      },
+      "returnedKey" : {
+        "type" : "constant",
+        "value" : "type"
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.expenseType"
+      }
+    },
+    "reference" : "7879c2f2-34d5-4b71-90c0-58efaa3d6ad5",
+    "hasValidationError" : false,
+    "id" : "pbSelect"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "md" : 12,
+      "sm" : 12,
+      "xs" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "widgetId" : {
+        "type" : "constant",
+        "value" : "pbInput"
+      },
+      "isDisplayed" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Km"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "number"
+      },
+      "required" : {
+        "type" : "expression",
+        "value" : "isKm"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readonly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "placeholder" : {
+        "type" : "constant"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "class" : {
+        "type" : "constant",
+        "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
+      },
+      "dimension" : {
+        "type" : "constant",
+        "value" : 12
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.km"
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "!isKm"
+      },
+      "minLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "maxLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "min" : {
+        "type" : "constant"
+      },
+      "max" : {
+        "type" : "constant"
+      },
+      "step" : {
+        "type" : "constant",
+        "value" : 1
+      }
+    },
+    "reference" : "ee0b8963-3c8d-4169-a03b-664e23e93031",
+    "hasValidationError" : false,
+    "id" : "pbInput"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "!isKm"
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "expression",
+        "value" : "isKm"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Vehicle Type"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "placeholder" : {
+        "type" : "interpolation",
+        "value" : "Select a vehicle"
+      },
+      "availableValues" : {
+        "type" : "expression",
+        "value" : "vehicles"
+      },
+      "displayedKey" : {
+        "type" : "constant",
+        "value" : "name"
+      },
+      "returnedKey" : {
+        "type" : "constant",
+        "value" : "name"
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.vehicleType"
+      }
+    },
+    "reference" : "090cb30f-f126-4928-be93-e634f1d298d3",
+    "hasValidationError" : false,
+    "id" : "pbSelect"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "!isKm"
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "minLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "maxLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Amount"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "placeholder" : {
+        "type" : "interpolation"
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "kmAmount"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "text"
+      },
+      "min" : {
+        "type" : "constant"
+      },
+      "max" : {
+        "type" : "constant"
+      },
+      "step" : {
+        "type" : "constant",
+        "value" : 1
+      }
+    },
+    "reference" : "1784d9eb-a47b-4ee4-9a87-98b49e2b4bf4",
+    "hasValidationError" : false,
+    "id" : "pbInput"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "isKm"
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "expression",
+        "value" : "!isKm"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Currency"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "placeholder" : {
+        "type" : "interpolation",
+        "value" : "Select a currency"
+      },
+      "availableValues" : {
+        "type" : "expression",
+        "value" : "currencies"
+      },
+      "displayedKey" : {
+        "type" : "constant",
+        "value" : "name"
+      },
+      "returnedKey" : {
+        "type" : "constant",
+        "value" : "name"
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.currency"
+      }
+    },
+    "reference" : "1d2d3d33-e8d0-4055-b721-e909fe5fdc3f",
+    "hasValidationError" : false,
+    "id" : "pbSelect"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "md" : 12,
+      "sm" : 12,
+      "xs" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "widgetId" : {
+        "type" : "constant",
+        "value" : "pbInput"
+      },
+      "isDisplayed" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Amount"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "number"
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readonly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "placeholder" : {
+        "type" : "constant"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "class" : {
+        "type" : "constant",
+        "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
+      },
+      "dimension" : {
+        "type" : "constant",
+        "value" : 12
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.amount"
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "isKm"
+      },
+      "minLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "maxLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "min" : {
+        "type" : "constant"
+      },
+      "max" : {
+        "type" : "constant"
+      },
+      "step" : {
+        "type" : "constant",
+        "value" : 1
+      }
+    },
+    "reference" : "6eb9b639-810e-4094-928c-f3565d2746b0",
+    "hasValidationError" : false,
+    "id" : "pbInput"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "expense" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "isKm" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "kmAmount" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "currencies" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "expenseTypes" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "vehicles" : {
+      "type" : "constant",
+      "exposed" : true
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

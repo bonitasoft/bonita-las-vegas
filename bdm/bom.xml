@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <businessObjectModel modelVersion="1.0" productVersion="7.7.0-SNAPSHOT">
     <businessObjects>
-        <businessObject qualifiedName="com.bonita.lr.model.Customer">
-            <fields>
-                <field type="STRING" length="255" name="firstName" nullable="true" collection="false"/>
-                <field type="STRING" length="255" name="lastName" nullable="true" collection="false"/>
-            </fields>
-            <uniqueConstraints/>
-            <queries/>
-            <indexes/>
-        </businessObject>
         <businessObject qualifiedName="com.bonita.lr.model.ExpenseCurrency">
-            <description>rete agains EURO</description>
+            <description></description>
             <fields>
                 <field type="STRING" length="255" name="name" nullable="false" collection="false"/>
                 <field type="FLOAT" length="255" name="rate" nullable="false" collection="false"/>
@@ -24,7 +15,6 @@
             <fields>
                 <field type="STRING" length="255" name="employeeId" nullable="false" collection="false"/>
                 <field type="STRING" length="255" name="departement" nullable="true" collection="false"/>
-                <relationField type="AGGREGATION" reference="com.bonita.lr.model.Customer" fetchType="LAZY" name="customer" nullable="true" collection="false"/>
                 <field type="STRING" length="255" name="budget" nullable="true" collection="false"/>
                 <field type="TEXT" length="255" name="description" nullable="true" collection="false"/>
                 <field type="LOCALDATE" length="255" name="submissionDate" nullable="true" collection="false"/>

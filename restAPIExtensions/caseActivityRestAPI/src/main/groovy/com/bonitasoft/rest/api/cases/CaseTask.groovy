@@ -32,6 +32,8 @@ class CaseTask implements RestApiController, Helper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseTask.class)
 
+    private static final String[] UNWANTED_TASKS = ["Edit Expense"]
+
     @Override
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def contextPath = "http://$request.serverName:$request.localPort$request.contextPath"
@@ -64,7 +66,8 @@ class CaseTask implements RestApiController, Helper {
 
         //Retrieve pending activities
         def result = processAPI.getPendingHumanTaskInstances(context.apiSession.userId,0, Integer.MAX_VALUE, ActivityInstanceCriterion.EXPECTED_END_DATE_ASC)
-                .findAll{it.parentProcessInstanceId ==  caseId.toLong()}
+                .findAll{ it.parentProcessInstanceId ==  caseId.toLong() }
+                .findAll { !UNWANTED_TASKS.contains(it.name) }
                 .collect{ HumanTaskInstance task ->
                     def metadata = getMetadata(task,processAPI)
                     [
@@ -82,14 +85,13 @@ class CaseTask implements RestApiController, Helper {
         result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
 
         //Retrieve finished activities
-        result.addAll(processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
+        processAPI.searchArchivedHumanTasks(new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
             filter(ArchivedActivityInstanceSearchDescriptor.ASSIGNEE_ID, context.apiSession.userId)
             filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, caseId)
             done()
-        }).
-        getResult()
-        .findAll {
-            !loopTasks.contains(it.name) && !result.collect{ task -> task["id"] }.contains(it.name) }
+        }).getResult()
+        .findAll { !UNWANTED_TASKS.contains(it.name) }
+        .findAll { !loopTasks.contains(it.name) && !result.collect{ task -> task["id"] }.contains(it.name) }
         .collect{ ArchivedHumanTaskInstance task ->
             [
                 id:task.sourceObjectId,
@@ -98,7 +100,8 @@ class CaseTask implements RestApiController, Helper {
                 state:task.state.capitalize()
             ]
         }
-        .unique { taskA, taskB -> taskA["name"] <=> taskB["name"] }) // If a given task has been done a couple of time, we only display one archive instance -> we do not need more in this use case
+        .unique { taskA, taskB -> taskA["name"] <=> taskB["name"] } // If a given task has been done a couple of time, we only display one archive instance -> we do not need more in this use case
+        .each { result.add(it) }
 
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
     }

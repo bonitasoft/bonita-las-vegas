@@ -69,7 +69,7 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_NZjLDrdREeiL4PfVNHbDaA" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_NZjLD7dREeiL4PfVNHbDaA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_NZjLELdREeiL4PfVNHbDaA" name="expenseReportInput.expenseLine" content="import com.bonita.lr.model.ExpenseLine;&#xA;import com.bonita.lr.model.ExpenseVehicle&#xA;&#xA;def expenseLineList = []&#xA;expenseLineList.addAll(expenseReport.expenseLine)&#xA;ExpenseLine line = new ExpenseLine()&#xA;line.setExpenseDate(expenseDate)&#xA;line.setDescription(description)&#xA;line.setExpenseType(expenseType) // TODO: ensure that the expense type exists&#xA;&#xA;if (isKm) {&#xA;&#x9;line.setKm(km)&#xA;&#x9;line.setVehicleType(vehicle)&#xA;&#x9;&#xA;&#x9;List&lt;ExpenseVehicle> vehicles = expenseVehicleDAO.findByName(vehicle, 0, 100);&#xA;&#x9;if (vehicles.isEmpty()) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(String.format(&quot;The vehicle %s doesn't exist&quot;,vehicle))&#xA;&#x9;}&#xA;&#x9;line.setAmount((float)(vehicles.get(0).rate * km))&#xA;&#x9;line.setVehicleRate(vehicles.get(0).rate)&#xA;} else {&#xA;&#x9;// We retrieve the ratio here, not in the UI, it is a sensitive data.&#xA;&#x9;// The user can't be allowed to define it in an API call&#xA;&#x9;def  expenseCurrency = ExpenseHelper.retrieveCurrency(currency, expenseCurrencyDAO)&#xA;&#x9;line.setCurrency(expenseCurrency.name)&#xA;&#x9;line.setCurrencyRatio(expenseCurrency.rate)&#xA;&#x9;&#xA;&#x9;line.setAmount(amount)&#xA;}&#xA;expenseLineList.add(line)&#xA;return expenseLineList" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+            <rightOperand xmi:type="expression:Expression" xmi:id="_NZjLELdREeiL4PfVNHbDaA" name="expenseReportInput.expenseLine" content="import com.bonita.lr.model.ExpenseLine;&#xA;import com.bonita.lr.model.ExpenseVehicle&#xA;&#xA;def expenseLineList = []&#xA;expenseLineList.addAll(expenseReport.expenseLine)&#xA;ExpenseLine line = new ExpenseLine()&#xA;line.setExpenseDate(expenseDate)&#xA;line.setDescription(description)&#xA;line.setExpenseType(expenseType) // TODO: ensure that the expense type exists&#xA;&#xA;if (isKm) {&#xA;&#x9;line.setKm(km)&#xA;&#x9;line.setVehicleType(vehicleType)&#xA;&#x9;&#xA;&#x9;List&lt;ExpenseVehicle> vehicles = expenseVehicleDAO.findByName(vehicleType, 0, 100);&#xA;&#x9;if (vehicles.isEmpty()) {&#xA;&#x9;&#x9;throw new IllegalArgumentException(String.format(&quot;The vehicle %s doesn't exist&quot;,vehicleType))&#xA;&#x9;}&#xA;&#x9;line.setAmount((float)(vehicles.get(0).rate * km))&#xA;&#x9;line.setVehicleRate(vehicles.get(0).rate)&#xA;} else {&#xA;&#x9;// We retrieve the ratio here, not in the UI, it is a sensitive data.&#xA;&#x9;// The user can't be allowed to define it in an API call&#xA;&#x9;def  expenseCurrency = ExpenseHelper.retrieveCurrency(currency, expenseCurrencyDAO)&#xA;&#x9;line.setCurrency(expenseCurrency.name)&#xA;&#x9;line.setCurrencyRatio(expenseCurrency.rate)&#xA;&#x9;&#xA;&#x9;line.setAmount(amount)&#xA;}&#xA;expenseLineList.add(line)&#xA;return expenseLineList" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
               <referencedElements xmi:type="expression:Expression" xmi:id="_WELBkIEfEemWUe3LgT2ASg" name="expenseCurrencyDAO" content="expenseCurrencyDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseCurrencyDAO" returnTypeFixed="true"/>
               <referencedElements xmi:type="process:ContractInput" xmi:id="_WELBkYEfEemWUe3LgT2ASg" name="currency">
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_WELBkoEfEemWUe3LgT2ASg"/>
@@ -87,7 +87,7 @@
               <referencedElements xmi:type="process:ContractInput" xmi:id="_qrP7SoDHEemWUe3LgT2ASg" name="isKm" type="BOOLEAN">
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_qrP7S4DHEemWUe3LgT2ASg"/>
               </referencedElements>
-              <referencedElements xmi:type="process:ContractInput" xmi:id="_qrP7TIDHEemWUe3LgT2ASg" name="vehicle">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_qrP7TIDHEemWUe3LgT2ASg" name="vehicleType">
                 <mapping xmi:type="process:ContractInputMapping" xmi:id="_qrP7TYDHEemWUe3LgT2ASg"/>
               </referencedElements>
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Mfdul4DGEemWUe3LgT2ASg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
@@ -139,7 +139,7 @@
             <inputs xmi:type="process:ContractInput" xmi:id="_DbD44M1bEeisrukIH6vpLg" name="currency">
               <mapping xmi:type="process:ContractInputMapping" xmi:id="_DbD44c1bEeisrukIH6vpLg"/>
             </inputs>
-            <inputs xmi:type="process:ContractInput" xmi:id="_EiIOoM1bEeisrukIH6vpLg" name="vehicle">
+            <inputs xmi:type="process:ContractInput" xmi:id="_EiIOoM1bEeisrukIH6vpLg" name="vehicleType">
               <mapping xmi:type="process:ContractInputMapping" xmi:id="_EiIOoc1bEeisrukIH6vpLg"/>
             </inputs>
             <inputs xmi:type="process:ContractInput" xmi:id="_Fbs68M1bEeisrukIH6vpLg" name="km" type="INTEGER">
@@ -364,6 +364,105 @@
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_4Vu29YkaEemu0840ACmBYw" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_4Vu294kaEemu0840ACmBYw" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_4Vu29okaEemu0840ACmBYw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:Task" xmi:id="_Yyi1YIwtEemOeoQUoG8xnQ" name="Edit Expense" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_-pRmcYwsEemOeoQUoG8xnQ" name="💰 Edit Expense" content="💰 Edit Expense" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_-pRmcIwsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_-pRmcowsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_H3_jUIwuEemOeoQUoG8xnQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_H3_jUYwuEemOeoQUoG8xnQ" name="editAvailable" content="def res = validating || expenseReport.expenseLine.isEmpty() ? &quot;N/A&quot; : &quot;Discretionary&quot;&#xA;println res&#xA;res" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:Data" xmi:id="_gFELgIxTEemOeoQUoG8xnQ" name="validating" dataType="_l5YrIbdEEeiJr5Wf22zHlw"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_gFELgYxTEemOeoQUoG8xnQ" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </defaultValue>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_kDlr0IwtEemOeoQUoG8xnQ">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_kDlr0YwtEemOeoQUoG8xnQ" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ma13EIwtEemOeoQUoG8xnQ" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_kDlr0owtEemOeoQUoG8xnQ" name="editExpenseLine" content="import com.bonita.lr.model.ExpenseVehicle&#xA;&#xA;def expenseLines = expenseReport.expenseLine&#xA;&#xA;def lineToEdit = expenseLines.stream()&#xA;    .filter { Objects.equals(it.persistenceId, persistenceId as long) }&#xA;    .findFirst().orElseThrow{ new IllegalArgumentException(&quot;Expense line not found&quot;) }&#xA;    &#xA;&#xA;lineToEdit.setExpenseDate(expenseDate)&#xA;lineToEdit.setDescription(description)&#xA;lineToEdit.setExpenseType(expenseType)&#xA;&#xA;if (isKm) {&#xA;    lineToEdit.setKm(km)&#xA;    lineToEdit.setVehicleType(vehicleType)&#xA;    &#xA;    List&lt;ExpenseVehicle> vehicles = expenseVehicleDAO.findByName(vehicleType, 0, 100);&#xA;    if (vehicles.isEmpty()) {&#xA;        throw new IllegalArgumentException(String.format(&quot;The vehicle %s doesn't exist&quot;,vehicleType))&#xA;    }&#xA;    lineToEdit.setAmount((float)(vehicles.get(0).rate * km))&#xA;    lineToEdit.setVehicleRate(vehicles.get(0).rate)&#xA;} else {&#xA;    // We retrieve the ratio here, not in the UI, it is a sensitive data.&#xA;    // The user can't be allowed to define it in an API call&#xA;    def  expenseCurrency = ExpenseHelper.retrieveCurrency(currency, expenseCurrencyDAO)&#xA;    lineToEdit.setCurrency(expenseCurrency.name)&#xA;    lineToEdit.setCurrencyRatio(expenseCurrency.rate)&#xA;    &#xA;    lineToEdit.setAmount(amount)&#xA;}&#xA;&#xA;expenseLines" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_3Q7K8IxPEemOeoQUoG8xnQ" name="expenseType">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_3Q7K8YxPEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_3Q7yAIxPEemOeoQUoG8xnQ" name="description">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_3Q7yAYxPEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_3Q7yAoxPEemOeoQUoG8xnQ" name="expenseDate" type="LOCALDATE">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_3Q7yA4xPEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_yENgYIxNEemOeoQUoG8xnQ" name="km" type="INTEGER">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_yENgYYxNEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_yENgYoxNEemOeoQUoG8xnQ" name="amount" type="INTEGER">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_yENgY4xNEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_yENgZIxNEemOeoQUoG8xnQ" name="expenseVehicleDAO" content="expenseVehicleDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseVehicleDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_yENgZYxNEemOeoQUoG8xnQ" name="expenseCurrencyDAO" content="expenseCurrencyDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.ExpenseCurrencyDAO" returnTypeFixed="true"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_yENgZoxNEemOeoQUoG8xnQ" name="currency">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_yENgZ4xNEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_yEOHcIxNEemOeoQUoG8xnQ" name="isKm" type="BOOLEAN">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_yEOHcYxNEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_yEOHcoxNEemOeoQUoG8xnQ" name="vehicleType">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_yEOHc4xNEemOeoQUoG8xnQ"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_ENNToIwuEemOeoQUoG8xnQ" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_ENNToYwuEemOeoQUoG8xnQ" name="persistenceId">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_ENNToowuEemOeoQUoG8xnQ"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_kDlr04wtEemOeoQUoG8xnQ" type="JAVA_METHOD" expression="setExpenseLine">
+              <inputTypes>java.util.List</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_-pRmc4wsEemOeoQUoG8xnQ" name="loopFlowWhileUnresolved" content="import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;apiAccessor.getProcessAPI().searchArchivedActivities(new SearchOptionsBuilder(0, 1).with {&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, processInstanceId)&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.NAME, &quot;Resolve&quot;)&#xA;       done()&#xA;    }).count == 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+            <referencedElements xmi:type="expression:Expression" xmi:id="_OeoVkIwtEemOeoQUoG8xnQ" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+            <referencedElements xmi:type="expression:Expression" xmi:id="_OeoVkYwtEemOeoQUoG8xnQ" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+          </loopCondition>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_-pRmdIwsEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_-pRmdYwsEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_-pSNgYwsEemOeoQUoG8xnQ" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_-pSNgIwsEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_YykDiYwtEemOeoQUoG8xnQ">
+            <targetForm xmi:type="expression:Expression" xmi:id="_SWhMIIw4EemOeoQUoG8xnQ" name="editExpense" content="d93c39b4-24f1-463c-8e1d-f139d6dda426" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_E5jGIIw3EemOeoQUoG8xnQ" name="initiator" definitionId="initiator" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_E5jGIYw3EemOeoQUoG8xnQ" definitionId="initiator" version="1.0.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_E5jGIow3EemOeoQUoG8xnQ" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_E5jGI4w3EemOeoQUoG8xnQ" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
+          <contract xmi:type="process:Contract" xmi:id="_YykDiIwtEemOeoQUoG8xnQ">
+            <inputs xmi:type="process:ContractInput" xmi:id="_ZzwawIwtEemOeoQUoG8xnQ" name="persistenceId">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_ZzwawYwtEemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_1RVlsIw3EemOeoQUoG8xnQ" name="description">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_1RVlsYw3EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_4D7pIIw3EemOeoQUoG8xnQ" name="expenseDate" type="LOCALDATE">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_4D7pIYw3EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_CjL2QIw4EemOeoQUoG8xnQ" name="isKm" type="BOOLEAN">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_CjL2QYw4EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_ESaYMIw4EemOeoQUoG8xnQ" name="amount" type="INTEGER">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_ESaYMYw4EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_FioC4Iw4EemOeoQUoG8xnQ" name="expenseType">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_FioC4Yw4EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_HzM-YIw4EemOeoQUoG8xnQ" name="currency">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_HzM-YYw4EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_IYYIAIw4EemOeoQUoG8xnQ" name="vehicleType">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_IYYIAYw4EemOeoQUoG8xnQ"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_JvqrEIw4EemOeoQUoG8xnQ" name="km" type="INTEGER">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_JvqrEYw4EemOeoQUoG8xnQ"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_YykDi4wtEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_rqh9kLdOEeiL4PfVNHbDaA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport">
@@ -655,6 +754,10 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_9w2b0okaEemu0840ACmBYw" type="5017"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9w2b0YkaEemu0840ACmBYw" x="228" y="810" width="120" height="60"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_YykqkIwtEemOeoQUoG8xnQ" type="3005" element="_Yyi1YIwtEemOeoQUoG8xnQ" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_YykqkowtEemOeoQUoG8xnQ" type="5005"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YykqkYwtEemOeoQUoG8xnQ" x="750" y="45" width="118" height="59"/>
+            </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_l5Yre7dEEeiJr5Wf22zHlw"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_l5YrfLdEEeiJr5Wf22zHlw" fontName="Ubuntu"/>
@@ -667,7 +770,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_l5YrgbdEEeiJr5Wf22zHlw" fontName="Ubuntu"/>
       <styles xmi:type="notation:LineStyle" xmi:id="_l5YrgrdEEeiJr5Wf22zHlw"/>
       <styles xmi:type="notation:FillStyle" xmi:id="_l5Yrg7dEEeiJr5Wf22zHlw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l5YrhLdEEeiJr5Wf22zHlw" width="852" height="250"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l5YrhLdEEeiJr5Wf22zHlw" width="1152" height="250"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_l5YrhbdEEeiJr5Wf22zHlw"/>
     <edges xmi:type="notation:Connector" xmi:id="_raD-AIIEEemf57nSakVzCw" type="4003" element="_raCv4IIEEemf57nSakVzCw" source="_rZ17kIIEEemf57nSakVzCw" target="_qMo30IBzEemqicJDRqiw_g">
