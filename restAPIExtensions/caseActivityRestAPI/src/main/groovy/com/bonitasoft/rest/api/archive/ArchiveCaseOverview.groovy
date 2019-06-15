@@ -1,4 +1,4 @@
-package com.bonitasoft.rest.api.cases
+package com.bonitasoft.rest.api.archive
 
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse

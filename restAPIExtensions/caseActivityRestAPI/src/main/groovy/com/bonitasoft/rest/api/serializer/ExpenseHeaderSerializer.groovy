@@ -1,7 +1,5 @@
 package com.bonitasoft.rest.api.serializer
 
-import java.time.format.DateTimeFormatter
-
 import com.bonita.lr.model.ExpenseHeader
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.JsonSerializer
@@ -13,12 +11,17 @@ class ExpenseHeaderSerializer extends JsonSerializer<ExpenseHeader> {
     public void serialize(ExpenseHeader header, JsonGenerator jgen, SerializerProvider serializers) throws IOException {
         jgen.writeStartObject()
 
-        jgen.writeStringField("departement", header.departement)
-        jgen.writeStringField("budget", header.budget)
-        jgen.writeStringField("description", header.description)
-        jgen.writeStringField("submissionDate", header.submissionDate.format(DateTimeFormatter.ISO_LOCAL_DATE))
-        jgen.writeStringField("accountingDate", header.accountingDate.format(DateTimeFormatter.ISO_LOCAL_DATE))
+        writeStringField(jgen, "departement", header.departement)
+        writeStringField(jgen, "budget", header.budget)
+        writeStringField(jgen, "description", header.description)
+        writeStringField(jgen, "region", header.region)
 
         jgen.writeEndObject()
+    }
+
+    def writeStringField(JsonGenerator jgen, String fieldName, String fieldValue) {
+        if (fieldValue) {
+            jgen.writeStringField(fieldName, fieldValue)
+        }
     }
 }

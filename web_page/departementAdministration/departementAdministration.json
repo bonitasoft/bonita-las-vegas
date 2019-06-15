@@ -1,0 +1,1258 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "departementAdministration",
+  "name" : "departementAdministration",
+  "lastUpdate" : 1560501998062,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Departements"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "3187d311-7914-4392-aee0-c5e9fa14ad82",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Name" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Variable"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "departements"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "name" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : "selectedDepartement"
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "2bdfd85a-9799-46bf-a9ff-12139159b82f",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "New departement"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "success"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "new"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "0bad3e76-dc45-47d7-b622-37f477fb8af6",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "expression",
+        "value" : "!selectedDepartement.name"
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Edit selected departement"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "primary"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "edit"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "e7af683c-199b-4c4e-b384-cfd8a0c2ee16",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 8
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "expression",
+        "value" : "!selectedDepartement.name"
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Delete selected departement"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "danger"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation"
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "delete"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "692fca02-c997-4d44-bd41-da9479161f86",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "new"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "553bcb6e-884b-4189-b819-ffbcb44a875d",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "a7215ecb-f4d6-4070-99fd-3473ab703e03",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "New departement"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "8e10bc32-d26f-47e8-b766-6393bc4e5214",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "formContainer",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "133bff83-1fc2-47c5-8a12-982a7766ec41",
+        "hasValidationError" : false,
+        "id" : "pbFormContainer",
+        "container" : {
+          "type" : "container",
+          "dimension" : {
+            "xs" : 12
+          },
+          "propertyValues" : { },
+          "reference" : "553dc176-cef2-4d5f-92a6-1d03ae1be949",
+          "hasValidationError" : false,
+          "id" : "pbContainer",
+          "rows" : [ [ {
+            "type" : "component",
+            "dimension" : {
+              "xs" : 12,
+              "sm" : 12,
+              "md" : 12,
+              "lg" : 12
+            },
+            "propertyValues" : {
+              "cssClasses" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "hidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "required" : {
+                "type" : "constant",
+                "value" : true
+              },
+              "minLength" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "maxLength" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "readOnly" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "labelHidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "label" : {
+                "type" : "interpolation",
+                "value" : "Name"
+              },
+              "labelPosition" : {
+                "type" : "constant",
+                "value" : "top"
+              },
+              "labelWidth" : {
+                "type" : "constant",
+                "value" : 4
+              },
+              "placeholder" : {
+                "type" : "interpolation",
+                "value" : "R&D, Marketing ...."
+              },
+              "value" : {
+                "type" : "variable",
+                "value" : "newDepartement.name"
+              },
+              "type" : {
+                "type" : "constant",
+                "value" : "text"
+              },
+              "min" : {
+                "type" : "constant"
+              },
+              "max" : {
+                "type" : "constant"
+              },
+              "step" : {
+                "type" : "constant",
+                "value" : 1
+              }
+            },
+            "reference" : "2504c427-c040-4d9e-adb8-e933828f87a8",
+            "hasValidationError" : false,
+            "id" : "pbInput"
+          } ], [ {
+            "type" : "component",
+            "dimension" : {
+              "xs" : 12,
+              "sm" : 12,
+              "md" : 12,
+              "lg" : 12
+            },
+            "propertyValues" : {
+              "cssClasses" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "hidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "disabled" : {
+                "type" : "expression",
+                "value" : "$form.$invalid"
+              },
+              "label" : {
+                "type" : "interpolation",
+                "value" : "Create"
+              },
+              "alignment" : {
+                "type" : "constant",
+                "value" : "right"
+              },
+              "buttonStyle" : {
+                "type" : "constant",
+                "value" : "success"
+              },
+              "action" : {
+                "type" : "constant",
+                "value" : "Start process"
+              },
+              "assign" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "url" : {
+                "type" : "interpolation"
+              },
+              "responseStatusCode" : {
+                "type" : "variable",
+                "value" : ""
+              },
+              "dataToSend" : {
+                "type" : "expression",
+                "value" : "newDepartement"
+              },
+              "dataFromSuccess" : {
+                "type" : "variable",
+                "value" : "departementEdited"
+              },
+              "closeOnSuccess" : {
+                "type" : "constant",
+                "value" : true
+              },
+              "dataFromError" : {
+                "type" : "variable",
+                "value" : ""
+              },
+              "targetUrlOnSuccess" : {
+                "type" : "interpolation"
+              },
+              "collectionToModify" : {
+                "type" : "variable"
+              },
+              "modalId" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "collectionPosition" : {
+                "type" : "constant",
+                "value" : "Last"
+              },
+              "valueToAdd" : {
+                "type" : "constant"
+              },
+              "removeItem" : {
+                "type" : "variable"
+              },
+              "processId" : {
+                "type" : "expression",
+                "value" : "createDepartementProcessId[0].id"
+              }
+            },
+            "reference" : "1972ba0d-f2f2-4f4b-bd63-7d4e1fd49e9d",
+            "hasValidationError" : false,
+            "id" : "customCustomStartProcessButton"
+          } ] ]
+        }
+      } ] ]
+    }
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "edit"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "64e39c26-bdb7-43aa-994c-248a8fb011d8",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "edf10edb-159b-4f11-96ea-70e97b5b60d2",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Edit departement"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "a3c7fa68-5082-42bb-af46-fddee1b70f89",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "formContainer",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "1246d68d-b2f7-4ca9-a535-b923b6816ba7",
+        "hasValidationError" : false,
+        "id" : "pbFormContainer",
+        "container" : {
+          "type" : "container",
+          "dimension" : {
+            "xs" : 12
+          },
+          "propertyValues" : { },
+          "reference" : "d4e73295-7a85-4506-b1af-9bbfb41bca58",
+          "hasValidationError" : false,
+          "id" : "pbContainer",
+          "rows" : [ [ {
+            "type" : "component",
+            "dimension" : {
+              "xs" : 12,
+              "sm" : 12,
+              "md" : 12,
+              "lg" : 12
+            },
+            "propertyValues" : {
+              "cssClasses" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "hidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "required" : {
+                "type" : "constant",
+                "value" : true
+              },
+              "minLength" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "maxLength" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "readOnly" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "labelHidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "label" : {
+                "type" : "interpolation",
+                "value" : "Name"
+              },
+              "labelPosition" : {
+                "type" : "constant",
+                "value" : "top"
+              },
+              "labelWidth" : {
+                "type" : "constant",
+                "value" : 4
+              },
+              "placeholder" : {
+                "type" : "interpolation"
+              },
+              "value" : {
+                "type" : "variable",
+                "value" : "selectedDepartement.name"
+              },
+              "type" : {
+                "type" : "constant",
+                "value" : "text"
+              },
+              "min" : {
+                "type" : "constant"
+              },
+              "max" : {
+                "type" : "constant"
+              },
+              "step" : {
+                "type" : "constant",
+                "value" : 1
+              }
+            },
+            "reference" : "e51d9f9f-719b-49e0-8690-bcbf86c4fd45",
+            "hasValidationError" : false,
+            "id" : "pbInput"
+          } ], [ {
+            "type" : "component",
+            "dimension" : {
+              "xs" : 12,
+              "sm" : 12,
+              "md" : 12,
+              "lg" : 12
+            },
+            "propertyValues" : {
+              "cssClasses" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "hidden" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "disabled" : {
+                "type" : "expression",
+                "value" : "$form.$invalid"
+              },
+              "label" : {
+                "type" : "interpolation",
+                "value" : "Edit"
+              },
+              "alignment" : {
+                "type" : "constant",
+                "value" : "right"
+              },
+              "buttonStyle" : {
+                "type" : "constant",
+                "value" : "primary"
+              },
+              "action" : {
+                "type" : "constant",
+                "value" : "Start process"
+              },
+              "assign" : {
+                "type" : "constant",
+                "value" : false
+              },
+              "url" : {
+                "type" : "interpolation"
+              },
+              "responseStatusCode" : {
+                "type" : "variable",
+                "value" : ""
+              },
+              "dataToSend" : {
+                "type" : "expression",
+                "value" : "selectedDepartement"
+              },
+              "dataFromSuccess" : {
+                "type" : "variable",
+                "value" : "departementEdited"
+              },
+              "closeOnSuccess" : {
+                "type" : "constant",
+                "value" : true
+              },
+              "dataFromError" : {
+                "type" : "variable",
+                "value" : ""
+              },
+              "targetUrlOnSuccess" : {
+                "type" : "interpolation"
+              },
+              "collectionToModify" : {
+                "type" : "variable"
+              },
+              "modalId" : {
+                "type" : "constant",
+                "value" : ""
+              },
+              "collectionPosition" : {
+                "type" : "constant",
+                "value" : "Last"
+              },
+              "valueToAdd" : {
+                "type" : "constant"
+              },
+              "removeItem" : {
+                "type" : "variable"
+              },
+              "processId" : {
+                "type" : "expression",
+                "value" : "editDepartementProcessId[0].id"
+              }
+            },
+            "reference" : "1948b999-939d-4818-b24f-f46d18b97fe7",
+            "hasValidationError" : false,
+            "id" : "customCustomStartProcessButton"
+          } ] ]
+        }
+      } ] ]
+    }
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "delete"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "6afab056-6ec7-4b0f-8857-f6e974f21e6e",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "71a1a1ff-e8ad-4154-83fd-569af9285fd4",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Delete departement"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "be8ec84b-0c21-4efd-aad1-c537e4429d10",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "You are about to delete the departement <strong>{{selectedDepartement.name}}.</strong>\n<br/>\nContinue?"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "b43d051b-c38e-4ea0-b32b-c5ac3675231b",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Abort"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Close modal"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "constant"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "02ed3121-544c-48e8-88a5-87fa7c72fb6b",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Delete"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "danger"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Start process"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "selectedDepartement"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "departementEdited"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "processId" : {
+            "type" : "expression",
+            "value" : "deleteDepartementProcessId[0].id"
+          }
+        },
+        "reference" : "1986c794-e4b0-459c-a197-52da0d1a9d44",
+        "hasValidationError" : false,
+        "id" : "customCustomStartProcessButton"
+      } ] ]
+    }
+  } ] ],
+  "assets" : [ {
+    "id" : "d7f34bd2-fa5d-4f6e-9d87-e8407a6518dc",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "6831fed0-a85a-40a8-8a77-be3cc861067f",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "departements" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.Departement?q=find&p=0&c=100&reload={{departementEdited.caseId}}",
+      "exposed" : false
+    },
+    "departementEdited" : {
+      "type" : "json",
+      "value" : "{\"caseId\":\"none\"}",
+      "exposed" : false
+    },
+    "createDepartementProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=createDepartement&p=0&c=1",
+      "exposed" : false
+    },
+    "newDepartement" : {
+      "type" : "json",
+      "value" : "{}",
+      "exposed" : false
+    },
+    "selectedDepartement" : {
+      "type" : "json",
+      "value" : "{}",
+      "exposed" : false
+    },
+    "editDepartementProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=editDepartement&p=0&c=1",
+      "exposed" : false
+    },
+    "deleteDepartementProcessId" : {
+      "type" : "url",
+      "value" : "../API/bpm/process?f=name=deleteDepartement&p=0&c=1",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "b693e138-e5dd-4e00-8787-60820a666931",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

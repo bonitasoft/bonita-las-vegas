@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "expenseEdition",
   "name" : "expenseEdition",
-  "lastUpdate" : 1560259044344,
+  "lastUpdate" : 1560493203869,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -108,64 +108,17 @@
         "type" : "constant",
         "value" : ""
       },
-      "widgetId" : {
+      "hidden" : {
         "type" : "constant",
-        "value" : "pbInput"
+        "value" : false
       },
-      "isDisplayed" : {
+      "readOnly" : {
         "type" : "constant",
-        "value" : true
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 1
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "Description"
-      },
-      "type" : {
-        "type" : "constant",
-        "value" : "text"
+        "value" : false
       },
       "required" : {
         "type" : "constant",
         "value" : true
-      },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "readonly" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "top"
-      },
-      "placeholder" : {
-        "type" : "constant"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      },
-      "class" : {
-        "type" : "constant",
-        "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
-      },
-      "dimension" : {
-        "type" : "constant",
-        "value" : 12
-      },
-      "value" : {
-        "type" : "variable",
-        "value" : "expense.description"
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
       },
       "minLength" : {
         "type" : "constant",
@@ -175,24 +128,30 @@
         "type" : "constant",
         "value" : ""
       },
-      "readOnly" : {
+      "labelHidden" : {
         "type" : "constant",
         "value" : false
       },
-      "min" : {
-        "type" : "constant"
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Description"
       },
-      "max" : {
-        "type" : "constant"
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
       },
-      "step" : {
+      "labelWidth" : {
         "type" : "constant",
         "value" : 1
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "expense.description"
       }
     },
-    "reference" : "5f2b9dc1-7520-4a8b-acb4-2df7befc3ef1",
+    "reference" : "6d1b4d0e-3174-4e79-9546-5e62903addf3",
     "hasValidationError" : false,
-    "id" : "pbInput"
+    "id" : "pbTextarea"
   } ], [ {
     "type" : "component",
     "dimension" : {

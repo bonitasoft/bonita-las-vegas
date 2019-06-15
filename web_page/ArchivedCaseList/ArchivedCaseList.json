@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "ArchivedCaseList",
   "name" : "ArchivedCaseList",
-  "lastUpdate" : 1560286888270,
+  "lastUpdate" : 1560608070891,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -50,23 +50,99 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "expression",
-        "value" : "!archivedCases || archivedCases.length === 0"
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<br/><br/>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "8b3a0bbd-7926-40e0-a50c-f39a251fb76a",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "54095712-8f08-4a3e-8c3b-7686eab97be2",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
       },
       "headers" : {
         "type" : "constant",
-        "value" : [ "Expense report", "State" ]
+        "value" : [ "Expense report", "Close date", "State" ]
       },
       "type" : {
         "type" : "constant",
-        "value" : "Variable"
+        "value" : "Bonita API"
       },
       "apiUrl" : {
         "type" : "constant",
-        "value" : "../API/"
+        "value" : "../API/extension/archivedCase"
       },
       "params" : {
-        "type" : "constant"
+        "type" : "expression",
+        "value" : "{\"appToken\" : applicationToken}"
       },
       "content" : {
         "type" : "expression",
@@ -74,7 +150,7 @@
       },
       "columnsKey" : {
         "type" : "constant",
-        "value" : [ "name", "state", "viewAction" ]
+        "value" : [ "name", "date|uiDate", "state", "viewAction" ]
       },
       "sortColumns" : {
         "type" : "constant"
@@ -110,11 +186,6 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "archivedCases" : {
-      "type" : "url",
-      "value" : "../API/extension/archivedCase?appToken={{applicationToken}}",
-      "exposed" : false
-    },
     "applicationToken" : {
       "type" : "urlparameter",
       "value" : "app",

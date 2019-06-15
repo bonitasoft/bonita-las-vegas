@@ -4,12 +4,13 @@
     <elements xmi:type="process:Pool" xmi:id="_VkYqIYBiEemtFtZiYVDYjw" name="createVehicle">
       <elements xmi:type="process:Lane" xmi:id="_VkYqIoBiEemtFtZiYVDYjw" name="Employee lane" actor="_VkYqO4BiEemtFtZiYVDYjw"/>
       <data xmi:type="process:BusinessObjectData" xmi:id="_Np1nQIqbEemFsda_MdvHpg" name="newVehicule" dataType="_VkYqVIBiEemtFtZiYVDYjw" className="com.bonita.lr.model.ExpenseVehicle">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_PLwtBYqbEemFsda_MdvHpg" name="initNewVehicule()" content="def expenseVehicleVar = new com.bonita.lr.model.ExpenseVehicle()&#xA;expenseVehicleVar.name = newVehiculeInput?.name&#xA;expenseVehicleVar.rate = newVehiculeInput?.rate?.toFloat()&#xA;return expenseVehicleVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseVehicle">
-          <referencedElements xmi:type="process:ContractInput" xmi:id="_PLwtBoqbEemFsda_MdvHpg" name="newVehiculeInput" type="COMPLEX"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_PLwtBYqbEemFsda_MdvHpg" name="initNewVehicule()" content="def region = regionDAO.findByPersistenceId(newVehiculeInput.region.persistenceId as long)&#xA;if(!region){&#xA;    throw new IllegalArgumentException(&quot;The region doesn't exist&quot;)&#xA;}&#xA;&#xA;def expenseVehicleVar = new com.bonita.lr.model.ExpenseVehicle()&#xA;expenseVehicleVar.name = newVehiculeInput?.name&#xA;expenseVehicleVar.rate = newVehiculeInput?.rate?.toFloat()&#xA;expenseVehicleVar.region = region&#xA;return expenseVehicleVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseVehicle">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_iBrR8I3vEemD3_n0lnUPxA" name="regionDAO" content="regionDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.bonita.lr.model.RegionDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_iBr5AI3vEemD3_n0lnUPxA" name="newVehiculeInput" type="COMPLEX"/>
         </defaultValue>
       </data>
-      <formMapping xmi:type="process:FormMapping" xmi:id="_VkYqNIBiEemtFtZiYVDYjw">
-        <targetForm xmi:type="expression:Expression" xmi:id="_P_EZQIqbEemFsda_MdvHpg" name="newVehicule" content="d1779a4d-1d3b-45f2-a681-f5cc50add712" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+      <formMapping xmi:type="process:FormMapping" xmi:id="_VkYqNIBiEemtFtZiYVDYjw" type="NONE">
+        <targetForm xmi:type="expression:Expression" xmi:id="_P_EZQIqbEemFsda_MdvHpg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_VkYqNoBiEemtFtZiYVDYjw">
         <targetForm xmi:type="expression:Expression" xmi:id="_VkYqN4BiEemtFtZiYVDYjw" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
@@ -47,6 +48,12 @@
         <inputs xmi:type="process:ContractInput" xmi:id="_PLwtAIqbEemFsda_MdvHpg" name="newVehiculeInput" type="COMPLEX" dataReference="newVehicule">
           <inputs xmi:type="process:ContractInput" xmi:id="_PLwtAYqbEemFsda_MdvHpg" name="name"/>
           <inputs xmi:type="process:ContractInput" xmi:id="_PLwtAoqbEemFsda_MdvHpg" name="rate" type="DECIMAL"/>
+          <inputs xmi:type="process:ContractInput" xmi:id="_QEfToI3vEemD3_n0lnUPxA" name="region" type="COMPLEX">
+            <mapping xmi:type="process:ContractInputMapping" xmi:id="_QEfToY3vEemD3_n0lnUPxA"/>
+            <inputs xmi:type="process:ContractInput" xmi:id="_RBcrII3vEemD3_n0lnUPxA" name="persistenceId">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_RBcrIY3vEemD3_n0lnUPxA"/>
+            </inputs>
+          </inputs>
         </inputs>
         <constraints xmi:type="process:ContractConstraint" xmi:id="_PLwtA4qbEemFsda_MdvHpg" expression="newVehiculeInput?.name != null" errorMessage="name is mandatory for ExpenseVehicle" name="mandatory_newVehiculeInput_name">
           <inputNames>newVehiculeInput</inputNames>

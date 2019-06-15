@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1560286905627,
+  "lastUpdate" : 1560607472390,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -51,8 +51,83 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "expression",
-        "value" : "!cases || cases.length === 0"
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<br/><br/>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "9477a7ac-b7b8-479a-b675-c8dca0a1c79b",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "cd4eb473-c5be-4c8f-88e8-b05df2671763",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
       },
       "headers" : {
         "type" : "constant",
@@ -60,18 +135,19 @@
       },
       "type" : {
         "type" : "constant",
-        "value" : "Variable"
+        "value" : "Bonita API"
       },
       "apiUrl" : {
         "type" : "constant",
-        "value" : ""
+        "value" : "../API/extension/case"
       },
       "params" : {
-        "type" : "constant"
+        "type" : "expression",
+        "value" : "{\"appToken\" : applicationToken}"
       },
       "content" : {
         "type" : "expression",
-        "value" : "cases"
+        "value" : "test"
       },
       "columnsKey" : {
         "type" : "constant",
@@ -100,8 +176,8 @@
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "md" : 10,
+      "lg" : 9
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -118,15 +194,15 @@
       },
       "label" : {
         "type" : "interpolation",
-        "value" : "New expense report"
+        "value" : "<i class=\"glyphicon glyphicon-plus\"></i> New expense report"
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "left"
+        "value" : "right"
       },
       "buttonStyle" : {
         "type" : "constant",
-        "value" : "primary"
+        "value" : "success"
       },
       "action" : {
         "type" : "constant",
@@ -185,6 +261,32 @@
     "reference" : "24483bbe-4ec0-44c3-a239-e54140c9a512",
     "hasValidationError" : false,
     "id" : "pbButton"
+  }, {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "d9152499-da28-4047-850e-8838ea621db3",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
@@ -213,37 +315,9 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "cases" : {
-      "type" : "url",
-      "value" : "../API/extension/case?appToken={{applicationToken}}",
-      "exposed" : false
-    },
     "caseLabel" : {
       "type" : "expression",
       "value" : "return function(input){\n    return input.id + \" - \" + input.processDefinitionId.name ;\n}",
-      "exposed" : false
-    },
-    "caseId" : {
-      "type" : "expression",
-      "value" : "if($data.cases && $data.cases.length > 0){\n    return  $data.cases[0].id;\n}\nreturn \"\";\n",
-      "exposed" : false
-    },
-    "caseIdPayload" : {
-      "type" : "expression",
-      "value" : "return {\n    'caseId' : $data.caseId\n};",
-      "exposed" : false
-    },
-    "sampleTransactions" : {
-      "type" : "json",
-      "value" : "[\n    {\"transactionDate\":\"2018-05-02\", \"description\":\"Maje\", \"amount\":\"341.00\"},\n    {\"transactionDate\":\"2018-05-04\", \"description\":\"Carrefour\", \"amount\":\"125.00\"},\n    {\"transactionDate\":\"2018-05-13\", \"description\":\"Orange\", \"amount\":\"45.00\"}\n]",
-      "exposed" : false
-    },
-    "selected" : {
-      "type" : "constant",
-      "exposed" : false
-    },
-    "acct" : {
-      "type" : "constant",
       "exposed" : false
     },
     "process" : {

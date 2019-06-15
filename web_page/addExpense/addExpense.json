@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1560259328067,
+  "lastUpdate" : 1560498649932,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -191,7 +191,8 @@
           "kmAmount" : "kmAmount",
           "currencies" : "currencies",
           "expenseTypes" : "expenseTypes",
-          "vehicles" : "vehicles"
+          "vehicles" : "filteredVehicles",
+          "region" : "report.expenseHeader.region"
         }
       } ], [ {
         "type" : "component",
@@ -370,7 +371,7 @@
   "data" : {
     "formInput" : {
       "type" : "expression",
-      "value" : "return {\n    \"vehicleType\":$data.vehicles[0].name,\n    \"expenseType\":$data.expenseTypes[0].type,\n    \"currency\":$data.currencies[0].name\n};",
+      "value" : "var region = $data.regions.find(function(e) {\n   return e.name === $data.report.expenseHeader.region;\n});\nvar currency = region ? region.defaultCurrency.name : $data.currencies[0].name;\n\nreturn {\n    \"vehicleType\":$data.filteredVehicles[0].name,\n    \"expenseType\":$data.expenseTypes[0].type,\n    \"currency\":currency\n};",
       "exposed" : false
     },
     "formOutput" : {
@@ -421,6 +422,21 @@
     "vehicles" : {
       "type" : "url",
       "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseVehicle?q=find&p=0&c=100",
+      "exposed" : false
+    },
+    "report" : {
+      "type" : "url",
+      "value" : "../{{context.expenseReport_ref.link}}",
+      "exposed" : false
+    },
+    "filteredVehicles" : {
+      "type" : "expression",
+      "value" : "return $data.vehicles.filter(vehicle => vehicle.region.name === $data.report.expenseHeader.region);",
+      "exposed" : false
+    },
+    "regions" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.Region?q=find&p=0&c=100",
       "exposed" : false
     }
   },

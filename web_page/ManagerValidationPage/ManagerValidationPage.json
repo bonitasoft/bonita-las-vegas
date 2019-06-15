@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "ManagerValidationPage",
   "name" : "ManagerValidationPage",
-  "lastUpdate" : 1560098463542,
+  "lastUpdate" : 1560604590809,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -25,7 +25,9 @@
     "hasValidationError" : false,
     "id" : "validationTasksFragment",
     "binding" : {
-      "tasks" : "tasks"
+      "tasks" : "tasks",
+      "title" : "title",
+      "tasksAPI" : "api"
     }
   } ] ],
   "assets" : [ {
@@ -55,8 +57,13 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "tasks" : {
-      "type" : "url",
+    "title" : {
+      "type" : "constant",
+      "value" : "Expense reports to validate",
+      "exposed" : false
+    },
+    "api" : {
+      "type" : "constant",
       "value" : "../API/extension/taskManager",
       "exposed" : false
     }

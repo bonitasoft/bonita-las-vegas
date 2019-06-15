@@ -2,14 +2,14 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportHeader",
   "name" : "ExpenseReportHeader",
-  "lastUpdate" : 1559133374964,
+  "lastUpdate" : 1560524217854,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "sm" : 6,
+      "md" : 6,
+      "lg" : 6
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -20,22 +20,87 @@
         "type" : "constant",
         "value" : false
       },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
       "text" : {
         "type" : "interpolation",
-        "value" : "Expense report overview"
-      },
-      "level" : {
-        "type" : "constant",
-        "value" : "Level 3"
+        "value" : "<p class=\"h3\">{{user.firstname}} {{user.lastname}}   <i class=\"glyphicon glyphicon-arrow-right\"></i>   {{amount}} {{currency}}</i></p>"
       },
       "alignment" : {
         "type" : "constant",
         "value" : "left"
       }
     },
-    "reference" : "9ba47e31-c34a-4e14-8d0e-c3f8b4873697",
+    "reference" : "112d09d2-5876-4a1d-b2f4-ca68342a93e6",
     "hasValidationError" : false,
-    "id" : "pbTitle"
+    "id" : "pbText"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 6,
+      "md" : 6,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "expression",
+        "value" : "!displayPaidDate"
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<p class=\"h3\">Paid the {{report.closeDate|uiDate}}</p>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      }
+    },
+    "reference" : "afbd5cf6-2685-4983-9b81-b8aed540fc9d",
+    "hasValidationError" : false,
+    "id" : "pbText"
   } ], [ {
     "type" : "component",
     "dimension" : {
@@ -75,7 +140,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "Departement: {{expenseHeader. departement}} <br/>\nBudget: {{expenseHeader. budget}} <br/>\nDescription: {{expenseHeader. description}}"
+        "value" : "<strong>Region:</strong>  {{report.expenseHeader. region}}  \n<br/>\n<strong>Departement:</strong>  {{report.expenseHeader. departement}}  \n<br/>\n<strong>Budget:</strong>  {{report.expenseHeader. budget}} \n<br/>\n<br/>\n{{report.expenseHeader. description}}\n<br/>\n<br/>"
       },
       "alignment" : {
         "type" : "constant",
@@ -89,9 +154,33 @@
   "assets" : [ ],
   "inactiveAssets" : [ ],
   "data" : {
-    "expenseHeader" : {
+    "user" : {
+      "type" : "url",
+      "value" : "../API/identity/user/{{report.employeeId}}",
+      "exposed" : false
+    },
+    "amount" : {
       "type" : "constant",
       "exposed" : true
+    },
+    "regions" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.Region?q=find&p=0&c=100",
+      "exposed" : false
+    },
+    "currency" : {
+      "type" : "expression",
+      "value" : "if($data.regions) {\n    var region = $data.regions.find(function(e) {\n        return e.name === $data.report.expenseHeader.region;\n    });\n    if(region) {\n        return region.defaultCurrency.name;\n    }\n}",
+      "exposed" : false
+    },
+    "report" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "displayPaidDate" : {
+      "type" : "expression",
+      "value" : "if($data.report.closeDate) {\n    return $data.report.reportAccepted;\n}\nreturn false;",
+      "exposed" : false
     }
   },
   "hasValidationError" : false,

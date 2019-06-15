@@ -1,0 +1,412 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "AccountingArchivedCaseList",
+  "name" : "AccountingArchivedCaseList",
+  "lastUpdate" : 1560612489317,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Archived expense  reports"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      }
+    },
+    "reference" : "3aa08d37-8f95-450a-8f04-ce00aee406b2",
+    "hasValidationError" : false,
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<br/><br/>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "4287027f-a726-4e90-9251-bfb046187b63",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "95fd6fc2-96af-42fe-8300-5d9f1df883f4",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 4,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "From"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "from"
+      },
+      "dateFormat" : {
+        "type" : "constant",
+        "value" : "MM/dd/yyyy"
+      },
+      "placeholder" : {
+        "type" : "interpolation",
+        "value" : "Enter a date (mm/dd/yyyy)"
+      },
+      "showToday" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "todayLabel" : {
+        "type" : "interpolation",
+        "value" : "Today"
+      }
+    },
+    "reference" : "38b0d5bc-cb2d-430e-9858-d452a5039ade",
+    "hasValidationError" : false,
+    "id" : "pbDatePicker"
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 4,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "To"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "to"
+      },
+      "dateFormat" : {
+        "type" : "constant",
+        "value" : "MM/dd/yyyy"
+      },
+      "placeholder" : {
+        "type" : "interpolation",
+        "value" : "Enter a date (mm/dd/yyyy)"
+      },
+      "showToday" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "todayLabel" : {
+        "type" : "interpolation",
+        "value" : "Today"
+      }
+    },
+    "reference" : "b9034460-4715-4fbc-9073-0818b4fe7186",
+    "hasValidationError" : false,
+    "id" : "pbDatePicker"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<br/><br/>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "759e37e8-f729-4bb2-be05-ab9b4baf4e9e",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 2,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "28f16d8b-a709-4f3f-8e16-4ef3768357cf",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Employee", "Expense report", "Close date", "State" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Bonita API"
+      },
+      "apiUrl" : {
+        "type" : "constant",
+        "value" : "../API/extension/accountingArchivedCase"
+      },
+      "params" : {
+        "type" : "expression",
+        "value" : "{\"appToken\" : applicationToken, \"startDate\" : from, \"endDate\" : to}"
+      },
+      "content" : {
+        "type" : "constant"
+      },
+      "columnsKey" : {
+        "type" : "constant",
+        "value" : [ "user", "name", "date|uiDate", "state", "viewAction" ]
+      },
+      "sortColumns" : {
+        "type" : "constant"
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "e536b2e4-875e-4efc-b73d-f34069e42c53",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
+  } ] ],
+  "assets" : [ {
+    "id" : "bf658689-b86d-483c-9b7f-022054c46298",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "8abfe399-144b-47ce-b50f-82d1e7dbd61e",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "applicationToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
+      "exposed" : false
+    },
+    "from" : {
+      "type" : "constant",
+      "value" : "",
+      "exposed" : false
+    },
+    "to" : {
+      "type" : "constant",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "e83433f8-2390-4787-b9a4-58d71badc8eb",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

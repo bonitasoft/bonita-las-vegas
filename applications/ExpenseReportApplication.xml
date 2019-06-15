@@ -59,9 +59,13 @@
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
             <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>
+            <applicationPage customPage="custompage_paymentPage" token="payment"/>
+            <applicationPage customPage="custompage_AccountingArchivedCaseList" token="history"/>
             <applicationPage customPage="custompage_currencyAdministration" token="currency"/>
+            <applicationPage customPage="custompage_regionAdministrationPage" token="region"/>
             <applicationPage customPage="custompage_vehiculeAdministration" token="vehicule"/>
             <applicationPage customPage="custompage_expenseTypeAdministration" token="type"/>
+            <applicationPage customPage="custompage_departementAdministration" token="departement"/>
         </applicationPages>
         <applicationMenus>
             <applicationMenu>
@@ -75,8 +79,19 @@
                     </applicationMenu>
                 </applicationMenus>
             </applicationMenu>
-            <applicationMenu applicationPage="management">
-                <displayName>Validation</displayName>
+            <applicationMenu>
+                <displayName>Accounting</displayName>
+                <applicationMenus>
+                    <applicationMenu applicationPage="management">
+                        <displayName>Validation</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="payment">
+                        <displayName>Payment</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="history">
+                        <displayName>History</displayName>
+                    </applicationMenu>
+                </applicationMenus>
             </applicationMenu>
             <applicationMenu>
                 <displayName>Administration</displayName>
@@ -84,11 +99,17 @@
                     <applicationMenu applicationPage="currency">
                         <displayName>Currencies</displayName>
                     </applicationMenu>
+                    <applicationMenu applicationPage="region">
+                        <displayName>Regions</displayName>
+                    </applicationMenu>
                     <applicationMenu applicationPage="vehicule">
                         <displayName>Vehicules</displayName>
                     </applicationMenu>
                     <applicationMenu applicationPage="type">
                         <displayName>Expense types</displayName>
+                    </applicationMenu>
+                    <applicationMenu applicationPage="departement">
+                        <displayName>Departements</displayName>
                     </applicationMenu>
                 </applicationMenus>
             </applicationMenu>

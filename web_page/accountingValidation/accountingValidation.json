@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1560176325357,
+  "lastUpdate" : 1560436475592,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -323,7 +323,7 @@
           },
           "assign" : {
             "type" : "constant",
-            "value" : false
+            "value" : true
           },
           "url" : {
             "type" : "interpolation"

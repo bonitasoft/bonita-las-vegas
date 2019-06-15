@@ -555,6 +555,15 @@
       <password encrypted="false">bpm</password>
       <customUserInfoValues/>
     </user>
+    <user userName="toto">
+      <firstName>Toto</firstName>
+      <lastName>L'asticot</lastName>
+      <manager>manager</manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
   </users>
   <roles>
     <role name="member">
@@ -759,6 +768,12 @@
       <roleName>member</roleName>
       <groupName>rd</groupName>
       <groupParentPath>/acme/production</groupParentPath>
+    </membership>
+    <membership>
+      <userName>toto</userName>
+      <roleName>member</roleName>
+      <groupName>europe</groupName>
+      <groupParentPath>/acme/sales</groupParentPath>
     </membership>
   </memberships>
 </organization:Organization>

@@ -14,4 +14,12 @@ trait Helper implements StateHelper, ProcessHelper, SecurityHelper {
                 .withResponse(body)
                 .build()
     }
+
+    def RestApiResponse buildResponse(RestApiResponseBuilder responseBuilder, int httpStatus, Serializable body, int p, int c, long totalSize) {
+        return responseBuilder
+                .withContentRange(p, c, totalSize)
+                .withResponseStatus(httpStatus)
+                .withResponse(body)
+                .build()
+    }
 }

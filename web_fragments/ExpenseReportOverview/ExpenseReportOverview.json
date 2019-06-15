@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportOverview",
   "name" : "ExpenseReportOverview",
-  "lastUpdate" : 1559806530728,
+  "lastUpdate" : 1560524145814,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -25,7 +25,9 @@
     "hasValidationError" : false,
     "id" : "ExpenseReportHeader",
     "binding" : {
-      "expenseHeader" : "report.expenseHeader"
+      "expenseHeader" : "report.expenseHeader",
+      "amount" : "amount",
+      "report" : "report"
     }
   } ], [ {
     "type" : "tabsContainer",
@@ -80,7 +82,10 @@
           "hasValidationError" : false,
           "id" : "CaseExpenses",
           "binding" : {
-            "expenses" : "report.expenseLine"
+            "expenses" : "report.expenseLine",
+            "editExpenseTask" : "",
+            "hideTitle" : "",
+            "deleteExpenseTask" : ""
           }
         } ] ]
       },
@@ -192,6 +197,11 @@
     "commentAdded" : {
       "type" : "constant",
       "exposed" : true
+    },
+    "amount" : {
+      "type" : "expression",
+      "value" : "var amount = 0;\n$data.report.expenseLine.forEach(function(e){\n    amount += e.amount;\n});\nreturn amount;",
+      "exposed" : false
     }
   },
   "hasValidationError" : false,

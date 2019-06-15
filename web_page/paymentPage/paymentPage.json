@@ -1,0 +1,63 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "paymentPage",
+  "name" : "paymentPage",
+  "lastUpdate" : 1560604377213,
+  "rows" : [ [ {
+    "type" : "fragment",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "06433b9c-be0c-4193-a2d0-0b19de50f18c",
+    "hasValidationError" : false,
+    "id" : "validationTasksFragment",
+    "binding" : {
+      "tasks" : "tasks",
+      "title" : "title",
+      "tasksAPI" : "api"
+    }
+  } ] ],
+  "assets" : [ {
+    "id" : "9fc6cd31-42b0-47e6-b046-65502109ce20",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "bbbffd66-0c43-4f09-b896-c2773ceb0f41",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "title" : {
+      "type" : "constant",
+      "value" : "Payment to carry out",
+      "exposed" : false
+    },
+    "api" : {
+      "type" : "constant",
+      "value" : "../API/extension/taskAccounting?taskName=Payment",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "uuid" : "29349849-3525-4469-872b-8c0155e81815",
+  "type" : "page",
+  "description" : "Page generated with Bonita UI designer"
+}

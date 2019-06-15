@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "editExpense",
   "name" : "editExpense",
-  "lastUpdate" : 1560274064309,
+  "lastUpdate" : 1560498877105,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -188,7 +188,7 @@
           "kmAmount" : "kmAmount",
           "currencies" : "currencies",
           "expenseTypes" : "expenseTypes",
-          "vehicles" : "vehicles"
+          "vehicles" : "filteredVehicles"
         }
       } ], [ {
         "type" : "component",
@@ -503,6 +503,16 @@
     "expense" : {
       "type" : "expression",
       "value" : "return $data.expenses[0];",
+      "exposed" : false
+    },
+    "filteredVehicles" : {
+      "type" : "expression",
+      "value" : "if($data.vehicles && $data.report) {\n    return $data.vehicles.filter(vehicle => vehicle.region.name === $data.report.expenseHeader.region);\t\n}",
+      "exposed" : false
+    },
+    "report" : {
+      "type" : "url",
+      "value" : "../{{context.expenseReport_ref.link}}",
       "exposed" : false
     }
   },

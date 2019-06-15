@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "AccountingValidationPage",
   "name" : "AccountingValidationPage",
-  "lastUpdate" : 1560255593453,
+  "lastUpdate" : 1560604362479,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -25,7 +25,9 @@
     "hasValidationError" : false,
     "id" : "validationTasksFragment",
     "binding" : {
-      "tasks" : "tasks"
+      "tasks" : "tasks",
+      "title" : "title",
+      "tasksAPI" : "api"
     }
   } ] ],
   "assets" : [ {
@@ -55,9 +57,14 @@
   } ],
   "inactiveAssets" : [ ],
   "data" : {
-    "tasks" : {
-      "type" : "url",
-      "value" : "../API/extension/taskAccounting",
+    "title" : {
+      "type" : "constant",
+      "value" : "Expense reports to validate",
+      "exposed" : false
+    },
+    "api" : {
+      "type" : "constant",
+      "value" : "../API/extension/taskAccounting?taskName=Accounting validation",
       "exposed" : false
     }
   },

@@ -3,10 +3,11 @@ package com.bonitasoft.rest.api.cases
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-import org.bonitasoft.engine.bpm.process.ProcessDeploymentInfo
 import org.bonitasoft.engine.bpm.process.ProcessInstance
 import org.bonitasoft.engine.business.data.SimpleBusinessDataReference
+import org.bonitasoft.engine.search.SearchOptions
 import org.bonitasoft.engine.search.SearchOptionsBuilder
+import org.bonitasoft.engine.search.SearchResult
 import org.bonitasoft.web.extension.rest.RestApiResponse
 import org.bonitasoft.web.extension.rest.RestApiResponseBuilder
 import org.slf4j.Logger
@@ -37,30 +38,28 @@ class Case implements RestApiController, Helper {
         def processAPI = context.apiClient.getProcessAPI()
         def userId = context.apiSession.userId
 
-        def appToken = request.getParameter("appToken")
+        def appToken = request.getParameter "appToken"
+        def p = request.getParameter "p"
+        def c = request.getParameter "c"
         if(!appToken) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
         }
+        if(!p) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `p` is mandatory")
+        }
+        if(!c) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `c` is mandatory")
+        }
 
-        def expenseReportProcessDef = retrieveProcess(processAPI, EXPENSE_REPORT_PROCESS_NAME, EXPENSE_REPORT_PROCESS_VERSION)
-        def instances = retrieveProcessInstance(context, processAPI, expenseReportProcessDef, contextPath, userId, appToken)
-        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString())
+        def searchOptions = buildSearchOptions(p as int, c as int, userId)
+        def searchResults = retrieveResults(processAPI, searchOptions)
+        def instances = retrieveProcessInstance(context, processAPI, contextPath, appToken, searchResults)
+
+        return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString(), p as int, c as int, searchResults.count)
     }
 
-    /**
-     * @param processAPI
-     * @param process
-     * @param contextPath
-     * @return All active instances of the process in input
-     */
-    def retrieveProcessInstance(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process, String contextPath, Long userId, String appToken) {
-        def searchOptions = new SearchOptionsBuilder(0, Integer.MAX_VALUE).with {
-            filter(ProcessInstanceSearchDescriptor.PROCESS_DEFINITION_ID, process.processId)
-            filter(ProcessInstanceSearchDescriptor.STARTED_BY, userId)
-            filter(ProcessInstanceSearchDescriptor.NAME, EXPENSE_REPORT_PROCESS_NAME)
-            done()
-        }
-        def result = processAPI.searchProcessInstances(searchOptions).getResult()
+    def retrieveProcessInstance(RestAPIContext context,  ProcessAPI processAPI, String contextPath, String appToken, SearchResult searchResult) {
+        def result = searchResult.getResult()
                 .collect {
                     SimpleBusinessDataReference businessDataRef = processAPI.getProcessInstanceExecutionContext(it.id)['expenseReport_ref']
                     def expenseReport = context.getApiClient().getDAO(ExpenseReportDAO.class).findByPersistenceId(businessDataRef.storageId)
@@ -68,10 +67,22 @@ class Case implements RestApiController, Helper {
                         id: it.id,
                         name: expenseReport.expenseHeader.description ?: "New expense report",
                         state: computeState(it, processAPI),
-                        viewAction: viewActionLink(it.id, processAPI, contextPath, appToken)
+                        viewAction: viewActionLink(it.id, contextPath, appToken)
                     ]
                 }
         result
+    }
+
+    SearchResult retrieveResults(ProcessAPI processAPI, SearchOptions searchOptions) {
+        processAPI.searchProcessInstances(searchOptions)
+    }
+
+    def buildSearchOptions(int p, int c, Long userId) {
+        return new SearchOptionsBuilder(p * c, c).with {
+            filter(ProcessInstanceSearchDescriptor.STARTED_BY, userId)
+            filter(ProcessInstanceSearchDescriptor.NAME, EXPENSE_REPORT_PROCESS_NAME)
+            done()
+        }
     }
 
     def asLabel(state, style) {
@@ -86,16 +97,22 @@ class Case implements RestApiController, Helper {
                 .size()
     }
 
-    def String viewActionLink(long caseId, ProcessAPI processAPI, contextPath, String appToken) {
+    def String viewActionLink(long caseId, contextPath, String appToken) {
         return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open</a>"""
     }
 
     def  String computeState(ProcessInstance instance, ProcessAPI processAPI) {
         def tasks = searchOpenedTasks(instance.id, processAPI).getResult()
-        return tasks.any { Objects.equals(it.name, "Manager validation") }
-        ? asLabel("MANAGER VALIDATION", "warning")
-        : tasks.any { Objects.equals(it.name, "Accounting validation") }
-        ? asLabel("ACCOUNTING VALIDATION", "danger")
-        : asLabel(instance.state.toUpperCase(), "info");
+        if (tasks.any { Objects.equals(it.name, "Manager validation") }) {
+            return asLabel("MANAGER VALIDATION", "warning")
+        }
+        if (tasks.any { Objects.equals(it.name, "Accounting validation") }) {
+            return asLabel("ACCOUNTING VALIDATION", "danger")
+        }
+        if (tasks.any { Objects.equals(it.name, "Payment") }) {
+            return asLabel("WAITING FOR PAYMENT", "success")
+        }
+
+        asLabel(instance.state.toUpperCase(), "info");
     }
 }

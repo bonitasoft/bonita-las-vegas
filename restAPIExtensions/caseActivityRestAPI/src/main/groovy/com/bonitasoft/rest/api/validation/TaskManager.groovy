@@ -1,5 +1,9 @@
 package com.bonitasoft.rest.api.validation
 
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -65,18 +69,19 @@ class TaskManager implements RestApiController, Helper {
                             .filter(HumanTaskInstanceSearchDescriptor.PROCESS_INSTANCE_ID, instance.id)
                             .filter(HumanTaskInstanceSearchDescriptor.NAME, MANAGER_VALIDATION)
                             .done()).result[0]
-
                     if (task) {
                         SimpleBusinessDataReference businessDataRef = processAPI.getProcessInstanceExecutionContext(instance.id)['expenseReport_ref']
                         def expenseReport = context.getApiClient().getDAO(ExpenseReportDAO.class).findByPersistenceId(businessDataRef.storageId)
+                        def date = task.reachedStateDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                         return [
                             user:user(context, instance),
                             description:expenseReport.expenseHeader.description,
+                            date: date.format(DateTimeFormatter.ISO_LOCAL_DATE),
                             url:forge(process.name,process.version,task,contextPath),
                             target:"_self",
                         ]
                     }
-                }.findAll() // null are ignored
+                }.findAll().sort { task1, task2 -> LocalDate.parse(task2.date) <=> LocalDate.parse(task1.date) }
     }
 
     def List<ProcessInstance> retrieveCaseInstances(ProcessAPI processAPI, List<User> users, ProcessDeploymentInfo process) {

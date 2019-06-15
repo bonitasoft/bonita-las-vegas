@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "validationTasksFragment",
   "name" : "validationTasksFragment",
-  "lastUpdate" : 1559814137303,
+  "lastUpdate" : 1560607122294,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -22,7 +22,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "Expense reports to validate"
+        "value" : "{{title}}"
       },
       "level" : {
         "type" : "constant",
@@ -30,24 +30,73 @@
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "left"
+        "value" : "center"
       }
     },
     "reference" : "56474eb9-cf9b-4810-a1b6-e13b7109ceca",
     "hasValidationError" : false,
     "id" : "pbTitle"
   } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Default label"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "allowHTML" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "<br/><br/>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "58e06406-66f7-4433-b3a2-84a8e8c10504",
+    "hasValidationError" : false,
+    "id" : "pbText"
+  } ], [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 6,
+      "md" : 2,
       "lg" : 3
     },
     "propertyValues" : {
       "cssClasses" : {
         "type" : "constant",
-        "value" : "panel panel-default"
+        "value" : ""
       },
       "hidden" : {
         "type" : "constant",
@@ -55,191 +104,86 @@
       },
       "repeatedCollection" : {
         "type" : "variable",
-        "value" : "tasks"
+        "value" : ""
       }
     },
-    "reference" : "15d2cb64-4f2b-45ff-9f39-53ba9c10e973",
+    "reference" : "cf0c86c4-1895-468e-bd48-92d8e12f9acd",
     "hasValidationError" : false,
     "id" : "pbContainer",
-    "rows" : [ [ {
-      "type" : "container",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 8,
+      "lg" : 6
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
       },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : "panel-body"
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "repeatedCollection" : {
-          "type" : "variable",
-          "value" : ""
-        }
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
       },
-      "reference" : "a8ad1f24-999c-4eda-a6b3-a5fc00fcb714",
-      "hasValidationError" : false,
-      "id" : "pbContainer",
-      "rows" : [ [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dd><span class=\"glyphicon glyphicon-user\"></span> {{$item.user}}"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "310b4892-f005-4dd2-b067-f2c9e9f0f88a",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "expression",
-            "value" : "!$item.description"
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dd><span class=\"glyphicon glyphicon-info-sign\"></span> {{$item.description}}"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "0485ffb3-72d8-41d3-82de-0e5b02c3125d",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dd><span class=\"glyphicon glyphicon-eye-open\"></span> <a href=\"{{$item.url}}\" target=\"{{$item.target}}\">Show expense report</a>"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "b434fc07-dafb-4c4a-9990-2a3254646b01",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ] ]
-    } ] ]
+      "headers" : {
+        "type" : "constant",
+        "value" : [ "Employee", "Submission date", "Description" ]
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Bonita API"
+      },
+      "apiUrl" : {
+        "type" : "expression",
+        "value" : "tasksAPI"
+      },
+      "params" : {
+        "type" : "constant"
+      },
+      "content" : {
+        "type" : "expression",
+        "value" : "tasks"
+      },
+      "columnsKey" : {
+        "type" : "expression",
+        "value" : "formattedColumns"
+      },
+      "sortColumns" : {
+        "type" : "constant",
+        "value" : [ ]
+      },
+      "selectedRow" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "pageSize" : {
+        "type" : "constant",
+        "value" : 10
+      },
+      "filter" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "afc2db9b-6370-4518-bacf-3f649c5b4b50",
+    "hasValidationError" : false,
+    "id" : "customHTMLDataTable"
   } ] ],
   "assets" : [ ],
   "inactiveAssets" : [ ],
   "data" : {
-    "tasks" : {
+    "title" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "formattedColumns" : {
+      "type" : "expression",
+      "value" : "return [\n    \"user\",\n    \"date|uiDate\",\n    \"description\",\n    function(input){\n        return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">Open</a>\";   \n    }\n];",
+      "exposed" : false
+    },
+    "tasksAPI" : {
       "type" : "constant",
       "exposed" : true
     }

@@ -79,4 +79,26 @@ trait ProcessHelper {
                 .done()
         return processAPI.searchHumanTaskInstances(searchOptions)
     }
+
+    /**
+     * 
+     * @param context
+     * @param instance
+     * @return the name of the user that started the instance
+     */
+    def String user(RestAPIContext context, ProcessInstance instance) {
+        def user =  context.apiClient.getIdentityAPI().getUser(instance.startedBy)
+        "$user.firstName $user.lastName"
+    }
+
+    /**
+     *
+     * @param context
+     * @param instance
+     * @return the name of the user that started the instance
+     */
+    def String user(RestAPIContext context, ArchivedProcessInstance instance) {
+        def user =  context.apiClient.getIdentityAPI().getUser(instance.startedBy)
+        "$user.firstName $user.lastName"
+    }
 }
