@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
-    <application token="vegasEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+    <application token="vegasEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
         <displayName>Vegas</displayName>
         <description>TODO: The manager page should be on the app below only -&gt; need to work on it on rest api links generation ..</description>
         <applicationPages>
@@ -24,7 +24,7 @@
             </applicationMenu>
         </applicationMenus>
     </application>
-    <application token="vegasManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+    <application token="vegasManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
         <displayName>Vegas</displayName>
         <description></description>
         <applicationPages>
@@ -52,7 +52,7 @@
             </applicationMenu>
         </applicationMenus>
     </application>
-    <application token="vegasAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_layoutBonita" theme="custompage_vegasTheme">
+    <application token="vegasAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
         <displayName>Vegas</displayName>
         <description>TODO: profile should be accounting</description>
         <applicationPages>

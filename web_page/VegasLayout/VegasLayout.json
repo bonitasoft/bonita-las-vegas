@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "VegasLayout",
   "name" : "VegasLayout",
-  "lastUpdate" : 1560633090780,
+  "lastUpdate" : 1560779866402,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1372,5 +1372,5 @@
   "uuid" : "e73d62fc-4c9d-47d1-bd83-6082a7ba9ce1",
   "type" : "layout",
   "description" : "This is the Bonita living application layout V1. It contains a horizontal menu widget with a logo and the name of the application, logged user's information and logout button, access to all applications of the logged user, and an iframe widget, that displays the application pages. It is responsive. Since it is created with the UI Designer, you can export it and edit it in the UI Designer.",
-  "displayName" : "Vegas layout"
+  "displayName" : "Bonita layout"
 }
