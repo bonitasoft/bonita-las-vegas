@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "ManagerValidationPage",
   "name" : "ManagerValidationPage",
-  "lastUpdate" : 1560764287758,
+  "lastUpdate" : 1560783582698,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -63,8 +63,13 @@
       "exposed" : false
     },
     "api" : {
-      "type" : "constant",
-      "value" : "../API/extension/taskManager",
+      "type" : "expression",
+      "value" : "return \"../API/extension/taskManager?appToken=\" + $data.appToken;",
+      "exposed" : false
+    },
+    "appToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
       "exposed" : false
     }
   },

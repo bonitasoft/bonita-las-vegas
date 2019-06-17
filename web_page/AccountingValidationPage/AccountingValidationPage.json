@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "AccountingValidationPage",
   "name" : "AccountingValidationPage",
-  "lastUpdate" : 1560604362479,
+  "lastUpdate" : 1560783771689,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -63,8 +63,13 @@
       "exposed" : false
     },
     "api" : {
-      "type" : "constant",
-      "value" : "../API/extension/taskAccounting?taskName=Accounting validation",
+      "type" : "expression",
+      "value" : "return \"../API/extension/taskAccounting?taskName=Accounting validation&appToken=\" + $data.appToken;",
+      "exposed" : false
+    },
+    "appToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
       "exposed" : false
     }
   },

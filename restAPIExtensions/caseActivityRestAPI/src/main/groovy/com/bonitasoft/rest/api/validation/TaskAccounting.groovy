@@ -42,24 +42,29 @@ class TaskAccounting implements RestApiController, Helper {
             return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN, "")
         }
 
-        def taskName = request.getParameter("taskName")
+        def taskName = request.getParameter "taskName"
+        def appToken = request.getParameter "appToken"
         if(!taskName) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "The parameter taskName is mandatory")
         }
+        if(!appToken) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
+        }
+
 
         def expenseReportProcessDef = retrieveProcess(processAPI, Case.EXPENSE_REPORT_PROCESS_NAME, Case.EXPENSE_REPORT_PROCESS_VERSION)
 
-        def instances = retrieveTaskInstances(context, processAPI, expenseReportProcessDef, contextPath, taskName)
+        def instances = retrieveTaskInstances(context, processAPI, expenseReportProcessDef, contextPath, taskName, appToken)
 
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString())
     }
 
-    def String forge(String processName, String processVersion, ActivityInstance instance, contextPath) {
-        "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+    def String forge(String processName, String processVersion, ActivityInstance instance, contextPath, appToken) {
+        "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false&app=$appToken"
     }
 
     def retrieveTaskInstances(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process,
-            String contextPath, String taskName) {
+            String contextPath, String taskName, String appToken) {
         retrieveCaseInstances(processAPI, process)
                 .collect { instance ->
                     HumanTaskInstance task = processAPI.searchHumanTaskInstances(new SearchOptionsBuilder(0, 1)
@@ -74,7 +79,7 @@ class TaskAccounting implements RestApiController, Helper {
                             user:user(context, instance),
                             description:expenseReport.expenseHeader.description,
                             date: date.format(DateTimeFormatter.ISO_LOCAL_DATE),
-                            url:forge(process.name,process.version,task,contextPath),
+                            url:forge(process.name,process.version,task,contextPath,appToken),
                             target:"_self",
                         ]
                     }

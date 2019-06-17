@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "CaseList",
   "name" : "CaseList",
-  "lastUpdate" : 1560607472390,
+  "lastUpdate" : 1560783015054,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -287,6 +287,74 @@
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ ] ]
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Link"
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "task"
+      },
+      "targetUrl" : {
+        "type" : "constant",
+        "value" : "http://"
+      },
+      "pageToken" : {
+        "type" : "constant"
+      },
+      "processName" : {
+        "type" : "constant"
+      },
+      "processVersion" : {
+        "type" : "constant"
+      },
+      "taskId" : {
+        "type" : "constant",
+        "value" : "240049"
+      },
+      "caseId" : {
+        "type" : "constant"
+      },
+      "target" : {
+        "type" : "constant",
+        "value" : "_self"
+      },
+      "appToken" : {
+        "type" : "constant",
+        "value" : "vegasManager"
+      },
+      "urlParams" : {
+        "type" : "constant"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "link"
+      }
+    },
+    "reference" : "e91b7f44-6f99-4bd6-94be-2d29bc26aae8",
+    "hasValidationError" : false,
+    "id" : "pbLink"
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",

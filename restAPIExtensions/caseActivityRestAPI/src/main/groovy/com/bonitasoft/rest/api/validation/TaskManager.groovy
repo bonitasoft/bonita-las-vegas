@@ -49,11 +49,16 @@ class TaskManager implements RestApiController, Helper {
 
         def users = context.getApiClient().getIdentityAPI().getUsersWithManager(userId, 0, Integer.MAX_VALUE, UserCriterion.USER_NAME_ASC)
 
+        def appToken = request.getParameter "appToken"
+        if(!appToken) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
+        }
+
         if (users.isEmpty()) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_FORBIDDEN,"") // 403 -> not a manager, or a useless one
         }
 
-        def instances = retrieveManagerValidationTaskInstances(context, processAPI, expenseReportProcessDef, contextPath, users)
+        def instances = retrieveManagerValidationTaskInstances(context, processAPI, expenseReportProcessDef, contextPath, users, appToken)
 
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString())
     }
@@ -61,7 +66,7 @@ class TaskManager implements RestApiController, Helper {
     /**
      * @return All active instances of the task  `Manager Validation` available for the manager
      */
-    def  retrieveManagerValidationTaskInstances(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process, String contextPath, List<User> users) {
+    def  retrieveManagerValidationTaskInstances(RestAPIContext context, ProcessAPI processAPI, ProcessDeploymentInfo process, String contextPath, List<User> users, String appToken) {
 
         retrieveCaseInstances(processAPI, users, process)
                 .collect { instance ->
@@ -77,7 +82,7 @@ class TaskManager implements RestApiController, Helper {
                             user:user(context, instance),
                             description:expenseReport.expenseHeader.description,
                             date: date.format(DateTimeFormatter.ISO_LOCAL_DATE),
-                            url:forge(process.name,process.version,task,contextPath),
+                            url:forge(process.name,process.version,task,contextPath,appToken),
                             target:"_self",
                         ]
                     }
@@ -98,8 +103,8 @@ class TaskManager implements RestApiController, Helper {
                 .flatten()
     }
 
-    def String forge(String processName, String processVersion, ActivityInstance instance, contextPath) {
-        "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
+    def String forge(String processName, String processVersion, ActivityInstance instance, contextPath, appToken) {
+        "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false&app=$appToken"
     }
 
     def String user(RestAPIContext context, ProcessInstance instance) {
