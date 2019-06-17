@@ -3,7 +3,7 @@
 
 // Main theme color
 $mainColor: #539953;
-$hoverMainColor: #2e552e;
+$hoverMainColor: darken($mainColor, 15%);;
 
 //Brand colors
 $brand-primary: #2c3e50;
@@ -83,23 +83,23 @@ $dropdown-link-hover-bg: $hoverMainColor;
 
 //Pagination
 $pagination-color: $white;
-$pagination-bg: $brand-primary;
+$pagination-bg: $mainColor;
 $pagination-border:  transparent;
 
 $pagination-hover-color: $pagination-color;
-$pagination-hover-bg: darken($brand-primary, 15%);
+$pagination-hover-bg: $hoverMainColor;
 $pagination-hover-border: transparent;
 
-$pagination-active-bg: darken($brand-primary, 15%);
+$pagination-active-bg: $hoverMainColor;
 $pagination-active-border: transparent;
 
 $pagination-disabled-color: #ecf0f1;
-$pagination-disabled-bg: #476481;
+$pagination-disabled-bg: #8aec8ace;
 $pagination-disabled-border: transparent;
 
 //Pager
 $pager-color: $pagination-color;
-$pager-bg: $brand-primary;
+$pager-bg: $mainColor;
 $pager-hover-color: $pagination-hover-color;
 
 //Badge

@@ -52,13 +52,13 @@ class ArchivedCaseTest extends Specification {
         assert acceptedOutput["name"] ==  CASE_DESCRIPTION
         assert acceptedOutput["date"] ==  LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
         assert acceptedOutput["state"] == """<span class="label label-success">Accepted</span>"""
-        assert acceptedOutput["viewAction"] == """<a class="btn btn-primary btn-sm" href="$CONTEXT_PATH/apps/$APP_TOKEN/archivedCase?id=$ID" target="_top">Overview</a>"""
+        assert acceptedOutput["viewAction"] == """<a href="$CONTEXT_PATH/apps/$APP_TOKEN/archivedCase?id=$ID" target="_top"><i class=\"glyphicon glyphicon-play\"></i></a>"""
 
         assert refusedOutput["id"] == ID
         assert refusedOutput["name"] ==  "New expense report"
         assert refusedOutput["date"] ==  LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
         assert refusedOutput["state"] == """<span class="label label-danger">Refused</span>"""
-        assert refusedOutput["viewAction"] == """<a class="btn btn-primary btn-sm" href="$CONTEXT_PATH/apps/$APP_TOKEN/archivedCase?id=$ID" target="_top">Overview</a>"""
+        assert refusedOutput["viewAction"] == """<a href="$CONTEXT_PATH/apps/$APP_TOKEN/archivedCase?id=$ID" target="_top"><i class=\"glyphicon glyphicon-play\"></i></a>"""
     }
 
     def ExpenseReport createExpenseReport(String description, boolean accepted) {

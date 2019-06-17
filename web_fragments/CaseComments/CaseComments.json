@@ -3,39 +3,13 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseComments",
   "name" : "CaseComments",
-  "lastUpdate" : 1560777296137,
+  "lastUpdate" : 1560806296307,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 1,
-      "lg" : 1
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
-      }
-    },
-    "reference" : "846e8384-4b47-4d84-861f-0e85f6b900d7",
-    "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ ] ]
-  }, {
-    "type" : "container",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 10,
+      "xs" : 11,
+      "sm" : 11,
+      "md" : 11,
       "lg" : 10
     },
     "propertyValues" : {
@@ -118,8 +92,8 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!commentAdded"
         },
         "repeatedCollection" : {
           "type" : "variable",

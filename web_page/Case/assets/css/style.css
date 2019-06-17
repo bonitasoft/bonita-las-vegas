@@ -81,3 +81,8 @@ ul {
 .modal-open .timepicker {
     z-index: 9999;
 }
+
+.editSummary {
+    padding-left: 10px;
+    font-size: 15px;
+}

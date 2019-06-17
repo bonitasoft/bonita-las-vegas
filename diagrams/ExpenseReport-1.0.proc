@@ -258,7 +258,7 @@
           <stepSummary xmi:type="expression:Expression" xmi:id="_tM6YIoaYEemp8qnS96T2pA" name="" content="" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_guRqUIeiEemAX4g7gacSnA" name="Accounting validation" outgoing="_kWREsIeiEemAX4g7gacSnA" incoming="_MrNc8IaXEemp8qnS96T2pA" actor="_l5Yq37dEEeiJr5Wf22zHlw">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_Yvl8gYeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_Yvl8gYeiEemAX4g7gacSnA" name="✅ Accounting validation" content="✅ Accounting validation" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_Yvl8gIeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_Yvl8goeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_jgOMMIuBEemC8vaEydtydg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -534,6 +534,67 @@
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_dchN442xEemxdsU15Zp30g"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_dchN5o2xEemxdsU15Zp30g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:Task" xmi:id="_UHdmgJE0EemdDJfM5mbiwg" name="Edit expense summary" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UHdmgZE0EemdDJfM5mbiwg" name="🔎 Expense summary" content="🔎 Expense summary" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_UHdmgpE0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_UHdmg5E0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
+          <data xmi:type="process:Data" xmi:id="_UHdmhJE0EemdDJfM5mbiwg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
+            <defaultValue xmi:type="expression:Expression" xmi:id="_UHdmhZE0EemdDJfM5mbiwg" name="editAvailable" content="validating || !expenseReport.expenseHeader.description ? &quot;N/A&quot; : &quot;Discretionary&quot;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:Data" xmi:id="_jw7OsJE0EemdDJfM5mbiwg" name="validating" dataType="_l5YrIbdEEeiJr5Wf22zHlw"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_UHdmhpE0EemdDJfM5mbiwg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </defaultValue>
+          </data>
+          <operations xmi:type="expression:Operation" xmi:id="_UHdmh5E0EemdDJfM5mbiwg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_UHdmiJE0EemdDJfM5mbiwg" name="expenseReport" content="expenseReport" type="TYPE_VARIABLE" returnType="com.bonita.lr.model.ExpenseReport">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_UHdmiZE0EemdDJfM5mbiwg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_UHdmipE0EemdDJfM5mbiwg" name="editHeader" content="def currentHeader = expenseReport.expenseHeader&#xA;currentHeader.setDescription(description)&#xA;currentHeader.setDepartement(departement)&#xA;currentHeader.setBudget(budget)&#xA;currentHeader" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.bonita.lr.model.ExpenseHeader">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_xP5VQJE0EemdDJfM5mbiwg" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport"/>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_xP5VQZE0EemdDJfM5mbiwg" name="description">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_xP5VQpE0EemdDJfM5mbiwg"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_xP5VQ5E0EemdDJfM5mbiwg" name="departement">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_xP5VRJE0EemdDJfM5mbiwg"/>
+              </referencedElements>
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_xP5VRZE0EemdDJfM5mbiwg" name="budget">
+                <mapping xmi:type="process:ContractInputMapping" xmi:id="_xP5VRpE0EemdDJfM5mbiwg"/>
+              </referencedElements>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_UHdmjZE0EemdDJfM5mbiwg" type="JAVA_METHOD" expression="setExpenseHeader">
+              <inputTypes>com.bonita.lr.model.ExpenseHeader</inputTypes>
+            </operator>
+          </operations>
+          <loopCondition xmi:type="expression:Expression" xmi:id="_UHdmjpE0EemdDJfM5mbiwg" name="loopWhileUnresolved()" content="import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;apiAccessor.getProcessAPI().searchArchivedActivities(new SearchOptionsBuilder(0, 1).with {&#xA;&#x9;   filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, processInstanceId)&#xA;&#x9;   filter(ArchivedActivityInstanceSearchDescriptor.NAME, &quot;Resolve&quot;)&#xA;&#x9;   done()&#xA;&#x9;}).count == 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+            <referencedElements xmi:type="expression:Expression" xmi:id="_UHdmj5E0EemdDJfM5mbiwg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+            <referencedElements xmi:type="expression:Expression" xmi:id="_UHdmkJE0EemdDJfM5mbiwg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+          </loopCondition>
+          <loopMaximum xmi:type="expression:Expression" xmi:id="_UHdmkZE0EemdDJfM5mbiwg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <cardinalityExpression xmi:type="expression:Expression" xmi:id="_UHdmkpE0EemdDJfM5mbiwg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
+          <iteratorExpression xmi:type="expression:Expression" xmi:id="_UHdmk5E0EemdDJfM5mbiwg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
+          <completionCondition xmi:type="expression:Expression" xmi:id="_UHdmlJE0EemdDJfM5mbiwg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_UHdmlZE0EemdDJfM5mbiwg">
+            <targetForm xmi:type="expression:Expression" xmi:id="_-6e18JE0EemdDJfM5mbiwg" name="editSummary" content="d26711b3-527e-46d2-8755-1ee286562be9" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_UHdml5E0EemdDJfM5mbiwg" name="initiator" definitionId="initiator" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_UHdmmJE0EemdDJfM5mbiwg" definitionId="initiator" version="1.0.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_UHdmmZE0EemdDJfM5mbiwg" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_UHdmmpE0EemdDJfM5mbiwg" name="false" content="false" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
+          <contract xmi:type="process:Contract" xmi:id="_UHdmm5E0EemdDJfM5mbiwg">
+            <inputs xmi:type="process:ContractInput" xmi:id="_o7pnIJE0EemdDJfM5mbiwg" name="departement">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_o7pnIZE0EemdDJfM5mbiwg"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_o-k_UJE0EemdDJfM5mbiwg" name="budget">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_o-k_UZE0EemdDJfM5mbiwg"/>
+            </inputs>
+            <inputs xmi:type="process:ContractInput" xmi:id="_pAjVQJE0EemdDJfM5mbiwg" name="description">
+              <mapping xmi:type="process:ContractInputMapping" xmi:id="_pAjVQZE0EemdDJfM5mbiwg"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_UHdmo5E0EemdDJfM5mbiwg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_rqh9kLdOEeiL4PfVNHbDaA" name="expenseReport" dataType="_l5YrKbdEEeiJr5Wf22zHlw" className="com.bonita.lr.model.ExpenseReport">
@@ -836,6 +897,10 @@
             <children xmi:type="notation:Shape" xmi:id="_dchN542xEemxdsU15Zp30g" type="3005" element="_dcgm0I2xEemxdsU15Zp30g" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_dchN6Y2xEemxdsU15Zp30g" type="5005"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dchN6I2xEemxdsU15Zp30g" x="483" y="809" width="122" height="61"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_UHhQ4JE0EemdDJfM5mbiwg" type="3005" element="_UHdmgJE0EemdDJfM5mbiwg" fontName="Ubuntu" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_UHhQ4ZE0EemdDJfM5mbiwg" type="5005" element="_UHdmgJE0EemdDJfM5mbiwg"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UHhQ4pE0EemdDJfM5mbiwg" x="747" y="152" width="123" height="62"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_l5Yre7dEEeiJr5Wf22zHlw"/>

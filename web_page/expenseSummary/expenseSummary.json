@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1560638102766,
+  "lastUpdate" : 1560807006503,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -188,10 +188,36 @@
       "rows" : [ [ {
         "type" : "container",
         "dimension" : {
-          "md" : 12,
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 3,
+          "lg" : 4
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "482f279d-bbbe-45db-9222-d2ae13ff2373",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ ] ]
+      }, {
+        "type" : "container",
+        "dimension" : {
+          "md" : 6,
           "sm" : 12,
           "xs" : 12,
-          "lg" : 12
+          "lg" : 4
         },
         "propertyValues" : {
           "repeatedCollection" : {
@@ -514,8 +540,8 @@
       } ], [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 6,
+          "sm" : 6,
           "md" : 6,
           "lg" : 6
         },
@@ -582,8 +608,8 @@
       }, {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 6,
+          "sm" : 6,
           "md" : 6,
           "lg" : 6
         },

@@ -2,11 +2,11 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportOverview",
   "name" : "ExpenseReportOverview",
-  "lastUpdate" : 1560778253867,
+  "lastUpdate" : 1560806761706,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
-      "xs" : 12,
+      "xs" : 4,
       "sm" : 2,
       "md" : 2,
       "lg" : 2
@@ -21,8 +21,8 @@
         "value" : false
       },
       "availableValues" : {
-        "type" : "constant",
-        "value" : [ "Expenses", "Documents", "Comments" ]
+        "type" : "expression",
+        "value" : "buttons"
       },
       "displayedKey" : {
         "type" : "constant"
@@ -53,7 +53,7 @@
   }, {
     "type" : "container",
     "dimension" : {
-      "xs" : 12,
+      "xs" : 8,
       "sm" : 10,
       "md" : 10,
       "lg" : 10
@@ -155,6 +155,30 @@
         "caseId" : "caseId",
         "commentAdded" : "commentAdded"
       }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "!displayHistory"
+        }
+      },
+      "reference" : "c0565ac7-61a6-483a-9847-5ca8e0f82ed4",
+      "hasValidationError" : false,
+      "id" : "CaseHistory",
+      "binding" : {
+        "caseHistory" : "caseHistory"
+      }
     } ] ]
   } ] ],
   "assets" : [ ],
@@ -195,11 +219,6 @@
       "value" : "Expenses",
       "exposed" : false
     },
-    "displayOverview" : {
-      "type" : "expression",
-      "value" : "return $data.toggleSelected === \"Overview\";",
-      "exposed" : false
-    },
     "displayExpenses" : {
       "type" : "expression",
       "value" : "return $data.toggleSelected === \"Expenses\";",
@@ -223,6 +242,25 @@
     "regions" : {
       "type" : "url",
       "value" : "../API/bdm/businessData/com.bonita.lr.model.Region?q=find&p=0&c=100",
+      "exposed" : false
+    },
+    "caseHistory" : {
+      "type" : "url",
+      "value" : "../API/extension/caseHistory?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "displayHistory" : {
+      "type" : "expression",
+      "value" : "return $data.toggleSelected === \"History\";",
+      "exposed" : false
+    },
+    "hideHistoryButton" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "buttons" : {
+      "type" : "expression",
+      "value" : "return $data.hideHistoryButton\n    ? [\"Expenses\", \"Documents\", \"Comments\"]\n    : [\"Expenses\", \"Documents\", \"Comments\", \"History\"];",
       "exposed" : false
     }
   },

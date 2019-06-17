@@ -60,6 +60,6 @@ class UserArchivedReport extends Case {
 
     @Override
     def String viewActionLink(long caseId, contextPath, String appToken) {
-        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/archivedCase?id=$caseId" target="_top">Overview</a>"""
+        return """<a href="$contextPath/apps/$appToken/archivedCase?id=$caseId" target="_top"><i class=\"glyphicon glyphicon-play\"></i></a>"""
     }
 }

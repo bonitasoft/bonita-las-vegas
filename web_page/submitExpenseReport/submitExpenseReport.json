@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "submitExpenseReport",
   "name" : "submitExpenseReport",
-  "lastUpdate" : 1560776446398,
+  "lastUpdate" : 1560806914204,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -85,8 +85,8 @@
         "rows" : [ [ {
           "type" : "component",
           "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
+            "xs" : 6,
+            "sm" : 6,
             "md" : 6,
             "lg" : 6
           },
@@ -154,8 +154,8 @@
           "type" : "component",
           "dimension" : {
             "md" : 6,
-            "sm" : 12,
-            "xs" : 12,
+            "sm" : 6,
+            "xs" : 6,
             "lg" : 6
           },
           "propertyValues" : {

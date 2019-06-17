@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "paymentPage",
   "name" : "paymentPage",
-  "lastUpdate" : 1560604377213,
+  "lastUpdate" : 1560807116306,
   "rows" : [ [ {
     "type" : "fragment",
     "dimension" : {
@@ -51,8 +51,13 @@
       "exposed" : false
     },
     "api" : {
-      "type" : "constant",
-      "value" : "../API/extension/taskAccounting?taskName=Payment",
+      "type" : "expression",
+      "value" : "return \"../API/extension/taskAccounting?taskName=Payment&appToken=\" + $data.appToken;",
+      "exposed" : false
+    },
+    "appToken" : {
+      "type" : "urlparameter",
+      "value" : "app",
       "exposed" : false
     }
   },

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "archivedCase",
   "name" : "archivedCase",
-  "lastUpdate" : 1560779006603,
+  "lastUpdate" : 1560806800514,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -117,7 +117,7 @@
         },
         "hidden" : {
           "type" : "expression",
-          "value" : "archivedCase.reportAccepted"
+          "value" : "!archivedCase || archivedCase.reportAccepted"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -178,7 +178,10 @@
       "caseDocuments" : "caseDocuments",
       "caseComments" : "caseComments",
       "caseId" : "caseId",
-      "commentAdded" : ""
+      "commentAdded" : "",
+      "displayHistoryButton" : "",
+      "commentReadOnly" : "commentReadOnly",
+      "hideHistoryButton" : "hideHistory"
     }
   } ] ],
   "assets" : [ {
@@ -231,6 +234,11 @@
     "amount" : {
       "type" : "expression",
       "value" : "var amount = 0;\n$data.archivedCase.expenseLine.forEach(function(e){\n    amount += e.amount;\n});\nreturn amount;",
+      "exposed" : false
+    },
+    "hideHistory" : {
+      "type" : "expression",
+      "value" : "return true;",
       "exposed" : false
     }
   },

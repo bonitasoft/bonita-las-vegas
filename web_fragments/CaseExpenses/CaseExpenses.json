@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "CaseExpenses",
   "name" : "CaseExpenses",
-  "lastUpdate" : 1560777857259,
+  "lastUpdate" : 1560806311537,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -42,7 +42,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3> Expenses </h3>"
+        "value" : "<h3> <i class=\"glyphicon glyphicon-shopping-cart\"></i> Expenses </h3>"
       },
       "alignment" : {
         "type" : "constant",
@@ -55,10 +55,10 @@
   } ], [ {
     "type" : "container",
     "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
+      "xs" : 11,
+      "sm" : 11,
       "md" : 6,
-      "lg" : 5
+      "lg" : 4
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -222,7 +222,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "<i class=\"glyphicon glyphicon-edit\"></i>"
+            "value" : "<i class=\"glyphicon glyphicon-pencil\"></i>"
           },
           "type" : {
             "type" : "constant",

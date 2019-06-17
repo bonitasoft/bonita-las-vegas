@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1560777318878,
+  "lastUpdate" : 1560807511483,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -124,7 +124,9 @@
       "caseDocuments" : "caseDocuments",
       "caseComments" : "caseComments",
       "caseId" : "task.caseId",
-      "commentAdded" : "commentAdded"
+      "commentAdded" : "commentAdded",
+      "displayHistoryButton" : "displayHistory",
+      "hideHistoryButton" : ""
     }
   } ], [ {
     "type" : "modalContainer",
@@ -718,7 +720,7 @@
           },
           "dataToSend" : {
             "type" : "expression",
-            "value" : "InvalidFormOutput"
+            "value" : "RefusedFormOutput"
           },
           "dataFromSuccess" : {
             "type" : "variable",

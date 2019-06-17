@@ -1,8 +1,8 @@
 {
   "designerVersion" : "1.9.45",
-  "id" : "editExpense",
-  "name" : "editExpense",
-  "lastUpdate" : 1560806984666,
+  "id" : "editSummary",
+  "name" : "editSummary",
+  "lastUpdate" : 1560807024830,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -22,7 +22,7 @@
         "value" : ""
       }
     },
-    "reference" : "490d2e52-b21b-415d-be55-5bc6b8fed75b",
+    "reference" : "8dd0f67b-b357-42b6-a658-ee0e986abf50",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -78,61 +78,9 @@
           "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
         }
       },
-      "reference" : "054bc4c4-918c-407e-be20-23c0c8c997f5",
+      "reference" : "07d54194-7790-4fc2-82f2-f19b133a1660",
       "hasValidationError" : false,
       "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbText"
-        },
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{ task.displayDescription }}"
-        },
-        "label" : {
-          "type" : "interpolation"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
-        }
-      },
-      "reference" : "d8597a53-603e-49e8-b4b5-7037bef1d5a2",
-      "hasValidationError" : false,
-      "id" : "pbText"
     } ] ]
   } ], [ {
     "type" : "formContainer",
@@ -149,7 +97,7 @@
         "value" : false
       }
     },
-    "reference" : "ade3eab2-cf76-43ba-9896-24cee7f4a78b",
+    "reference" : "e24bd0fa-f2d5-4eb7-85d6-b016c8955f22",
     "hasValidationError" : false,
     "id" : "pbFormContainer",
     "container" : {
@@ -158,7 +106,7 @@
         "xs" : 12
       },
       "propertyValues" : { },
-      "reference" : "35637a38-127f-4b6b-b143-cb123b575e42",
+      "reference" : "a3b81b51-0b30-4869-982d-c9718a8e0d5f",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
@@ -183,12 +131,12 @@
             "value" : ""
           }
         },
-        "reference" : "6a4861f5-9d80-4d3b-96d9-2ca1088e9f31",
+        "reference" : "d05f4188-2d73-4dbd-93fa-20a99c2a128b",
         "hasValidationError" : false,
         "id" : "pbContainer",
         "rows" : [ [ ] ]
       }, {
-        "type" : "fragment",
+        "type" : "container",
         "dimension" : {
           "xs" : 12,
           "sm" : 12,
@@ -203,19 +151,311 @@
           "hidden" : {
             "type" : "constant",
             "value" : false
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
           }
         },
-        "reference" : "ae6e00a3-ebf8-4c2b-a9fd-c40c1abf03d0",
+        "reference" : "0a858937-b61b-4df8-9868-19280f48c1e3",
         "hasValidationError" : false,
-        "id" : "expenseEdition",
-        "binding" : {
-          "expense" : "expense",
-          "isKm" : "isKm",
-          "kmAmount" : "kmAmount",
-          "currencies" : "currencies",
-          "expenseTypes" : "expenseTypes",
-          "vehicles" : "filteredVehicles"
-        }
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "md" : 12,
+            "sm" : 12,
+            "xs" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "widgetId" : {
+              "type" : "constant",
+              "value" : "pbInput"
+            },
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "readOnly" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 1
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Description"
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "text"
+            },
+            "required" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "placeholder" : {
+              "type" : "constant",
+              "value" : "Event name, travel destination ..."
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "left"
+            },
+            "value" : {
+              "type" : "variable",
+              "value" : "report.expenseHeader.description"
+            },
+            "dimension" : {
+              "type" : "constant",
+              "value" : 12
+            },
+            "class" : {
+              "type" : "constant",
+              "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
+            },
+            "minLength" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "maxLength" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "min" : {
+              "type" : "constant"
+            },
+            "max" : {
+              "type" : "constant"
+            },
+            "step" : {
+              "type" : "constant",
+              "value" : 1
+            }
+          },
+          "reference" : "6a8f522a-5424-4d99-9c8a-0ee6719a6334",
+          "hasValidationError" : false,
+          "id" : "pbInput"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "required" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "minLength" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "maxLength" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "readOnly" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Region"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            },
+            "placeholder" : {
+              "type" : "interpolation"
+            },
+            "value" : {
+              "type" : "variable",
+              "value" : "report.expenseHeader.region"
+            },
+            "type" : {
+              "type" : "constant",
+              "value" : "text"
+            },
+            "min" : {
+              "type" : "constant"
+            },
+            "max" : {
+              "type" : "constant"
+            },
+            "step" : {
+              "type" : "constant",
+              "value" : 1
+            }
+          },
+          "reference" : "0d862a7d-965a-451a-8984-29ad48041184",
+          "hasValidationError" : false,
+          "id" : "pbInput"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "md" : 12,
+            "sm" : 12,
+            "xs" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "disabled" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "required" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Departement"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 1
+            },
+            "placeholder" : {
+              "type" : "constant",
+              "value" : "Select your departement"
+            },
+            "availableValues" : {
+              "type" : "expression",
+              "value" : "departements"
+            },
+            "displayedKey" : {
+              "type" : "constant",
+              "value" : "name"
+            },
+            "returnedKey" : {
+              "type" : "constant",
+              "value" : "name"
+            },
+            "value" : {
+              "type" : "variable",
+              "value" : "report.expenseHeader.departement"
+            }
+          },
+          "reference" : "fa1688c2-7cb1-457d-926d-a96b77ce2e9b",
+          "hasValidationError" : false,
+          "id" : "pbSelect"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "md" : 12,
+            "sm" : 12,
+            "xs" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "disabled" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "required" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Budget"
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 1
+            },
+            "placeholder" : {
+              "type" : "constant",
+              "value" : "Select a budget for the expense report"
+            },
+            "availableValues" : {
+              "type" : "expression",
+              "value" : "departements"
+            },
+            "displayedKey" : {
+              "type" : "constant",
+              "value" : "name"
+            },
+            "returnedKey" : {
+              "type" : "constant",
+              "value" : "name"
+            },
+            "value" : {
+              "type" : "variable",
+              "value" : "report.expenseHeader.budget"
+            }
+          },
+          "reference" : "2031d886-e456-43b7-b807-aa705ce51fb2",
+          "hasValidationError" : false,
+          "id" : "pbSelect"
+        } ] ]
       } ], [ {
         "type" : "component",
         "dimension" : {
@@ -281,7 +521,7 @@
             "value" : "primary"
           }
         },
-        "reference" : "baa27792-6389-45e3-8ab6-003f77216f81",
+        "reference" : "66953c03-eac7-4798-8048-5013be3fe8cd",
         "hasValidationError" : false,
         "id" : "pbLink"
       }, {
@@ -389,7 +629,7 @@
             "value" : ""
           }
         },
-        "reference" : "4b284d11-2938-41b1-9bb6-947d91fbd39b",
+        "reference" : "b1825a1f-68e8-4b2e-8feb-a285829d9d08",
         "hasValidationError" : false,
         "id" : "pbButton"
       } ], [ {
@@ -445,20 +685,20 @@
             "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
           }
         },
-        "reference" : "a1fb3aa6-5608-4943-8b97-c74a1b85bca2",
+        "reference" : "b694558c-fb2a-4235-80c0-18e6c22e5e3a",
         "hasValidationError" : false,
         "id" : "pbText"
       } ] ]
     }
   } ] ],
   "assets" : [ {
-    "id" : "fd90773b-dd63-4ed3-9770-c9cbf8f8faff",
+    "id" : "2e85df22-1a5f-4aac-88b5-ebf0c6791798",
     "name" : "style.css",
     "type" : "css",
     "order" : 0,
     "external" : false
   }, {
-    "id" : "0062b960-22ae-41e5-b160-b7eb9a1d4ba3",
+    "id" : "b76bc5ef-0508-4df7-b768-05ccb9b8b394",
     "name" : "localization.json",
     "type" : "json",
     "order" : 0,
@@ -478,7 +718,7 @@
     },
     "formOutput" : {
       "type" : "expression",
-      "value" : "var isKm = $data.isKm;\nreturn {\n    \"persistenceId\": $data.expenseId,\n    \"description\": $data.expense.description,\n    \"expenseDate\": $data.expense.expenseDate,\n    \"currency\": isKm? \"\" : $data.expense.currency,\n    \"isKm\": isKm,\n    \"expenseType\": $data.expense.expenseType,\n    \"amount\": isKm ? $data.kmAmount : $data.expense.amount,\n    \"km\": isKm ? $data.expense.km : 0,\n    \"vehicleType\": isKm ? $data.expense.vehicleType : \"\"\n}",
+      "value" : "return {\n\tdepartement: $data.report.expenseHeader.departement,\n\tbudget: $data.report.expenseHeader.budget,\n\tdescription: $data.report.expenseHeader.description\n}",
       "exposed" : false
     },
     "context" : {
@@ -491,59 +731,19 @@
       "value" : "id",
       "exposed" : false
     },
-    "expenseId" : {
-      "type" : "urlparameter",
-      "value" : "expenseId",
-      "exposed" : false
-    },
-    "isKm" : {
-      "type" : "expression",
-      "value" : "if ($data.expense.expenseType) {\n    var type = $data.expenseTypes.find(function(e){\n        return e.type == $data.expense.expenseType\n    })\n    return type ? type.type === \"KM\" : false\n}\nreturn false;",
-      "exposed" : false
-    },
-    "kmAmount" : {
-      "type" : "expression",
-      "value" : "var vehicle = $data.vehicles.find(function(e){\n    return e.name == $data.expense.vehicleType\n})\nreturn vehicle\n    ? vehicle.rate * $data.expense.km \n    : null",
-      "exposed" : false
-    },
-    "currencies" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseCurrency?q=find&p=0&c=100",
-      "exposed" : false
-    },
-    "expenseTypes" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseType?q=find&p=0&c=100",
-      "exposed" : false
-    },
-    "vehicles" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseVehicle?q=find&p=0&c=100",
-      "exposed" : false
-    },
-    "expenses" : {
-      "type" : "url",
-      "value" : "../API/bdm/businessData/com.bonita.lr.model.ExpenseLine?q=findByPersistenceId&f=persistenceId={{expenseId}}&p=0&c=1",
-      "exposed" : false
-    },
-    "expense" : {
-      "type" : "expression",
-      "value" : "return $data.expenses[0];",
-      "exposed" : false
-    },
-    "filteredVehicles" : {
-      "type" : "expression",
-      "value" : "if($data.vehicles && $data.report) {\n    return $data.vehicles.filter(vehicle => vehicle.region.name === $data.report.expenseHeader.region);\t\n}",
-      "exposed" : false
-    },
     "report" : {
       "type" : "url",
       "value" : "../{{context.expenseReport_ref.link}}",
       "exposed" : false
+    },
+    "departements" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.Departement?q=find&p=0&c=100",
+      "exposed" : false
     }
   },
   "hasValidationError" : false,
-  "uuid" : "d93c39b4-24f1-463c-8e1d-f139d6dda426",
+  "uuid" : "d26711b3-527e-46d2-8755-1ee286562be9",
   "type" : "form",
   "description" : "Page generated with Bonita UI designer"
 }

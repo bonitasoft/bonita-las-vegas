@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "paymentForm",
   "name" : "paymentForm",
-  "lastUpdate" : 1560777988876,
+  "lastUpdate" : 1560806838826,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -252,7 +252,9 @@
       "caseDocuments" : "caseDocuments",
       "caseComments" : "caseComments",
       "caseId" : "task.caseId",
-      "commentAdded" : "commentAdded"
+      "commentAdded" : "commentAdded",
+      "displayHistoryButton" : "displayHistory",
+      "hideHistoryButton" : ""
     }
   } ] ],
   "assets" : [ {

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "AccountingArchivedCaseList",
   "name" : "AccountingArchivedCaseList",
-  "lastUpdate" : 1560612489317,
+  "lastUpdate" : 1560807958277,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {

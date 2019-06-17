@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "addExpense",
   "name" : "addExpense",
-  "lastUpdate" : 1560780709951,
+  "lastUpdate" : 1560806959308,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -165,12 +165,38 @@
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 3,
+          "lg" : 4
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "1ae25948-35e8-4170-9e71-7b269085f020",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ ] ]
+      }, {
         "type" : "fragment",
         "dimension" : {
-          "md" : 12,
+          "md" : 6,
           "sm" : 12,
           "xs" : 12,
-          "lg" : 12
+          "lg" : 4
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -197,8 +223,8 @@
       } ], [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 6,
+          "sm" : 6,
           "md" : 6,
           "lg" : 6
         },
@@ -265,8 +291,8 @@
       }, {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 6,
+          "sm" : 6,
           "md" : 6,
           "lg" : 6
         },

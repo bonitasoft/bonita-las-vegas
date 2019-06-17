@@ -32,10 +32,13 @@ class CaseTask implements RestApiController, Helper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaseTask.class)
 
+    private static final String ADD_EXPENSE_TASK_NAME = "Add Expense"
+
     //Tasks we do not want to display in the `available actions` section -> used elsewhere
     private static final String[] UNWANTED_TASKS = [
         "Edit Expense",
-        "Delete Expense"
+        "Delete Expense",
+        "Edit expense summary"
     ]
 
     @Override
@@ -88,8 +91,15 @@ class CaseTask implements RestApiController, Helper {
                         metadata:metadata
                     ]
                 }
-
-        result.add(addDocumentTasks(contextPath, appToken, caseId)) // Not a BPM task but we want to display it with the others
+        // Not a BPM task but we want to display the add document action as if it was one, with an availability state linked to the Add expense task
+        def addExpenseTask = result.find { it.id == ADD_EXPENSE_TASK_NAME }
+        def documentTaskState = "Not available"
+        if (addExpenseTask) {
+            documentTaskState = addExpenseTask.metadata.$activityState == "Required"
+                    ? "Available"
+                    : addExpenseTask.metadata.$activityState
+        }
+        result.add(addDocumentTasks(contextPath, appToken, caseId, documentTaskState))
 
         result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
 
@@ -123,15 +133,15 @@ class CaseTask implements RestApiController, Helper {
         }
     }
 
-    def addDocumentTasks(contextPath, appToken, caseId) {
+    def addDocumentTasks(contextPath, appToken, caseId, state) {
         [
             id:"addDocument",
             name:"📜 Add document",
-            url: "$contextPath/apps/$appToken/document?id=$caseId",
+            url: canExecute(state) ? "$contextPath/apps/$appToken/document?id=$caseId" : "",
             description:"Add a document related to an expense",
             target:"_top",
-            state:"Discretionary",
-            metadata:['$activityState':"Available"]
+            state:state,
+            metadata:['$activityState':state]
         ]
     }
 
