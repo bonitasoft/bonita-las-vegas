@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1560176031925,
+  "lastUpdate" : 1560777822867,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
-      "xs" : 12,
-      "sm" : 1,
+      "xs" : 10,
+      "sm" : 5,
       "md" : 5,
-      "lg" : 6
+      "lg" : 3
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Case documents</h3>"
+        "value" : "<h3><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Documents</h3>"
       },
       "alignment" : {
         "type" : "constant",
@@ -59,7 +59,7 @@
       "xs" : 12,
       "sm" : 6,
       "md" : 6,
-      "lg" : 3
+      "lg" : 5
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -126,7 +126,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "<dl>\n<dt>{{$item.name}}</dt>\n<dd><small><span class=\"glyphicon glyphicon-calendar\"></span> Uploaded {{ $item.creationDate | fromNow }} by {{$item.username}}</small>\n</dd>\n<dd class=\"fixed-scrollable\"><p><em>{{$item.description ? $item.description  : \"No description\"}}</em></p></dd>\n</dl>"
+            "value" : "<dl>\n<dt>{{$item.name}}</dt>\n<dd><small><span class=\"glyphicon glyphicon-calendar\"></span> Uploaded {{ $item.creationDate | fromNow }} by {{$item.username}}</small>\n</dd>\n<p><em>{{$item.description ? $item.description  : \"No description\"}}</em></p></dd>\n</dl>"
           },
           "alignment" : {
             "type" : "constant",

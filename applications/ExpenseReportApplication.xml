@@ -6,6 +6,7 @@
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
+            <applicationPage customPage="custompage_addDocument" token="document"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
         </applicationPages>
@@ -29,6 +30,7 @@
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
+            <applicationPage customPage="custompage_addDocument" token="document"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
             <applicationPage customPage="custompage_ManagerValidationPage" token="management"/>
@@ -56,6 +58,7 @@
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
             <applicationPage customPage="custompage_archivedCase" token="archivedCase"/>
+            <applicationPage customPage="custompage_addDocument" token="document"/>
             <applicationPage customPage="custompage_CaseList" token="home"/>
             <applicationPage customPage="custompage_ArchivedCaseList" token="archived"/>
             <applicationPage customPage="custompage_AccountingValidationPage" token="management"/>

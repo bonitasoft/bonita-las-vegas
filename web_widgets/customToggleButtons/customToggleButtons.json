@@ -1,0 +1,68 @@
+{
+  "designerVersion" : "1.2.12",
+  "id" : "customToggleButtons",
+  "name" : "ToggleButtons",
+  "lastUpdate" : 1560775069440,
+  "template" : "<div class=\"text-{{ properties.alignment }}\">\n    <div class=\"form-horizontal\">\n        <div class=\"form-group\">\n            <div class=\"col-xs-{{ 12 - (!properties.labelHidden && properties.labelPosition === 'left' ? properties.labelWidth : 0) }}\">\n               <div ng-class=\"ctrl.groupAlignement()\" >\n                <label ng-class=\"'btn btn-' + properties.buttonStyle\"\n                       ng-model=\"properties.selectedValue\"\n                       ng-repeat=\"option in properties.availableValues track by $index\" \n                       btn-radio=\"ctrl.getValue(option)\"\n                       ng-bind-html=\"ctrl.getLabel(option)\">\n                </label>\n                </div>\n            </div>\n            <div ng-messages=\"$form[ctrl.name].$dirty && $form[ctrl.name].$error \" ng-messages-include=\"forms-generic-errors.html\" role=\"alert\"></div>\n        </div>\n    </div>\n</div>",
+  "icon" : "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20'><g><path fill='#fff' d='M18,10.7C17.1,1.6,31,0.2,32,9.3C32.9,18.4,19,19.8,18,10.7z M16,10c0,5,4,9,9,9s9-4,9-9s-4-9-9-9 S16,5,16,10z M21,10c0,2.2,1.8,4,4,4s4-1.8,4-4s-1.8-4-4-4S21,7.8,21,10z'/></g></svg>",
+  "controller" : "function PbRadioBoxCtrl($scope, $parse, $log, widgetNameFactory,uiTranslateFilter) {\n\n  'use strict';\n  var ctrl = this;\n  /**\n   * Watch the data source and set wrapChoices and $scope.properties.values\n   */\n  function comparator(initialValue, item) {\n    return angular.equals(initialValue, ctrl.getValue(item));\n  }\n\n  function createGetter(accessor) {\n    return accessor && $parse(accessor);\n  }\n\n  this.getLabel = createGetter($scope.properties.displayedKey) || function (item) {\n    return uiTranslateFilter(typeof item === 'string' ? item : JSON.stringify(item));\n  };\n  this.getValue = createGetter($scope.properties.returnedKey) || function (item) {\n    return item;\n  };\n\n  $scope.$watch('properties.availableValues', function(items){\n    if (Array.isArray(items)) {\n      var foundValue = items\n        .filter(comparator.bind(null, $scope.properties.selectedValue))\n        .reduce(function (acc, item) {\n          return ctrl.getValue(item);\n        }, undefined);\n      if (foundValue) {\n        $scope.properties.selectedValue = foundValue;\n      }\n    }\n  });\n  \n  this.name = widgetNameFactory.getName('customToggleButtons');\n\n  if (!$scope.properties.isBound('selectedValue')) {\n    $log.error('the customToggleButtons property named \"selectedValue\" need to be bound to a variable');\n  }\n  \n  this.groupAlignement = function() {\n      if ($scope.properties.verticalAlignement) {\n          return \"btn-group-vertical\";\n      }\n      return \"btn-group\";\n  }\n\n  \n}\n",
+  "description" : "Set of buttons for mutually exclusive options. The user selects one option",
+  "custom" : true,
+  "order" : 7,
+  "properties" : [ {
+    "label" : "Available values",
+    "name" : "availableValues",
+    "caption" : "Comma-separated list or bound an array data",
+    "type" : "collection",
+    "defaultValue" : [ "yes", "no" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Displayed key",
+    "name" : "displayedKey",
+    "help" : "The name of the key to use as label. Can be empty",
+    "type" : "text",
+    "bond" : "expression"
+  }, {
+    "label" : "Returned key",
+    "name" : "returnedKey",
+    "caption" : "Value must be unique",
+    "help" : "The name of the key to use as value. Leave it empty for whole object",
+    "type" : "text",
+    "bond" : "expression"
+  }, {
+    "label" : "Selected Value",
+    "name" : "selectedValue",
+    "type" : "text",
+    "bond" : "variable"
+  }, {
+    "label" : "Buttons style",
+    "name" : "buttonStyle",
+    "type" : "choice",
+    "defaultValue" : "default",
+    "choiceValues" : [ "default", "primary", "success", "danger", "info", "warning", "link" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Alignment",
+    "name" : "alignment",
+    "type" : "choice",
+    "defaultValue" : "left",
+    "choiceValues" : [ "left", "center", "right" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Vertical alignement",
+    "name" : "verticalAlignement",
+    "type" : "boolean",
+    "defaultValue" : false,
+    "bond" : "expression"
+  } ],
+  "assets" : [ {
+    "id" : "cafcb645-5042-4193-aa92-450585ba1599",
+    "name" : "ui-bootstrap-tpls-0.13.0.min.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  } ],
+  "requiredModules" : [ "ui.bootstrap.buttons" ],
+  "type" : "widget",
+  "hasHelp" : false
+}

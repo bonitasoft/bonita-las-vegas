@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "validationTasksFragment",
   "name" : "validationTasksFragment",
-  "lastUpdate" : 1560607122294,
+  "lastUpdate" : 1560765134701,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -180,7 +180,7 @@
     },
     "formattedColumns" : {
       "type" : "expression",
-      "value" : "return [\n    \"user\",\n    \"date|uiDate\",\n    \"description\",\n    function(input){\n        return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">Open</a>\";   \n    }\n];",
+      "value" : "return [\n    \"user\",\n    \"date|uiDate\",\n    \"description\",\n    function(input){\n        return \"<a href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\"><i class=\\\"glyphicon glyphicon-play\\\"></i></a>\";\n        // return \"<a class=\\\"btn btn-primary btn-sm\\\" href=\\\"\"+input.row.url+\"\\\" target=\\\"\"+input.row.target+\"\\\">Open</a>\";   \n    }\n];",
       "exposed" : false
     },
     "tasksAPI" : {

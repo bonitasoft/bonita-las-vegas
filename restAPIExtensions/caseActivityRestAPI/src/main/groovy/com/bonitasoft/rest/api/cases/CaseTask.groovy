@@ -42,8 +42,12 @@ class CaseTask implements RestApiController, Helper {
     RestApiResponse doHandle(HttpServletRequest request, RestApiResponseBuilder responseBuilder, RestAPIContext context) {
         def contextPath = "http://$request.serverName:$request.localPort$request.contextPath"
         def caseId = request.getParameter "caseId"
+        def appToken = request.getParameter "appToken"
         if (!caseId) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST,"""{"error" : "the parameter caseId is missing"}""")
+        }
+        if(!appToken) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
         }
         try {
             validateCaseAccess(caseId, context);
@@ -85,6 +89,7 @@ class CaseTask implements RestApiController, Helper {
                     ]
                 }
 
+        result.add(addDocumentTasks(contextPath, appToken, caseId)) // Not a BPM task but we want to display it with the others
 
         result = result.sort{ t1,t2 -> idOfState(t1.metadata.$activityState) <=> idOfState(t2.metadata.$activityState) }
 
@@ -104,7 +109,7 @@ class CaseTask implements RestApiController, Helper {
                 state:task.state.capitalize()
             ]
         }
-        .unique { taskA, taskB -> taskA["name"] <=> taskB["name"] } // If a given task has been done a couple of time, we only display one archive instance -> we do not need more in this use case
+        .unique { taskA, taskB -> taskA.name <=> taskB.name } // If a given task has been done a couple of time, we only display one archive instance -> we do not need more in this use case
         .each { result.add(it) }
 
         buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(result).toString())
@@ -116,6 +121,18 @@ class CaseTask implements RestApiController, Helper {
                     ? "$contextPath/portal/resource/taskInstance/$processName/$processVersion/$instance.name/content/?id=$instance.id&displayConfirmation=false"
                     : ""
         }
+    }
+
+    def addDocumentTasks(contextPath, appToken, caseId) {
+        [
+            id:"addDocument",
+            name:"📜 Add document",
+            url: "$contextPath/apps/$appToken/document?id=$caseId",
+            description:"Add a document related to an expense",
+            target:"_top",
+            state:"Discretionary",
+            metadata:['$activityState':"Available"]
+        ]
     }
 
 }

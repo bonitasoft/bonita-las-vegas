@@ -1,0 +1,64 @@
+{
+  "designerVersion" : "1.2.12",
+  "id" : "customModalGroupButtons",
+  "name" : "ModalGroupButtons",
+  "lastUpdate" : 1560774706675,
+  "template" : "<div class=\"text-{{ properties.alignment }}\">\n    <div class=\"form-vertical\">\n        <div class=\"form-group\">\n            <div class=\"col-xs-{{ 12 - (!properties.labelHidden && properties.labelPosition === 'left' ? properties.labelWidth : 0) }}\">\n               <div ng-class=\"ctrl.groupAlignement()\" >\n                <label ng-class=\"'btn btn-' + ctrl.getStyle(option)\"\n                       ng-repeat=\"option in properties.availableValues track by $index\" \n                       ng-click=\"ctrl.action(option)\"\n                       ng-bind-html=\"ctrl.getLabel(option)\">\n                </label>\n                </div>\n            </div>\n            <div ng-messages=\"$form[ctrl.name].$dirty && $form[ctrl.name].$error \" ng-messages-include=\"forms-generic-errors.html\" role=\"alert\"></div>\n        </div>\n    </div>\n</div>",
+  "icon" : "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 20'><g><path fill='#fff' d='M18,10.7C17.1,1.6,31,0.2,32,9.3C32.9,18.4,19,19.8,18,10.7z M16,10c0,5,4,9,9,9s9-4,9-9s-4-9-9-9 S16,5,16,10z M21,10c0,2.2,1.8,4,4,4s4-1.8,4-4s-1.8-4-4-4S21,7.8,21,10z'/></g></svg>",
+  "controller" : "function PbGroupButtonCtrl($scope, $parse, $log, widgetNameFactory,uiTranslateFilter,modalService) {\n\n  'use strict';\n  var ctrl = this;\n  /**\n   * Watch the data source and set wrapChoices and $scope.properties.values\n   */\n  function comparator(initialValue, item) {\n    return angular.equals(initialValue, ctrl.getValue(item));\n  }\n\n  function createGetter(accessor) {\n    return accessor && $parse(accessor);\n  }\n\n  this.getLabel = createGetter($scope.properties.displayedKey) || function (item) {\n    return uiTranslateFilter(typeof item === 'string' ? item : JSON.stringify(item));\n  };\n  \n  this.action = function(item) {\n    var itemIndex = $scope.properties.availableValues.indexOf(item);\n    var modalId = $scope.properties.modalIds[itemIndex];\n    console.log(modalId)\n    modalService.open(modalId)\n  };\n  \n  this.getStyle = function(item) {\n    var itemIndex = $scope.properties.availableValues.indexOf(item);\n    return $scope.properties.buttonStyles[itemIndex];\n  };\n  \n  this.groupAlignement = function() {\n      if ($scope.properties.verticalAlignement) {\n          return \"btn-group-vertical\";\n      }\n      return \"btn-group\";\n  }\n  \n  this.name = widgetNameFactory.getName('customOpenModalButtons');\n  \n}\n",
+  "description" : "Set of buttons for mutually exclusive options. The user selects one option",
+  "custom" : true,
+  "order" : 7,
+  "properties" : [ {
+    "label" : "Available values",
+    "name" : "availableValues",
+    "caption" : "Comma-separated list or bound an array data",
+    "type" : "collection",
+    "defaultValue" : [ "Open modal 1", "Open modal 2" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Displayed key",
+    "name" : "displayedKey",
+    "help" : "The name of the key to use as label. Can be empty",
+    "type" : "text",
+    "bond" : "expression"
+  }, {
+    "label" : "Buttons styles",
+    "name" : "buttonStyles",
+    "type" : "collection",
+    "defaultValue" : [ "success", "danger" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Alignment",
+    "name" : "alignment",
+    "type" : "choice",
+    "defaultValue" : "left",
+    "choiceValues" : [ "left", "center", "right" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Modal id's",
+    "name" : "modalIds",
+    "help" : "Modals to open when clicking on the corresponding button",
+    "type" : "collection",
+    "defaultValue" : [ "modal1", "modal2" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Vertical alignement",
+    "name" : "verticalAlignement",
+    "help" : "Specify if the buttons should be displayed vertically",
+    "type" : "boolean",
+    "defaultValue" : false,
+    "choiceValues" : [ "horizontal", "vertical" ],
+    "bond" : "expression"
+  } ],
+  "assets" : [ {
+    "id" : "cafcb645-5042-4193-aa92-450585ba1599",
+    "name" : "ui-bootstrap-tpls-0.13.0.min.js",
+    "type" : "js",
+    "order" : 2,
+    "external" : false
+  } ],
+  "requiredModules" : [ "ui.bootstrap.buttons" ],
+  "type" : "widget",
+  "hasHelp" : false
+}

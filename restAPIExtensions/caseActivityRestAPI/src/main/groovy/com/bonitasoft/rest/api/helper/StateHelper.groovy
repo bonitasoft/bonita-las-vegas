@@ -12,6 +12,7 @@ trait StateHelper {
 
     def canExecute(String state) {
         return state != "N/A" &&
+                state != "Not available" &&
                 state != ActivityStates.COMPLETED_STATE &&
                 state != ActivityStates.FAILED_STATE &&
                 state != ActivityStates.ABORTED_STATE
@@ -22,6 +23,7 @@ trait StateHelper {
             case "Required": return 1
             case "Optional": return 2
             case "Discretionary": return 3
+            case "Available": return 3
             case "N/A": return 4
             case "completed": return 5
             default: return 6
@@ -38,7 +40,7 @@ trait StateHelper {
                         it.name.startsWith('$')
                     }
                     .collect{
-                        res.put(it.name,it.value)
+                        res.put(it.name, toStateDisplayName(it.value))
                     }
         }
         return res
@@ -58,6 +60,14 @@ trait StateHelper {
         } catch (DataNotFoundException e) {
             println e.getMessage()
             return [name: "Optional", id: idOfState("Optional")]
+        }
+    }
+
+    def toStateDisplayName(String state) {
+        switch (state) {
+            case "N/A": return "Not available"
+            case "Discretionary": return "Available"
+            default: return state.capitalize()
         }
     }
 }

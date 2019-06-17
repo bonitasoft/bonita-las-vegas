@@ -2,14 +2,14 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportHeader",
   "name" : "ExpenseReportHeader",
-  "lastUpdate" : 1560524217854,
+  "lastUpdate" : 1560776077472,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 6,
-      "md" : 6,
-      "lg" : 6
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -42,63 +42,14 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<p class=\"h3\">{{user.firstname}} {{user.lastname}}   <i class=\"glyphicon glyphicon-arrow-right\"></i>   {{amount}} {{currency}}</i></p>"
+        "value" : "<p class=\"h3\">{{user.firstname}} {{user.lastname}}   <i class=\"glyphicon glyphicon-arrow-right\"></i>   {{amount}} {{currency}}</i></p>\n<h4>{{report.expenseHeader. description}}</h4>"
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "left"
+        "value" : "center"
       }
     },
     "reference" : "112d09d2-5876-4a1d-b2f4-ca68342a93e6",
-    "hasValidationError" : false,
-    "id" : "pbText"
-  }, {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 6,
-      "md" : 6,
-      "lg" : 6
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "expression",
-        "value" : "!displayPaidDate"
-      },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : "Default label"
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "top"
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 4
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "<p class=\"h3\">Paid the {{report.closeDate|uiDate}}</p>"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "right"
-      }
-    },
-    "reference" : "afbd5cf6-2685-4983-9b81-b8aed540fc9d",
     "hasValidationError" : false,
     "id" : "pbText"
   } ], [ {
@@ -140,11 +91,11 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<strong>Region:</strong>  {{report.expenseHeader. region}}  \n<br/>\n<strong>Departement:</strong>  {{report.expenseHeader. departement}}  \n<br/>\n<strong>Budget:</strong>  {{report.expenseHeader. budget}} \n<br/>\n<br/>\n{{report.expenseHeader. description}}\n<br/>\n<br/>"
+        "value" : "<strong>Region:</strong>  {{report.expenseHeader. region}}  \n<br/>\n<strong>Departement:</strong>  {{report.expenseHeader. departement}}  \n<br/>\n<strong>Budget:</strong>  {{report.expenseHeader. budget}} \n<br/>\n<br/>"
       },
       "alignment" : {
         "type" : "constant",
-        "value" : "left"
+        "value" : "center"
       }
     },
     "reference" : "6a068851-4211-4ba4-aa65-cfe653f9f347",

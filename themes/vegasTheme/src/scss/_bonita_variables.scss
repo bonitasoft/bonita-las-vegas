@@ -1,11 +1,15 @@
 //Predifined variables can be found here (need to run a build first):
 //${project.basedir}/node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variable.scss
 
+// Main theme color
+$mainColor: #539953;
+$hoverMainColor: #2e552e;
+
 //Brand colors
 $brand-primary: #2c3e50;
 $brand-success: #008000;
-$brand-info: #033c73;
-$brand-warning: #c55412;
+$brand-info: #3a87ad;
+$brand-warning: #c09853;
 $brand-danger: #c71c22;
 
 $gray-light: #999999;
@@ -40,8 +44,8 @@ $btn-default-border: rgba(0, 0, 0, 0.1);
 $btn-primary-border: $brand-primary;
 $btn-success-border: $brand-success;
 $btn-info-border: $brand-info;
-$btn-warning-border: #dd5600;
-$btn-danger-border: #c71c22;
+$btn-warning-border: $brand-warning;
+$btn-danger-border: $brand-danger;
 
 $btn-primary-disabled-bg: #95a5a6;
 $btn-primary-disabled-border: $btn-primary-disabled-bg;
@@ -53,29 +57,29 @@ $navbar-default-bg: $brand-primary;
 $navbar-default-link-color: $white;
 $navbar-default-brand-hover-color: $white;
 $navbar-default-link-hover-color: $white;
-$navbar-default-link-hover-bg: #008616;
-$navbar-default-link-active-bg: #008616;
+$navbar-default-link-hover-bg: $mainColor;
+$navbar-default-link-active-bg: $mainColor;
 $navbar-default-link-active-color: $white;
 $navbar-default-link-disabled-color: #dddddd;
-$navbar-default-toggle-hover-bg: #008616;
+$navbar-default-toggle-hover-bg: $mainColor;
 $navbar-default-toggle-icon-bar-bg: $white;
-$navbar-default-toggle-border-color: #008616;
+$navbar-default-toggle-border-color: $mainColor;
 
-$navbar-inverse-bg: #048a47;
+$navbar-inverse-bg: $mainColor;
 $navbar-inverse-color: $white;
 $navbar-inverse-link-color: $white;
 
-$navbar-inverse-link-hover-bg: rgb(2, 54, 37);
-$navbar-inverse-link-active-bg: rgb(2, 54, 37);
+$navbar-inverse-link-hover-bg: $hoverMainColor;
+$navbar-inverse-link-active-bg: $hoverMainColor;
 $navbar-inverse-link-disabled-color: #cccccc;
 
-$navbar-inverse-toggle-border-color: rgb(2, 54, 37);
-$navbar-inverse-toggle-hover-bg: rgb(2, 54, 37);
+$navbar-inverse-toggle-border-color: $hoverMainColor;
+$navbar-inverse-toggle-hover-bg: $hoverMainColor;
 $navbar-inverse-toggle-icon-bar-bg: $white;
 
 //Dropdown
 $dropdown-link-hover-color: $white;
-$dropdown-link-hover-bg: rgb(2, 54, 37);
+$dropdown-link-hover-bg: $hoverMainColor;
 
 //Pagination
 $pagination-color: $white;

@@ -98,7 +98,7 @@ class Case implements RestApiController, Helper {
     }
 
     def String viewActionLink(long caseId, contextPath, String appToken) {
-        return """<a class="btn btn-primary btn-sm" href="$contextPath/apps/$appToken/case?id=$caseId" target="_top">Open</a>"""
+        return """<a href="$contextPath/apps/$appToken/case?id=$caseId" target="_top"><i class=\"glyphicon glyphicon-play\"></i></a>"""
     }
 
     def  String computeState(ProcessInstance instance, ProcessAPI processAPI) {

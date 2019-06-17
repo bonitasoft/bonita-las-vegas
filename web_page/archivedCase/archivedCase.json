@@ -2,14 +2,163 @@
   "designerVersion" : "1.9.45",
   "id" : "archivedCase",
   "name" : "archivedCase",
-  "lastUpdate" : 1560591782478,
+  "lastUpdate" : 1560779006603,
   "rows" : [ [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 4,
+      "lg" : 3
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "db5c976b-2e0c-4979-a854-0f02bdfcac4b",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        }
+      },
+      "reference" : "10fcf15c-2a4d-45fb-8c80-4831820c98d0",
+      "hasValidationError" : false,
+      "id" : "ExpenseReportHeader",
+      "binding" : {
+        "amount" : "amount",
+        "report" : "archivedCase"
+      }
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "!archivedCase.reportAccepted"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h4>Paid the {{archivedCase.closeDate | uiDate}}</h4>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "center"
+        }
+      },
+      "reference" : "ed27dbd3-b622-4e04-b8ca-f1c240b78083",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "archivedCase.reportAccepted"
+        },
+        "labelHidden" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
+        },
+        "labelPosition" : {
+          "type" : "constant",
+          "value" : "top"
+        },
+        "labelWidth" : {
+          "type" : "constant",
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h4 class=\"text-danger\">REFUSED</h4>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "center"
+        }
+      },
+      "reference" : "8baafdfc-29b7-4675-bed1-6c23fcd268e5",
+      "hasValidationError" : false,
+      "id" : "pbText"
+    } ] ]
+  }, {
     "type" : "fragment",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "md" : 8,
+      "lg" : 9
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -77,6 +226,11 @@
     "caseComments" : {
       "type" : "url",
       "value" : "../API/extension/archivedCaseComment?caseId={{caseId}}",
+      "exposed" : false
+    },
+    "amount" : {
+      "type" : "expression",
+      "value" : "var amount = 0;\n$data.archivedCase.expenseLine.forEach(function(e){\n    amount += e.amount;\n});\nreturn amount;",
       "exposed" : false
     }
   },

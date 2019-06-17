@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "CaseExpenses",
   "name" : "CaseExpenses",
-  "lastUpdate" : 1560273274644,
+  "lastUpdate" : 1560777857259,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -42,7 +42,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3> Case expenses</h3>"
+        "value" : "<h3> Expenses </h3>"
       },
       "alignment" : {
         "type" : "constant",
@@ -58,7 +58,7 @@
       "xs" : 12,
       "sm" : 12,
       "md" : 6,
-      "lg" : 3
+      "lg" : 5
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -105,10 +105,10 @@
       "rows" : [ [ {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
+          "xs" : 10,
+          "sm" : 10,
           "md" : 8,
-          "lg" : 8
+          "lg" : 9
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -119,45 +119,29 @@
             "type" : "constant",
             "value" : false
           },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
           "text" : {
             "type" : "interpolation",
-            "value" : "Date: {{$item.expenseDate|uiDate}} <br/>\nDescription:  {{$item.description}} <br/>\nType: {{$item.expenseType}}"
+            "value" : "{{$item.description}}"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 4"
           },
           "alignment" : {
             "type" : "constant",
             "value" : "left"
           }
         },
-        "reference" : "97f3b548-23db-4469-867b-d078243a9f83",
+        "reference" : "eea3d92a-fb55-4cd2-9e2a-94c49d46c826",
         "hasValidationError" : false,
-        "id" : "pbText"
+        "id" : "pbTitle"
       }, {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 2,
-          "lg" : 2
+          "xs" : 1,
+          "sm" : 1,
+          "md" : 1,
+          "lg" : 1
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -170,7 +154,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "<i class=\"glyphicon glyphicon-remove\"></i>"
+            "value" : "<span class=\"glyphicon glyphicon-trash\"></span>"
           },
           "type" : {
             "type" : "constant",
@@ -213,7 +197,7 @@
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "danger"
+            "value" : "link"
           }
         },
         "reference" : "4daf8df2-3978-4c0f-84b5-a9fd2ace678d",
@@ -222,10 +206,10 @@
       }, {
         "type" : "component",
         "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 2,
-          "lg" : 2
+          "xs" : 1,
+          "sm" : 1,
+          "md" : 1,
+          "lg" : 1
         },
         "propertyValues" : {
           "cssClasses" : {
@@ -281,12 +265,61 @@
           },
           "buttonStyle" : {
             "type" : "constant",
-            "value" : "primary"
+            "value" : "link"
           }
         },
         "reference" : "6c5aa598-e56c-4190-b755-de7a9d145844",
         "hasValidationError" : false,
         "id" : "pbLink"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<strong>Date: </strong>{{$item.expenseDate|uiDate}} <br/>\n<strong>Type: </strong>{{$item.expenseType}}"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          }
+        },
+        "reference" : "97f3b548-23db-4469-867b-d078243a9f83",
+        "hasValidationError" : false,
+        "id" : "pbText"
       } ], [ {
         "type" : "container",
         "dimension" : {
@@ -317,8 +350,8 @@
           "dimension" : {
             "xs" : 12,
             "sm" : 12,
-            "md" : 6,
-            "lg" : 6
+            "md" : 12,
+            "lg" : 12
           },
           "propertyValues" : {
             "cssClasses" : {
@@ -351,56 +384,7 @@
             },
             "text" : {
               "type" : "interpolation",
-              "value" : "Vehicule type: {{$item.vehicleType}}"
-            },
-            "alignment" : {
-              "type" : "constant",
-              "value" : "left"
-            }
-          },
-          "reference" : "84cd0298-0acc-48a8-bfe8-405925392fe1",
-          "hasValidationError" : false,
-          "id" : "pbText"
-        }, {
-          "type" : "component",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 6,
-            "lg" : 6
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            },
-            "labelHidden" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "label" : {
-              "type" : "interpolation",
-              "value" : "Default label"
-            },
-            "labelPosition" : {
-              "type" : "constant",
-              "value" : "top"
-            },
-            "labelWidth" : {
-              "type" : "constant",
-              "value" : 4
-            },
-            "allowHTML" : {
-              "type" : "constant",
-              "value" : true
-            },
-            "text" : {
-              "type" : "interpolation",
-              "value" : "Km: {{$item.km}}"
+              "value" : "<h4>{{$item.km}} km ({{$item.vehicleType}}) <i class=\"glyphicon glyphicon-arrow-right\"></i> {{$item.amount}} {{defaultCurrency}} </h4>"
             },
             "alignment" : {
               "type" : "constant",
@@ -450,56 +434,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "Currency: {{$item.currency}}"
-          },
-          "alignment" : {
-            "type" : "constant",
-            "value" : "left"
-          }
-        },
-        "reference" : "1cd4c2bf-2c79-4ad5-8ea5-23cbccd2d06b",
-        "hasValidationError" : false,
-        "id" : "pbText"
-      } ], [ {
-        "type" : "component",
-        "dimension" : {
-          "xs" : 12,
-          "sm" : 12,
-          "md" : 12,
-          "lg" : 12
-        },
-        "propertyValues" : {
-          "cssClasses" : {
-            "type" : "constant",
-            "value" : ""
-          },
-          "hidden" : {
-            "type" : "constant",
-            "value" : false
-          },
-          "labelHidden" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "label" : {
-            "type" : "interpolation",
-            "value" : "Default label"
-          },
-          "labelPosition" : {
-            "type" : "constant",
-            "value" : "top"
-          },
-          "labelWidth" : {
-            "type" : "constant",
-            "value" : 4
-          },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
-          },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "Amount: {{$item.amount}}"
+            "value" : "<h4> {{$item.amount}} {{$item.currency}}</h4>"
           },
           "alignment" : {
             "type" : "constant",
@@ -528,6 +463,10 @@
       "exposed" : true
     },
     "deleteExpenseTask" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "defaultCurrency" : {
       "type" : "constant",
       "exposed" : true
     }

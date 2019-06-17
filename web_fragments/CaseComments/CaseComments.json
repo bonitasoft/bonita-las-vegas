@@ -3,63 +3,14 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseComments",
   "name" : "CaseComments",
-  "lastUpdate" : 1559727288474,
+  "lastUpdate" : 1560777296137,
   "rows" : [ [ {
-    "type" : "component",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "allowHTML" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "text" : {
-        "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span> Comments</h3>"
-      },
-      "alignment" : {
-        "type" : "constant",
-        "value" : "left"
-      },
-      "labelHidden" : {
-        "type" : "constant",
-        "value" : true
-      },
-      "label" : {
-        "type" : "interpolation",
-        "value" : ""
-      },
-      "labelPosition" : {
-        "type" : "constant",
-        "value" : "top"
-      },
-      "labelWidth" : {
-        "type" : "constant",
-        "value" : 4
-      }
-    },
-    "reference" : "dba2382d-c2e4-4b02-87f6-26f4947eed08",
-    "hasValidationError" : false,
-    "id" : "pbText"
-  } ], [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "md" : 1,
+      "lg" : 1
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -75,7 +26,33 @@
         "value" : ""
       }
     },
-    "reference" : "cf150088-5676-4e1d-a273-0935c1f173b6",
+    "reference" : "846e8384-4b47-4d84-861f-0e85f6b900d7",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 10,
+      "lg" : 10
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "0a8f22fb-d267-447d-b600-ca12d66df0ac",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -95,21 +72,17 @@
           "type" : "constant",
           "value" : false
         },
-        "readOnly" : {
+        "allowHTML" : {
           "type" : "constant",
-          "value" : false
+          "value" : true
         },
-        "required" : {
-          "type" : "constant",
-          "value" : false
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h3><span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span> Comments</h3>"
         },
-        "minLength" : {
+        "alignment" : {
           "type" : "constant",
-          "value" : ""
-        },
-        "maxLength" : {
-          "type" : "constant",
-          "value" : 255
+          "value" : "left"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -126,123 +99,12 @@
         "labelWidth" : {
           "type" : "constant",
           "value" : 4
-        },
-        "value" : {
-          "type" : "variable",
-          "value" : "newComment"
         }
       },
-      "reference" : "a95d77d9-daba-4fc1-9bdb-c11e3ca6b0b6",
+      "reference" : "dba2382d-c2e4-4b02-87f6-26f4947eed08",
       "hasValidationError" : false,
-      "id" : "pbTextarea"
+      "id" : "pbText"
     } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "xs" : 12,
-        "sm" : 12,
-        "md" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "disabled" : {
-          "type" : "expression",
-          "value" : "!newComment"
-        },
-        "label" : {
-          "type" : "interpolation",
-          "value" : "Comment"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "right"
-        },
-        "buttonStyle" : {
-          "type" : "constant",
-          "value" : "success"
-        },
-        "action" : {
-          "type" : "constant",
-          "value" : "POST"
-        },
-        "url" : {
-          "type" : "interpolation",
-          "value" : "../API/bpm/comment"
-        },
-        "dataToSend" : {
-          "type" : "expression",
-          "value" : "payload"
-        },
-        "dataFromSuccess" : {
-          "type" : "variable",
-          "value" : "commentAdded"
-        },
-        "closeOnSuccess" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "dataFromError" : {
-          "type" : "variable",
-          "value" : ""
-        },
-        "targetUrlOnSuccess" : {
-          "type" : "interpolation"
-        },
-        "collectionToModify" : {
-          "type" : "variable"
-        },
-        "modalId" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "collectionPosition" : {
-          "type" : "constant",
-          "value" : "Last"
-        },
-        "valueToAdd" : {
-          "type" : "constant"
-        },
-        "removeItem" : {
-          "type" : "variable"
-        }
-      },
-      "reference" : "2c227586-3edf-49fb-a83b-89e8699c9e2f",
-      "hasValidationError" : false,
-      "id" : "pbButton"
-    } ] ]
-  } ], [ {
-    "type" : "container",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : "panel panel-default"
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : "caseComments"
-      }
-    },
-    "reference" : "d100ad7a-d937-44c2-927f-0ab30b167ca1",
-    "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ {
       "type" : "container",
       "dimension" : {
         "xs" : 12,
@@ -253,7 +115,7 @@
       "propertyValues" : {
         "cssClasses" : {
           "type" : "constant",
-          "value" : "panel-body"
+          "value" : ""
         },
         "hidden" : {
           "type" : "constant",
@@ -264,7 +126,7 @@
           "value" : ""
         }
       },
-      "reference" : "a0c67595-522b-4798-a827-4b17a508add4",
+      "reference" : "cf150088-5676-4e1d-a273-0935c1f173b6",
       "hasValidationError" : false,
       "id" : "pbContainer",
       "rows" : [ [ {
@@ -284,17 +146,21 @@
             "type" : "constant",
             "value" : false
           },
-          "allowHTML" : {
+          "readOnly" : {
             "type" : "constant",
-            "value" : true
+            "value" : false
           },
-          "text" : {
-            "type" : "interpolation",
-            "value" : "<dl>\n<dt><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span> {{$item.username}}</dt>\n<dd> <em>{{$item.postDate | fromNow:\"YYYY-MM-dd HH:mm:ss.SSS\" }}</em></dd>\n</dl>"
-          },
-          "alignment" : {
+          "required" : {
             "type" : "constant",
-            "value" : "left"
+            "value" : false
+          },
+          "minLength" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "maxLength" : {
+            "type" : "constant",
+            "value" : 255
           },
           "labelHidden" : {
             "type" : "constant",
@@ -311,11 +177,15 @@
           "labelWidth" : {
             "type" : "constant",
             "value" : 4
+          },
+          "value" : {
+            "type" : "variable",
+            "value" : "newComment"
           }
         },
-        "reference" : "69d4e8a9-5719-4de7-bc2d-bbfd98499593",
+        "reference" : "a95d77d9-daba-4fc1-9bdb-c11e3ca6b0b6",
         "hasValidationError" : false,
-        "id" : "pbText"
+        "id" : "pbTextarea"
       } ], [ {
         "type" : "component",
         "dimension" : {
@@ -333,17 +203,94 @@
             "type" : "constant",
             "value" : false
           },
-          "allowHTML" : {
-            "type" : "constant",
-            "value" : true
+          "disabled" : {
+            "type" : "expression",
+            "value" : "!newComment"
           },
-          "text" : {
+          "label" : {
             "type" : "interpolation",
-            "value" : "{{$item.content}}"
+            "value" : "Comment"
           },
           "alignment" : {
             "type" : "constant",
-            "value" : "left"
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "success"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "POST"
+          },
+          "url" : {
+            "type" : "interpolation",
+            "value" : "../API/bpm/comment"
+          },
+          "dataToSend" : {
+            "type" : "expression",
+            "value" : "payload"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : "commentAdded"
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "2c227586-3edf-49fb-a83b-89e8699c9e2f",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
           },
           "labelHidden" : {
             "type" : "constant",
@@ -351,7 +298,7 @@
           },
           "label" : {
             "type" : "interpolation",
-            "value" : ""
+            "value" : "Default label"
           },
           "labelPosition" : {
             "type" : "constant",
@@ -360,11 +307,173 @@
           "labelWidth" : {
             "type" : "constant",
             "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<br/>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
           }
         },
-        "reference" : "e2f1ab33-70ec-4073-8f7c-1933abcc0e81",
+        "reference" : "04b25b93-cc7e-4926-a7b5-4ebce76620ab",
         "hasValidationError" : false,
         "id" : "pbText"
+      } ] ]
+    } ], [ {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : "panel panel-default"
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "repeatedCollection" : {
+          "type" : "variable",
+          "value" : "caseComments"
+        }
+      },
+      "reference" : "d100ad7a-d937-44c2-927f-0ab30b167ca1",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "container",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : "panel-body"
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "repeatedCollection" : {
+            "type" : "variable",
+            "value" : ""
+          }
+        },
+        "reference" : "a0c67595-522b-4798-a827-4b17a508add4",
+        "hasValidationError" : false,
+        "id" : "pbContainer",
+        "rows" : [ [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "allowHTML" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "text" : {
+              "type" : "interpolation",
+              "value" : "<dl>\n<dt><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span> {{$item.username}}</dt>\n<dd> <em>{{$item.postDate | fromNow:\"YYYY-MM-dd HH:mm:ss.SSS\" }}</em></dd>\n</dl>"
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "left"
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : ""
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            }
+          },
+          "reference" : "69d4e8a9-5719-4de7-bc2d-bbfd98499593",
+          "hasValidationError" : false,
+          "id" : "pbText"
+        } ], [ {
+          "type" : "component",
+          "dimension" : {
+            "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
+            "lg" : 12
+          },
+          "propertyValues" : {
+            "cssClasses" : {
+              "type" : "constant",
+              "value" : ""
+            },
+            "hidden" : {
+              "type" : "constant",
+              "value" : false
+            },
+            "allowHTML" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "text" : {
+              "type" : "interpolation",
+              "value" : "{{$item.content}}"
+            },
+            "alignment" : {
+              "type" : "constant",
+              "value" : "left"
+            },
+            "labelHidden" : {
+              "type" : "constant",
+              "value" : true
+            },
+            "label" : {
+              "type" : "interpolation",
+              "value" : ""
+            },
+            "labelPosition" : {
+              "type" : "constant",
+              "value" : "top"
+            },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            }
+          },
+          "reference" : "e2f1ab33-70ec-4073-8f7c-1933abcc0e81",
+          "hasValidationError" : false,
+          "id" : "pbText"
+        } ] ]
       } ] ]
     } ] ]
   } ] ],
@@ -394,7 +503,7 @@
     },
     "clean" : {
       "type" : "expression",
-      "value" : "if($data.newComment  && $data.commentAdded.id){\n    $data.commentAdded = ''\n    $data.newComment = ''\n}",
+      "value" : "if($data.newComment  && $data.commentAdded.content){\n    $data.commentAdded.content = ''\n    $data.newComment = ''\n}",
       "exposed" : false
     }
   },

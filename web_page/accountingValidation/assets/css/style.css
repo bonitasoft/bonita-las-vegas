@@ -38,3 +38,7 @@ input[type='number'].ng-invalid.ng-dirty, input[type='password'].ng-invalid.ng-d
 .panel{
     margin-right: 15px;
 }
+
+.padding-top-61 {
+    padding-top: 61px;
+}

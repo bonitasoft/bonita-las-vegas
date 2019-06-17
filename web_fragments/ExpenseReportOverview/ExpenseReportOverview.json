@@ -2,14 +2,61 @@
   "designerVersion" : "1.9.40",
   "id" : "ExpenseReportOverview",
   "name" : "ExpenseReportOverview",
-  "lastUpdate" : 1560524145814,
+  "lastUpdate" : 1560778253867,
   "rows" : [ [ {
-    "type" : "fragment",
+    "type" : "component",
     "dimension" : {
       "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "sm" : 2,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "padding-top-61"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "availableValues" : {
+        "type" : "constant",
+        "value" : [ "Expenses", "Documents", "Comments" ]
+      },
+      "displayedKey" : {
+        "type" : "constant"
+      },
+      "returnedKey" : {
+        "type" : "constant"
+      },
+      "selectedValue" : {
+        "type" : "variable",
+        "value" : "toggleSelected"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "default"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      },
+      "verticalAlignement" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "0cd5a7f9-f297-44e8-bb22-b01780adad1c",
+    "hasValidationError" : false,
+    "id" : "customToggleButtons"
+  }, {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 10,
+      "md" : 10,
+      "lg" : 10
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -19,156 +66,96 @@
       "hidden" : {
         "type" : "constant",
         "value" : false
-      }
-    },
-    "reference" : "d019a735-ca76-41d2-9292-4c2b7fdfd3f6",
-    "hasValidationError" : false,
-    "id" : "ExpenseReportHeader",
-    "binding" : {
-      "expenseHeader" : "report.expenseHeader",
-      "amount" : "amount",
-      "report" : "report"
-    }
-  } ], [ {
-    "type" : "tabsContainer",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
         "value" : ""
-      },
-      "hidden" : {
-        "type" : "constant",
-        "value" : false
       }
     },
-    "reference" : "180f5628-c94a-4919-b31e-fd27070a5c14",
+    "reference" : "2d9e9a0b-d6d2-485e-b6fc-126ca3ec0b0b",
     "hasValidationError" : false,
-    "id" : "pbTabsContainer",
-    "tabs" : [ {
-      "container" : {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12
-        },
-        "propertyValues" : { },
-        "reference" : "5dc0bd6a-97b3-4ec9-a1ba-80a03315a818",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "0032f33c-d59e-465b-b056-47574ebed8a7",
-          "hasValidationError" : false,
-          "id" : "CaseExpenses",
-          "binding" : {
-            "expenses" : "report.expenseLine",
-            "editExpenseTask" : "",
-            "hideTitle" : "",
-            "deleteExpenseTask" : ""
-          }
-        } ] ]
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
       },
-      "title" : "Expenses"
-    }, {
-      "container" : {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
         },
-        "propertyValues" : { },
-        "reference" : "fd6164f0-50e8-461d-8540-61d2b01c5581",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "1aeb2b10-db0d-43b2-a641-04afafd76598",
-          "hasValidationError" : false,
-          "id" : "CaseDocuments",
-          "binding" : {
-            "caseDocuments" : "caseDocuments",
-            "documentDeleted" : "",
-            "readOnly" : "documentReadOnly"
-          }
-        } ] ]
+        "hidden" : {
+          "type" : "expression",
+          "value" : "!displayExpenses"
+        }
       },
-      "title" : "Documents"
-    }, {
-      "container" : {
-        "type" : "container",
-        "dimension" : {
-          "xs" : 12
+      "reference" : "0032f33c-d59e-465b-b056-47574ebed8a7",
+      "hasValidationError" : false,
+      "id" : "CaseExpenses",
+      "binding" : {
+        "expenses" : "report.expenseLine",
+        "editExpenseTask" : "",
+        "hideTitle" : "",
+        "deleteExpenseTask" : "",
+        "defaultCurrency" : "defaultCurrency"
+      }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
         },
-        "propertyValues" : { },
-        "reference" : "e534a15f-078e-4967-965e-cacf9bc4280d",
-        "hasValidationError" : false,
-        "id" : "pbContainer",
-        "rows" : [ [ {
-          "type" : "fragment",
-          "dimension" : {
-            "xs" : 12,
-            "sm" : 12,
-            "md" : 12,
-            "lg" : 12
-          },
-          "propertyValues" : {
-            "cssClasses" : {
-              "type" : "constant",
-              "value" : ""
-            },
-            "hidden" : {
-              "type" : "constant",
-              "value" : false
-            }
-          },
-          "reference" : "8eb0b424-dc77-4c6b-9664-173232ae5343",
-          "hasValidationError" : false,
-          "id" : "CaseComments",
-          "binding" : {
-            "caseComments" : "caseComments",
-            "caseId" : "caseId",
-            "commentAdded" : "commentAdded"
-          }
-        } ] ]
+        "hidden" : {
+          "type" : "expression",
+          "value" : "!displayDocuments"
+        }
       },
-      "title" : "Comments"
-    } ]
+      "reference" : "1aeb2b10-db0d-43b2-a641-04afafd76598",
+      "hasValidationError" : false,
+      "id" : "CaseDocuments",
+      "binding" : {
+        "caseDocuments" : "caseDocuments",
+        "documentDeleted" : "",
+        "readOnly" : "documentReadOnly"
+      }
+    } ], [ {
+      "type" : "fragment",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "!displayComments"
+        }
+      },
+      "reference" : "8eb0b424-dc77-4c6b-9664-173232ae5343",
+      "hasValidationError" : false,
+      "id" : "CaseComments",
+      "binding" : {
+        "caseComments" : "caseComments",
+        "caseId" : "caseId",
+        "commentAdded" : "commentAdded"
+      }
+    } ] ]
   } ] ],
   "assets" : [ ],
   "inactiveAssets" : [ ],
@@ -201,6 +188,41 @@
     "amount" : {
       "type" : "expression",
       "value" : "var amount = 0;\n$data.report.expenseLine.forEach(function(e){\n    amount += e.amount;\n});\nreturn amount;",
+      "exposed" : false
+    },
+    "toggleSelected" : {
+      "type" : "constant",
+      "value" : "Expenses",
+      "exposed" : false
+    },
+    "displayOverview" : {
+      "type" : "expression",
+      "value" : "return $data.toggleSelected === \"Overview\";",
+      "exposed" : false
+    },
+    "displayExpenses" : {
+      "type" : "expression",
+      "value" : "return $data.toggleSelected === \"Expenses\";",
+      "exposed" : false
+    },
+    "displayDocuments" : {
+      "type" : "expression",
+      "value" : "return $data.toggleSelected === \"Documents\";",
+      "exposed" : false
+    },
+    "displayComments" : {
+      "type" : "expression",
+      "value" : "return $data.toggleSelected === \"Comments\";",
+      "exposed" : false
+    },
+    "defaultCurrency" : {
+      "type" : "expression",
+      "value" : "if($data.regions) {\n    var region = $data.regions.find(function(e) {\n        return e.name === $data.report.expenseHeader.region;\n    });\n    if(region) {\n        return region.defaultCurrency.name;\n    }\n}",
+      "exposed" : false
+    },
+    "regions" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.bonita.lr.model.Region?q=find&p=0&c=100",
       "exposed" : false
     }
   },
