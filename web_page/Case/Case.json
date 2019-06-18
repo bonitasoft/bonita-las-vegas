@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1560802824363,
+  "lastUpdate" : 1560848125891,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -68,7 +68,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "<h2>{{currentReport.expenseHeader.description}}</h2>\n<strong>{{currentReport.expenseHeader.departement}}</strong> ({{currentReport.expenseHeader.budget}} budget)  \n<span class=\"editSummary\">{{editSummaryLink}}</span>"
+          "value" : "<h2>{{currentReport.expenseHeader.description}}</h2>\n<strong>{{currentReport.expenseHeader.departement}}</strong> ({{currentReport.expenseHeader.budget}} budget)  \n<span class=\"editSummary\">\n<a href=\"{{editSummaryLink}}\"><i class=\"glyphicon glyphicon-pencil\"></i></a></span>"
         },
         "alignment" : {
           "type" : "constant",
@@ -659,7 +659,7 @@
     },
     "editSummaryLink" : {
       "type" : "expression",
-      "value" : "return \"<a href=\\\"http://localhost:8080/bonita/portal/form/taskInstance/\" + $data.editSummaryTask.id + \"?app=\" + $data.appToken + \"\\\"><i class=\\\"glyphicon glyphicon-pencil\\\"></i></a>\";",
+      "value" : "return \"http://\" + window.location.host + \"/bonita/portal/form/taskInstance/\" + $data.editSummaryTask.id + \"?app=\" + $data.appToken;",
       "exposed" : false
     }
   },
