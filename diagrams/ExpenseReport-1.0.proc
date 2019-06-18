@@ -536,7 +536,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_dchN5o2xEemxdsU15Zp30g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_UHdmgJE0EemdDJfM5mbiwg" name="Edit expense summary" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UHdmgZE0EemdDJfM5mbiwg" name="🔎 Expense summary" content="🔎 Expense summary" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UHdmgZE0EemdDJfM5mbiwg" name="Edit expense summary" content="Edit expense summary" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UHdmgpE0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_UHdmg5E0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_UHdmhJE0EemdDJfM5mbiwg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -565,7 +565,7 @@
               <inputTypes>com.bonita.lr.model.ExpenseHeader</inputTypes>
             </operator>
           </operations>
-          <loopCondition xmi:type="expression:Expression" xmi:id="_UHdmjpE0EemdDJfM5mbiwg" name="loopWhileUnresolved()" content="import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;apiAccessor.getProcessAPI().searchArchivedActivities(new SearchOptionsBuilder(0, 1).with {&#xA;&#x9;   filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, processInstanceId)&#xA;&#x9;   filter(ArchivedActivityInstanceSearchDescriptor.NAME, &quot;Resolve&quot;)&#xA;&#x9;   done()&#xA;&#x9;}).count == 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+          <loopCondition xmi:type="expression:Expression" xmi:id="_UHdmjpE0EemdDJfM5mbiwg" name="loopWhileUnresolved()" content="import org.bonitasoft.engine.bpm.flownode.ArchivedActivityInstanceSearchDescriptor&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;apiAccessor.getProcessAPI().searchArchivedActivities(new SearchOptionsBuilder(0, 1).with {&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.PARENT_PROCESS_INSTANCE_ID, processInstanceId)&#xA;       filter(ArchivedActivityInstanceSearchDescriptor.NAME, &quot;Resolve&quot;)&#xA;       done()&#xA;    }).count == 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
             <referencedElements xmi:type="expression:Expression" xmi:id="_UHdmj5E0EemdDJfM5mbiwg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
             <referencedElements xmi:type="expression:Expression" xmi:id="_UHdmkJE0EemdDJfM5mbiwg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
           </loopCondition>

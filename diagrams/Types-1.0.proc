@@ -82,7 +82,7 @@
           </referencedElements>
         </defaultValue>
       </data>
-      <formMapping xmi:type="process:FormMapping" xmi:id="_Vf3WcIrqEemC8vaEydtydg">
+      <formMapping xmi:type="process:FormMapping" xmi:id="_Vf3WcIrqEemC8vaEydtydg" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_RkbwwIrsEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_Vf3WcorqEemC8vaEydtydg">
@@ -184,7 +184,7 @@
           </referencedElements>
         </defaultValue>
       </data>
-      <formMapping xmi:type="process:FormMapping" xmi:id="_oWRJ34rsEemC8vaEydtydg">
+      <formMapping xmi:type="process:FormMapping" xmi:id="_oWRJ34rsEemC8vaEydtydg" type="NONE">
         <targetForm xmi:type="expression:Expression" xmi:id="_oWRJ4IrsEemC8vaEydtydg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
       <overviewFormMapping xmi:type="process:FormMapping" xmi:id="_oWRJ4YrsEemC8vaEydtydg">
