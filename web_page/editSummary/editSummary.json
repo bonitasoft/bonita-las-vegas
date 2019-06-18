@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "editSummary",
   "name" : "editSummary",
-  "lastUpdate" : 1560807024830,
+  "lastUpdate" : 1560851527433,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -34,53 +34,46 @@
         "lg" : 12
       },
       "propertyValues" : {
-        "labelHidden" : {
+        "cssClasses" : {
           "type" : "constant",
-          "value" : false
+          "value" : ""
         },
         "hidden" : {
           "type" : "constant",
           "value" : false
         },
-        "level" : {
+        "labelHidden" : {
           "type" : "constant",
-          "value" : "Level 1"
+          "value" : true
         },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbTitle"
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
         },
-        "cssClasses" : {
+        "labelPosition" : {
           "type" : "constant",
-          "value" : ""
+          "value" : "top"
         },
-        "readOnly" : {
+        "labelWidth" : {
           "type" : "constant",
-          "value" : false
+          "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "{{ task.displayName }}"
-        },
-        "label" : {
-          "type" : "interpolation"
+          "value" : "<h2>{{ task.displayName }}</h2>"
         },
         "alignment" : {
           "type" : "constant",
           "value" : "center"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
         }
       },
-      "reference" : "07d54194-7790-4fc2-82f2-f19b133a1660",
+      "reference" : "00fe5fc7-c159-4a78-af3d-2ee72a7a52c1",
       "hasValidationError" : false,
-      "id" : "pbTitle"
+      "id" : "pbText"
     } ] ]
   } ], [ {
     "type" : "formContainer",

@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.69",
   "id" : "expenseSummary",
   "name" : "expenseSummary",
-  "lastUpdate" : 1560807006503,
+  "lastUpdate" : 1560851556991,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -35,112 +35,21 @@
         "lg" : 12
       },
       "propertyValues" : {
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "readonly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 1"
-        },
         "cssClasses" : {
           "type" : "constant",
           "value" : ""
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbTitle"
-        },
-        "isDisplayed" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation"
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{ task.displayName }}"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
-        }
-      },
-      "reference" : "b6e4280d-15ab-469c-827f-0801d35cb83f",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
-        "labelHidden" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "readonly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbText"
-        },
-        "isDisplayed" : {
-          "type" : "constant",
-          "value" : true
-        },
-        "label" : {
-          "type" : "interpolation"
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{ task.displayDescription }}"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "left"
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
         },
         "hidden" : {
           "type" : "constant",
           "value" : false
         },
-        "allowHTML" : {
+        "labelHidden" : {
           "type" : "constant",
           "value" : true
+        },
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
         },
         "labelPosition" : {
           "type" : "constant",
@@ -149,9 +58,21 @@
         "labelWidth" : {
           "type" : "constant",
           "value" : 4
+        },
+        "allowHTML" : {
+          "type" : "constant",
+          "value" : true
+        },
+        "text" : {
+          "type" : "interpolation",
+          "value" : "<h2>{{ task.displayName }}</h2>"
+        },
+        "alignment" : {
+          "type" : "constant",
+          "value" : "center"
         }
       },
-      "reference" : "81c48ebf-b076-4df2-b48a-b4fe9886a106",
+      "reference" : "627c4248-e706-49aa-b8f8-29026c2956bd",
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]

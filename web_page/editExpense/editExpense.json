@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "editExpense",
   "name" : "editExpense",
-  "lastUpdate" : 1560806984666,
+  "lastUpdate" : 1560851603563,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -34,103 +34,44 @@
         "lg" : 12
       },
       "propertyValues" : {
-        "labelHidden" : {
+        "cssClasses" : {
           "type" : "constant",
-          "value" : false
+          "value" : ""
         },
         "hidden" : {
           "type" : "constant",
           "value" : false
         },
-        "level" : {
-          "type" : "constant",
-          "value" : "Level 1"
-        },
-        "widgetId" : {
-          "type" : "constant",
-          "value" : "pbTitle"
-        },
-        "cssClasses" : {
-          "type" : "constant",
-          "value" : ""
-        },
-        "readOnly" : {
-          "type" : "constant",
-          "value" : false
-        },
-        "text" : {
-          "type" : "interpolation",
-          "value" : "{{ task.displayName }}"
-        },
-        "label" : {
-          "type" : "interpolation"
-        },
-        "alignment" : {
-          "type" : "constant",
-          "value" : "center"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TitleWidget"
-        }
-      },
-      "reference" : "054bc4c4-918c-407e-be20-23c0c8c997f5",
-      "hasValidationError" : false,
-      "id" : "pbTitle"
-    } ], [ {
-      "type" : "component",
-      "dimension" : {
-        "md" : 12,
-        "sm" : 12,
-        "xs" : 12,
-        "lg" : 12
-      },
-      "propertyValues" : {
         "labelHidden" : {
           "type" : "constant",
           "value" : true
         },
-        "hidden" : {
-          "type" : "constant",
-          "value" : false
+        "label" : {
+          "type" : "interpolation",
+          "value" : "Default label"
         },
-        "widgetId" : {
+        "labelPosition" : {
           "type" : "constant",
-          "value" : "pbText"
+          "value" : "top"
         },
-        "cssClasses" : {
+        "labelWidth" : {
           "type" : "constant",
-          "value" : ""
+          "value" : 4
         },
-        "readOnly" : {
+        "allowHTML" : {
           "type" : "constant",
-          "value" : false
+          "value" : true
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "{{ task.displayDescription }}"
-        },
-        "label" : {
-          "type" : "interpolation"
+          "value" : "<h2>{{ task.displayName }}</h2>"
         },
         "alignment" : {
           "type" : "constant",
-          "value" : "left"
-        },
-        "dimension" : {
-          "type" : "constant",
-          "value" : 12
-        },
-        "class" : {
-          "type" : "constant",
-          "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.TextWidget"
+          "value" : "center"
         }
       },
-      "reference" : "d8597a53-603e-49e8-b4b5-7037bef1d5a2",
+      "reference" : "31e670db-3ea1-41d7-b981-91e78aefb3f6",
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
