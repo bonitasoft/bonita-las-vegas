@@ -4,7 +4,7 @@
     <elements xmi:type="process:Pool" xmi:id="_l5Yp4bdEEeiJr5Wf22zHlw" name="Expense Report">
       <elements xmi:type="process:Lane" xmi:id="_l5Yp4rdEEeiJr5Wf22zHlw" name="Bank" actor="_l5Yq3rdEEeiJr5Wf22zHlw">
         <elements xmi:type="process:Task" xmi:id="_l5YqDbdEEeiJr5Wf22zHlw" name="Expense summary" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_l5YqD7dEEeiJr5Wf22zHlw" name="🔎 Expense summary" content="🔎 Expense summary" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_l5YqD7dEEeiJr5Wf22zHlw" name="&lt;i class=&quot;glyphicon glyphicon-th-list&quot;>&lt;/i> Expense summary" content="&lt;i class=&quot;glyphicon glyphicon-th-list&quot;>&lt;/i> Expense summary" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_l5YqELdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_l5YqEbdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_l5YqErdEEeiJr5Wf22zHlw" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -57,7 +57,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_l5YqILdEEeiJr5Wf22zHlw" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_l5YqqbdEEeiJr5Wf22zHlw" name="Add Expense" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_l5Yqq7dEEeiJr5Wf22zHlw" name="💰 Add Expense" content="💰 Add Expense" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_l5Yqq7dEEeiJr5Wf22zHlw" name="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Add Expense" content="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Add Expense" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_l5YqrLdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_l5YqrbdEEeiJr5Wf22zHlw" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_l5YqrrdEEeiJr5Wf22zHlw" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -151,7 +151,7 @@
         </elements>
         <elements xmi:type="process:Task" xmi:id="_qMnCoIBzEemqicJDRqiw_g" name="Submit expense report" outgoing="_38NeoIekEemAX4g7gacSnA" incoming="_KwpNsIaXEemp8qnS96T2pA _tgBhYIaYEemp8qnS96T2pA _mnybYIeiEemAX4g7gacSnA" testBefore="true" overrideActorsOfTheLane="false">
           <textAnnotationAttachment xmi:type="process:TextAnnotationAttachment" xmi:id="_raCv4IIEEemf57nSakVzCw" source="_rZwcAIIEEemf57nSakVzCw"/>
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_nLjscYBzEemqicJDRqiw_g" name="✉️ Submit expense report" content="✉️ Submit expense report" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_nLjscYBzEemqicJDRqiw_g" name="&lt;i class=&quot;glyphicon glyphicon-envelope&quot;>&lt;/i> Submit expense report" content="&lt;i class=&quot;glyphicon glyphicon-envelope&quot;>&lt;/i> Submit expense report" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_nLjscIBzEemqicJDRqiw_g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_nLjscoBzEemqicJDRqiw_g" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_QMsHgIB0EemqicJDRqiw_g" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -188,7 +188,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_qMoQwoBzEemqicJDRqiw_g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_AxwH0IFWEemMrecEM3K2tw" name="Manager validation" outgoing="_GGZsIIaXEemp8qnS96T2pA" incoming="_38NeoIekEemAX4g7gacSnA" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_v34nsYFVEemMrecEM3K2tw" name="✅ Manager validation" content="✅ Manager validation" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_v34nsYFVEemMrecEM3K2tw" name="&lt;i class=&quot;glyphicon glyphicon-ok&quot;>&lt;/i> Manager validation" content="&lt;i class=&quot;glyphicon glyphicon-ok&quot;>&lt;/i> Manager validation" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_v34nsIFVEemMrecEM3K2tw" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_v34nsoFVEemMrecEM3K2tw" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_4QKrUId2EemAX4g7gacSnA" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -258,7 +258,7 @@
           <stepSummary xmi:type="expression:Expression" xmi:id="_tM6YIoaYEemp8qnS96T2pA" name="" content="" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_guRqUIeiEemAX4g7gacSnA" name="Accounting validation" outgoing="_kWREsIeiEemAX4g7gacSnA" incoming="_MrNc8IaXEemp8qnS96T2pA" actor="_l5Yq37dEEeiJr5Wf22zHlw">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_Yvl8gYeiEemAX4g7gacSnA" name="✅ Accounting validation" content="✅ Accounting validation" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_Yvl8gYeiEemAX4g7gacSnA" name="&lt;i class=&quot;glyphicon glyphicon-ok&quot;>&lt;/i> Accounting validation" content="&lt;i class=&quot;glyphicon glyphicon-ok&quot;>&lt;/i> Accounting validation" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_Yvl8gIeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_Yvl8goeiEemAX4g7gacSnA" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_jgOMMIuBEemC8vaEydtydg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -364,7 +364,7 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_4Vu29okaEemu0840ACmBYw" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_Yyi1YIwtEemOeoQUoG8xnQ" name="Edit Expense" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_-pRmcYwsEemOeoQUoG8xnQ" name="💰 Edit Expense" content="💰 Edit Expense" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_-pRmcYwsEemOeoQUoG8xnQ" name="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Edit Expense" content="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Edit Expense" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_-pRmcIwsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_-pRmcowsEemOeoQUoG8xnQ" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_H3_jUIwuEemOeoQUoG8xnQ" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -463,7 +463,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_YykDi4wtEemOeoQUoG8xnQ" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_NROQAIxpEemqFbuRJxZu4g" name="Delete Expense" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_KjzngYxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_KjzngYxpEemqFbuRJxZu4g" name="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Delete Expense" content="&lt;i class=&quot;glyphicon glyphicon-shopping-cart&quot;>&lt;/i> Delete Expense" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_KjzngIxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_KjzngoxpEemqFbuRJxZu4g" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_3-hR8IxpEemqFbuRJxZu4g" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">
@@ -512,7 +512,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_NRPeIoxpEemqFbuRJxZu4g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_dcgm0I2xEemxdsU15Zp30g" name="Payment" outgoing="_KL0OsI2wEemxdsU15Zp30g" incoming="_4WFcQIkaEemu0840ACmBYw" actor="_l5Yq37dEEeiJr5Wf22zHlw">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_KLgFoY2wEemxdsU15Zp30g" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_KLgFoY2wEemxdsU15Zp30g" name="&lt;i class=&quot;glyphicon glyphicon-glass&quot;>&lt;/i> Payment" content="&lt;i class=&quot;glyphicon glyphicon-glass&quot;>&lt;/i> Payment" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_KLgFoI2wEemxdsU15Zp30g" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_KLgFoo2wEemxdsU15Zp30g" name="" content="" returnTypeFixed="true"/>
           <operations xmi:type="expression:Operation" xmi:id="_dIKugI2xEemxdsU15Zp30g">
@@ -536,7 +536,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_dchN5o2xEemxdsU15Zp30g" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:Task" xmi:id="_UHdmgJE0EemdDJfM5mbiwg" name="Edit expense summary" type="STANDARD" testBefore="true" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UHdmgZE0EemdDJfM5mbiwg" name="Edit expense summary" content="Edit expense summary" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_UHdmgZE0EemdDJfM5mbiwg" name="&lt;i class=&quot;glyphicon glyphicon-th-list&quot;>&lt;/i> Edit expense summary" content="&lt;i class=&quot;glyphicon glyphicon-th-list&quot;>&lt;/i> Edit expense summary" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_UHdmgpE0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_UHdmg5E0EemdDJfM5mbiwg" name="" content="" returnTypeFixed="true"/>
           <data xmi:type="process:Data" xmi:id="_UHdmhJE0EemdDJfM5mbiwg" name="$activityState" transient="true" datasourceId="IN_MEMORY" dataType="_l5YrJrdEEeiJr5Wf22zHlw">

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "submitExpenseReport",
   "name" : "submitExpenseReport",
-  "lastUpdate" : 1560806914204,
+  "lastUpdate" : 1560849807212,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -351,7 +351,8 @@
       "caseDocuments" : "caseDocuments",
       "caseComments" : "caseComments",
       "caseId" : "task.caseId",
-      "commentAdded" : "commentAdded"
+      "commentAdded" : "commentAdded",
+      "hideHistoryButton" : ""
     }
   } ] ],
   "assets" : [ {

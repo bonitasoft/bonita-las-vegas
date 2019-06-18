@@ -136,7 +136,7 @@ class CaseTask implements RestApiController, Helper {
     def addDocumentTasks(contextPath, appToken, caseId, state) {
         [
             id:"addDocument",
-            name:"📜 Add document",
+            name:"<i class=\"glyphicon glyphicon-file\"></i> Add document",
             url: canExecute(state) ? "$contextPath/apps/$appToken/document?id=$caseId" : "",
             description:"Add a document related to an expense",
             target:"_top",

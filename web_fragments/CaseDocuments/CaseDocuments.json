@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.7.25",
   "id" : "CaseDocuments",
   "name" : "CaseDocuments",
-  "lastUpdate" : 1560806349829,
+  "lastUpdate" : 1560850528538,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -27,7 +27,7 @@
       },
       "text" : {
         "type" : "interpolation",
-        "value" : "<h3><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span> Documents</h3>"
+        "value" : "<h3><i class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></i> Documents</h3>"
       },
       "alignment" : {
         "type" : "constant",
