@@ -1,0 +1,181 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "addComment",
+  "name" : "addComment",
+  "lastUpdate" : 1560867038644,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "readOnly" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "minLength" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "maxLength" : {
+        "type" : "constant",
+        "value" : 255
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "top"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 4
+      },
+      "value" : {
+        "type" : "variable",
+        "value" : "newComment"
+      }
+    },
+    "reference" : "a95d77d9-daba-4fc1-9bdb-c11e3ca6b0b6",
+    "hasValidationError" : false,
+    "id" : "pbTextarea"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "expression",
+        "value" : "!newComment"
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "Comment"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "success"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "POST"
+      },
+      "url" : {
+        "type" : "interpolation",
+        "value" : "../API/bpm/comment"
+      },
+      "dataToSend" : {
+        "type" : "expression",
+        "value" : "payload"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : "commentAdded"
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "2c227586-3edf-49fb-a83b-89e8699c9e2f",
+    "hasValidationError" : false,
+    "id" : "pbButton"
+  } ] ],
+  "assets" : [ ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "commentAdded" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "caseId" : {
+      "type" : "constant",
+      "exposed" : true
+    },
+    "payload" : {
+      "type" : "expression",
+      "value" : "return {\n  \"processInstanceId\": $data.caseId,\n  \"content\": $data.newComment\n};\n",
+      "exposed" : false
+    },
+    "newComment" : {
+      "type" : "constant",
+      "exposed" : false
+    },
+    "clean" : {
+      "type" : "expression",
+      "value" : "if($data.newComment  && $data.commentAdded.content){\n    $data.commentAdded.content = ''\n    $data.newComment = ''\n}",
+      "exposed" : false
+    }
+  },
+  "hasValidationError" : false,
+  "type" : "fragment"
+}

@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1560807511483,
+  "lastUpdate" : 1560928866565,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -361,8 +361,8 @@
         "value" : ""
       },
       "animation" : {
-        "type" : "constant",
-        "value" : true
+        "type" : "expression",
+        "value" : "modalAnimation"
       }
     },
     "reference" : "3af8e952-ce9b-4dc0-804d-bc3097d2db92",
@@ -449,7 +449,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "The expense report is <strong>invalid</strong>: The employee has to make some changes to make it valid.\n<br/>\nDo not forget to indicate the expected changes in the <strong>comment</strong> section"
+            "value" : "The expense report is <strong>invalid</strong>: The employee has to make some changes to make it valid.\n<br/>\nSpecify the expected changes in a <strong>comment</strong>:"
           },
           "alignment" : {
             "type" : "constant",
@@ -457,6 +457,80 @@
           }
         },
         "reference" : "19c648c1-f8a4-48c7-968c-a02b253f7484",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "50691852-9c98-44a9-a4e4-3a71c609a326",
+        "hasValidationError" : false,
+        "id" : "addComment",
+        "binding" : {
+          "commentAdded" : "commentAddedInModal",
+          "caseId" : "task.caseId"
+        }
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!commentAddedInModal.id"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<p class=\"text-success\">Comment added successfully!</p>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "center"
+          }
+        },
+        "reference" : "58ce25eb-cf61-4209-bfdd-c5cf275acf3b",
         "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
@@ -572,8 +646,8 @@
         "value" : ""
       },
       "animation" : {
-        "type" : "constant",
-        "value" : true
+        "type" : "expression",
+        "value" : "modalAnimation"
       }
     },
     "reference" : "f3bc8612-cf58-4790-93ec-2cfed502ae52",
@@ -660,7 +734,7 @@
           },
           "text" : {
             "type" : "interpolation",
-            "value" : "The expense report is <strong>refused</strong>: The employee will not be refunded.\n<br/>\nYou can indicate the reason in the <strong>comment</strong> section if you want to."
+            "value" : "The expense report is <strong>refused</strong>: The employee will not be refunded.\n<br/>\nYou can indicate the reason in a <strong>comment</strong> if you want to:"
           },
           "alignment" : {
             "type" : "constant",
@@ -668,6 +742,80 @@
           }
         },
         "reference" : "9fd9abbe-a5ff-4e4e-8212-c0270d4582f0",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "fragment",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          }
+        },
+        "reference" : "40f77501-2c3e-4f70-95cc-ee992b42d64c",
+        "hasValidationError" : false,
+        "id" : "addComment",
+        "binding" : {
+          "commentAdded" : "commentAddedInModal",
+          "caseId" : "task.caseId"
+        }
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "expression",
+            "value" : "!commentAddedInModal.id"
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "<p class=\"text-success\">Comment added successfully!</p>"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "center"
+          }
+        },
+        "reference" : "5e9f6920-51cc-4116-82cc-4d6da9679765",
         "hasValidationError" : false,
         "id" : "pbText"
       } ], [ {
@@ -821,7 +969,7 @@
     },
     "caseComments" : {
       "type" : "url",
-      "value" : "../API/extension/caseComment?caseId={{task.caseId}}&reload={{commentAdded.id}}",
+      "value" : "../API/extension/caseComment?caseId={{task.caseId}}&reload={{commentAdded.id + commentAddedInModal.id}}",
       "exposed" : false
     },
     "commentAdded" : {
@@ -852,6 +1000,16 @@
     "amount" : {
       "type" : "expression",
       "value" : "var amount = 0;\n$data.report.expenseLine.forEach(function(e){\n    amount += e.amount;\n});\nreturn amount;",
+      "exposed" : false
+    },
+    "commentAddedInModal" : {
+      "type" : "json",
+      "value" : "{ \"id\" : \"\" }",
+      "exposed" : false
+    },
+    "modalAnimation" : {
+      "type" : "expression",
+      "value" : "if($data.commentAddedInModal.id) {\n    $data.commentAddedInModal.id = \"\";\n}\nreturn true;",
       "exposed" : false
     }
   },

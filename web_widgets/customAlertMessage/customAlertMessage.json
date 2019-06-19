@@ -1,0 +1,34 @@
+{
+  "designerVersion" : "1.9.45",
+  "id" : "customAlertMessage",
+  "name" : "alertMessage",
+  "lastUpdate" : 1560871547043,
+  "template" : "<div ng-show=\"ctrl.show\" ng-hide=\"!ctrl.show\">\n  Show and hide me\n</div>\n<p>{{ctrl.show}}</p>\n<button ng-click=\"ctrl.do()\">toto</button>",
+  "controller" : "function alertMessage($scope, $parse, $log, widgetNameFactory) {\n    'use strict';\n    var ctrl = this;\n    \n    this.do = function () {\n        setTimeout( \"this.show = true\", 500);\n    }\n    \n}",
+  "custom" : true,
+  "properties" : [ {
+    "label" : "Value",
+    "name" : "value",
+    "type" : "text",
+    "defaultValue" : "This is the initial value",
+    "bond" : "expression"
+  }, {
+    "label" : "Color",
+    "name" : "color",
+    "type" : "choice",
+    "defaultValue" : "RebeccaPurple",
+    "choiceValues" : [ "RebeccaPurple", "Chartreuse", "Tomato", "DeepSkyBlue" ],
+    "bond" : "expression"
+  }, {
+    "label" : "Background color on click",
+    "name" : "background",
+    "type" : "choice",
+    "defaultValue" : "Yellow",
+    "choiceValues" : [ "Yellow", "LightGray" ],
+    "bond" : "expression"
+  } ],
+  "assets" : [ ],
+  "requiredModules" : [ ],
+  "type" : "widget",
+  "hasHelp" : false
+}
