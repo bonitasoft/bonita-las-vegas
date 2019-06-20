@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "managerValidation",
   "name" : "managerValidation",
-  "lastUpdate" : 1560928639145,
+  "lastUpdate" : 1561023760322,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -609,8 +609,8 @@
               "value" : false
             },
             "disabled" : {
-              "type" : "constant",
-              "value" : false
+              "type" : "expression",
+              "value" : "! commentAddedInModal.id"
             },
             "label" : {
               "type" : "interpolation",
@@ -920,8 +920,8 @@
               "value" : false
             },
             "disabled" : {
-              "type" : "constant",
-              "value" : false
+              "type" : "expression",
+              "value" : "! commentAddedInModal.id"
             },
             "label" : {
               "type" : "interpolation",

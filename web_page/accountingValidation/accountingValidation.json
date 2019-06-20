@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.40",
   "id" : "accountingValidation",
   "name" : "accountingValidation",
-  "lastUpdate" : 1560928866565,
+  "lastUpdate" : 1561023784985,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -551,8 +551,8 @@
             "value" : false
           },
           "disabled" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "! commentAddedInModal.id"
           },
           "label" : {
             "type" : "interpolation",
@@ -836,8 +836,8 @@
             "value" : false
           },
           "disabled" : {
-            "type" : "constant",
-            "value" : false
+            "type" : "expression",
+            "value" : "! commentAddedInModal.id"
           },
           "label" : {
             "type" : "interpolation",

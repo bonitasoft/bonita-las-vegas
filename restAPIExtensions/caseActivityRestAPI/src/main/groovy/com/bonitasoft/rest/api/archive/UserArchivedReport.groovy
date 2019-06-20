@@ -40,9 +40,11 @@ class UserArchivedReport extends Case {
 
     @Override
     def buildSearchOptions(int p, int c, Long userId) {
+        ArchivedProcessInstance a;
         return new SearchOptionsBuilder(p * c, c).with {
             filter(ArchivedProcessInstancesSearchDescriptor.STARTED_BY, userId)
             filter(ArchivedProcessInstancesSearchDescriptor.NAME, EXPENSE_REPORT_PROCESS_NAME)
+            differentFrom(ArchivedProcessInstancesSearchDescriptor.STATE_ID, 3) // Cancel state id
             done()
         }
     }

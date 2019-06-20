@@ -3,14 +3,14 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "Case",
   "name" : "Case",
-  "lastUpdate" : 1560852279298,
+  "lastUpdate" : 1561023205468,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
+      "xs" : 2,
+      "sm" : 2,
+      "md" : 2,
+      "lg" : 2
     },
     "propertyValues" : {
       "cssClasses" : {
@@ -18,15 +18,41 @@
         "value" : ""
       },
       "hidden" : {
-        "type" : "expression",
-        "value" : "!currentReport.expenseHeader.description"
+        "type" : "constant",
+        "value" : false
       },
       "repeatedCollection" : {
         "type" : "variable",
         "value" : ""
       }
     },
-    "reference" : "e73a3e0d-df92-4d0e-9882-9d2af955f862",
+    "reference" : "bcec22e3-e512-4074-bf40-7062ebd4fb50",
+    "hasValidationError" : false,
+    "id" : "pbContainer",
+    "rows" : [ [ ] ]
+  }, {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 8,
+      "sm" : 8,
+      "md" : 8,
+      "lg" : 8
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "0ea8be33-b393-491d-8aa5-ffd2382ba895",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ {
@@ -43,8 +69,8 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!currentReport.expenseHeader.description"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -68,7 +94,7 @@
         },
         "text" : {
           "type" : "interpolation",
-          "value" : "<h2>{{currentReport.expenseHeader.description}}</h2>\n<strong>{{currentReport.expenseHeader.departement}}</strong> ({{currentReport.expenseHeader.budget}} budget)  \n<span class=\"editSummary\">\n<a href=\"{{editSummaryLink}}\"><i class=\"glyphicon glyphicon-pencil\"></i></a></span>"
+          "value" : "<h2>{{currentReport.expenseHeader.description}}</h2>\n<strong>{{currentReport.expenseHeader.departement}}</strong> ({{currentReport.expenseHeader.budget}} budget)  \n{{editSummaryLink}}"
         },
         "alignment" : {
           "type" : "constant",
@@ -78,33 +104,7 @@
       "reference" : "c61e9080-14e1-4e2d-9f5a-d9591c4920d2",
       "hasValidationError" : false,
       "id" : "pbText"
-    } ] ]
-  } ], [ {
-    "type" : "container",
-    "dimension" : {
-      "xs" : 12,
-      "sm" : 12,
-      "md" : 12,
-      "lg" : 12
-    },
-    "propertyValues" : {
-      "cssClasses" : {
-        "type" : "constant",
-        "value" : ""
-      },
-      "hidden" : {
-        "type" : "expression",
-        "value" : "!currentReport.expenseHeader || currentReport.expenseHeader.description"
-      },
-      "repeatedCollection" : {
-        "type" : "variable",
-        "value" : ""
-      }
-    },
-    "reference" : "83534cbe-9d59-4a44-8a51-4c96f7e8e6cc",
-    "hasValidationError" : false,
-    "id" : "pbContainer",
-    "rows" : [ [ {
+    } ], [ {
       "type" : "component",
       "dimension" : {
         "xs" : 12,
@@ -118,8 +118,8 @@
           "value" : ""
         },
         "hidden" : {
-          "type" : "constant",
-          "value" : false
+          "type" : "expression",
+          "value" : "!currentReport.expenseHeader || currentReport.expenseHeader.description"
         },
         "labelHidden" : {
           "type" : "constant",
@@ -154,6 +154,95 @@
       "hasValidationError" : false,
       "id" : "pbText"
     } ] ]
+  }, {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 2,
+      "sm" : 2,
+      "md" : 2,
+      "lg" : 2
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : "padding-top-20"
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "<i class=\"glyphicon glyphicon-remove\"></i>"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "right"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "danger"
+      },
+      "action" : {
+        "type" : "constant",
+        "value" : "Open modal"
+      },
+      "assign" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "url" : {
+        "type" : "interpolation",
+        "value" : ""
+      },
+      "responseStatusCode" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "dataToSend" : {
+        "type" : "constant"
+      },
+      "dataFromSuccess" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "closeOnSuccess" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "dataFromError" : {
+        "type" : "variable",
+        "value" : ""
+      },
+      "targetUrlOnSuccess" : {
+        "type" : "interpolation",
+        "value" : "../home"
+      },
+      "collectionToModify" : {
+        "type" : "variable"
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "cancelReportModal"
+      },
+      "collectionPosition" : {
+        "type" : "constant",
+        "value" : "Last"
+      },
+      "valueToAdd" : {
+        "type" : "constant"
+      },
+      "removeItem" : {
+        "type" : "variable"
+      }
+    },
+    "reference" : "f75cae46-b556-4368-9908-992734ae52e8",
+    "hasValidationError" : false,
+    "id" : "pbButton"
   } ], [ {
     "type" : "component",
     "dimension" : {
@@ -490,6 +579,304 @@
         "caseHistory" : "caseHistory"
       }
     } ] ]
+  } ], [ {
+    "type" : "modalContainer",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "modalId" : {
+        "type" : "constant",
+        "value" : "cancelReportModal"
+      },
+      "size" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "animation" : {
+        "type" : "constant",
+        "value" : true
+      }
+    },
+    "reference" : "d5c60fb9-b3b8-4608-a3b8-5b6cd868d2aa",
+    "hasValidationError" : false,
+    "id" : "pbModalContainer",
+    "container" : {
+      "type" : "container",
+      "dimension" : {
+        "xs" : 12
+      },
+      "propertyValues" : { },
+      "reference" : "d1f596f6-5e53-4465-8177-36127d57677a",
+      "hasValidationError" : false,
+      "id" : "pbContainer",
+      "rows" : [ [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "Close expense report"
+          },
+          "level" : {
+            "type" : "constant",
+            "value" : "Level 2"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "center"
+          }
+        },
+        "reference" : "fbd0e2e1-f9e2-482c-8ccc-586c1b9417f5",
+        "hasValidationError" : false,
+        "id" : "pbTitle"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 12,
+          "lg" : 12
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "labelHidden" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Default label"
+          },
+          "labelPosition" : {
+            "type" : "constant",
+            "value" : "top"
+          },
+          "labelWidth" : {
+            "type" : "constant",
+            "value" : 4
+          },
+          "allowHTML" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "text" : {
+            "type" : "interpolation",
+            "value" : "You are about to close this expense report. You won't be able to restart it after."
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "center"
+          }
+        },
+        "reference" : "56e68804-3525-4aca-9606-f163ec879362",
+        "hasValidationError" : false,
+        "id" : "pbText"
+      } ], [ {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Keep expense report"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "right"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "primary"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "Close modal"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "constant"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "d11ff1ee-366d-4894-9f3a-c768df7b1c4b",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      }, {
+        "type" : "component",
+        "dimension" : {
+          "xs" : 12,
+          "sm" : 12,
+          "md" : 6,
+          "lg" : 6
+        },
+        "propertyValues" : {
+          "cssClasses" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "disabled" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "label" : {
+            "type" : "interpolation",
+            "value" : "Close expense report"
+          },
+          "alignment" : {
+            "type" : "constant",
+            "value" : "left"
+          },
+          "buttonStyle" : {
+            "type" : "constant",
+            "value" : "danger"
+          },
+          "action" : {
+            "type" : "constant",
+            "value" : "PUT"
+          },
+          "assign" : {
+            "type" : "constant",
+            "value" : false
+          },
+          "url" : {
+            "type" : "interpolation",
+            "value" : "../API/extension/case?caseId={{caseId}}"
+          },
+          "responseStatusCode" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "dataToSend" : {
+            "type" : "constant"
+          },
+          "dataFromSuccess" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "closeOnSuccess" : {
+            "type" : "constant",
+            "value" : true
+          },
+          "dataFromError" : {
+            "type" : "variable",
+            "value" : ""
+          },
+          "targetUrlOnSuccess" : {
+            "type" : "interpolation",
+            "value" : "../home"
+          },
+          "collectionToModify" : {
+            "type" : "variable"
+          },
+          "modalId" : {
+            "type" : "constant",
+            "value" : ""
+          },
+          "collectionPosition" : {
+            "type" : "constant",
+            "value" : "Last"
+          },
+          "valueToAdd" : {
+            "type" : "constant"
+          },
+          "removeItem" : {
+            "type" : "variable"
+          }
+        },
+        "reference" : "58643c9f-f598-4c8b-9260-ce33718fc70e",
+        "hasValidationError" : false,
+        "id" : "pbButton"
+      } ] ]
+    }
   } ] ],
   "assets" : [ {
     "id" : "a05c090c-8939-4e7f-886f-4888a951e252",
@@ -659,7 +1046,7 @@
     },
     "editSummaryLink" : {
       "type" : "expression",
-      "value" : "return \"http://\" + window.location.host + \"/bonita/portal/form/taskInstance/\" + $data.editSummaryTask.id + \"?app=\" + $data.appToken;",
+      "value" : "if ($data.editSummaryTask) {\n    var link = \"http://\" + window.location.host + \"/bonita/portal/form/taskInstance/\" + $data.editSummaryTask.id + \"?app=\" + $data.appToken;\n    return \"<span class=\\\"editSummary\\\"><a href=\" + link + \"><i class=\\\"glyphicon glyphicon-pencil\\\"></i></a></span>\";\n}    \n",
       "exposed" : false
     }
   },

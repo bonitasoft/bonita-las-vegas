@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "expenseEdition",
   "name" : "expenseEdition",
-  "lastUpdate" : 1560804468030,
+  "lastUpdate" : 1561023858150,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -319,7 +319,8 @@
         "value" : false
       },
       "min" : {
-        "type" : "constant"
+        "type" : "constant",
+        "value" : 0
       },
       "max" : {
         "type" : "constant"
@@ -621,7 +622,8 @@
         "value" : false
       },
       "min" : {
-        "type" : "constant"
+        "type" : "constant",
+        "value" : 0
       },
       "max" : {
         "type" : "constant"

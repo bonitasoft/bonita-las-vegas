@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "currencyAdministration",
   "name" : "currencyAdministration",
-  "lastUpdate" : 1560245114070,
+  "lastUpdate" : 1560942359614,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -89,6 +89,10 @@
       },
       "filter" : {
         "type" : "constant"
+      },
+      "onSelectFunction" : {
+        "type" : "variable",
+        "value" : "onSelectFunction"
       }
     },
     "reference" : "d8685587-023d-476f-a6d4-6f2a1c60e865",
@@ -1478,6 +1482,11 @@
     "deleteCurrencyProcessId" : {
       "type" : "url",
       "value" : "../API/bpm/process?f=name=deleteCurrency&p=0&c=1",
+      "exposed" : false
+    },
+    "onSelectFunction" : {
+      "type" : "expression",
+      "value" : "return function (modalService) {\n    console.log(\"Hey!\");\n    modalService.open(\"editCurrency\");\n};",
       "exposed" : false
     }
   },
