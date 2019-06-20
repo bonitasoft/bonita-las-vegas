@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.8.29",
   "id" : "VegasLayout",
   "name" : "VegasLayout",
-  "lastUpdate" : 1560779866402,
+  "lastUpdate" : 1561033776552,
   "rows" : [ [ {
     "type" : "container",
     "dimension" : {
@@ -1275,7 +1275,7 @@
     },
     "userIconPath" : {
       "type" : "expression",
-      "value" : "if (!$data.loggedUser) {\n    return \"\";\n}\n\nvar isCustomIconPath = $data.loggedUser.icon && $data.loggedUser.icon!=\"icons/default/icon_user.png\";\n\nreturn isCustomIconPath ? $data.loggedUser.icon : \"../theme/icons/default/icon_user.png\";",
+      "value" : "if (!$data.loggedUser) {\n    return \"\";\n}\n\nvar isCustomIconPath = $data.loggedUser.icon && $data.loggedUser.icon!=\"icons/default/icon_user.png\";\n\nreturn isCustomIconPath ? $data.loggedUser.icon : \"../theme/icons/default/icon_user.svg\";",
       "exposed" : false
     },
     "loggedUser" : {
