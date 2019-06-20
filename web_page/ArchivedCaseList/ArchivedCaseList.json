@@ -2,7 +2,7 @@
   "designerVersion" : "1.9.45",
   "id" : "ArchivedCaseList",
   "name" : "ArchivedCaseList",
-  "lastUpdate" : 1560608070891,
+  "lastUpdate" : 1561031219758,
   "rows" : [ [ {
     "type" : "component",
     "dimension" : {
@@ -86,6 +86,55 @@
     "hasValidationError" : false,
     "id" : "pbText"
   } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "availableValues" : {
+        "type" : "expression",
+        "value" : "types"
+      },
+      "displayedKey" : {
+        "type" : "constant",
+        "value" : "display"
+      },
+      "returnedKey" : {
+        "type" : "constant",
+        "value" : "key"
+      },
+      "selectedValue" : {
+        "type" : "variable",
+        "value" : "type"
+      },
+      "buttonStyle" : {
+        "type" : "constant",
+        "value" : "default"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "center"
+      },
+      "verticalAlignement" : {
+        "type" : "constant",
+        "value" : false
+      }
+    },
+    "reference" : "83b2abd1-5759-4dab-8239-a3a84e9b2ff5",
+    "hasValidationError" : false,
+    "id" : "customToggleButtons"
+  } ], [ {
     "type" : "container",
     "dimension" : {
       "xs" : 12,
@@ -107,12 +156,12 @@
         "value" : ""
       }
     },
-    "reference" : "54095712-8f08-4a3e-8c3b-7686eab97be2",
+    "reference" : "5c55456f-b059-4533-9223-6832166ade20",
     "hasValidationError" : false,
     "id" : "pbContainer",
     "rows" : [ [ ] ]
   }, {
-    "type" : "component",
+    "type" : "container",
     "dimension" : {
       "xs" : 12,
       "sm" : 12,
@@ -128,48 +177,140 @@
         "type" : "constant",
         "value" : false
       },
-      "headers" : {
-        "type" : "constant",
-        "value" : [ "Expense report", "Close date", "State" ]
-      },
-      "type" : {
-        "type" : "constant",
-        "value" : "Bonita API"
-      },
-      "apiUrl" : {
-        "type" : "constant",
-        "value" : "../API/extension/archivedCase"
-      },
-      "params" : {
-        "type" : "expression",
-        "value" : "{\"appToken\" : applicationToken}"
-      },
-      "content" : {
-        "type" : "expression",
-        "value" : "archivedCases"
-      },
-      "columnsKey" : {
-        "type" : "constant",
-        "value" : [ "name", "date|uiDate", "state", "viewAction" ]
-      },
-      "sortColumns" : {
-        "type" : "constant"
-      },
-      "selectedRow" : {
+      "repeatedCollection" : {
         "type" : "variable",
         "value" : ""
-      },
-      "pageSize" : {
-        "type" : "constant",
-        "value" : 10
-      },
-      "filter" : {
-        "type" : "constant"
       }
     },
-    "reference" : "039fcedc-e892-4d69-ad25-a88eb55ff768",
+    "reference" : "5ae9b660-6cc2-4438-83cb-4132661f8197",
     "hasValidationError" : false,
-    "id" : "customHTMLDataTable"
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "type === \"refused\""
+        },
+        "headers" : {
+          "type" : "constant",
+          "value" : [ "Expense report", "Close date", "State" ]
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "Bonita API"
+        },
+        "apiUrl" : {
+          "type" : "constant",
+          "value" : "../API/extension/archivedCase"
+        },
+        "params" : {
+          "type" : "expression",
+          "value" : "{\"appToken\" : applicationToken, \"type\": \"accepted\"}"
+        },
+        "content" : {
+          "type" : "expression",
+          "value" : "archivedCases"
+        },
+        "columnsKey" : {
+          "type" : "constant",
+          "value" : [ "name", "date|uiDate", "state", "viewAction" ]
+        },
+        "sortColumns" : {
+          "type" : "constant"
+        },
+        "selectedRow" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "pageSize" : {
+          "type" : "constant",
+          "value" : 10
+        },
+        "filter" : {
+          "type" : "constant"
+        },
+        "onSelectFunction" : {
+          "type" : "variable",
+          "value" : ""
+        }
+      },
+      "reference" : "039fcedc-e892-4d69-ad25-a88eb55ff768",
+      "hasValidationError" : false,
+      "id" : "customHTMLDataTable"
+    } ], [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "expression",
+          "value" : "type === \"accepted\""
+        },
+        "headers" : {
+          "type" : "constant",
+          "value" : [ "Expense report", "Close date", "State" ]
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "Bonita API"
+        },
+        "apiUrl" : {
+          "type" : "constant",
+          "value" : "../API/extension/archivedCase"
+        },
+        "params" : {
+          "type" : "expression",
+          "value" : "{\"appToken\" : applicationToken, \"type\": \"refused\"}"
+        },
+        "content" : {
+          "type" : "constant"
+        },
+        "columnsKey" : {
+          "type" : "constant",
+          "value" : [ "name", "date|uiDate", "state", "viewAction" ]
+        },
+        "sortColumns" : {
+          "type" : "constant"
+        },
+        "selectedRow" : {
+          "type" : "variable",
+          "value" : ""
+        },
+        "pageSize" : {
+          "type" : "constant",
+          "value" : 10
+        },
+        "filter" : {
+          "type" : "constant"
+        },
+        "onSelectFunction" : {
+          "type" : "variable",
+          "value" : ""
+        }
+      },
+      "reference" : "b1d44138-2fa8-4e01-8547-8a9910cb1f9c",
+      "hasValidationError" : false,
+      "id" : "customHTMLDataTable"
+    } ] ]
   } ] ],
   "assets" : [ {
     "id" : "52ee5d32-861b-40fa-b52b-78da59fd138c",
@@ -189,6 +330,16 @@
     "applicationToken" : {
       "type" : "urlparameter",
       "value" : "app",
+      "exposed" : false
+    },
+    "type" : {
+      "type" : "constant",
+      "value" : "accepted",
+      "exposed" : false
+    },
+    "types" : {
+      "type" : "json",
+      "value" : "{\n    \"accepted\": {\n        \"display\": \"Accepted expense reports\",\n        \"key\": \"accepted\"\n    },\n    \"refused\": {\n        \"display\": \"Refused expense reports\",\n        \"key\": \"refused\"\n    }\n}",
       "exposed" : false
     }
   },

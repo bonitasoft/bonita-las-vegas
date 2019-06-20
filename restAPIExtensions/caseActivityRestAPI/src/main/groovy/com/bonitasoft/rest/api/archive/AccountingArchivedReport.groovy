@@ -25,6 +25,7 @@ class AccountingArchivedReport extends UserArchivedReport {
         def processAPI = context.apiClient.getProcessAPI()
 
         def appToken = request.getParameter("appToken")
+        def type = request.getParameter "type"
         def startDate = request.getParameter("startDate")
         def endDate = request.getParameter("endDate")
         def p = request.getParameter "p"
@@ -32,6 +33,12 @@ class AccountingArchivedReport extends UserArchivedReport {
 
         if(!appToken) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `appToken` is mandatory")
+        }
+        if(!type) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `type` is mandatory")
+        }
+        if(type != ACCEPTED && type != REFUSED && type != ALL) {
+            return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `type` must be equals to `all`, `accepted` or `refused`")
         }
         if(!startDate) {
             return buildResponse(responseBuilder, HttpServletResponse.SC_BAD_REQUEST, "Parameter `starDate` is mandatory")
@@ -48,7 +55,7 @@ class AccountingArchivedReport extends UserArchivedReport {
 
         def searchOptions = buildSearchOptions(p as int, c as int, startDate, endDate)
         def searchResults = processAPI.searchArchivedProcessInstances(searchOptions)
-        def instances = retrieveProcessInstance(context, processAPI, contextPath, appToken, searchResults)
+        def instances = retrieveProcessInstance(context, processAPI, contextPath, appToken, searchResults, type)
         return buildResponse(responseBuilder, HttpServletResponse.SC_OK, new JsonBuilder(instances).toString(), p as int, c as int, searchResults.count)
     }
 
@@ -59,6 +66,7 @@ class AccountingArchivedReport extends UserArchivedReport {
             filter(ArchivedProcessInstancesSearchDescriptor.NAME, EXPENSE_REPORT_PROCESS_NAME)
             greaterOrEquals(ArchivedProcessInstancesSearchDescriptor.ARCHIVE_DATE, startDateValue)
             lessOrEquals(ArchivedProcessInstancesSearchDescriptor.ARCHIVE_DATE, endDateValue)
+            differentFrom(ArchivedProcessInstancesSearchDescriptor.STATE_ID, 3) // Cancel state id
             done()
         }
     }
