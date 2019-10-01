@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <applications xmlns="http://documentation.bonitasoft.com/application-xml-schema/1.0">
     <application token="vegasEmployee" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
-        <displayName>Vegas</displayName>
+        <displayName>Vegas Employee</displayName>
         <description>TODO: The manager page should be on the app below only -&gt; need to work on it on rest api links generation ..</description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
@@ -25,7 +25,7 @@
         </applicationMenus>
     </application>
     <application token="vegasManager" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
-        <displayName>Vegas</displayName>
+        <displayName>Vegas Manager</displayName>
         <description></description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
@@ -53,7 +53,7 @@
         </applicationMenus>
     </application>
     <application token="vegasAccounting" version="1.0" profile="employee" homePage="home" state="ACTIVATED" layout="custompage_VegasLayout" theme="custompage_vegasTheme">
-        <displayName>Vegas</displayName>
+        <displayName>Vegas Accounting</displayName>
         <description>TODO: profile should be accounting</description>
         <applicationPages>
             <applicationPage customPage="custompage_Case" token="case"/>
